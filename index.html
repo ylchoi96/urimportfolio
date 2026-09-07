@@ -7313,6 +7313,28 @@ h4{
   }
 }
 
+
+/* =========================================================
+   v51 — REMOVE EYEBROW PURPLE LINE EVERYWHERE
+   Desktop + tablet + mobile + hover + in-view
+   ========================================================= */
+.section-head .eyebrow-num::after,
+.section-head.in-view .eyebrow-num::after,
+.section-head:hover .eyebrow-num::after,
+#work .eyebrow-num::after,
+#about .eyebrow-num::after,
+#skills .eyebrow-num::after,
+#experience .eyebrow-num::after,
+#contact .eyebrow-num::after{
+  content:none !important;
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+  background:none !important;
+  border:0 !important;
+  opacity:0 !important;
+}
+
 </style>
 </head>
 <body>
