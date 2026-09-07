@@ -5511,6 +5511,89 @@ h4{
   }
 }
 
+
+/* =========================================================
+   v43 — MOBILE HERO LAYOUT FIX + DESKTOP MOBILE-PREVIEW SNAP
+   ========================================================= */
+
+/* -------- Mobile hero cleanup -------- */
+@media (max-width: 640px){
+
+  .hero-twoimage-meta{
+    top:84px !important;
+    left:18px !important;
+    right:18px !important;
+    align-items:flex-start !important;
+  }
+
+  .hero-twoimage-meta .hero-side-right{
+    margin-left:auto !important;
+    max-width:220px !important;
+    text-align:right !important;
+    font-size:8.5px !important;
+    line-height:1.45 !important;
+    letter-spacing:.055em !important;
+  }
+
+  .hero-twoimage-title{
+    top:17.5vh !important;
+    width:92vw !important;
+    font-size:clamp(3.4rem,16vw,4.9rem) !important;
+    line-height:.8 !important;
+  }
+
+  .hero-twoimage-bottom{
+    left:18px !important;
+    right:18px !important;
+    bottom:12px !important;
+    align-items:flex-end !important;
+  }
+
+  .hero-twoimage-bottom .availability{
+    margin-left:auto !important;
+    width:auto !important;
+    max-width:210px !important;
+    padding-bottom:2px !important;
+    font-size:8px !important;
+    line-height:1.4 !important;
+    letter-spacing:.06em !important;
+  }
+
+  .hero-twoimage-bottom .availability strong{
+    display:inline-block !important;
+    margin-bottom:2px !important;
+  }
+
+  /* lift image content slightly so bottom copy has breathing room */
+  .hero-scene > img{
+    object-position:center 59% !important;
+  }
+
+  .scene-reveal{
+    background-position:center 59% !important;
+  }
+}
+
+/* -------- Make mobile-sized desktop preview behave like pages too --------
+   Useful when resizing the desktop browser to phone width.
+   Touch devices already use native scroll snap; this adds wheel-page behavior.
+-------- */
+@media (max-width: 900px){
+  html{
+    scroll-snap-type:y mandatory !important;
+    scroll-behavior:smooth !important;
+  }
+
+  body{
+    scroll-snap-type:y mandatory !important;
+  }
+
+  main > section{
+    scroll-snap-align:start !important;
+    scroll-snap-stop:always !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -6401,6 +6484,92 @@ updateScrollUI();
     wheelSum = 0;
     goTo(current + direction);
   }, { passive: false });
+})();
+</script>
+
+
+<script>
+/* =========================================================
+   DESKTOP BROWSER @ MOBILE WIDTH:
+   wheel once = next/previous mobile page
+   Real touch devices keep native swipe/scroll snap.
+   ========================================================= */
+(() => {
+  const mq = window.matchMedia("(max-width: 900px)");
+  const finePointer = window.matchMedia("(hover:hover) and (pointer:fine)");
+
+  if (!mq.matches || !finePointer.matches) return;
+
+  const sections = [
+    document.getElementById("top"),
+    document.getElementById("work"),
+    document.getElementById("about"),
+    document.getElementById("skills"),
+    document.getElementById("experience"),
+    document.getElementById("contact")
+  ].filter(Boolean);
+
+  if (sections.length < 2) return;
+
+  let locked = false;
+  let sum = 0;
+  let timer = null;
+
+  const currentIndex = () => {
+    const y = window.scrollY + window.innerHeight * 0.45;
+    let best = 0;
+    let dist = Infinity;
+
+    sections.forEach((s, i) => {
+      const d = Math.abs(s.offsetTop - y);
+      if (d < dist) {
+        dist = d;
+        best = i;
+      }
+    });
+
+    return best;
+  };
+
+  const go = (i) => {
+    const target = Math.max(0, Math.min(i, sections.length - 1));
+    locked = true;
+
+    sections[target].scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+    setTimeout(() => {
+      locked = false;
+    }, 700);
+  };
+
+  window.addEventListener("wheel", (e) => {
+    if (!mq.matches || !finePointer.matches) return;
+
+    if (locked) {
+      e.preventDefault();
+      return;
+    }
+
+    e.preventDefault();
+
+    sum += e.deltaY;
+
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      sum = 0;
+    }, 120);
+
+    if (Math.abs(sum) < 38) return;
+
+    const idx = currentIndex();
+    const dir = sum > 0 ? 1 : -1;
+
+    sum = 0;
+    go(idx + dir);
+  }, { passive:false });
 })();
 </script>
 
