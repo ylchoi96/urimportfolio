@@ -5294,6 +5294,23 @@ h1,h2,h3,h4{text-wrap:balance;}
   }
 }
 
+
+/* =========================================================
+   v54 — DESKTOP WORK NUMBER INSET
+   Give project numbers breathing room from the left edge.
+   ========================================================= */
+@media (min-width:901px){
+  #work .work-row{
+    grid-template-columns:76px minmax(0,1fr) 56px !important;
+  }
+
+  #work .work-row .num,
+  #work .work-row .index{
+    padding-left:14px !important;
+    box-sizing:border-box !important;
+  }
+}
+
 </style>
 </head>
 <body>
