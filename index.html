@@ -1229,6 +1229,102 @@ body{min-width:320px;}
   }
 }
 
+
+/* ---------- v7 live page matrix ---------- */
+.cs-pages{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--page-x) 112px;
+}
+.cs-pages-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.cs-page-card{
+  border:1px solid var(--line);
+  background:#fff;
+  min-height:220px;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform .35s cubic-bezier(.16,1,.3,1), border-color .25s ease, box-shadow .25s ease;
+}
+.cs-page-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(17,17,17,.22);
+  box-shadow:0 16px 40px rgba(17,17,17,.06);
+}
+.cs-page-top{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+}
+.cs-page-type{
+  font-size:10.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-bottom:10px;
+}
+.cs-page-card h5{
+  margin:0;
+  font-size:1.55rem;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.cs-page-card p{
+  margin:0;
+  max-width:520px;
+  font-size:14.5px;
+  line-height:1.7;
+  color:var(--ink-soft);
+}
+.cs-page-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:118px;
+  padding:12px 16px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:background .25s ease, color .25s ease, border-color .25s ease;
+}
+.cs-page-link:hover{
+  background:var(--ink);
+  color:var(--bg);
+  border-color:var(--ink);
+}
+.cs-pages-note{
+  margin:0 0 28px;
+  max-width:700px;
+  font-size:14px;
+  line-height:1.7;
+  color:var(--ink-soft);
+}
+@media(max-width:760px){
+  .cs-pages{
+    padding-bottom:76px;
+  }
+  .cs-pages-grid{
+    grid-template-columns:1fr;
+  }
+  .cs-page-card{
+    min-height:190px;
+    padding:20px;
+  }
+  .cs-page-top{
+    flex-direction:column;
+    gap:14px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1466,7 +1562,39 @@ const projects = [
     ],
     flow:['Understand Brand','Explore Products','Review Information','Select Options','Recognize Fitting Need','Book Fitting'],
     development:'Implemented responsive UI and commerce-specific interactions within Cafe24, translating design decisions into production-ready front-end interfaces.',
-    features:['Fitting Reservation','Shaft Guide','Product Detail UX','Cafe24 Commerce Integration']
+    features:['Fitting Reservation','Shaft Guide','Product Detail UX','Cafe24 Commerce Integration'],
+    livePages:[
+      {
+        label:'Homepage',
+        type:'Brand Entry / Commerce Landing',
+        url:'https://labgolfkorea.com/',
+        desc:'The main commerce entry point that introduces putter lines, custom putters, fitting, and brand-level navigation.'
+      },
+      {
+        label:'Fitting',
+        type:'Reservation / Experience Page',
+        url:'https://labgolfkorea.com/layout/fitting.html',
+        desc:'A dedicated fitting touchpoint connected to product understanding and offline brand experience.'
+      },
+      {
+        label:'Store List',
+        type:'Store Information Page',
+        url:'https://labgolfkorea.com/company/storelist.html',
+        desc:'A location-based page that supports offline discovery and reinforces credibility around physical touchpoints.'
+      },
+      {
+        label:'DF3 Custom Putter',
+        type:'Product Detail Page',
+        url:'https://labgolfkorea.com/product/df3-custom-putter/95/category/65/display/1/',
+        desc:'A detailed product page where specifications, options, and purchasing decisions become the focus.'
+      },
+      {
+        label:'Inquiry / Suggestion',
+        type:'Support / Inquiry Page',
+        url:'https://labgolfkorea.com/company/inquirySuggestion.html',
+        desc:'A support-related page that helps extend the experience beyond browsing and purchase.'
+      }
+    ]
   },
   {
     num:'02', accent:'#159BBC', accentSoft:'#E5F4F7',
@@ -1622,6 +1750,28 @@ function renderCaseStudy(p){
   html += block('Overview', `<p>${p.overview}</p>`);
   if(p.problem) html += block('Problem', `<p>${p.problem}</p>`);
   html += `</div>`;
+
+  if(p.livePages){
+    html += `
+      <div class="cs-pages">
+        <p class="cs-pages-note">Key live pages from the real project can be organized as part of the case study. This section can later be upgraded with actual screen captures from each page.</p>
+        <div class="cs-pages-grid">
+          ${p.livePages.map(page => `
+            <article class="cs-page-card">
+              <div class="cs-page-top">
+                <div>
+                  <div class="cs-page-type">${page.type}</div>
+                  <h5>${page.label}</h5>
+                </div>
+                <a class="cs-page-link" href="${page.url}" target="_blank" rel="noopener noreferrer">Open page ↗</a>
+              </div>
+              <p>${page.desc}</p>
+            </article>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
 
   html += `
     <div class="cs-highlight" style="--project-accent:${p.accent};--project-soft:${p.accentSoft}">
