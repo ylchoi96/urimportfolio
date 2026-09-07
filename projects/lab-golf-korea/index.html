@@ -3383,6 +3383,400 @@ body.standalone-lab .cs-overlay.lab-theme{background:#090909;}
   }
 }
 
+
+/* =========================================================
+   FINAL LAB CASE STUDY — PC / MOBILE POLISH
+   Keep the editorial structure, tighten the long-form rhythm.
+   ========================================================= */
+
+/* ---------- desktop / common ---------- */
+body.standalone-lab .cs-overlay{
+  scroll-behavior:smooth;
+  scroll-snap-type:none !important;
+}
+
+body.standalone-lab .cs-topbar{
+  min-height:56px;
+}
+
+.cs-overlay.lab-theme .cs-hero{
+  padding-top:84px;
+  padding-bottom:30px;
+}
+
+.cs-overlay.lab-theme .cs-hero h2{
+  max-width:900px;
+  font-size:clamp(3.5rem,7vw,7.2rem);
+  line-height:.9;
+}
+
+.lab-art{
+  padding-bottom:92px;
+}
+
+.lab-art-kicker{
+  padding-top:16px;
+  padding-bottom:52px;
+}
+
+.lab-art-hero{
+  margin-bottom:88px;
+}
+
+.lab-art-section{
+  margin-top:112px;
+}
+
+.lab-art-eyebrow{
+  margin-bottom:14px;
+}
+
+.lab-art-title{
+  margin-bottom:20px;
+  max-width:900px;
+  font-size:clamp(2.8rem,5.15vw,5.5rem);
+  line-height:.93;
+}
+
+.lab-art-copy{
+  max-width:620px;
+  margin-bottom:34px;
+  font-size:13.5px;
+  line-height:1.72;
+}
+
+.lab-discovery{
+  gap:22px;
+}
+
+.lab-discovery .mobile-wrap{
+  padding-top:58px;
+}
+
+.lab-config{
+  gap:16px;
+}
+
+.lab-config-card.c2{margin-top:64px;}
+.lab-config-card.c3{margin-top:128px;}
+
+.lab-config-statement{
+  margin-top:30px;
+}
+
+.lab-fit-v18-intro{
+  margin-bottom:28px;
+}
+
+.lab-fit-v18-grid{
+  gap:18px;
+}
+
+.lab-fit-v18-left,
+.lab-fit-v18-right{
+  gap:18px;
+}
+
+.lab-fit-v18-right{
+  padding-top:72px;
+}
+
+.lab-fit-v18-footer{
+  margin-top:28px;
+  padding-top:18px;
+}
+
+.lab-archive{
+  margin-top:26px;
+}
+
+.cs-overlay.lab-theme .cs-nextproj{
+  padding-top:58px;
+  padding-bottom:68px;
+}
+
+/* ---------- tablet ---------- */
+@media (max-width:900px){
+  .cs-overlay.lab-theme .cs-hero{
+    padding-top:76px;
+    padding-bottom:26px;
+  }
+
+  .lab-art-kicker{
+    padding-bottom:44px;
+  }
+
+  .lab-art-hero{
+    margin-bottom:78px;
+  }
+
+  .lab-art-section{
+    margin-top:88px;
+  }
+
+  .lab-art-title{
+    font-size:clamp(2.65rem,8vw,4.6rem);
+  }
+
+  .lab-art-copy{
+    margin-left:0;
+    max-width:680px;
+  }
+
+  .lab-discovery .mobile-wrap{
+    width:min(50%,320px);
+    padding-top:0;
+    margin-left:auto;
+  }
+
+  .lab-config-card.c1,
+  .lab-config-card.c2,
+  .lab-config-card.c3{
+    margin-top:0;
+  }
+
+  .lab-fit-v18-right{
+    padding-top:36px;
+  }
+}
+
+/* ---------- real mobile ---------- */
+@media (max-width:640px){
+  :root{
+    --page-x:18px;
+  }
+
+  body.standalone-lab .cs-overlay{
+    -webkit-overflow-scrolling:touch;
+  }
+
+  body.standalone-lab .cs-topbar{
+    min-height:54px;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      18px
+      12px;
+  }
+
+  .cs-overlay.lab-theme .cs-hero{
+    padding:
+      68px
+      18px
+      22px;
+  }
+
+  .cs-overlay.lab-theme .cs-hero .cs-type{
+    margin-bottom:12px;
+    font-size:9px;
+    line-height:1.45;
+  }
+
+  .cs-overlay.lab-theme .cs-hero h2{
+    max-width:100%;
+    font-size:clamp(2.65rem,13vw,4.15rem);
+    line-height:.91;
+    letter-spacing:-.055em;
+  }
+
+  .lab-art{
+    padding:
+      0
+      18px
+      68px;
+  }
+
+  .lab-art-kicker{
+    display:block;
+    padding:
+      14px
+      0
+      34px;
+  }
+
+  .lab-art-kicker p{
+    max-width:100%;
+    font-size:11px;
+    line-height:1.62;
+  }
+
+  .lab-art-kicker .meta{
+    justify-content:flex-start;
+    gap:6px;
+    margin-top:16px;
+  }
+
+  .lab-art-kicker .meta span{
+    padding:6px 8px;
+    font-size:8.5px;
+  }
+
+  .lab-art-hero{
+    margin-bottom:64px;
+  }
+
+  .lab-art-hero .mobile{
+    width:96px;
+    right:10px;
+    bottom:-38px;
+    box-shadow:0 18px 48px rgba(0,0,0,.52);
+  }
+
+  .lab-art-hero .caption{
+    left:10px;
+    bottom:10px;
+    font-size:8px;
+  }
+
+  .lab-art-section{
+    margin-top:72px;
+  }
+
+  .lab-art-eyebrow{
+    margin-bottom:10px;
+    font-size:8.5px;
+  }
+
+  .lab-art-title{
+    margin-bottom:16px;
+    max-width:100%;
+    font-size:clamp(2.25rem,10.8vw,3.45rem);
+    line-height:.94;
+    letter-spacing:-.052em;
+  }
+
+  .lab-art-copy{
+    max-width:100%;
+    margin:
+      0
+      0
+      26px;
+    font-size:12px;
+    line-height:1.66;
+    color:rgba(255,255,255,.55);
+  }
+
+  /* Desktop / mobile comparison */
+  .lab-discovery{
+    display:block;
+  }
+
+  .lab-discovery .desktop{
+    width:100%;
+  }
+
+  .lab-discovery .mobile-wrap{
+    width:min(58%,230px);
+    margin:
+      18px
+      0
+      0
+      auto;
+  }
+
+  /* Configuration flow */
+  .lab-config{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .lab-config-card,
+  .lab-config-card.c1,
+  .lab-config-card.c2,
+  .lab-config-card.c3{
+    grid-column:auto;
+    margin:0 !important;
+    padding:10px;
+  }
+
+  .lab-config-card .cap{
+    padding-top:8px;
+    font-size:8.5px;
+  }
+
+  .lab-config-statement{
+    margin-top:22px;
+    font-size:12px;
+    line-height:1.62;
+  }
+
+  /* Fitting / reservation service journey */
+  .lab-fit-v18-intro{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-bottom:22px;
+  }
+
+  .lab-fit-v18-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .lab-fit-v18-left,
+  .lab-fit-v18-right{
+    gap:14px;
+  }
+
+  .lab-fit-v18-right{
+    padding-top:0;
+  }
+
+  .lab-fit-v18-card{
+    max-width:none !important;
+    margin:0 !important;
+    padding:10px;
+  }
+
+  .lab-fit-v18-card .meta{
+    padding-top:9px;
+    font-size:8.5px;
+  }
+
+  .lab-fit-v18-footer{
+    grid-template-columns:1fr;
+    gap:8px;
+    margin-top:20px;
+    padding-top:14px;
+  }
+
+  .lab-fit-v18-footer strong{
+    font-size:11px;
+  }
+
+  .lab-fit-v18-footer p{
+    font-size:11px;
+    line-height:1.6;
+  }
+
+  /* Beyond product page */
+  .lab-archive{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:20px;
+  }
+
+  .lab-archive-item{
+    padding:8px;
+  }
+
+  .lab-archive-item .cap{
+    padding-top:8px;
+    font-size:8.5px;
+  }
+
+  /* Back to portfolio */
+  .cs-overlay.lab-theme .cs-nextproj{
+    padding:
+      42px
+      18px
+      calc(54px + env(safe-area-inset-bottom));
+  }
+
+  .cs-overlay.lab-theme .cs-nextproj h3{
+    font-size:1.45rem;
+  }
+}
+
 </style>
 </head>
 <body class="standalone-lab">
