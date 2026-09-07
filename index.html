@@ -951,6 +951,284 @@ body{min-width:320px;}
   #about .about-right{max-width:none;}
 }
 
+
+/* ---------- v6 spacing & case-study composition ---------- */
+#about{
+  padding-top:clamp(150px,14vw,210px);
+  padding-bottom:clamp(160px,15vw,220px);
+}
+#about .section-head{
+  margin-bottom:clamp(96px,9vw,138px);
+}
+#about .about-grid{
+  padding-top:0;
+}
+#about .about-left{
+  padding-top:8px;
+}
+#about .about-right p + p{
+  margin-top:30px;
+}
+
+/* Case study: create visual rhythm instead of a text-only document */
+.cs-hero{
+  padding-bottom:48px;
+}
+.cs-hero-visual{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--page-x) 88px;
+}
+.cs-visual-stage{
+  position:relative;
+  min-height:clamp(360px,48vw,620px);
+  border:1px solid var(--line);
+  overflow:hidden;
+  background:var(--project-soft, #f1f1f1);
+}
+.cs-visual-stage::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(130deg, rgba(255,255,255,.62), transparent 48%),
+    radial-gradient(circle at 82% 18%, var(--project-accent, #777) 0, transparent 32%);
+  opacity:.9;
+}
+.cs-browser{
+  position:absolute;
+  left:clamp(28px,5vw,84px);
+  right:clamp(110px,15vw,220px);
+  top:clamp(48px,7vw,96px);
+  bottom:clamp(70px,9vw,120px);
+  background:#fff;
+  border:1px solid rgba(17,17,17,.14);
+  box-shadow:0 28px 80px rgba(17,17,17,.11);
+  z-index:1;
+}
+.cs-browser-top{
+  height:42px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 14px;
+}
+.cs-browser-top i{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(17,17,17,.16);
+}
+.cs-browser-body{
+  height:calc(100% - 42px);
+  padding:clamp(22px,3vw,44px);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:clamp(18px,3vw,40px);
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    repeating-linear-gradient(90deg, transparent 0 64px, rgba(17,17,17,.025) 64px 65px);
+}
+.cs-browser-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.cs-browser-kicker{
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.cs-browser-title{
+  font-size:clamp(1.75rem,4vw,4.5rem);
+  line-height:.95;
+  letter-spacing:-.05em;
+  font-weight:800;
+  max-width:520px;
+}
+.cs-browser-meta{
+  font-size:12px;
+  color:var(--ink-soft);
+}
+.cs-browser-art{
+  position:relative;
+  background:var(--project-accent, #777);
+  overflow:hidden;
+}
+.cs-browser-art::before,
+.cs-browser-art::after{
+  content:'';
+  position:absolute;
+  border:1px solid rgba(255,255,255,.35);
+}
+.cs-browser-art::before{
+  inset:12%;
+}
+.cs-browser-art::after{
+  width:44%;
+  aspect-ratio:1;
+  border-radius:50%;
+  right:-5%;
+  bottom:-8%;
+}
+.cs-phone{
+  position:absolute;
+  z-index:2;
+  right:clamp(28px,5vw,76px);
+  bottom:clamp(24px,4vw,56px);
+  width:clamp(110px,13vw,180px);
+  aspect-ratio:.52;
+  background:#111;
+  border-radius:26px;
+  padding:6px;
+  box-shadow:0 24px 60px rgba(17,17,17,.2);
+}
+.cs-phone-inner{
+  width:100%;height:100%;
+  border-radius:20px;
+  background:linear-gradient(180deg,#fff 0 34%,var(--project-soft,#eee) 34% 100%);
+  border:1px solid rgba(255,255,255,.25);
+}
+.cs-visual-caption{
+  position:absolute;
+  left:clamp(28px,5vw,84px);
+  bottom:24px;
+  z-index:3;
+  font-size:11px;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+.cs-body{
+  padding-top:8px;
+}
+.cs-block{
+  padding-top:64px;
+  padding-bottom:64px;
+}
+.cs-block h4{
+  padding-top:4px;
+  font-size:11.5px;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.cs-block .cs-text p{
+  max-width:760px;
+}
+.cs-block:nth-child(2),
+.cs-block:nth-child(3){
+  min-height:220px;
+}
+
+.cs-highlight{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--page-x) 110px;
+}
+.cs-highlight-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+.cs-highlight-card{
+  min-height:300px;
+  border:1px solid var(--line);
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+}
+.cs-highlight-card.accent{
+  background:var(--project-accent,#777);
+  color:#fff;
+  border-color:transparent;
+}
+.cs-highlight-card.soft{
+  background:var(--project-soft,#eee);
+}
+.cs-highlight-card .label{
+  font-size:11px;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  opacity:.68;
+}
+.cs-highlight-card .big{
+  position:absolute;
+  left:28px;right:28px;bottom:28px;
+  font-size:clamp(1.7rem,3vw,3.2rem);
+  line-height:1;
+  letter-spacing:-.04em;
+  font-weight:760;
+}
+
+@media(max-width:900px){
+  #about{
+    padding-top:120px;
+    padding-bottom:132px;
+  }
+  #about .section-head{
+    margin-bottom:72px;
+  }
+  .cs-hero-visual{
+    padding-bottom:68px;
+  }
+  .cs-browser{
+    right:clamp(70px,12vw,120px);
+  }
+  .cs-highlight-grid{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:640px){
+  #about{
+    padding-top:96px;
+    padding-bottom:108px;
+  }
+  #about .section-head{
+    margin-bottom:56px;
+  }
+  .cs-hero{
+    padding-bottom:34px;
+  }
+  .cs-hero-visual{
+    padding-bottom:52px;
+  }
+  .cs-visual-stage{
+    min-height:430px;
+  }
+  .cs-browser{
+    left:18px;
+    right:52px;
+    top:38px;
+    bottom:78px;
+  }
+  .cs-browser-body{
+    grid-template-columns:1fr;
+  }
+  .cs-browser-art{
+    min-height:150px;
+  }
+  .cs-phone{
+    right:14px;
+    bottom:18px;
+    width:94px;
+  }
+  .cs-visual-caption{
+    left:18px;
+    bottom:18px;
+  }
+  .cs-block{
+    padding-top:42px;
+    padding-bottom:42px;
+  }
+  .cs-highlight{
+    padding-bottom:76px;
+  }
+  .cs-highlight-card{
+    min-height:220px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1319,11 +1597,48 @@ function renderCaseStudy(p){
       <h2>${p.title}</h2>
       <div class="cs-hero-bar" style="background:${p.accent}"></div>
     </div>
+
+    <div class="cs-hero-visual" style="--project-accent:${p.accent};--project-soft:${p.accentSoft}">
+      <div class="cs-visual-stage">
+        <div class="cs-browser">
+          <div class="cs-browser-top"><i></i><i></i><i></i></div>
+          <div class="cs-browser-body">
+            <div class="cs-browser-copy">
+              <span class="cs-browser-kicker">${p.meta}</span>
+              <strong class="cs-browser-title">${p.title}</strong>
+              <span class="cs-browser-meta">Responsive commerce experience · Desktop / Mobile</span>
+            </div>
+            <div class="cs-browser-art"></div>
+          </div>
+        </div>
+        <div class="cs-phone"><div class="cs-phone-inner"></div></div>
+        <span class="cs-visual-caption">Project visual preview — replace with final UI captures</span>
+      </div>
+    </div>
+
     <div class="cs-body">
   `;
   html += `<div class="cs-block"><h4>Role</h4><div class="cs-text"><div class="cs-role-list">${p.role.map(r=>`<span>${r}</span>`).join('')}</div></div></div>`;
   html += block('Overview', `<p>${p.overview}</p>`);
   if(p.problem) html += block('Problem', `<p>${p.problem}</p>`);
+  html += `</div>`;
+
+  html += `
+    <div class="cs-highlight" style="--project-accent:${p.accent};--project-soft:${p.accentSoft}">
+      <div class="cs-highlight-grid">
+        <div class="cs-highlight-card accent">
+          <span class="label">Design focus</span>
+          <div class="big">${p.features.slice(0,2).join(' · ')}</div>
+        </div>
+        <div class="cs-highlight-card soft">
+          <span class="label">Implementation</span>
+          <div class="big">${p.role.includes('Front-end Development') ? 'UI decisions carried into production.' : 'Responsive UI built for live commerce.'}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-body">
+  `;
   if(p.solution) html += block('Solution', `<ul>${p.solution.map(s=>`<li>${s}</li>`).join('')}</ul>`);
   if(p.flow) html += `<div class="cs-block"><h4>UX Flow</h4><div class="cs-text"><div class="cs-flow">${p.flow.map((f,i)=>`<span class="step">${f}</span>`+(i<p.flow.length-1?'<span class="arrow-sep">→</span>':'')).join('')}</div></div></div>`;
   if(p.development) html += block('Development', `<p>${p.development}</p>`);
