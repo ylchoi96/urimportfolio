@@ -5520,7 +5520,7 @@ h4{
 @media (max-width: 640px){
 
   .hero-twoimage-meta{
-    top:84px !important;
+    top:64px !important;
     left:18px !important;
     right:18px !important;
     align-items:flex-start !important;
@@ -5531,7 +5531,7 @@ h4{
     max-width:220px !important;
     text-align:right !important;
     font-size:8.5px !important;
-    line-height:1.45 !important;
+    line-height:0.7 !important;
     letter-spacing:.055em !important;
   }
 
@@ -7161,6 +7161,109 @@ h4{
   footer{
     margin-top:0 !important;
     padding:20px 16px 26px !important;
+  }
+}
+
+
+/* =========================================================
+   v49 — MOBILE WORK TYPOGRAPHY POLISH
+   Larger supporting copy, no eyebrow underline,
+   cleaner row spacing and extra breathing room for 2-line titles.
+   ========================================================= */
+@media (max-width:640px){
+
+  /* section kicker: larger + no underline */
+  #work .eyebrow-num{
+    margin:0 0 12px !important;
+    padding:0 !important;
+    font-size:11px !important;
+    line-height:1.4 !important;
+    letter-spacing:.01em !important;
+    color:rgba(255,255,255,.48) !important;
+  }
+
+  #work .eyebrow-num::after{
+    content:none !important;
+    display:none !important;
+  }
+
+  /* main heading spacing */
+  #work .section-head{
+    margin:0 0 20px !important;
+  }
+
+  #work .section-head h2{
+    margin:0 !important;
+    font-size:clamp(3rem,13.2vw,4rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.05em !important;
+  }
+
+  /* intro/supporting copy */
+  #work .section-head > p{
+    margin:14px 0 0 !important;
+    max-width:96% !important;
+    font-size:12px !important;
+    line-height:1.55 !important;
+    letter-spacing:0 !important;
+    color:rgba(255,255,255,.58) !important;
+  }
+
+  /* allow the list to breathe instead of squeezing every row */
+  #work{
+    height:auto !important;
+    min-height:100svh !important;
+    overflow:visible !important;
+    padding-top:72px !important;
+    padding-bottom:30px !important;
+  }
+
+  #work .work-list{
+    display:block !important;
+    border-top:1px solid rgba(255,255,255,.13) !important;
+    border-bottom:0 !important;
+  }
+
+  #work .work-row{
+    min-height:0 !important;
+    padding:17px 0 !important;
+    grid-template-columns:24px minmax(0,1fr) 32px !important;
+    gap:10px !important;
+    align-items:center !important;
+  }
+
+  /* extra breathing room for the known 2-line titles */
+  #work .work-row:nth-child(3),
+  #work .work-row:nth-child(4){
+    padding-top:21px !important;
+    padding-bottom:21px !important;
+  }
+
+  #work .work-row .index,
+  #work .work-row .num{
+    font-size:10px !important;
+    line-height:1.3 !important;
+  }
+
+  #work .work-row .title-block h3{
+    margin:0 !important;
+    font-size:clamp(1.65rem,7vw,2.15rem) !important;
+    line-height:1.06 !important;
+    letter-spacing:-.038em !important;
+  }
+
+  #work .work-row .title-block .meta{
+    margin-top:8px !important;
+    font-size:12px !important;
+    line-height:1.45 !important;
+    letter-spacing:.015em !important;
+    text-transform:uppercase !important;
+    color:rgba(255,255,255,.48) !important;
+  }
+
+  #work .work-row .arrow{
+    width:31px !important;
+    height:31px !important;
   }
 }
 
