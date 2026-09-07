@@ -4748,6 +4748,50 @@ footer .totop{
   }
 }
 
+
+/* =========================================================
+   v40 — TRUE ONE-SCREEN CHAPTER SCROLL
+   ========================================================= */
+
+@media (min-width: 901px) {
+  /* Work must physically fit inside one viewport,
+     otherwise CSS snap has nowhere to jump from. */
+  #work{
+    min-height:100svh !important;
+    height:100svh !important;
+    overflow:hidden !important;
+    padding-top:86px !important;
+    padding-bottom:26px !important;
+  }
+
+  #work .section-head{
+    margin-bottom:24px !important;
+  }
+
+  #work .section-head h2{
+    font-size:clamp(3.7rem,5.3vw,6rem) !important;
+    line-height:.88 !important;
+  }
+
+  #work .work-row{
+    padding:24px 0 !important;
+  }
+
+  #work .work-row .title-block h3{
+    font-size:clamp(2rem,3.3vw,3.7rem) !important;
+    margin-bottom:7px !important;
+  }
+
+  #work .work-row .title-block .meta{
+    margin-top:7px !important;
+  }
+
+  #work .work-row .arrow{
+    width:40px !important;
+    height:40px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5554,5 +5598,92 @@ updateScrollUI();
 })();
 
 </script>
+
+<script>
+/* =========================================================
+   ONE WHEEL = NEXT / PREVIOUS MAIN SECTION
+   Desktop only
+   ========================================================= */
+(() => {
+  if (window.matchMedia("(max-width: 900px)").matches) return;
+
+  const sections = [
+    document.getElementById("top"),
+    document.getElementById("work"),
+    document.getElementById("about"),
+    document.getElementById("skills"),
+    document.getElementById("experience"),
+    document.getElementById("contact")
+  ].filter(Boolean);
+
+  if (sections.length < 2) return;
+
+  let locked = false;
+  let wheelSum = 0;
+  let wheelTimer = null;
+
+  const getCurrentIndex = () => {
+    const anchor = window.scrollY + (window.innerHeight * 0.45);
+    let best = 0;
+    let bestDistance = Infinity;
+
+    sections.forEach((section, index) => {
+      const distance = Math.abs(section.offsetTop - anchor);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = index;
+      }
+    });
+
+    return best;
+  };
+
+  const goTo = (index) => {
+    const next = Math.max(0, Math.min(index, sections.length - 1));
+    locked = true;
+
+    sections[next].scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    window.setTimeout(() => {
+      locked = false;
+    }, 850);
+  };
+
+  window.addEventListener("wheel", (event) => {
+    if (locked) {
+      event.preventDefault();
+      return;
+    }
+
+    /* Do not hijack wheel inside genuinely scrollable inner panels. */
+    const scrollable = event.target.closest(
+      ".detail-scroll, .modal, [data-native-scroll]"
+    );
+    if (scrollable) return;
+
+    event.preventDefault();
+
+    wheelSum += event.deltaY;
+
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => {
+      wheelSum = 0;
+    }, 120);
+
+    /* Trackpads emit many tiny wheel events, so accumulate first. */
+    if (Math.abs(wheelSum) < 45) return;
+
+    const current = getCurrentIndex();
+    const direction = wheelSum > 0 ? 1 : -1;
+
+    wheelSum = 0;
+    goTo(current + direction);
+  }, { passive: false });
+})();
+</script>
+
 </body>
 </html>
