@@ -6037,6 +6037,64 @@ h4{
   }
 }
 
+
+/* =========================================================
+   v45 — MOBILE WORK SECTION SPACING FIX
+   Fixes the odd empty strip at top/bottom of Selected Works.
+   ========================================================= */
+@media (max-width: 640px){
+
+  /* Work section should start right below the fixed header,
+     without the extra floating gap. */
+  #work{
+    padding-top:64px !important;
+    padding-bottom:0 !important;
+    justify-content:flex-start !important;
+  }
+
+  /* Pull the heading block up and tighten its own spacing. */
+  #work .section-head{
+    margin-top:0 !important;
+    margin-bottom:10px !important;
+    padding-top:0 !important;
+  }
+
+  #work .section-kicker,
+  #work .eyebrow-num{
+    margin-top:0 !important;
+    margin-bottom:6px !important;
+  }
+
+  #work .section-head h2{
+    margin-top:0 !important;
+    margin-bottom:8px !important;
+  }
+
+  #work .section-head > p{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  /* Let the project list use all remaining height cleanly. */
+  #work .work-list{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  /* Remove accidental bottom spacer caused by section padding/height. */
+  #work::after,
+  #work .work-list::after{
+    content:none !important;
+    display:none !important;
+  }
+
+  #work .work-row:last-child{
+    border-bottom:0 !important;
+  }
+}
+
 </style>
 </head>
 <body>
