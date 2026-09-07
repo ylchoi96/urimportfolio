@@ -4688,6 +4688,66 @@ footer .totop{
   }
 }
 
+
+/* =========================================================
+   SECTION-BY-SECTION SCROLL SNAP
+   Desktop: one screen settles cleanly into the next section
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 64px;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+  }
+
+  main > section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Hero is already full screen */
+  main > .hero {
+    min-height: 100svh !important;
+  }
+
+  /* Each portfolio chapter fills at least one viewport */
+  main > section.wrap {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Work needs its own natural internal spacing */
+  #work {
+    justify-content: flex-start;
+  }
+
+  /* Contact behaves like the final full-screen chapter */
+  #contact {
+    min-height: 100svh;
+    justify-content: center;
+  }
+}
+
+/* Mobile/tablet: normal scrolling is more comfortable */
+@media (max-width: 900px) {
+  html,
+  body {
+    scroll-snap-type: none !important;
+  }
+
+  main > section {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+}
+
 </style>
 </head>
 <body>
