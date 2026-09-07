@@ -7267,6 +7267,52 @@ h4{
   }
 }
 
+
+/* =========================================================
+   v50 — MOBILE HERO TOP SPACING + REMOVE PURPLE EYEBROW LINE
+   ========================================================= */
+@media (max-width:640px){
+
+  /* Hero top microcopy: tighter and a little higher */
+  .hero-twoimage-meta{
+    top:68px !important;
+  }
+
+  .hero-twoimage-meta .hero-side-right{
+    font-size:8px !important;
+    line-height:1.15 !important;
+    letter-spacing:.045em !important;
+  }
+
+  .hero-twoimage-meta .hero-side-right strong{
+    margin-bottom:1px !important;
+    font-size:8.5px !important;
+    line-height:1.1 !important;
+  }
+
+  /* Bring main title upward so the whole top block feels connected */
+  .hero-twoimage-title{
+    top:15.8dvh !important;
+  }
+
+  /* Remove the purple accent underline from section eyebrow on mobile */
+  .section-head .eyebrow-num::after,
+  .section-head.in-view .eyebrow-num::after,
+  .section-head:hover .eyebrow-num::after,
+  #work .eyebrow-num::after{
+    content:none !important;
+    display:none !important;
+    width:0 !important;
+    height:0 !important;
+    background:none !important;
+  }
+
+  /* Slightly tighten kicker-to-title spacing */
+  #work .eyebrow-num{
+    margin-bottom:7px !important;
+  }
+}
+
 </style>
 </head>
 <body>
