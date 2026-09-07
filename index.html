@@ -4587,7 +4587,6 @@ footer .totop{
 }
 
 
-
 /* =========================================================
    FINAL RESPONSIVE SYSTEM
    Consolidated desktop + tablet + mobile overrides
@@ -4717,34 +4716,70 @@ h1,h2,h3,h4{text-wrap:balance;}
   #work{
     height:100svh !important;
     min-height:100svh !important;
-    overflow:hidden !important;
-    padding-top:86px !important;
-    padding-bottom:26px !important;
+    padding-top:76px !important;
+    padding-bottom:28px !important;
+    display:flex !important;
+    flex-direction:column !important;
     justify-content:flex-start !important;
+    overflow:hidden !important;
   }
 
-  #work .section-head{margin-bottom:24px !important;}
+  #work .section-head{
+    flex:0 0 auto !important;
+    margin-bottom:22px !important;
+  }
 
   #work .section-head h2{
-    font-size:clamp(3.7rem,5.3vw,6rem) !important;
-    line-height:.9 !important;
+    font-size:clamp(3.3rem,4.4vw,5.2rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.05em !important;
+  }
+
+  #work .section-head > p{
+    align-self:start !important;
+    margin-top:2px !important;
+    font-size:12px !important;
+    line-height:1.55 !important;
+  }
+
+  #work .work-list{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-rows:repeat(5,minmax(0,1fr)) !important;
+    border-top:1px solid rgba(255,255,255,.12) !important;
   }
 
   #work .work-row{
-    min-height:118px !important;
-    padding:24px 0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    padding:0 !important;
+    grid-template-columns:76px minmax(0,1fr) 56px !important;
+    align-items:center !important;
+  }
+
+  #work .work-row .num,
+  #work .work-row .index{
+    padding-left:14px !important;
+    box-sizing:border-box !important;
   }
 
   #work .work-row .title-block h3{
-    font-size:clamp(2rem,3.3vw,3.7rem) !important;
+    margin:0 0 8px !important;
+    font-size:clamp(2rem,2.85vw,3.35rem) !important;
     line-height:1.02 !important;
     letter-spacing:-.04em !important;
-    margin-bottom:7px !important;
   }
 
   #work .work-row .title-block .meta{
-    margin-top:7px !important;
-    line-height:1.5 !important;
+    margin:0 !important;
+    font-size:10px !important;
+    line-height:1.4 !important;
+  }
+
+  #work .work-row .arrow{
+    width:40px !important;
+    height:40px !important;
   }
 
   #contact{
@@ -5225,122 +5260,6 @@ h1,h2,h3,h4{text-wrap:balance;}
 }
 
 
-/* =========================================================
-   v53 — DESKTOP WORK SECTION BALANCE
-   Fill the viewport cleanly instead of leaving a large dead area.
-   ========================================================= */
-@media (min-width:901px){
-
-  #work{
-    height:100svh !important;
-    min-height:100svh !important;
-    padding-top:76px !important;
-    padding-bottom:28px !important;
-    display:flex !important;
-    flex-direction:column !important;
-    justify-content:flex-start !important;
-    overflow:hidden !important;
-  }
-
-  #work .section-head{
-    flex:0 0 auto !important;
-    margin-bottom:22px !important;
-  }
-
-  #work .section-head h2{
-    font-size:clamp(3.9rem,5.6vw,6.4rem) !important;
-    line-height:.9 !important;
-    letter-spacing:-.055em !important;
-  }
-
-  #work .section-head > p{
-    align-self:start !important;
-    margin-top:2px !important;
-    font-size:13px !important;
-    line-height:1.55 !important;
-  }
-
-  #work .work-list{
-    flex:1 1 auto !important;
-    min-height:0 !important;
-    display:grid !important;
-    grid-template-rows:repeat(5,minmax(0,1fr)) !important;
-    border-top:1px solid rgba(255,255,255,.12) !important;
-  }
-
-  #work .work-row{
-    min-height:0 !important;
-    height:auto !important;
-    padding:0 !important;
-    align-items:center !important;
-  }
-
-  #work .work-row .title-block h3{
-    margin:0 0 8px !important;
-    font-size:clamp(2.35rem,3.55vw,4.15rem) !important;
-    line-height:1 !important;
-    letter-spacing:-.045em !important;
-  }
-
-  #work .work-row .title-block .meta{
-    margin:0 !important;
-    font-size:11px !important;
-    line-height:1.4 !important;
-  }
-
-  #work .work-row .arrow{
-    width:40px !important;
-    height:40px !important;
-  }
-}
-
-
-/* =========================================================
-   v54 — DESKTOP WORK NUMBER INSET
-   Give project numbers breathing room from the left edge.
-   ========================================================= */
-@media (min-width:901px){
-  #work .work-row{
-    grid-template-columns:76px minmax(0,1fr) 56px !important;
-  }
-
-  #work .work-row .num,
-  #work .work-row .index{
-    padding-left:14px !important;
-    box-sizing:border-box !important;
-  }
-}
-
-
-/* =========================================================
-   v55 — DESKTOP WORK TYPE SCALE TUNING
-   Reduce oversized titles while keeping the section spacious.
-   ========================================================= */
-@media (min-width:901px){
-
-  #work .section-head h2{
-    font-size:clamp(3.3rem,4.4vw,5.2rem) !important;
-    line-height:.92 !important;
-    letter-spacing:-.05em !important;
-  }
-
-  #work .work-row .title-block h3{
-    font-size:clamp(2rem,2.85vw,3.35rem) !important;
-    line-height:1.02 !important;
-    letter-spacing:-.04em !important;
-  }
-
-  #work .work-row .title-block .meta{
-    font-size:10px !important;
-    line-height:1.4 !important;
-  }
-
-  #work .section-head > p{
-    font-size:12px !important;
-    line-height:1.55 !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -5415,7 +5334,6 @@ h1,h2,h3,h4{text-wrap:balance;}
       <!-- rows injected by JS -->
     </div>
   </section>
-
 
 
   <!-- ABOUT -->
@@ -5795,9 +5713,6 @@ function renderCaseStudy(p){
   html += `</div>`;
 
 
-
-
-
   if(p.title === 'L.A.B. GOLF KOREA'){
     html += `
       <section class="lab-art">
@@ -5920,8 +5835,6 @@ function renderCaseStudy(p){
   }
 
 
-
-
   html += `
     <div class="cs-highlight" style="--project-accent:${p.accent};--project-soft:${p.accentSoft}">
       <div class="cs-highlight-grid">
@@ -6030,12 +5943,6 @@ function updateScrollUI(){
 window.addEventListener('scroll', updateScrollUI, {passive:true});
 window.addEventListener('resize', updateScrollUI);
 updateScrollUI();
-
-
-
-
-
-
 
 
 /* ---------------- reference-style goo mouse follow ---------------- */
@@ -6233,9 +6140,6 @@ updateScrollUI();
   }, { passive: false });
 })();
 </script>
-
-
-
 
 
 </body>
