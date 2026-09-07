@@ -16,8 +16,8 @@
   --ink-faint:rgba(17,17,17,.38);
   --line:rgba(17,17,17,.13);
   --line-strong:rgba(17,17,17,.24);
-  --accent:#33472B;
-  --accent-soft:#E4E9DD;
+  --accent:#6B6DFF;
+  --accent-soft:#ECECFF;
   --radius:0px;
   --maxw:1440px;
   --page-x:clamp(28px,5.2vw,80px);
@@ -674,9 +674,168 @@ body{min-width:320px;}
   }
 }
 
+
+/* ---------- interaction refinement v4 ---------- */
+.scroll-progress{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:2px;
+  z-index:120;
+  pointer-events:none;
+}
+.scroll-progress span{
+  display:block;
+  height:100%;
+  width:0;
+  background:var(--accent);
+  transform-origin:left center;
+}
+
+.hero h1 span{
+  will-change:transform;
+  transition:transform .55s cubic-bezier(.16,1,.3,1), opacity .35s ease;
+}
+.hero h1:hover span:nth-child(1){transform:translateX(10px);}
+.hero h1:hover span:nth-child(2){transform:translateX(-6px);}
+.hero h1:hover span:nth-child(3){transform:translateX(16px);}
+
+.hero-kicker .dot{
+  box-shadow:0 0 0 0 rgba(107,109,255,.35);
+  animation:statusPulse 2.4s ease-out infinite;
+}
+@keyframes statusPulse{
+  0%{box-shadow:0 0 0 0 rgba(107,109,255,.34);}
+  70%{box-shadow:0 0 0 9px rgba(107,109,255,0);}
+  100%{box-shadow:0 0 0 0 rgba(107,109,255,0);}
+}
+
+.work-row{
+  isolation:isolate;
+  overflow:hidden;
+}
+.work-row::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--row-accent, transparent);
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .55s cubic-bezier(.16,1,.3,1);
+  z-index:-1;
+  opacity:.075;
+}
+.work-row::after{
+  content:'';
+  position:absolute;
+  left:0;bottom:-1px;
+  height:2px;width:0;
+  background:var(--row-accent, var(--ink));
+  transition:width .55s cubic-bezier(.16,1,.3,1);
+}
+@media (hover:hover) and (pointer:fine){
+  .work-row:hover::before{transform:scaleX(1);}
+  .work-row:hover::after{width:100%;}
+  .work-row:hover .num{color:var(--row-accent);}
+  .work-row:hover .title-block h3{color:var(--row-accent);}
+}
+
+.work-preview{
+  width:360px;
+  height:232px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 18px 54px rgba(17,17,17,.14);
+}
+.work-preview::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.28), transparent 55%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 1px, transparent 1px 42px);
+}
+.work-preview span{
+  position:absolute;
+  left:18px;right:18px;bottom:18px;
+  display:flex;justify-content:space-between;gap:16px;
+  font-size:12px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.skills-col{
+  position:relative;
+  transition:transform .4s cubic-bezier(.16,1,.3,1), background .3s ease;
+}
+.skills-col::before{
+  content:'';
+  position:absolute;top:-1px;left:0;
+  width:0;height:2px;background:var(--accent);
+  transition:width .45s cubic-bezier(.16,1,.3,1);
+}
+@media (hover:hover) and (pointer:fine){
+  .skills-col:hover{transform:translateY(-6px);background:rgba(255,255,255,.25);}
+  .skills-col:hover::before{width:100%;}
+}
+
+.exp-role-title{
+  margin:0 0 12px;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.01em;
+}
+.exp-training{opacity:.72;}
+
+.section-head .eyebrow-num{
+  position:relative;
+  display:inline-block;
+}
+.section-head .eyebrow-num::after{
+  content:'';
+  position:absolute;
+  left:0;bottom:-7px;
+  width:26px;height:1px;
+  background:var(--ink-faint);
+  transition:width .45s ease, background .45s ease;
+}
+.section-head.in-view .eyebrow-num::after,
+.section-head:hover .eyebrow-num::after{
+  width:52px;background:var(--accent);
+}
+
+.cs-hero h2{
+  opacity:0;
+  transform:translateY(20px);
+  animation:csTitleIn .65s cubic-bezier(.16,1,.3,1) .08s forwards;
+}
+.cs-hero-bar{
+  transform:scaleX(0);
+  transform-origin:left center;
+  animation:csBarIn .8s cubic-bezier(.16,1,.3,1) .18s forwards;
+}
+@keyframes csTitleIn{to{opacity:1;transform:none;}}
+@keyframes csBarIn{to{transform:scaleX(1);}}
+
+@media(max-width:640px){
+  .hero h1:hover span:nth-child(1),
+  .hero h1:hover span:nth-child(2),
+  .hero h1:hover span:nth-child(3){transform:none;}
+  .work-row::before{display:none;}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-kicker .dot{animation:none;}
+  .hero h1 span,
+  .work-row::before,
+  .work-row::after,
+  .skills-col,
+  .skills-col::before{transition:none;}
+  .cs-hero h2,.cs-hero-bar{animation:none;opacity:1;transform:none;}
+}
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
 
 <nav class="nav" id="nav">
   <div class="nav-id">
@@ -813,29 +972,41 @@ body{min-width:320px;}
         <p class="eyebrow-num">04 — Experience</p>
         <h2>Experience</h2>
       </div>
-      <p>Professional experience across live e-commerce operations, responsive UI, and campaign execution.</p>
+      <p>Relevant professional experience in e-commerce design, responsive publishing, and live-site operations.</p>
     </div>
 
-    <div class="reveal">
+    <div class="reveal experience-list">
       <div class="exp-current">
         <div>
           <p class="role-name">Q&amp;B International</p>
-          <p class="role-period">Online Team · UI/UX Designer &amp; Web Publisher</p>
+          <p class="role-period">Apr 2024 — Present · Seoul, Korea</p>
         </div>
-        <p class="role-desc">Responsible for Cafe24-based e-commerce operations, UI/UX improvements, new page design, responsive web publishing, and promotional experience implementation.</p>
+        <div>
+          <p class="exp-role-title">UI/UX Designer · Web Publisher · Online Team</p>
+          <p class="role-desc">Designing and operating multiple e-commerce brand experiences in live Cafe24 environments. Responsibilities include UI/UX design, responsive publishing, HTML/CSS/JavaScript implementation, promotional experiences, product and content pages, and ongoing interface improvements.</p>
+        </div>
       </div>
 
       <div class="exp-row">
-        <h4>BEST CHONGPAN</h4>
-        <p>E-commerce Design · Web Publishing · Online Store Operation</p>
+        <div>
+          <h4>BEST CHONGPAN</h4>
+          <p class="role-period">Jul 2020 — May 2023 · Seoul, Korea</p>
+        </div>
+        <div>
+          <p class="exp-role-title">Web Designer · Online Team</p>
+          <p>E-commerce website design and operation, web publishing, product/detail pages, banners, promotional content, and online-store visual management.</p>
+        </div>
       </div>
-      <div class="exp-row">
-        <h4>Roypinkman</h4>
-        <p>Cafe24 UI Customizing · Web Design · Publishing</p>
-      </div>
-      <div class="exp-row">
-        <h4>Various Promotion Projects</h4>
-        <p>Event Landing Page · Product Promotion · Time Sale · Employee Sale · Campaign UI</p>
+
+      <div class="exp-row exp-training">
+        <div>
+          <h4>Green Computer Academy</h4>
+          <p class="role-period">Sep 2019 — Jun 2020</p>
+        </div>
+        <div>
+          <p class="exp-role-title">Web Publishing &amp; Web Design Program</p>
+          <p>Completed hands-on training in web publishing, responsive web design, and portfolio development before beginning my professional web design career.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -881,7 +1052,7 @@ body{min-width:320px;}
 /* ---------------- project data ---------------- */
 const projects = [
   {
-    num:'01', accent:'#33472B', accentSoft:'#E4E9DD',
+    num:'01', accent:'#6B6DFF', accentSoft:'#ECECFF',
     title:'L.A.B. GOLF KOREA',
     meta:'E-commerce · UI/UX · Development',
     type:'Official Golf E-commerce Website',
@@ -901,7 +1072,7 @@ const projects = [
     features:['Fitting Reservation','Shaft Guide','Product Detail UX','Cafe24 Commerce Integration']
   },
   {
-    num:'02', accent:'#9A4B32', accentSoft:'#F2E1D9',
+    num:'02', accent:'#02C7FC', accentSoft:'#E6F9FF',
     title:'ANEW GOLF',
     meta:'E-commerce · UI · Publishing',
     type:'Fashion / Golf E-commerce Design & Operation',
@@ -920,7 +1091,7 @@ const projects = [
     features:['Lookbook','Time Sale UI','Mobile Optimization','Cafe24 UI Customization']
   },
   {
-    num:'03', accent:'#B08A3E', accentSoft:'#F3EAD3',
+    num:'03', accent:'#168C4D', accentSoft:'#E3F3EA',
     title:'DAEMYUNG FAMILY SALE',
     meta:'Event Commerce · Front-end',
     type:'Closed Employee E-commerce Event',
@@ -940,7 +1111,7 @@ const projects = [
     features:['Access Code Intro','Time-based JS Control','Tab Structure']
   },
   {
-    num:'04', accent:'#8C6E63', accentSoft:'#EFE6E1',
+    num:'04', accent:'#7B2CBF', accentSoft:'#F0E5F8',
     title:'OFFBEAUTY FAMILY SALE',
     meta:'Event Commerce · UI/UX · Publishing',
     type:'Beauty Brand Family Sale Event',
@@ -958,7 +1129,7 @@ const projects = [
     features:['Family Sale Landing','Responsive Event UI','Cafe24 Publishing']
   },
   {
-    num:'05', accent:'#33415C', accentSoft:'#DEE3EC',
+    num:'05', accent:'#FED049', accentSoft:'#FFF5CF',
     title:'SNILLO STITCH',
     meta:'E-commerce Renewal',
     type:'Fashion E-commerce Main Page Renewal',
@@ -982,6 +1153,7 @@ projects.forEach((p, i) => {
   const row = document.createElement('div');
   row.className = 'work-row';
   row.dataset.index = i;
+  row.style.setProperty('--row-accent', p.accent);
   row.innerHTML = `
     <span class="num">${p.num}</span>
     <div class="title-block">
@@ -1001,7 +1173,7 @@ if (window.matchMedia('(min-width:901px)').matches) {
     const p = projects[row.dataset.index];
     row.addEventListener('mouseenter', () => {
       preview.style.background = `linear-gradient(160deg, ${p.accent}, ${p.accent}cc)`;
-      preview.querySelector('span').textContent = p.title;
+      preview.querySelector('span').innerHTML = `<b>${p.title}</b><em>${p.num}</em>`;
       preview.classList.add('active');
     });
     row.addEventListener('mousemove', (e) => {
@@ -1096,6 +1268,35 @@ if (window.matchMedia('(min-width:761px)').matches && window.matchMedia('(prefer
   });
   magBtn.addEventListener('mouseleave', () => { magBtn.style.transform = 'translate(0,0)'; });
 }
+
+/* ---------------- scroll progress + active nav ---------------- */
+const progressBar = document.getElementById('scrollProgressBar');
+const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const trackedSections = sectionLinks
+  .map(link => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+function updateScrollUI(){
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - window.innerHeight;
+  const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+  if(progressBar) progressBar.style.width = progress + '%';
+
+  let current = '';
+  trackedSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if(rect.top <= window.innerHeight * .38) current = section.id;
+  });
+  sectionLinks.forEach(link => {
+    const active = link.getAttribute('href') === '#' + current;
+    link.style.color = active ? 'var(--ink)' : '';
+    link.style.fontWeight = active ? '600' : '';
+  });
+}
+window.addEventListener('scroll', updateScrollUI, {passive:true});
+window.addEventListener('resize', updateScrollUI);
+updateScrollUI();
+
 </script>
 </body>
 </html>
