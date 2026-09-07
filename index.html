@@ -5311,6 +5311,36 @@ h1,h2,h3,h4{text-wrap:balance;}
   }
 }
 
+
+/* =========================================================
+   v55 — DESKTOP WORK TYPE SCALE TUNING
+   Reduce oversized titles while keeping the section spacious.
+   ========================================================= */
+@media (min-width:901px){
+
+  #work .section-head h2{
+    font-size:clamp(3.3rem,4.4vw,5.2rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.05em !important;
+  }
+
+  #work .work-row .title-block h3{
+    font-size:clamp(2rem,2.85vw,3.35rem) !important;
+    line-height:1.02 !important;
+    letter-spacing:-.04em !important;
+  }
+
+  #work .work-row .title-block .meta{
+    font-size:10px !important;
+    line-height:1.4 !important;
+  }
+
+  #work .section-head > p{
+    font-size:12px !important;
+    line-height:1.55 !important;
+  }
+}
+
 </style>
 </head>
 <body>
