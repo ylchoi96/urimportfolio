@@ -6095,6 +6095,158 @@ h4{
   }
 }
 
+
+/* =========================================================
+   v46 — MOBILE TYPE / RHYTHM / SECTION BALANCE
+   Final override: readable type, cleaner spacing, no cramped rows.
+   ========================================================= */
+@media (max-width: 640px){
+
+  /* ---------- global mobile rhythm ---------- */
+  body{
+    font-size:14px !important;
+    line-height:1.5 !important;
+  }
+
+  main > section.wrap{
+    width:calc(100% - 32px) !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  /* ---------- header ---------- */
+  .site-header{
+    min-height:58px !important;
+    padding:13px 16px !important;
+  }
+
+  .site-header .brand{
+    font-size:13px !important;
+    letter-spacing:-.02em !important;
+  }
+
+  .site-header .contact-link{
+    padding:9px 15px !important;
+    font-size:11px !important;
+  }
+
+  /* ---------- work page ---------- */
+  #work{
+    height:100svh !important;
+    min-height:100svh !important;
+    padding-top:70px !important;
+    padding-bottom:14px !important;
+    overflow:hidden !important;
+  }
+
+  #work .section-head{
+    margin:0 0 14px !important;
+  }
+
+  #work .section-kicker,
+  #work .eyebrow-num{
+    margin:0 0 8px !important;
+    font-size:9px !important;
+    line-height:1.25 !important;
+    letter-spacing:.015em !important;
+  }
+
+  #work .section-head h2{
+    margin:0 !important;
+    font-size:clamp(3rem,13.4vw,4rem) !important;
+    line-height:.9 !important;
+    letter-spacing:-.055em !important;
+  }
+
+  #work .section-head > p{
+    margin:10px 0 0 !important;
+    max-width:96% !important;
+    font-size:9.5px !important;
+    line-height:1.45 !important;
+  }
+
+  #work .work-list{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-rows:repeat(5,minmax(0,1fr)) !important;
+    border-top:1px solid rgba(255,255,255,.14) !important;
+    border-bottom:1px solid rgba(255,255,255,.12) !important;
+  }
+
+  #work .work-row{
+    min-height:0 !important;
+    padding:0 !important;
+    grid-template-columns:24px minmax(0,1fr) 32px !important;
+    gap:10px !important;
+    align-items:center !important;
+  }
+
+  #work .work-row .index,
+  #work .work-row .num{
+    font-size:8px !important;
+    line-height:1 !important;
+  }
+
+  #work .work-row .title-block{
+    min-width:0 !important;
+  }
+
+  #work .work-row .title-block h3{
+    margin:0 !important;
+    font-size:clamp(1.6rem,7.1vw,2.15rem) !important;
+    line-height:.96 !important;
+    letter-spacing:-.045em !important;
+    text-wrap:pretty !important;
+  }
+
+  #work .work-row .title-block .meta{
+    margin-top:6px !important;
+    font-size:7.5px !important;
+    line-height:1.3 !important;
+    letter-spacing:.035em !important;
+    white-space:normal !important;
+  }
+
+  #work .work-row .arrow{
+    width:30px !important;
+    height:30px !important;
+    font-size:12px !important;
+  }
+
+  /* ---------- general section headings ---------- */
+  #about .section-head h2,
+  #skills .section-head h2,
+  #experience .section-head h2{
+    font-size:clamp(2.95rem,13vw,4rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.05em !important;
+  }
+
+  #about .about-right p{
+    font-size:12.5px !important;
+    line-height:1.66 !important;
+  }
+
+  #skills .skills-col li{
+    font-size:10px !important;
+    line-height:1.35 !important;
+    padding:6px 0 !important;
+  }
+
+  #experience .exp-role-title{
+    font-size:9.5px !important;
+    line-height:1.4 !important;
+  }
+
+  #contact h2,
+  #contact .contact-title{
+    font-size:clamp(3.15rem,14.2vw,4.8rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.05em !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -7071,6 +7223,90 @@ updateScrollUI();
     sum = 0;
     go(idx + dir);
   }, { passive:false });
+})();
+</script>
+
+
+<script>
+/* =========================================================
+   v46 — MOBILE-WIDTH WHEEL PAGE NAV
+   Fixes upward navigation in desktop browser mobile preview.
+   Runs in capture phase so older wheel handlers cannot block it.
+   ========================================================= */
+(() => {
+  const widthMq = window.matchMedia("(max-width: 900px)");
+  const mouseMq = window.matchMedia("(hover:hover) and (pointer:fine)");
+
+  if (!widthMq.matches || !mouseMq.matches) return;
+
+  const sections = [
+    document.getElementById("top"),
+    document.getElementById("work"),
+    document.getElementById("about"),
+    document.getElementById("skills"),
+    document.getElementById("experience"),
+    document.getElementById("contact")
+  ].filter(Boolean);
+
+  if (sections.length < 2) return;
+
+  let locked = false;
+  let accumulator = 0;
+  let resetTimer = null;
+
+  function nearestIndex() {
+    const y = window.scrollY;
+    let bestIndex = 0;
+    let bestDistance = Infinity;
+
+    sections.forEach((section, index) => {
+      const distance = Math.abs(section.offsetTop - y);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestIndex = index;
+      }
+    });
+
+    return bestIndex;
+  }
+
+  function moveTo(index) {
+    const safeIndex = Math.max(0, Math.min(index, sections.length - 1));
+    locked = true;
+
+    sections[safeIndex].scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    window.setTimeout(() => {
+      locked = false;
+    }, 720);
+  }
+
+  window.addEventListener("wheel", (event) => {
+    if (!widthMq.matches || !mouseMq.matches) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    if (locked) return;
+
+    accumulator += event.deltaY;
+
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      accumulator = 0;
+    }, 140);
+
+    if (Math.abs(accumulator) < 32) return;
+
+    const current = nearestIndex();
+    const direction = accumulator > 0 ? 1 : -1;
+
+    accumulator = 0;
+    moveTo(current + direction);
+  }, { passive:false, capture:true });
 })();
 </script>
 
