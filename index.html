@@ -4586,6 +4586,108 @@ footer .totop{
   .hero-scene .scene-reveal{display:none !important;}
 }
 
+
+/* =========================================================
+   FINAL HERO SIDE ALIGNMENT
+   ========================================================= */
+.hero-twoimage-meta,
+.hero-twoimage-bottom{
+  left:clamp(32px,4.65vw,80px) !important;
+  right:clamp(32px,4.65vw,80px) !important;
+}
+
+.hero-twoimage-meta{
+  top:76px !important;
+  align-items:flex-start !important;
+}
+
+.hero-twoimage-meta .hero-side{
+  width:280px !important;
+  font-size:10px !important;
+  line-height:1.5 !important;
+  letter-spacing:.07em !important;
+  color:rgba(255,255,255,.48) !important;
+}
+
+.hero-twoimage-meta .hero-side strong{
+  display:inline-block !important;
+  margin-bottom:2px !important;
+  color:#fff !important;
+  font-weight:700 !important;
+}
+
+.hero-twoimage-meta .hero-side-left{
+  text-align:left !important;
+}
+
+.hero-twoimage-meta .hero-side-right{
+  margin-left:auto !important;
+  text-align:right !important;
+}
+
+.hero-twoimage-bottom{
+  bottom:28px !important;
+}
+
+.hero-twoimage-bottom .statement{
+  max-width:500px !important;
+  font-size:10px !important;
+  line-height:1.55 !important;
+  letter-spacing:.015em !important;
+  color:rgba(255,255,255,.56) !important;
+}
+
+.hero-twoimage-bottom .statement strong{
+  display:inline-block !important;
+  margin-bottom:2px !important;
+  font-size:11px !important;
+  color:#fff !important;
+}
+
+.hero-twoimage-bottom .availability{
+  width:260px !important;
+  font-size:9px !important;
+  line-height:1.55 !important;
+  letter-spacing:.08em !important;
+  color:rgba(255,255,255,.46) !important;
+}
+
+@media(max-width:900px){
+  .hero-twoimage-meta,
+  .hero-twoimage-bottom{
+    left:20px !important;
+    right:20px !important;
+  }
+
+  .hero-twoimage-meta .hero-side{
+    width:auto !important;
+    max-width:46% !important;
+  }
+}
+
+@media(max-width:640px){
+  .hero-twoimage-meta{
+    top:72px !important;
+  }
+
+  .hero-twoimage-meta .hero-side-left{
+    display:none !important;
+  }
+
+  .hero-twoimage-meta .hero-side-right{
+    max-width:190px !important;
+  }
+
+  .hero-twoimage-bottom .statement{
+    display:none !important;
+  }
+
+  .hero-twoimage-bottom .availability{
+    width:auto !important;
+    margin-left:auto !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4612,8 +4714,14 @@ footer .totop{
 <section class="hero" id="top">
   <div class="hero-twoimage" id="heroTwoImage">
     <div class="hero-twoimage-meta">
-      <p><strong>Choi Yoolim</strong><br>UI/UX Designer</p>
-      <p>Design · Publishing · Front-end<br>E-commerce / Responsive</p>
+      <p class="hero-side hero-side-left">
+        <strong>Portfolio 2026</strong><br>
+        Selected work · 2024—2026
+      </p>
+      <p class="hero-side hero-side-right">
+        <strong>Design · Publishing · Front-end</strong><br>
+        E-commerce · Responsive · Cafe24
+      </p>
     </div>
 
     <div class="hero-scene" id="heroScene">
@@ -4627,8 +4735,15 @@ footer .totop{
     </div>
 
     <div class="hero-twoimage-bottom">
-      <p class="statement"><strong>UI/UX for e-commerce — designed and published by me.</strong><br>Responsive design, web publishing, and front-end execution across live Cafe24 projects.</p>
-      <p class="availability"><strong>Seoul → Canada</strong><br>Open to UI/UX opportunities<br>Scroll ↓</p>
+      <p class="statement">
+        <strong>From interface to implementation.</strong><br>
+        E-commerce UI/UX · Responsive publishing · Cafe24 front-end
+      </p>
+      <p class="availability">
+        <strong>Seoul → Canada</strong><br>
+        Open to UI/UX opportunities<br>
+        Scroll ↓
+      </p>
     </div>
   </div>
 </section>
