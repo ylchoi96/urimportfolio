@@ -4792,6 +4792,450 @@ footer .totop{
   }
 }
 
+
+/* =========================================================
+   v41 — TYPOGRAPHY + RESPONSIVE REFINEMENT
+   PC-first, then tablet/mobile cleanup
+   ========================================================= */
+
+/* ---------- Global English typography ---------- */
+body{
+  line-height:1.45 !important;
+}
+
+p,
+li,
+small,
+.meta,
+.section-desc,
+.work-meta,
+.experience-desc,
+.about-copy,
+.skill-item{
+  line-height:1.55 !important;
+}
+
+h1,
+h2,
+h3,
+h4{
+  text-wrap:balance;
+}
+
+/* ---------- Hero ---------- */
+.hero-twoimage-title{
+  line-height:.84 !important;
+  letter-spacing:-.072em !important;
+}
+
+.hero-twoimage-title span + span{
+  margin-top:.045em !important;
+}
+
+.hero-twoimage-meta p,
+.hero-twoimage-bottom p{
+  line-height:1.55 !important;
+}
+
+/* ---------- Section headings ---------- */
+.section-head h2,
+#about h2,
+#skills h2,
+#experience h2,
+#contact h2{
+  line-height:.9 !important;
+  letter-spacing:-.055em !important;
+}
+
+/* ---------- Work titles ---------- */
+#work .work-row .title-block h3,
+.work-row h3{
+  line-height:1.02 !important;
+  letter-spacing:-.04em !important;
+}
+
+#work .work-row .title-block .meta,
+.work-row .meta{
+  line-height:1.5 !important;
+}
+
+/* ---------- About ---------- */
+#about .about-lead,
+#about .about-title,
+#about h2{
+  line-height:.93 !important;
+}
+
+#about .about-copy,
+#about .about-copy p{
+  line-height:1.62 !important;
+}
+
+/* ---------- Skills ---------- */
+#skills .skills-grid,
+#skills .skill-column,
+#skills .skill-item{
+  line-height:1.5 !important;
+}
+
+/* ---------- Experience ---------- */
+#experience .experience-row,
+#experience .experience-row p,
+#experience .experience-desc{
+  line-height:1.55 !important;
+}
+
+/* ---------- Contact ---------- */
+#contact .contact-title,
+#contact h2{
+  line-height:.88 !important;
+  letter-spacing:-.06em !important;
+}
+
+/* =========================================================
+   DESKTOP — PRIMARY LAYOUT
+   ========================================================= */
+@media (min-width: 1201px){
+
+  .wrap{
+    width:min(100% - 96px, 1440px) !important;
+  }
+
+  .section-head{
+    grid-template-columns:minmax(0,1fr) minmax(320px,420px) !important;
+    column-gap:64px !important;
+  }
+
+  #about .about-grid,
+  #experience .experience-grid{
+    column-gap:72px !important;
+  }
+
+  #work .work-row{
+    min-height:118px !important;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+@media (min-width: 641px) and (max-width: 1200px){
+
+  .site-header{
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  .wrap{
+    width:calc(100% - 48px) !important;
+  }
+
+  .section-head{
+    grid-template-columns:1fr 320px !important;
+    column-gap:36px !important;
+  }
+
+  .section-head h2{
+    font-size:clamp(3.25rem,7vw,5.3rem) !important;
+  }
+
+  #work .work-row .title-block h3{
+    font-size:clamp(2.2rem,5.2vw,4rem) !important;
+  }
+
+  #about .about-grid,
+  #experience .experience-grid{
+    grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr) !important;
+    column-gap:40px !important;
+  }
+
+  #skills .skills-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  #contact .contact-title,
+  #contact h2{
+    font-size:clamp(4rem,9vw,7rem) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE — PC DESIGN LANGUAGE, CLEANLY STACKED
+   ========================================================= */
+@media (max-width: 640px){
+
+  html,
+  body{
+    overflow-x:hidden;
+  }
+
+  body{
+    font-size:14px !important;
+  }
+
+  .site-header{
+    height:auto !important;
+    min-height:60px !important;
+    padding:15px 18px !important;
+  }
+
+  .site-header .brand{
+    font-size:12px !important;
+  }
+
+  .site-header .brand span{
+    display:none !important;
+  }
+
+  .site-header nav{
+    gap:14px !important;
+  }
+
+  .site-header nav a{
+    font-size:11px !important;
+  }
+
+  .site-header nav a:not(.contact-link){
+    display:none !important;
+  }
+
+  .site-header .contact-link{
+    padding:8px 13px !important;
+  }
+
+  .wrap{
+    width:calc(100% - 36px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  main > section.wrap{
+    min-height:auto !important;
+    display:block !important;
+    padding-top:96px !important;
+    padding-bottom:88px !important;
+  }
+
+  /* Hero remains full screen */
+  main > .hero{
+    min-height:100svh !important;
+  }
+
+  .hero-twoimage-title{
+    top:17vh !important;
+    width:96vw !important;
+    font-size:clamp(3.15rem,15vw,5rem) !important;
+    line-height:.88 !important;
+    letter-spacing:-.065em !important;
+  }
+
+  .hero-twoimage-meta{
+    left:18px !important;
+    right:18px !important;
+    top:74px !important;
+  }
+
+  .hero-twoimage-meta .hero-side-left{
+    display:none !important;
+  }
+
+  .hero-twoimage-meta .hero-side-right{
+    margin-left:auto !important;
+    max-width:190px !important;
+    font-size:9px !important;
+    line-height:1.55 !important;
+  }
+
+  .hero-twoimage-bottom{
+    left:18px !important;
+    right:18px !important;
+    bottom:18px !important;
+  }
+
+  .hero-twoimage-bottom .statement{
+    display:none !important;
+  }
+
+  .hero-twoimage-bottom .availability{
+    width:auto !important;
+    max-width:200px !important;
+    font-size:9px !important;
+    line-height:1.55 !important;
+  }
+
+  /* Headings */
+  .section-head{
+    display:block !important;
+    margin-bottom:44px !important;
+  }
+
+  .section-head .section-desc{
+    max-width:100% !important;
+    margin-top:18px !important;
+    font-size:12px !important;
+    line-height:1.6 !important;
+  }
+
+  .section-kicker{
+    font-size:11px !important;
+  }
+
+  .section-head h2,
+  #about h2,
+  #skills h2,
+  #experience h2{
+    font-size:clamp(3rem,14vw,4.6rem) !important;
+    line-height:.94 !important;
+    letter-spacing:-.055em !important;
+  }
+
+  /* Work */
+  #work{
+    height:auto !important;
+    min-height:auto !important;
+    overflow:visible !important;
+    padding-top:96px !important;
+    padding-bottom:88px !important;
+  }
+
+  #work .work-row{
+    grid-template-columns:30px minmax(0,1fr) 34px !important;
+    gap:12px !important;
+    padding:24px 0 !important;
+    min-height:auto !important;
+  }
+
+  #work .work-row .index{
+    font-size:10px !important;
+  }
+
+  #work .work-row .title-block h3{
+    font-size:clamp(2rem,9.6vw,3rem) !important;
+    line-height:1.02 !important;
+    letter-spacing:-.045em !important;
+    overflow-wrap:anywhere;
+  }
+
+  #work .work-row .title-block .meta{
+    margin-top:8px !important;
+    font-size:9px !important;
+    line-height:1.45 !important;
+    letter-spacing:.04em !important;
+  }
+
+  #work .work-row .arrow{
+    width:34px !important;
+    height:34px !important;
+  }
+
+  /* About */
+  #about .about-grid{
+    display:block !important;
+  }
+
+  #about .about-profile{
+    margin-bottom:36px !important;
+  }
+
+  #about .about-name{
+    font-size:14px !important;
+  }
+
+  #about .about-copy{
+    font-size:14px !important;
+    line-height:1.68 !important;
+  }
+
+  #about .about-copy p + p{
+    margin-top:20px !important;
+  }
+
+  #about .tag-list{
+    gap:7px !important;
+  }
+
+  #about .tag-list span{
+    font-size:9px !important;
+    padding:7px 9px !important;
+  }
+
+  /* Skills */
+  #skills .skills-grid{
+    grid-template-columns:1fr !important;
+    border-top:1px solid rgba(255,255,255,.12) !important;
+  }
+
+  #skills .skill-column{
+    padding:24px 0 !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(255,255,255,.1) !important;
+  }
+
+  #skills .skill-column:last-child{
+    border-bottom:0 !important;
+  }
+
+  #skills .skill-label{
+    font-size:9px !important;
+    margin-bottom:14px !important;
+  }
+
+  #skills .skill-item{
+    font-size:13px !important;
+    padding:9px 0 !important;
+  }
+
+  /* Experience */
+  #experience .experience-row{
+    display:block !important;
+    padding:28px 0 !important;
+  }
+
+  #experience .experience-company{
+    margin-bottom:16px !important;
+  }
+
+  #experience .experience-company strong{
+    font-size:15px !important;
+  }
+
+  #experience .experience-role{
+    font-size:13px !important;
+    margin-bottom:8px !important;
+  }
+
+  #experience .experience-desc{
+    font-size:12px !important;
+    line-height:1.62 !important;
+  }
+
+  /* Contact */
+  #contact{
+    min-height:100svh !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+  }
+
+  #contact .contact-title,
+  #contact h2{
+    font-size:clamp(3.8rem,17vw,5.8rem) !important;
+    line-height:.9 !important;
+    letter-spacing:-.055em !important;
+  }
+
+  #contact .contact-links{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:14px !important;
+    align-items:center !important;
+  }
+
+  #contact .contact-links a{
+    font-size:11px !important;
+  }
+}
+
 </style>
 </head>
 <body>
