@@ -3,623 +3,289 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Choi Yoolim — UI/UX Designer</title>
-
-  <meta
-    name="description"
-    content="Choi Yoolim — UI/UX Designer, Web Publisher, Front-end."
-  />
+  <meta name="description" content="Choi Yoolim — UI/UX Designer, Web Publisher, Front-end." />
 
   <style>
-    :root {
-      --bg: #0b0b0b;
-      --text: #ffffff;
-      --muted: rgba(255, 255, 255, 0.58);
-
-      --x: 50%;
-      --y: 50%;
-
-      --reveal: 150px;
-      --reveal-soft: 205px;
+    :root{
+      --bg:#0b0b0b;
+      --text:#fff;
+      --muted:rgba(255,255,255,.58);
+      --line:rgba(255,255,255,.15);
+      --x:50%;
+      --y:50%;
+      --reveal:150px;
+      --reveal-soft:205px;
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:geometricPrecision;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:30;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:20px 32px;
+      font-size:12px;
+      mix-blend-mode:difference;
+      color:#fff;
+    }
+    .nav__brand{font-weight:700;white-space:nowrap}
+    .nav__brand span{margin-left:8px;font-weight:400;opacity:.55}
+    .nav__links{display:flex;gap:28px;align-items:center}
+    .nav__links a{opacity:.72;transition:opacity .2s ease}
+    .nav__links a:hover{opacity:1}
+    .nav__contact{
+      padding:9px 16px;
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;
+      opacity:1!important;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .hero{
+      position:relative;
+      min-height:100svh;
+      overflow:hidden;
+      background:var(--bg);
+      isolation:isolate;
     }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: geometricPrecision;
+    .hero__media{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      overflow:hidden;
+      background:#090909;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .hero__img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+      image-rendering:auto;
+      filter:none;
+      opacity:1;
     }
 
-    /* =========================
-       NAV
-    ========================= */
+    /* front image is always visible */
+    .hero__front{z-index:1}
 
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-
-      z-index: 30;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 24px;
-
-      padding: 20px 32px;
-
-      font-size: 12px;
-
-      color: #fff;
-
-      mix-blend-mode: difference;
-    }
-
-    .nav__brand {
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .nav__brand span {
-      margin-left: 8px;
-
-      font-weight: 400;
-
-      opacity: 0.55;
-    }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-
-      gap: 28px;
-    }
-
-    .nav__links a {
-      opacity: 0.72;
-
-      transition: opacity 0.2s ease;
-    }
-
-    .nav__links a:hover {
-      opacity: 1;
-    }
-
-    .nav__contact {
-      padding: 9px 16px;
-
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: 999px;
-
-      opacity: 1 !important;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      position: relative;
-
-      min-height: 100svh;
-
-      overflow: hidden;
-
-      background: var(--bg);
-
-      isolation: isolate;
-    }
-
-    .hero__media {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 1;
-
-      overflow: hidden;
-
-      background: #090909;
-    }
-
-    .hero__img {
-      position: absolute;
-
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center;
-
-      display: block;
-
-      user-select: none;
-      -webkit-user-drag: none;
-
-      image-rendering: auto;
-
-      filter: none;
-      opacity: 1;
-    }
-
-    /* 기본 이미지 */
-    .hero__front {
-      z-index: 1;
-    }
-
-    /* 마우스 영역에서 보여질 이미지 */
-    .hero__back {
-      z-index: 2;
-
-      pointer-events: none;
-
-      -webkit-mask-image: radial-gradient(
+    /* back image is revealed only under the cursor */
+    .hero__back{
+      z-index:2;
+      pointer-events:none;
+      -webkit-mask-image:radial-gradient(
         circle var(--reveal-soft) at var(--x) var(--y),
         #000 0,
         #000 var(--reveal),
-        rgba(0, 0, 0, 0.82) calc(var(--reveal) + 18px),
+        rgba(0,0,0,.82) calc(var(--reveal) + 18px),
         transparent var(--reveal-soft)
       );
-
-      mask-image: radial-gradient(
+      mask-image:radial-gradient(
         circle var(--reveal-soft) at var(--x) var(--y),
         #000 0,
         #000 var(--reveal),
-        rgba(0, 0, 0, 0.82) calc(var(--reveal) + 18px),
+        rgba(0,0,0,.82) calc(var(--reveal) + 18px),
         transparent var(--reveal-soft)
       );
+      -webkit-mask-repeat:no-repeat;
+      mask-repeat:no-repeat;
+      opacity:0;
+      transition:opacity .18s ease;
+    }
+    .hero.is-hovering .hero__back{opacity:1}
 
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-
-      opacity: 0;
-
-      transition: opacity 0.18s ease;
+    .hero__title{
+      position:absolute;
+      z-index:10;
+      top:4.5vh;
+      left:50%;
+      transform:translateX(-50%);
+      width:96vw;
+      margin:0;
+      color:#fff;
+      text-align:center;
+      font-size:clamp(88px, 11vw, 205px);
+      line-height:.77;
+      letter-spacing:-.08em;
+      font-weight:800;
+      text-transform:lowercase;
+      pointer-events:none;
+      text-shadow:none;
+      opacity:1;
+    }
+    .hero__title span{
+      display:block;
+      white-space:nowrap;
     }
 
-    .hero.is-hovering .hero__back {
-      opacity: 1;
+    .hero__meta{
+      position:absolute;
+      z-index:12;
+      left:32px;
+      right:32px;
+      bottom:24px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      font-size:11px;
+      line-height:1.5;
+      color:var(--muted);
+      pointer-events:none;
+    }
+    .hero__meta strong{color:#fff}
+    .hero__meta-right{text-align:right;text-transform:uppercase;letter-spacing:.08em;font-size:9px}
+
+    .cursor-dot{
+      position:absolute;
+      z-index:15;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:#fff;
+      transform:translate(-50%,-50%);
+      opacity:0;
+      pointer-events:none;
+      mix-blend-mode:difference;
+      transition:opacity .15s ease;
+    }
+    .hero.is-hovering .cursor-dot{opacity:.9}
+
+    @media (max-width: 900px){
+      .nav{padding:18px 20px}
+      .nav__brand span{display:none}
+      .nav__links{gap:18px}
+
+      .hero__title{
+        top:11vh;
+        width:98vw;
+        font-size:clamp(58px, 13vw, 120px);
+      }
+      .hero__meta{left:20px;right:20px;bottom:18px}
     }
 
-    /* =========================
-       MAIN TITLE
-    ========================= */
-
-    .hero__title {
-      position: absolute;
-
-      z-index: 10;
-
-      top: 4.5vh;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      width: 96vw;
-
-      margin: 0;
-
-      color: #ffffff;
-
-      text-align: center;
-
-      font-size: clamp(88px, 11vw, 205px);
-      line-height: 0.77;
-      letter-spacing: -0.08em;
-
-      font-weight: 800;
-
-      text-transform: lowercase;
-
-      pointer-events: none;
-
-      text-shadow: none;
-
-      opacity: 1;
+    @media (max-width: 640px){
+      :root{--reveal:88px;--reveal-soft:126px}
+      .nav__links a:not(.nav__contact){display:none}
+      .hero__title{
+        top:15vh;
+        font-size:clamp(44px, 15.8vw, 76px);
+        line-height:.8;
+      }
+      .hero__img{object-position:center 58%}
+      .hero__meta-left{display:none}
+      .hero__meta-right{margin-left:auto}
     }
 
-    .hero__title span {
-      display: block;
-
-      white-space: nowrap;
-    }
-
-    /* =========================
-       BOTTOM META
-    ========================= */
-
-    .hero__meta {
-      position: absolute;
-
-      z-index: 12;
-
-      left: 32px;
-      right: 32px;
-      bottom: 24px;
-
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-
-      gap: 24px;
-
-      font-size: 11px;
-      line-height: 1.5;
-
-      color: var(--muted);
-
-      pointer-events: none;
-    }
-
-    .hero__meta strong {
-      color: #ffffff;
-    }
-
-    .hero__meta-right {
-      text-align: right;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.08em;
-
-      font-size: 9px;
-    }
-
-    /* =========================
-       CURSOR
-    ========================= */
-
-    .cursor-dot {
-      position: absolute;
-
-      z-index: 15;
-
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: #ffffff;
-
-      transform: translate(-50%, -50%);
-
-      opacity: 0;
-
-      pointer-events: none;
-
-      mix-blend-mode: difference;
-
-      transition: opacity 0.15s ease;
-    }
-
-    .hero.is-hovering .cursor-dot {
-      opacity: 0.9;
-    }
-
-    /* =========================
-       TABLET
-    ========================= */
-
-    @media (max-width: 900px) {
-      .nav {
-        padding: 18px 20px;
-      }
-
-      .nav__brand span {
-        display: none;
-      }
-
-      .nav__links {
-        gap: 18px;
-      }
-
-      .hero__title {
-        top: 11vh;
-
-        width: 98vw;
-
-        font-size: clamp(58px, 13vw, 120px);
-      }
-
-      .hero__meta {
-        left: 20px;
-        right: 20px;
-        bottom: 18px;
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 640px) {
-      :root {
-        --reveal: 88px;
-        --reveal-soft: 126px;
-      }
-
-      .nav__links a:not(.nav__contact) {
-        display: none;
-      }
-
-      .hero__title {
-        top: 15vh;
-
-        font-size: clamp(44px, 15.8vw, 76px);
-
-        line-height: 0.8;
-      }
-
-      .hero__img {
-        object-position: center 58%;
-      }
-
-      .hero__meta-left {
-        display: none;
-      }
-
-      .hero__meta-right {
-        margin-left: auto;
-      }
-    }
-
-    /* 모바일에서는 마우스 효과 제거 */
-    @media (hover: none), (pointer: coarse) {
+    @media (hover:none), (pointer:coarse){
       .hero__back,
-      .cursor-dot {
-        display: none;
-      }
+      .cursor-dot{display:none}
     }
   </style>
 </head>
-
 <body>
-
   <header class="nav">
-    <a class="nav__brand" href="#top">
-      Choi Yoolim
-      <span>UI/UX Designer · Web Publisher</span>
-    </a>
-
-    <nav class="nav__links">
+    <a class="nav__brand" href="#top">Choi Yoolim <span>UI/UX Designer · Web Publisher</span></a>
+    <nav class="nav__links" aria-label="Primary navigation">
       <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
-
-      <a
-        class="nav__contact"
-        href="mailto:cyoolim96@gmail.com"
-      >
-        Contact
-      </a>
+      <a class="nav__contact" href="mailto:cyoolim96@gmail.com">Contact</a>
     </nav>
   </header>
 
-
   <main>
-
     <section class="hero" id="top">
-
       <div class="hero__media" id="heroMedia">
-
-        <!-- 기본 검은 배경 이미지 -->
-        <img
-          class="hero__img hero__front"
-          src="./assets/front.jpg"
-          alt="Choi Yoolim portfolio visual"
-        />
-
-        <!-- 마우스가 지나갈 때 보여질 이미지 -->
-        <img
-          class="hero__img hero__back"
-          src="./assets/back.jpg"
-          alt="Creative studio background"
-        />
-
+        <img class="hero__img hero__front" src="./front.jpg" alt="Choi Yoolim portfolio visual" />
+        <img class="hero__img hero__back" src="./back.jpg" alt="Creative studio background" />
       </div>
-
 
       <h1 class="hero__title">
         <span>bringing ideas</span>
         <span>to life</span>
       </h1>
 
-
-      <span
-        class="cursor-dot"
-        id="cursorDot"
-      ></span>
-
+      <span class="cursor-dot" id="cursorDot" aria-hidden="true"></span>
 
       <div class="hero__meta">
-
         <div class="hero__meta-left">
-
-          <strong>
-            UI/UX for e-commerce — designed and published by me.
-          </strong>
-
-          <br>
-
-          Responsive design, web publishing,
-          and front-end execution.
-
+          <strong>UI/UX for e-commerce — designed and published by me.</strong><br />
+          Responsive design, web publishing, and front-end execution.
         </div>
-
-
         <div class="hero__meta-right">
-
-          <strong>
-            Seoul → Canada
-          </strong>
-
-          <br>
-
-          Open to UI/UX opportunities
-
-          <br>
-
+          <strong>Seoul → Canada</strong><br />
+          Open to UI/UX opportunities<br />
           Scroll ↓
-
         </div>
-
       </div>
-
     </section>
-
   </main>
-
 
   <script>
     (() => {
+      const hero = document.querySelector('.hero');
+      const media = document.getElementById('heroMedia');
+      const cursor = document.getElementById('cursorDot');
 
-      const hero =
-        document.querySelector(".hero");
+      if (!hero || !media || window.matchMedia('(hover:none), (pointer:coarse)').matches) return;
 
-      const media =
-        document.getElementById("heroMedia");
+      let tx = 50;
+      let ty = 50;
+      let x = 50;
+      let y = 50;
 
-      const cursor =
-        document.getElementById("cursorDot");
+      function setPointer(event){
+        const rect = media.getBoundingClientRect();
+        tx = ((event.clientX - rect.left) / rect.width) * 100;
+        ty = ((event.clientY - rect.top) / rect.height) * 100;
 
-
-      if (
-        !hero ||
-        !media ||
-        window.matchMedia(
-          "(hover:none), (pointer:coarse)"
-        ).matches
-      ) {
-        return;
+        cursor.style.left = `${event.clientX - hero.getBoundingClientRect().left}px`;
+        cursor.style.top = `${event.clientY - hero.getBoundingClientRect().top}px`;
       }
 
+      media.addEventListener('mouseenter', (event) => {
+        setPointer(event);
+        x = tx;
+        y = ty;
+        hero.classList.add('is-hovering');
+      });
 
-      let targetX = 50;
-      let targetY = 50;
+      media.addEventListener('mousemove', setPointer);
+      media.addEventListener('mouseleave', () => hero.classList.remove('is-hovering'));
 
-      let currentX = 50;
-      let currentY = 50;
-
-
-      function setPointer(event) {
-
-        const rect =
-          media.getBoundingClientRect();
-
-
-        targetX =
-          (
-            (event.clientX - rect.left)
-            / rect.width
-          ) * 100;
-
-
-        targetY =
-          (
-            (event.clientY - rect.top)
-            / rect.height
-          ) * 100;
-
-
-        const heroRect =
-          hero.getBoundingClientRect();
-
-
-        cursor.style.left =
-          `${event.clientX - heroRect.left}px`;
-
-
-        cursor.style.top =
-          `${event.clientY - heroRect.top}px`;
+      function animate(){
+        x += (tx - x) * 0.18;
+        y += (ty - y) * 0.18;
+        hero.style.setProperty('--x', `${x}%`);
+        hero.style.setProperty('--y', `${y}%`);
+        requestAnimationFrame(animate);
       }
-
-
-      media.addEventListener(
-        "mouseenter",
-        (event) => {
-
-          setPointer(event);
-
-          currentX = targetX;
-          currentY = targetY;
-
-          hero.classList.add(
-            "is-hovering"
-          );
-        }
-      );
-
-
-      media.addEventListener(
-        "mousemove",
-        setPointer
-      );
-
-
-      media.addEventListener(
-        "mouseleave",
-        () => {
-
-          hero.classList.remove(
-            "is-hovering"
-          );
-        }
-      );
-
-
-      function animate() {
-
-        currentX +=
-          (targetX - currentX) * 0.18;
-
-
-        currentY +=
-          (targetY - currentY) * 0.18;
-
-
-        hero.style.setProperty(
-          "--x",
-          `${currentX}%`
-        );
-
-
-        hero.style.setProperty(
-          "--y",
-          `${currentY}%`
-        );
-
-
-        requestAnimationFrame(
-          animate
-        );
-      }
-
 
       animate();
-
     })();
   </script>
-
 </body>
 </html>
