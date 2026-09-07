@@ -5515,6 +5515,7 @@ const projects = [
   {
     num:'01', accent:'#6B6DFF', accentSoft:'#ECECFF',
     title:'L.A.B. GOLF KOREA',
+    pageUrl:'./projects/lab-golf-korea/',
     meta:'UI/UX · Commerce · Front-end',
     type:'Official Golf E-commerce Website',
     role:['UI/UX Design','Responsive Web Design','Web Publishing','Cafe24 Customization','Front-end Development'],
@@ -5646,6 +5647,17 @@ projects.forEach((p, i) => {
   const row = document.createElement('div');
   row.className = 'work-row';
   row.dataset.index = i;
+  if (p.pageUrl) {
+    row.setAttribute('role', 'link');
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('aria-label', `${p.title} case study`);
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = p.pageUrl;
+      }
+    });
+  }
   row.style.setProperty('--row-accent', p.accent);
   row.innerHTML = `
     <span class="num">${p.num}</span>
@@ -5655,7 +5667,13 @@ projects.forEach((p, i) => {
     </div>
     <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg></span>
   `;
-  row.addEventListener('click', () => openCaseStudy(i));
+  row.addEventListener('click', () => {
+    if (p.pageUrl) {
+      window.location.href = p.pageUrl;
+      return;
+    }
+    openCaseStudy(i);
+  });
   workList.appendChild(row);
 });
 
