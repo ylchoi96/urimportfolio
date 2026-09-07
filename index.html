@@ -5236,6 +5236,281 @@ h4{
   }
 }
 
+
+/* =========================================================
+   v42 — MOBILE HERO 3 LINES + ONE-SCREEN SWIPE SECTIONS
+   ========================================================= */
+
+@media (max-width: 640px){
+
+  /* -----------------------------------------
+     MOBILE PAGE SNAP
+     one vertical swipe = next / previous page
+     ----------------------------------------- */
+  html{
+    scroll-snap-type:y mandatory !important;
+    scroll-behavior:smooth !important;
+    scroll-padding-top:0 !important;
+  }
+
+  body{
+    scroll-snap-type:y mandatory !important;
+  }
+
+  main > section{
+    scroll-snap-align:start !important;
+    scroll-snap-stop:always !important;
+  }
+
+  /* Every main chapter becomes one viewport */
+  main > .hero,
+  main > section.wrap{
+    min-height:100svh !important;
+    height:100svh !important;
+    overflow:hidden !important;
+    padding-top:76px !important;
+    padding-bottom:22px !important;
+    display:flex !important;
+    flex-direction:column !important;
+  }
+
+
+  /* -----------------------------------------
+     HERO — 3 LINES
+     bringing / ideas / to life
+     ----------------------------------------- */
+  .hero{
+    padding:0 !important;
+  }
+
+  .hero-twoimage-title{
+    top:14.2vh !important;
+    width:94vw !important;
+
+    font-size:clamp(3.65rem,17vw,5.35rem) !important;
+    line-height:.78 !important;
+    letter-spacing:-.065em !important;
+  }
+
+  .hero-twoimage-title span{
+    display:block !important;
+    white-space:nowrap !important;
+  }
+
+  /* split the first desktop line visually on mobile */
+  .hero-twoimage-title span:first-child{
+    font-size:0 !important;
+  }
+
+  .hero-twoimage-title span:first-child::before,
+  .hero-twoimage-title span:first-child::after{
+    display:block !important;
+    font-size:clamp(3.65rem,17vw,5.35rem) !important;
+    line-height:.78 !important;
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+  }
+
+  .hero-twoimage-title span:first-child::before{
+    content:"bringing";
+  }
+
+  .hero-twoimage-title span:first-child::after{
+    content:"ideas";
+  }
+
+  .hero-twoimage-title span + span{
+    margin-top:.02em !important;
+  }
+
+  .hero-scene > img{
+    object-position:center 62% !important;
+  }
+
+  .scene-reveal{
+    background-position:center 62% !important;
+  }
+
+
+  /* -----------------------------------------
+     SELECTED WORKS — FIT ENTIRE LIST IN 1 PAGE
+     ----------------------------------------- */
+  #work{
+    justify-content:flex-start !important;
+    padding-top:78px !important;
+    padding-bottom:12px !important;
+  }
+
+  #work .section-head{
+    flex:0 0 auto !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+    margin-bottom:12px !important;
+  }
+
+  #work .section-kicker{
+    font-size:9px !important;
+    line-height:1.25 !important;
+    margin-bottom:3px !important;
+  }
+
+  #work .section-head h2{
+    font-size:clamp(2.7rem,12.5vw,3.8rem) !important;
+    line-height:.86 !important;
+    margin:0 !important;
+  }
+
+  #work .section-head .section-desc{
+    margin-top:5px !important;
+    max-width:95% !important;
+    font-size:10px !important;
+    line-height:1.42 !important;
+  }
+
+  #work .work-list{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-rows:repeat(5,1fr) !important;
+    border-top:1px solid rgba(255,255,255,.13) !important;
+  }
+
+  #work .work-row{
+    min-height:0 !important;
+    height:auto !important;
+
+    grid-template-columns:24px minmax(0,1fr) 30px !important;
+    gap:9px !important;
+
+    padding:7px 0 !important;
+
+    align-items:center !important;
+  }
+
+  #work .work-row .index{
+    font-size:8px !important;
+  }
+
+  #work .work-row .title-block h3{
+    margin:0 !important;
+    font-size:clamp(1.38rem,6.6vw,2rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.047em !important;
+  }
+
+  #work .work-row .title-block .meta{
+    margin-top:4px !important;
+    font-size:7.5px !important;
+    line-height:1.25 !important;
+    letter-spacing:.035em !important;
+    white-space:nowrap !important;
+  }
+
+  #work .work-row .arrow{
+    width:28px !important;
+    height:28px !important;
+    font-size:12px !important;
+  }
+
+
+  /* -----------------------------------------
+     OTHER SECTIONS — ONE SCREEN, COMPACT
+     ----------------------------------------- */
+  #about,
+  #skills,
+  #experience,
+  #contact{
+    justify-content:center !important;
+  }
+
+  #about .section-head,
+  #skills .section-head,
+  #experience .section-head{
+    margin-bottom:24px !important;
+  }
+
+  #about .section-head h2,
+  #skills .section-head h2,
+  #experience .section-head h2{
+    font-size:clamp(2.65rem,12vw,3.8rem) !important;
+    line-height:.9 !important;
+  }
+
+  #about .about-grid{
+    min-height:0 !important;
+  }
+
+  #about .about-profile{
+    margin-bottom:20px !important;
+  }
+
+  #about .about-copy{
+    font-size:11.5px !important;
+    line-height:1.52 !important;
+  }
+
+  #about .about-copy p + p{
+    margin-top:13px !important;
+  }
+
+  #about .tag-list{
+    margin-top:16px !important;
+    gap:5px !important;
+  }
+
+  #about .tag-list span{
+    font-size:7.5px !important;
+    padding:5px 7px !important;
+  }
+
+  #skills .skills-grid{
+    flex:0 1 auto !important;
+  }
+
+  #skills .skill-column{
+    padding:12px 0 !important;
+  }
+
+  #skills .skill-label{
+    margin-bottom:7px !important;
+    font-size:7.5px !important;
+  }
+
+  #skills .skill-item{
+    font-size:10px !important;
+    padding:5px 0 !important;
+  }
+
+  #experience .experience-row{
+    padding:13px 0 !important;
+  }
+
+  #experience .experience-company{
+    margin-bottom:7px !important;
+  }
+
+  #experience .experience-company strong{
+    font-size:12px !important;
+  }
+
+  #experience .experience-role{
+    font-size:10px !important;
+    margin-bottom:4px !important;
+  }
+
+  #experience .experience-desc{
+    font-size:9px !important;
+    line-height:1.38 !important;
+  }
+
+  #contact .contact-title,
+  #contact h2{
+    font-size:clamp(3.1rem,14vw,4.7rem) !important;
+    line-height:.88 !important;
+  }
+}
+
 </style>
 </head>
 <body>
