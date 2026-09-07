@@ -832,6 +832,125 @@ body{min-width:320px;}
   .cs-hero h2,.cs-hero-bar{animation:none;opacity:1;transform:none;}
 }
 
+
+/* ---------- v5 visual refinement ---------- */
+#about .section-head{
+  grid-template-columns:minmax(0,5fr) minmax(320px,5fr);
+  column-gap:clamp(64px,8vw,132px);
+  margin-bottom:72px;
+}
+#about .section-head h2{
+  max-width:620px;
+  font-size:clamp(2.55rem,4.1vw,4.15rem);
+  line-height:.98;
+  letter-spacing:-.052em;
+}
+#about .section-head > p{
+  max-width:500px;
+  margin-left:auto;
+  padding-bottom:7px;
+  font-size:14px;
+  line-height:1.72;
+}
+#about .about-grid{
+  grid-template-columns:minmax(260px,4fr) minmax(0,7fr);
+  gap:clamp(72px,9vw,150px);
+  padding-top:18px;
+}
+#about .about-left{padding-top:4px;}
+#about .about-left h3{
+  font-size:18px;
+  font-weight:750;
+  margin-bottom:7px;
+}
+#about .about-left .role{
+  max-width:310px;
+  line-height:1.55;
+  margin-bottom:26px;
+}
+#about .tag-list{max-width:430px;gap:7px;}
+#about .tag{
+  padding:6px 11px;
+  font-size:10.5px;
+  background:rgba(255,255,255,.18);
+}
+#about .about-right{max-width:760px;}
+#about .about-right p{
+  font-size:clamp(16px,1.25vw,18.5px);
+  line-height:1.82;
+  letter-spacing:-.012em;
+  margin-bottom:26px;
+}
+#about .about-right p:first-child{
+  font-size:clamp(17px,1.45vw,20px);
+}
+
+.work-row::before{opacity:.055;}
+.work-preview{
+  background:#151515 !important;
+}
+.work-preview::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 78% 26%, var(--preview-accent, #666) 0, transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,.06), transparent 55%);
+  opacity:.9;
+}
+.work-preview span{z-index:2;}
+.work-preview span b{font-style:normal;font-weight:650;}
+.work-preview span em{font-style:normal;opacity:.72;}
+
+.nav-links a.active{
+  color:var(--ink);
+  font-weight:600;
+}
+.nav-links .cta-mini{
+  min-width:88px;
+  text-align:center;
+}
+.nav-links .cta-mini:hover,
+.nav-links .cta-mini:focus-visible{
+  background:var(--ink);
+  color:var(--bg) !important;
+  border-color:var(--ink);
+}
+.nav-links .cta-mini.active:hover{
+  color:var(--bg) !important;
+}
+
+@media(max-width:1024px){
+  #about .section-head{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  #about .section-head > p{
+    margin-left:0;
+    max-width:620px;
+  }
+  #about .about-grid{
+    grid-template-columns:minmax(220px,3fr) minmax(0,7fr);
+    gap:54px;
+  }
+}
+@media(max-width:760px){
+  #about .section-head{margin-bottom:46px;}
+  #about .section-head h2{
+    font-size:clamp(2.3rem,11vw,3.3rem);
+    max-width:100%;
+  }
+  #about .about-grid{
+    grid-template-columns:1fr;
+    gap:38px;
+  }
+  #about .about-left{
+    border-top:1px solid var(--line);
+    padding-top:22px;
+  }
+  #about .about-right{max-width:none;}
+}
+
 </style>
 </head>
 <body>
@@ -862,7 +981,7 @@ body{min-width:320px;}
     </h1>
     <p class="hero-sub">I design and build e-commerce experiences for live production environments — from UI decisions and responsive layouts to HTML, CSS, JavaScript, and Cafe24 customization.</p>
     <div class="hero-meta">
-      <p class="hero-status">Currently — <b>Q&amp;B International</b>, Online Team</p>
+      <p class="hero-status">Previously — <b>Q&amp;B International</b>, Online Team</p>
       <div class="scroll-cue"><div class="line"></div>Scroll</div>
     </div>
   </section>
@@ -894,7 +1013,7 @@ body{min-width:320px;}
         </div>
       </div>
       <div class="about-right reveal">
-        <p>I currently work on the <strong>Online Team at Q&amp;B International</strong>, designing and operating e-commerce experiences across multiple brands. My work goes beyond static mockups: I identify usability issues in live services and carry solutions through UI design, publishing, and front-end implementation.</p>
+        <p>At <strong>Q&amp;B International</strong>, I designed and operated e-commerce experiences across multiple brands. My work went beyond static mockups: I identified usability issues in live services and carried solutions through UI design, publishing, and front-end implementation.</p>
         <p>I design responsive experiences across desktop and mobile, with a strong understanding of <strong>Cafe24 commerce structures</strong>. I focus on interfaces that can be shipped and maintained — considering product options, content hierarchy, operational constraints, loading states, and edge cases as part of the design process.</p>
       </div>
     </div>
@@ -979,7 +1098,7 @@ body{min-width:320px;}
       <div class="exp-current">
         <div>
           <p class="role-name">Q&amp;B International</p>
-          <p class="role-period">Apr 2024 — Present · Seoul, Korea</p>
+          <p class="role-period">Apr 2024 — Nov 2026 · Seoul, Korea</p>
         </div>
         <div>
           <p class="exp-role-title">UI/UX Designer · Web Publisher · Online Team</p>
@@ -1052,7 +1171,7 @@ body{min-width:320px;}
 /* ---------------- project data ---------------- */
 const projects = [
   {
-    num:'01', accent:'#6B6DFF', accentSoft:'#ECECFF',
+    num:'01', accent:'#5F63D9', accentSoft:'#ECECFA',
     title:'L.A.B. GOLF KOREA',
     meta:'E-commerce · UI/UX · Development',
     type:'Official Golf E-commerce Website',
@@ -1072,7 +1191,7 @@ const projects = [
     features:['Fitting Reservation','Shaft Guide','Product Detail UX','Cafe24 Commerce Integration']
   },
   {
-    num:'02', accent:'#02C7FC', accentSoft:'#E6F9FF',
+    num:'02', accent:'#159BBC', accentSoft:'#E5F4F7',
     title:'ANEW GOLF',
     meta:'E-commerce · UI · Publishing',
     type:'Fashion / Golf E-commerce Design & Operation',
@@ -1129,7 +1248,7 @@ const projects = [
     features:['Family Sale Landing','Responsive Event UI','Cafe24 Publishing']
   },
   {
-    num:'05', accent:'#FED049', accentSoft:'#FFF5CF',
+    num:'05', accent:'#D9A928', accentSoft:'#FAF0CC',
     title:'SNILLO STITCH',
     meta:'E-commerce Renewal',
     type:'Fashion E-commerce Main Page Renewal',
@@ -1172,7 +1291,7 @@ if (window.matchMedia('(min-width:901px)').matches) {
   document.querySelectorAll('.work-row').forEach((row) => {
     const p = projects[row.dataset.index];
     row.addEventListener('mouseenter', () => {
-      preview.style.background = `linear-gradient(160deg, ${p.accent}, ${p.accent}cc)`;
+      preview.style.setProperty('--preview-accent', p.accent);
       preview.querySelector('span').innerHTML = `<b>${p.title}</b><em>${p.num}</em>`;
       preview.classList.add('active');
     });
@@ -1289,8 +1408,7 @@ function updateScrollUI(){
   });
   sectionLinks.forEach(link => {
     const active = link.getAttribute('href') === '#' + current;
-    link.style.color = active ? 'var(--ink)' : '';
-    link.style.fontWeight = active ? '600' : '';
+    link.classList.toggle('active', active);
   });
 }
 window.addEventListener('scroll', updateScrollUI, {passive:true});
