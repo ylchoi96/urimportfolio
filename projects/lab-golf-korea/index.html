@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>L.A.B. GOLF KOREA — UI/UX Case Study | Choi Yoolim</title>
-<meta name="description" content="L.A.B. GOLF KOREA case study — localized commerce, responsive product discovery, custom putter configuration, fitting reservation, Cafe24 implementation, and AI-assisted visual production.">
+<meta name="description" content="L.A.B. GOLF KOREA UI/UX case study by Choi Yoolim — localization, responsive commerce, custom configuration, fitting reservation, Cafe24 implementation, and AI-assisted visual production.">
+
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -12,54 +13,56 @@
 :root{
   --bg:#f7f6f2;
   --paper:#ffffff;
-  --ink:#101010;
-  --soft:#5e6065;
-  --muted:#9a9b9c;
-  --line:#d9d8d2;
-  --deep:#0e1425;
-  --accent:#695cff;
+  --ink:#111111;
+  --text:#3f4146;
+  --soft:#606269;
+  --muted:#96989d;
+  --line:#d7d6d0;
+  --dark:#111827;
+  --accent:#6257ff;
   --max:1180px;
   --pad:clamp(20px,4vw,56px);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:'Inter','Pretendard',system-ui,-apple-system,sans-serif;
+  font-family:'Inter','Pretendard',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 img{display:block;width:100%;height:auto}
-a{text-decoration:none;color:inherit}
+a{color:inherit;text-decoration:none}
 .wrap{width:min(100%,var(--max));margin:0 auto;padding-inline:var(--pad)}
 
-.topbar{
-  position:sticky;top:0;z-index:60;
+/* HEADER */
+.site-header{
+  position:sticky;top:0;z-index:50;
   background:rgba(247,246,242,.92);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(16,16,16,.08);
+  border-bottom:1px solid rgba(17,17,17,.08);
 }
-.topbar-inner{
+.header-inner{
   min-height:64px;
   display:flex;align-items:center;justify-content:space-between;gap:20px;
 }
 .identity{display:flex;align-items:baseline;gap:10px}
 .identity strong{font-size:14px;font-weight:800}
 .identity span{font-size:11px;color:var(--muted)}
-.back{
-  border:1px solid #c9c8c2;
-  border-radius:999px;
+.back-link{
   padding:9px 14px;
+  border:1px solid #c8c7c1;
+  border-radius:999px;
   font-size:12px;
-  color:#525357;
-  background:rgba(255,255,255,.4);
+  color:#53555a;
 }
 
 /* HERO */
-.hero{padding:92px 0 72px}
-.kicker{
+.hero{padding:94px 0 78px}
+.eyebrow{
   display:block;
   margin-bottom:16px;
   font-size:11px;
@@ -69,197 +72,206 @@ a{text-decoration:none;color:inherit}
 }
 .hero h1{
   margin:0;
-  max-width:940px;
-  font-size:clamp(58px,8.2vw,108px);
+  max-width:930px;
+  font-size:clamp(58px,8vw,106px);
   line-height:.9;
   letter-spacing:-.065em;
   font-weight:800;
 }
-.hero-intro{
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(310px,.85fr);
-  gap:84px;
+.hero-grid{
   margin-top:52px;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+  gap:82px;
   align-items:start;
 }
-.hero-intro p{
+.hero-lead{
   margin:0;
-  max-width:720px;
-  font-size:17px;
+  max-width:700px;
+  font-size:18px;
   line-height:1.82;
-  color:#3f4146;
+  color:var(--text);
 }
-.project-meta{border-top:1px solid #bfc0ba}
-.project-meta div{
+.meta-list{border-top:1px solid #bfc0ba}
+.meta-row{
   display:grid;
-  grid-template-columns:100px 1fr;
+  grid-template-columns:104px 1fr;
   gap:18px;
-  padding:14px 0;
+  padding:15px 0;
   border-bottom:1px solid #d0d0ca;
 }
-.project-meta span{
+.meta-row span{
   font-size:10px;
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--muted);
 }
-.project-meta strong{
-  font-size:12px;
-  line-height:1.5;
+.meta-row strong{
+  font-size:13px;
+  line-height:1.55;
   font-weight:600;
-  color:#36373b;
+  color:#383a3f;
 }
-.hero-image{
+.hero-visual{
   margin-top:46px;
+}
+.hero-visual img{
+  aspect-ratio:2/1;
+  object-fit:cover;
+  object-position:top center;
   border:1px solid #d3d2cc;
   background:#fff;
 }
-.hero-image img{aspect-ratio:2/1;object-fit:cover;object-position:top center}
 .caption{
   display:flex;
   justify-content:space-between;
   gap:18px;
-  padding-top:10px;
-  font-size:10px;
-  line-height:1.5;
+  margin-top:10px;
+  font-size:11px;
+  line-height:1.55;
   color:var(--muted);
 }
-.caption strong{color:#4b4c50;font-weight:600}
+.caption strong{color:#4c4e53;font-weight:600}
 
-/* GENERIC */
+/* CORE LAYOUT */
 .section{
-  padding:110px 0;
+  padding:104px 0;
   border-top:1px solid var(--line);
 }
 .section-head{
   display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
   align-items:start;
-  margin-bottom:48px;
+  margin-bottom:46px;
 }
-.section-no{
+.section-index{
   font-size:11px;
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--muted);
 }
-.section-title h2{
+.section-copy h2{
   margin:0;
-  max-width:820px;
-  font-size:clamp(40px,5vw,64px);
-  line-height:.97;
+  max-width:790px;
+  font-size:clamp(39px,4.8vw,60px);
+  line-height:.98;
   letter-spacing:-.05em;
   font-weight:800;
 }
-.section-title p{
-  margin:20px 0 0;
-  max-width:700px;
-  font-size:14px;
+.section-copy p{
+  margin:18px 0 0;
+  max-width:690px;
+  font-size:16px;
   line-height:1.82;
   color:var(--soft);
 }
 
 /* OVERVIEW */
-.overview-grid{
+.overview{
   display:grid;
-  grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);
-  gap:80px;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  gap:76px;
 }
-.overview-copy p{
+.long-copy p{
   margin:0;
-  max-width:720px;
-  font-size:16px;
+  max-width:700px;
+  font-size:17px;
   line-height:1.86;
-  color:#404247;
+  color:var(--text);
 }
-.overview-copy p+p{margin-top:18px}
-.fact-table{border-top:1px solid #bfc0ba}
-.fact-row{
+.long-copy p+p{margin-top:18px}
+.facts{border-top:1px solid #bfc0ba}
+.fact{
   display:grid;
-  grid-template-columns:105px 1fr;
+  grid-template-columns:110px 1fr;
   gap:18px;
-  padding:15px 0;
+  padding:16px 0;
   border-bottom:1px solid #d0d0ca;
 }
-.fact-row span{
+.fact span{
   font-size:10px;
-  letter-spacing:.08em;
   text-transform:uppercase;
+  letter-spacing:.08em;
   color:var(--muted);
 }
-.fact-row strong{
-  font-size:12px;
-  line-height:1.5;
+.fact strong{
+  font-size:13px;
+  line-height:1.55;
   font-weight:600;
-  color:#38393d;
+  color:#3b3c40;
 }
 
-/* CHALLENGES */
+/* CHALLENGE */
 .challenge-list{border-top:1px solid #bfc0ba}
 .challenge-row{
   display:grid;
-  grid-template-columns:52px 210px minmax(0,1fr);
-  gap:28px;
-  padding:25px 0;
+  grid-template-columns:48px 200px minmax(0,1fr);
+  gap:24px;
+  padding:26px 0;
   border-bottom:1px solid #d0d0ca;
 }
 .challenge-row .n{font-size:10px;color:var(--muted)}
-.challenge-row h3{margin:0;font-size:16px;letter-spacing:-.02em}
+.challenge-row h3{
+  margin:0;
+  font-size:17px;
+  letter-spacing:-.02em;
+}
 .challenge-row p{
   margin:0;
   max-width:650px;
-  font-size:13px;
-  line-height:1.78;
+  font-size:15px;
+  line-height:1.76;
   color:var(--soft);
 }
 
-/* STRATEGY BAND */
+/* STRATEGY */
 .strategy{
-  background:var(--deep);
+  padding:86px 0;
+  background:var(--dark);
   color:#fff;
 }
-.strategy .wrap{padding-top:86px;padding-bottom:86px}
 .strategy-grid{
   display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
 }
-.strategy .section-no{color:rgba(255,255,255,.4)}
+.strategy .section-index{color:rgba(255,255,255,.38)}
 .strategy h2{
   margin:0;
-  max-width:800px;
-  font-size:clamp(38px,4.8vw,60px);
+  max-width:760px;
+  font-size:clamp(38px,4.6vw,58px);
   line-height:.98;
   letter-spacing:-.05em;
 }
 .strategy p{
   margin:18px 0 0;
-  max-width:690px;
-  font-size:14px;
-  line-height:1.8;
-  color:rgba(255,255,255,.66);
+  max-width:680px;
+  font-size:16px;
+  line-height:1.78;
+  color:rgba(255,255,255,.68);
 }
 .journey{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:34px;
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:30px;
 }
 .journey span{
   padding:8px 11px;
   border:1px solid rgba(255,255,255,.18);
   border-radius:999px;
-  font-size:10px;
-  color:rgba(255,255,255,.8);
+  font-size:11px;
+  color:rgba(255,255,255,.82);
 }
 
 /* SOLUTION */
-.solution{padding:108px 0;border-top:1px solid var(--line)}
+.solution{
+  padding:102px 0;
+  border-top:1px solid var(--line);
+}
 .solution-head{
   display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
   margin-bottom:34px;
 }
 .solution-label{
@@ -270,123 +282,126 @@ a{text-decoration:none;color:inherit}
 }
 .solution-head h3{
   margin:0;
-  max-width:780px;
-  font-size:clamp(34px,4vw,50px);
+  max-width:740px;
+  font-size:clamp(33px,3.8vw,48px);
   line-height:1;
   letter-spacing:-.045em;
 }
 .solution-head p{
-  margin:16px 0 0;
-  max-width:690px;
-  font-size:13px;
-  line-height:1.82;
+  margin:15px 0 0;
+  max-width:670px;
+  font-size:15px;
+  line-height:1.8;
   color:var(--soft);
 }
 
 /* IMAGE SYSTEM */
-.desktop-shot{
+.desktop{
   margin:0;
-  border:1px solid #d4d3cd;
-  background:#fff;
 }
-.desktop-shot img{
+.desktop img{
+  width:100%;
   aspect-ratio:2/1;
   object-fit:contain;
   object-position:top center;
+  border:1px solid #d4d3cd;
+  background:#fff;
 }
-.pair{
+.pc-mobile{
   display:grid;
-  grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);
-  gap:22px;
+  grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);
+  gap:28px;
   align-items:start;
 }
-.mobile-shot{
+.mobile{
   margin:0;
-  max-width:300px;
+  width:min(100%,290px);
   justify-self:center;
 }
-.mobile-shot img{
-  width:100%;
-  height:auto;
+.mobile img{
   border:1px solid #d4d3cd;
   background:#fff;
 }
 .mobile-row{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
-  align-items:start;
+  gap:28px;
   justify-items:center;
+  align-items:start;
+  max-width:960px;
+  margin-inline:auto;
 }
-.mobile-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.mobile-row .mobile-shot{width:min(100%,290px)}
+.mobile-row.two{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:680px;
+}
 .design-note{
   display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
-  margin-top:24px;
-  padding:22px 0;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
+  margin-top:25px;
+  padding:23px 0;
   border-top:1px solid #d0d0ca;
   border-bottom:1px solid #d0d0ca;
 }
 .design-note span{
   font-size:10px;
-  letter-spacing:.08em;
   text-transform:uppercase;
+  letter-spacing:.08em;
   color:var(--muted);
 }
 .design-note p{
   margin:0;
-  max-width:700px;
-  font-size:13px;
-  line-height:1.78;
+  max-width:650px;
+  font-size:15px;
+  line-height:1.75;
   color:var(--soft);
 }
 
 /* FITTING */
-.booking-proof{
+.booking{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 300px;
-  gap:64px;
+  grid-template-columns:minmax(0,1fr) 290px;
+  gap:54px;
   align-items:start;
-  margin-top:42px;
+  margin-top:40px;
   padding-top:34px;
   border-top:1px solid #d0d0ca;
 }
-.booking-proof h4{
+.booking h4{
   margin:0 0 14px;
-  max-width:540px;
-  font-size:clamp(25px,2.8vw,34px);
+  max-width:550px;
+  font-size:clamp(26px,2.7vw,34px);
   line-height:1.08;
   letter-spacing:-.04em;
 }
-.booking-proof p{
+.booking p{
   margin:0;
   max-width:560px;
-  font-size:13px;
-  line-height:1.82;
+  font-size:15px;
+  line-height:1.78;
   color:var(--soft);
 }
-.booking-proof .mobile-shot{justify-self:end}
+.booking .mobile{justify-self:end}
 
 /* AI */
-.ai-note{
-  max-width:700px;
-  margin:0 0 34px 214px;
+.ai-intro{
+  max-width:680px;
+  margin:0 0 34px 200px;
   padding-left:18px;
   border-left:2px solid var(--accent);
-  font-size:13px;
-  line-height:1.8;
+  font-size:15px;
+  line-height:1.78;
   color:var(--soft);
 }
-.ai-note strong{color:#26272b}
-.ai-grid{
+.ai-intro strong{color:#25262a}
+.ai-key{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
+  gap:28px;
 }
-.ai-card{margin:0}
-.ai-card img{
+.ai-key figure{margin:0}
+.ai-key img{
   aspect-ratio:4/3;
   object-fit:cover;
   border:1px solid #d4d3cd;
@@ -396,990 +411,257 @@ a{text-decoration:none;color:inherit}
   display:grid;
   grid-template-columns:repeat(2,300px);
   justify-content:center;
-  gap:30px;
-  margin-top:28px;
+  gap:34px;
+  margin-top:34px;
 }
 
 /* RESULTS */
-.result-list{border-top:1px solid #bfc0ba}
+.results{border-top:1px solid #bfc0ba}
 .result-row{
   display:grid;
-  grid-template-columns:52px 230px minmax(0,1fr);
-  gap:28px;
+  grid-template-columns:48px 220px minmax(0,1fr);
+  gap:24px;
   padding:24px 0;
   border-bottom:1px solid #d0d0ca;
 }
 .result-row .n{font-size:10px;color:var(--muted)}
-.result-row strong{font-size:14px}
+.result-row strong{font-size:16px}
 .result-row p{
   margin:0;
-  max-width:650px;
-  font-size:13px;
-  line-height:1.75;
+  max-width:640px;
+  font-size:15px;
+  line-height:1.72;
   color:var(--soft);
 }
+.takeaway{
+  display:grid;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
+  margin-top:34px;
+  padding-top:28px;
+}
+.takeaway span{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+.takeaway p{
+  margin:0;
+  max-width:700px;
+  font-size:19px;
+  line-height:1.62;
+  letter-spacing:-.02em;
+  color:#292a2e;
+}
 
+/* FOOTER */
 footer{
-  padding:68px 0 84px;
+  padding:62px 0 78px;
   border-top:1px solid var(--line);
 }
 .footer-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:24px;
+  display:flex;justify-content:space-between;align-items:end;gap:24px;
 }
 .footer-inner h2{
   margin:0;
-  max-width:700px;
-  font-size:clamp(34px,4.8vw,58px);
+  max-width:680px;
+  font-size:clamp(34px,4.5vw,54px);
   line-height:.98;
   letter-spacing:-.05em;
 }
 .footer-inner a{
-  border:1px solid #c8c7c1;
+  border:1px solid #c7c6c0;
   border-radius:999px;
   padding:12px 16px;
   font-size:12px;
-  color:#55565a;
+  color:#56575b;
 }
 
+/* RESPONSIVE */
 @media(max-width:960px){
-  .hero-intro,.overview-grid{grid-template-columns:1fr;gap:34px}
-  .section-head,.strategy-grid,.solution-head,.design-note{grid-template-columns:1fr;gap:14px}
-  .pair{grid-template-columns:1fr}
-  .booking-proof{grid-template-columns:1fr;gap:28px}
-  .booking-proof .mobile-shot{justify-self:start}
-  .ai-note{margin-left:0}
+  .hero-grid,.overview{grid-template-columns:1fr;gap:34px}
+  .section-head,.strategy-grid,.solution-head,.design-note,.takeaway{
+    grid-template-columns:1fr;gap:12px;
+  }
+  .pc-mobile{grid-template-columns:1fr}
+  .booking{grid-template-columns:1fr;gap:28px}
+  .booking .mobile{justify-self:start}
+  .ai-intro{margin-left:0}
 }
 @media(max-width:640px){
   :root{--pad:18px}
   .identity span{display:none}
-  .hero{padding:58px 0 44px}
-  .hero h1{font-size:clamp(48px,15vw,72px)}
-  .hero-intro p{font-size:14px}
-  .section{padding:74px 0}
-  .section-title h2{font-size:clamp(34px,10.5vw,45px)}
-  .overview-copy p{font-size:13px}
+  .hero{padding:56px 0 50px}
+  .hero h1{font-size:clamp(48px,15vw,70px)}
+  .hero-lead,.long-copy p{font-size:15px}
+  .section,.solution{padding:72px 0}
+  .section-copy h2{font-size:clamp(34px,10vw,44px)}
+  .section-copy p,.solution-head p,.strategy p{font-size:14px}
   .challenge-row{
-    grid-template-columns:32px 1fr;
+    grid-template-columns:30px 1fr;
     gap:12px;
   }
   .challenge-row h3,.challenge-row p{grid-column:2}
-  .strategy .wrap{padding-top:66px;padding-bottom:66px}
-  .solution{padding:74px 0}
-  .solution-head h3{font-size:clamp(28px,9.8vw,39px)}
-  .mobile-row,.mobile-row.two,.ai-grid,.ai-applied{grid-template-columns:1fr}
-  .mobile-shot,.mobile-row .mobile-shot,.ai-applied .mobile-shot{
+  .challenge-row p{font-size:14px}
+  .strategy{padding:68px 0}
+  .strategy h2{font-size:clamp(32px,10vw,43px)}
+  .solution-head h3{font-size:clamp(28px,9.6vw,38px)}
+  .mobile-row,.mobile-row.two,.ai-key,.ai-applied{
+    grid-template-columns:1fr;
+    max-width:none;
+  }
+  .mobile,.mobile-row .mobile,.ai-applied .mobile{
     width:min(100%,320px);
     max-width:320px;
     margin-inline:auto;
   }
-  .ai-applied{justify-content:stretch}
+  .design-note p,.booking p,.ai-intro,.result-row p{font-size:14px}
   .result-row{
-    grid-template-columns:32px 1fr;
+    grid-template-columns:30px 1fr;
     gap:12px;
   }
   .result-row strong,.result-row p{grid-column:2}
+  .takeaway p{font-size:17px}
   .footer-inner{display:block}
   .footer-inner a{display:inline-block;margin-top:22px}
 }
-
-/* =========================================================
-   DEAN-INSPIRED DEVELOPMENT
-   Stronger point of view + clearer strategic storytelling
-   ========================================================= */
-
-.project-statement{
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
-  padding:24px 0;
-  border-top:1px solid #cfcfca;
-  border-bottom:1px solid #cfcfca;
-}
-.project-statement .label{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.project-statement p{
-  margin:0;
-  max-width:760px;
-  font-size:18px;
-  line-height:1.7;
-  letter-spacing:-.015em;
-  color:#26272a;
-}
-.project-statement strong{font-weight:700;}
-
-.role-highlight{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  border-top:1px solid #d0d0ca;
-  border-bottom:1px solid #d0d0ca;
-}
-.role-highlight article{
-  padding:22px 22px 24px 0;
-  border-right:1px solid #d0d0ca;
-}
-.role-highlight article:not(:first-child){padding-left:22px;}
-.role-highlight article:last-child{border-right:0;}
-.role-highlight span{
-  display:block;
-  margin-bottom:18px;
-  font-size:9px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.role-highlight h3{
-  margin:0 0 8px;
-  font-size:18px;
-  line-height:1.15;
-  letter-spacing:-.03em;
-}
-.role-highlight p{
-  margin:0;
-  font-size:12px;
-  line-height:1.7;
-  color:var(--soft);
-}
-
-.section-pullquote{
-  margin:44px 0 0 214px;
-  max-width:740px;
-  font-size:clamp(24px,3vw,36px);
-  line-height:1.15;
-  letter-spacing:-.035em;
-  font-weight:700;
-  color:#1b1c1f;
-}
-.section-pullquote em{
-  font-style:normal;
-  color:var(--accent);
-}
-
-.solution-dark{
-  background:var(--deep);
-  color:#fff;
-}
-.solution-dark .solution-label{color:rgba(255,255,255,.4);}
-.solution-dark .solution-head p{color:rgba(255,255,255,.62);}
-.solution-dark .design-note{
-  border-color:rgba(255,255,255,.16);
-}
-.solution-dark .design-note span{color:rgba(255,255,255,.42);}
-.solution-dark .design-note p{color:rgba(255,255,255,.64);}
-.solution-dark .caption{color:rgba(255,255,255,.45);}
-.solution-dark .caption strong{color:rgba(255,255,255,.82);}
-.solution-dark .mobile-shot img,
-.solution-dark .desktop-shot{
-  border-color:rgba(255,255,255,.16);
-}
-.solution-dark .desktop-shot{background:#fff;}
-
-.process-note{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
-}
-.process-note > span{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-}
-.process-note ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  border-top:1px solid #d0d0ca;
-}
-.process-note li{
-  display:grid;
-  grid-template-columns:44px 190px 1fr;
-  gap:18px;
-  padding:16px 0;
-  border-bottom:1px solid #d0d0ca;
-  font-size:12px;
-  line-height:1.65;
-  color:var(--soft);
-}
-.process-note li b{color:#2d2e31;font-weight:600;}
-.process-note li span{color:var(--muted);}
-
-.final-takeaway{
-  margin-top:42px;
-  padding:34px 0 0;
-  border-top:1px solid #d0d0ca;
-  display:grid;
-  grid-template-columns:170px minmax(0,1fr);
-  gap:44px;
-}
-.final-takeaway .label{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-}
-.final-takeaway p{
-  margin:0;
-  max-width:760px;
-  font-size:20px;
-  line-height:1.62;
-  letter-spacing:-.02em;
-  color:#27282b;
-}
-
-@media(max-width:960px){
-  .project-statement,
-  .process-note,
-  .final-takeaway{
-    grid-template-columns:1fr;
-    gap:12px;
-  }
-  .section-pullquote{margin-left:0;}
-  .role-highlight{grid-template-columns:1fr;}
-  .role-highlight article,
-  .role-highlight article:not(:first-child){
-    padding:20px 0;
-    border-right:0;
-    border-bottom:1px solid #d0d0ca;
-  }
-  .role-highlight article:last-child{border-bottom:0;}
-}
-
-@media(max-width:640px){
-  .project-statement p{font-size:16px;}
-  .section-pullquote{font-size:26px;}
-  .process-note li{
-    grid-template-columns:30px 1fr;
-    gap:10px;
-  }
-  .process-note li b,
-  .process-note li p{grid-column:2;}
-  .final-takeaway p{font-size:17px;}
-}
-
-
-/* =========================================================
-   FINAL CLEANUP — CONSISTENT EDITORIAL CASE STUDY
-   ========================================================= */
-
-body{
-  background:#f6f5f1 !important;
-}
-
-/* Stronger, calmer page rhythm */
-.hero{
-  padding-top:92px !important;
-  padding-bottom:82px !important;
-}
-section.section,
-section.solution{
-  padding-top:104px !important;
-  padding-bottom:104px !important;
-}
-.section-head,
-.solution-head{
-  margin-bottom:42px !important;
-}
-.section-title h2,
-.solution-head h3{
-  max-width:760px !important;
-}
-.section-title p,
-.solution-head p{
-  max-width:660px !important;
-}
-
-/* Reduce visual noise from added secondary elements */
-.project-statement{
-  margin-top:34px !important;
-  padding:20px 0 !important;
-}
-.project-statement p{
-  font-size:16px !important;
-  line-height:1.7 !important;
-}
-
-.role-highlight{
-  margin-top:38px !important;
-}
-.role-highlight article{
-  min-height:150px !important;
-}
-.role-highlight h3{
-  font-size:17px !important;
-}
-.role-highlight p{
-  font-size:11.5px !important;
-}
-
-/* Challenges quote: keep it editorial, not oversized */
-.section-pullquote{
-  margin:36px 0 0 214px !important;
-  max-width:660px !important;
-  font-size:clamp(22px,2.6vw,31px) !important;
-  line-height:1.2 !important;
-  font-weight:650 !important;
-}
-
-/* Strategy band becomes a clean white/cream section */
-.strategy.strategy-light{
-  background:transparent !important;
-  color:var(--ink) !important;
-  border-top:1px solid var(--line) !important;
-}
-.strategy.strategy-light .wrap{
-  padding-top:104px !important;
-  padding-bottom:104px !important;
-}
-.strategy.strategy-light .section-no{
-  color:var(--muted) !important;
-}
-.strategy.strategy-light h2{
-  color:var(--ink) !important;
-}
-.strategy.strategy-light p{
-  color:var(--soft) !important;
-}
-.strategy.strategy-light .journey span{
-  border-color:#cfcfca !important;
-  color:#55565a !important;
-  background:rgba(255,255,255,.35) !important;
-}
-
-/* Images should feel intentional, not tiny */
-.desktop-shot img,
-.hero-image img{
-  width:100% !important;
-}
-.pair{
-  grid-template-columns:minmax(0,1.5fr) minmax(260px,.5fr) !important;
-  gap:30px !important;
-}
-.mobile-row{
-  max-width:980px !important;
-  margin-inline:auto !important;
-}
-.mobile-row .mobile-shot{
-  width:min(100%,300px) !important;
-}
-.mobile-row.two{
-  max-width:700px !important;
-}
-.mobile-row.two .mobile-shot{
-  width:min(100%,310px) !important;
-}
-
-/* Fitting reservation proof should read as one story */
-.booking-proof{
-  grid-template-columns:minmax(0,1fr) 280px !important;
-  gap:54px !important;
-  margin-top:36px !important;
-}
-.booking-proof h4{
-  font-size:clamp(24px,2.5vw,32px) !important;
-}
-.booking-proof p{
-  max-width:530px !important;
-}
-
-/* AI: key visuals larger, mobile applications smaller and aligned */
-.ai-note{
-  margin-left:214px !important;
-  max-width:660px !important;
-  margin-bottom:30px !important;
-}
-.process-note{
-  margin-top:26px !important;
-}
-.process-note li{
-  grid-template-columns:40px 180px 1fr !important;
-}
-#ai .ai-grid{
-  margin-top:36px !important;
-}
-#ai .ai-applied{
-  margin-top:34px !important;
-}
-
-/* Results: no extra stacked heaviness */
-.final-takeaway{
-  margin-top:34px !important;
-  padding-top:28px !important;
-}
-.final-takeaway p{
-  font-size:18px !important;
-  line-height:1.6 !important;
-}
-
-/* Footer tighter */
-footer{
-  padding-top:58px !important;
-  padding-bottom:70px !important;
-}
-
-/* Mobile */
-@media(max-width:960px){
-  .section-pullquote,
-  .ai-note{
-    margin-left:0 !important;
-  }
-}
-
-@media(max-width:640px){
-  .hero{
-    padding-top:56px !important;
-    padding-bottom:54px !important;
-  }
-  section.section,
-  section.solution,
-  .strategy.strategy-light .wrap{
-    padding-top:72px !important;
-    padding-bottom:72px !important;
-  }
-  .role-highlight article{
-    min-height:0 !important;
-  }
-  .section-pullquote{
-    font-size:24px !important;
-  }
-  .pair{
-    grid-template-columns:1fr !important;
-  }
-  .mobile-row,
-  .mobile-row.two{
-    max-width:none !important;
-  }
-}
-
-
-/* =========================================================
-   FINAL CALM EDITORIAL SYSTEM
-   Larger body type, fewer visual interruptions
-   ========================================================= */
-
-:root{
-  --max:1120px !important;
-  --pad:clamp(24px,4vw,52px) !important;
-}
-
-body{
-  background:#f7f6f2 !important;
-  color:#111 !important;
-}
-
-.wrap{
-  width:min(100%,1120px) !important;
-}
-
-.hero{
-  padding-top:88px !important;
-  padding-bottom:84px !important;
-}
-
-.hero h1{
-  max-width:860px !important;
-  font-size:clamp(58px,7.7vw,100px) !important;
-  line-height:.91 !important;
-}
-
-.hero-intro{
-  gap:72px !important;
-}
-
-.hero-intro p{
-  font-size:18px !important;
-  line-height:1.82 !important;
-  max-width:690px !important;
-  color:#3f4146 !important;
-}
-
-.project-statement.simple{
-  grid-template-columns:150px minmax(0,1fr) !important;
-  gap:34px !important;
-  margin-top:34px !important;
-  padding:20px 0 !important;
-}
-
-.project-statement.simple p{
-  margin:0 !important;
-  max-width:720px !important;
-  font-size:17px !important;
-  line-height:1.72 !important;
-  color:#303135 !important;
-}
-
-.project-meta div{
-  padding:16px 0 !important;
-}
-
-.project-meta strong{
-  font-size:13px !important;
-  line-height:1.55 !important;
-}
-
-.hero-image{
-  margin-top:44px !important;
-}
-
-section.section,
-section.solution{
-  padding-top:96px !important;
-  padding-bottom:96px !important;
-}
-
-.section-head,
-.solution-head{
-  grid-template-columns:150px minmax(0,1fr) !important;
-  gap:34px !important;
-  margin-bottom:40px !important;
-}
-
-.section-no,
-.solution-label{
-  font-size:11px !important;
-}
-
-.section-title h2{
-  max-width:760px !important;
-  font-size:clamp(38px,4.6vw,58px) !important;
-  line-height:.99 !important;
-}
-
-.section-title p,
-.solution-head p{
-  font-size:16px !important;
-  line-height:1.78 !important;
-  max-width:680px !important;
-  color:#55575c !important;
-}
-
-.overview-grid{
-  gap:68px !important;
-}
-
-.overview-copy p{
-  font-size:17px !important;
-  line-height:1.84 !important;
-  max-width:690px !important;
-  color:#3f4146 !important;
-}
-
-.fact-row{
-  padding:17px 0 !important;
-}
-
-.fact-row span{
-  font-size:11px !important;
-}
-
-.fact-row strong{
-  font-size:13px !important;
-  line-height:1.55 !important;
-}
-
-.challenge-row{
-  grid-template-columns:48px 190px minmax(0,1fr) !important;
-  gap:24px !important;
-  padding:27px 0 !important;
-}
-
-.challenge-row h3{
-  font-size:17px !important;
-}
-
-.challenge-row p{
-  font-size:15px !important;
-  line-height:1.75 !important;
-  max-width:620px !important;
-  color:#55575c !important;
-}
-
-/* Keep design direction, but make it quiet and integrated */
-.strategy.strategy-light{
-  background:#f1f0eb !important;
-  border-top:1px solid #d9d8d2 !important;
-  border-bottom:1px solid #d9d8d2 !important;
-}
-
-.strategy.strategy-light .wrap{
-  padding-top:82px !important;
-  padding-bottom:82px !important;
-}
-
-.strategy.strategy-light h2{
-  font-size:clamp(36px,4.4vw,54px) !important;
-  max-width:720px !important;
-}
-
-.strategy.strategy-light p{
-  font-size:16px !important;
-  line-height:1.78 !important;
-  max-width:650px !important;
-}
-
-.strategy.strategy-light .journey{
-  margin-top:28px !important;
-}
-
-.strategy.strategy-light .journey span{
-  font-size:11px !important;
-  padding:8px 11px !important;
-}
-
-.solution{
-  margin-top:0 !important;
-}
-
-.solution-head h3{
-  max-width:720px !important;
-  font-size:clamp(32px,3.8vw,47px) !important;
-  line-height:1.02 !important;
-}
-
-.pair{
-  grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr) !important;
-  gap:28px !important;
-}
-
-.mobile-row{
-  gap:28px !important;
-  max-width:960px !important;
-  margin-inline:auto !important;
-}
-
-.mobile-row.two{
-  max-width:680px !important;
-}
-
-.mobile-row .mobile-shot{
-  width:min(100%,290px) !important;
-}
-
-.caption{
-  font-size:12px !important;
-  line-height:1.6 !important;
-  margin-top:12px !important;
-}
-
-.design-note{
-  grid-template-columns:150px minmax(0,1fr) !important;
-  gap:34px !important;
-  padding:24px 0 !important;
-}
-
-.design-note span{
-  font-size:11px !important;
-}
-
-.design-note p{
-  font-size:15px !important;
-  line-height:1.75 !important;
-  max-width:650px !important;
-}
-
-.booking-proof{
-  grid-template-columns:minmax(0,1fr) 280px !important;
-  gap:48px !important;
-}
-
-.booking-proof h4{
-  font-size:30px !important;
-}
-
-.booking-proof p{
-  font-size:15px !important;
-  line-height:1.75 !important;
-}
-
-.ai-note{
-  margin-left:184px !important;
-  max-width:650px !important;
-  font-size:15px !important;
-  line-height:1.78 !important;
-}
-
-.ai-grid{
-  gap:28px !important;
-}
-
-.ai-applied{
-  gap:34px !important;
-  margin-top:34px !important;
-}
-
-.result-row{
-  grid-template-columns:48px 220px minmax(0,1fr) !important;
-  gap:24px !important;
-  padding:25px 0 !important;
-}
-
-.result-row strong{
-  font-size:16px !important;
-}
-
-.result-row p{
-  font-size:15px !important;
-  line-height:1.72 !important;
-  max-width:620px !important;
-}
-
-footer{
-  padding-top:62px !important;
-  padding-bottom:74px !important;
-}
-
-.footer-inner h2{
-  font-size:clamp(32px,4.2vw,50px) !important;
-}
-
-/* Kill leftover styling from removed noisy blocks */
-.role-highlight,
-.section-pullquote,
-.process-note,
-.final-takeaway{
-  display:none !important;
-}
-
-@media(max-width:960px){
-  .project-statement.simple,
-  .section-head,
-  .solution-head,
-  .design-note{
-    grid-template-columns:1fr !important;
-    gap:12px !important;
-  }
-
-  .hero-intro,
-  .overview-grid{
-    grid-template-columns:1fr !important;
-    gap:32px !important;
-  }
-
-  .ai-note{
-    margin-left:0 !important;
-  }
-}
-
-@media(max-width:640px){
-  :root{
-    --pad:18px !important;
-  }
-
-  .hero{
-    padding-top:56px !important;
-    padding-bottom:52px !important;
-  }
-
-  .hero h1{
-    font-size:clamp(48px,15vw,70px) !important;
-  }
-
-  .hero-intro p,
-  .overview-copy p{
-    font-size:15px !important;
-    line-height:1.74 !important;
-  }
-
-  .project-statement.simple p{
-    font-size:15px !important;
-  }
-
-  section.section,
-  section.solution,
-  .strategy.strategy-light .wrap{
-    padding-top:70px !important;
-    padding-bottom:70px !important;
-  }
-
-  .section-title h2{
-    font-size:clamp(33px,10vw,43px) !important;
-  }
-
-  .section-title p,
-  .solution-head p,
-  .strategy.strategy-light p{
-    font-size:14px !important;
-    line-height:1.72 !important;
-  }
-
-  .challenge-row{
-    grid-template-columns:30px 1fr !important;
-    gap:12px !important;
-  }
-
-  .challenge-row h3,
-  .challenge-row p{
-    grid-column:2 !important;
-  }
-
-  .challenge-row p{
-    font-size:14px !important;
-  }
-
-  .pair,
-  .mobile-row,
-  .mobile-row.two,
-  .ai-grid,
-  .ai-applied{
-    grid-template-columns:1fr !important;
-    max-width:none !important;
-  }
-
-  .mobile-shot,
-  .mobile-row .mobile-shot,
-  .booking-proof .mobile-shot{
-    width:min(100%,320px) !important;
-    max-width:320px !important;
-    margin-inline:auto !important;
-  }
-
-  .design-note p,
-  .booking-proof p,
-  .ai-note,
-  .result-row p{
-    font-size:14px !important;
-  }
-
-  .booking-proof{
-    grid-template-columns:1fr !important;
-    gap:26px !important;
-  }
-
-  .result-row{
-    grid-template-columns:30px 1fr !important;
-    gap:12px !important;
-  }
-
-  .result-row strong,
-  .result-row p{
-    grid-column:2 !important;
-  }
-}
-
 </style>
 </head>
+
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
+<header class="site-header">
+  <div class="wrap header-inner">
     <div class="identity">
       <strong>Choi Yoolim</strong>
       <span>UI/UX Designer · Web Publisher</span>
     </div>
-    <a class="back" href="../../#work">← Selected Works</a>
+    <a class="back-link" href="../../#work">← Selected Works</a>
   </div>
 </header>
 
 <main>
+
   <section class="hero">
     <div class="wrap">
-      <span class="kicker">UI/UX Case Study · L.A.B. GOLF KOREA</span>
+      <span class="eyebrow">UI/UX Case Study · L.A.B. GOLF KOREA</span>
       <h1>Bringing L.A.B. GOLF<br>to the Korean market.</h1>
 
-      <div class="hero-intro">
-        <p>
+      <div class="hero-grid">
+        <p class="hero-lead">
           미국에서 운영되던 L.A.B. GOLF가 한국 공식 유통 계약을 통해 판매를 시작하면서,
           국내 고객을 위한 별도 온라인 커머스 플랫폼이 필요했습니다.
-          브랜드 이해, 제품 탐색, 커스텀 옵션, 피팅 예약까지 하나의 사용자 여정으로 연결하고
-          실제 Cafe24 환경에 구현했습니다.
+          브랜드 이해부터 제품 비교, 커스텀 옵션 선택, 피팅 예약까지
+          실제 구매와 방문으로 이어지는 경험을 설계하고 Cafe24에 구현했습니다.
         </p>
 
-        <div class="project-meta">
-          <div><span>Role</span><strong>UI/UX Design · Responsive Publishing · Front-end</strong></div>
-          <div><span>Platform</span><strong>Cafe24</strong></div>
-          <div><span>Scope</span><strong>Home · PLP · PDP · Custom Flow · Fitting</strong></div>
-          <div><span>Market</span><strong>South Korea</strong></div>
+        <div class="meta-list">
+          <div class="meta-row"><span>Role</span><strong>UI/UX Design · Responsive Publishing · Front-end</strong></div>
+          <div class="meta-row"><span>Platform</span><strong>Cafe24</strong></div>
+          <div class="meta-row"><span>Scope</span><strong>Home · PLP · PDP · Custom Flow · Fitting</strong></div>
+          <div class="meta-row"><span>Market</span><strong>South Korea</strong></div>
         </div>
       </div>
 
-      <div class="project-statement simple">
-        <div class="label">Project focus</div>
-        <p>
-          I structured, designed, and implemented the Korean commerce experience —
-          from product discovery and custom configuration to fitting reservation.
-        </p>
-      </div>
-<figure class="hero-image">
+      <figure class="hero-visual">
         <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
       </figure>
-      <div class="caption"><strong>Homepage · Desktop</strong><span>Localized commerce launch</span></div>
+      <div class="caption">
+        <strong>Homepage · Desktop</strong>
+        <span>Localized commerce launch</span>
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-no">01 · Overview</div>
-        <div class="section-title">
-          <h2>Why the Korean site needed to exist.</h2>
+        <div class="section-index">01 · Context</div>
+        <div class="section-copy">
+          <h2>A new market required more than a translated storefront.</h2>
         </div>
       </div>
 
-      <div class="overview-grid">
-        <div class="overview-copy">
+      <div class="overview">
+        <div class="long-copy">
           <p>
-            기존 미국몰을 그대로 복제하는 것이 아니라,
-            한국 고객의 탐색 방식과 구매 흐름에 맞게 정보 구조를 다시 정리하는 것이 핵심이었습니다.
+            한국 판매가 시작되면서 필요한 것은 미국몰을 그대로 옮긴 페이지가 아니라,
+            한국 고객이 제품을 이해하고 구매할 수 있는 별도의 커머스 구조였습니다.
           </p>
           <p>
-            제품 판매뿐 아니라 브랜드 소개, 모델 비교, 커스텀 퍼터 옵션,
-            오프라인 피팅 서비스와 예약까지 실제 운영에 필요한 경험을 하나의 사이트 안에 통합했습니다.
+            제품 판매, 브랜드 소개, 커스텀 퍼터 옵션, 피팅 서비스와 매장 예약을
+            하나의 경험 안에서 연결하고, 실제 운영 가능한 Cafe24 환경에 맞춰 설계했습니다.
           </p>
         </div>
 
-        <div class="fact-table">
-          <div class="fact-row"><span>Business</span><strong>Official Korean distribution launch</strong></div>
-          <div class="fact-row"><span>Goal</span><strong>Localized commerce experience</strong></div>
-          <div class="fact-row"><span>Role</span><strong>Design → Publishing → Live implementation</strong></div>
-          <div class="fact-row"><span>Special</span><strong>AI-assisted visual production</strong></div>
+        <div class="facts">
+          <div class="fact"><span>Business</span><strong>Official Korean distribution launch</strong></div>
+          <div class="fact"><span>Goal</span><strong>Localized commerce experience</strong></div>
+          <div class="fact"><span>My Role</span><strong>Structure · UI/UX · Publishing · Implementation</strong></div>
+          <div class="fact"><span>Additional</span><strong>AI-assisted visual production</strong></div>
         </div>
-      </div></div>
+      </div>
+    </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-no">02 · Challenges</div>
-        <div class="section-title">
-          <h2>Turning a specialized product into a clear digital journey.</h2>
+        <div class="section-index">02 · Problem</div>
+        <div class="section-copy">
+          <h2>Complexity had to become understandable before it could become purchasable.</h2>
           <p>
-            전문 제품의 복잡성을 줄이면서도 필요한 정보는 잃지 않고,
-            한국형 커머스 환경 안에서 자연스럽게 구매와 예약으로 이어지게 해야 했습니다.
+            전문 골프 제품은 일반적인 상품보다 비교와 선택 과정이 복잡합니다.
+            사용자에게 더 많은 정보를 보여주는 대신, 필요한 정보를 올바른 순서로 보여주는 것이 핵심이었습니다.
           </p>
         </div>
       </div>
 
       <div class="challenge-list">
-        <div class="challenge-row"><div class="n">01</div><h3>Localization</h3><p>미국 브랜드의 톤과 제품 정보를 유지하면서 한국 사용자가 익숙하게 이해할 수 있는 정보 순서로 재구성.</p></div>
-        <div class="challenge-row"><div class="n">02</div><h3>Product complexity</h3><p>모델, 샤프트, 길이, 헤드 무게 등 다수의 옵션을 구매 단계에서 쉽게 판단할 수 있도록 구조화.</p></div>
-        <div class="challenge-row"><div class="n">03</div><h3>Online ↔ Offline</h3><p>온라인 제품 탐색과 오프라인 피팅 예약이 끊기지 않도록 서비스 흐름을 연결.</p></div>
-        <div class="challenge-row"><div class="n">04</div><h3>Cafe24 constraints</h3><p>실제 상품 운영, 수정, 유지보수가 가능한 Cafe24 환경 안에서 디자인을 구현.</p></div>
+        <div class="challenge-row">
+          <div class="n">01</div>
+          <h3>Localization</h3>
+          <p>미국 브랜드의 정체성과 제품 정보를 유지하면서 한국 고객에게 자연스러운 콘텐츠 순서와 표현으로 재구성했습니다.</p>
+        </div>
+        <div class="challenge-row">
+          <div class="n">02</div>
+          <h3>Product complexity</h3>
+          <p>모델, 샤프트, 길이, 헤드 무게 등 다수의 옵션을 사용자가 구매 전에 이해하고 판단할 수 있게 정리해야 했습니다.</p>
+        </div>
+        <div class="challenge-row">
+          <div class="n">03</div>
+          <h3>Online ↔ Offline</h3>
+          <p>온라인 상품 탐색과 오프라인 피팅 서비스가 별개의 경험으로 느껴지지 않도록 연결이 필요했습니다.</p>
+        </div>
+        <div class="challenge-row">
+          <div class="n">04</div>
+          <h3>Real commerce constraints</h3>
+          <p>디자인 완성도뿐 아니라 실제 상품 운영, 수정, 유지보수가 가능한 Cafe24 구조를 고려해야 했습니다.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="strategy strategy-light">
+  <section class="strategy">
     <div class="wrap">
       <div class="strategy-grid">
-        <div class="section-no">03 · Design Direction</div>
+        <div class="section-index">03 · Experience Strategy</div>
         <div>
-          <h2>A guided commerce experience, not just a product catalog.</h2>
+          <h2>Design the decision-making journey, not just the screens.</h2>
           <p>
-            사용자가 브랜드를 이해하고 제품을 비교한 뒤,
-            커스텀 옵션과 피팅 서비스까지 자연스럽게 이어질 수 있도록
-            핵심 판단 순서를 기준으로 전체 경험을 구성했습니다.
+            사용자가 사이트에서 실제로 고민하는 순서를 기준으로 전체 경험을 설계했습니다.
+            브랜드를 이해하고, 모델을 비교하고, 필요한 옵션을 선택한 뒤,
+            피팅이 필요하면 자연스럽게 예약으로 넘어가도록 흐름을 연결했습니다.
           </p>
+
           <div class="journey">
-            <span>Brand</span><span>Discover</span><span>Compare</span><span>Configure</span><span>Fitting</span><span>Purchase / Visit</span>
+            <span>Understand</span>
+            <span>Discover</span>
+            <span>Compare</span>
+            <span>Configure</span>
+            <span>Fit</span>
+            <span>Purchase / Visit</span>
           </div>
         </div>
       </div>
@@ -1389,23 +671,23 @@ footer{
   <section class="solution">
     <div class="wrap">
       <div class="solution-head">
-        <div class="solution-label">01 · Product Discovery</div>
+        <div class="solution-label">04.1 · Product Discovery</div>
         <div>
           <h3>Desktop for comparison.<br>Mobile for focus.</h3>
           <p>
-            PC에서는 여러 제품을 한눈에 비교할 수 있도록 정보 밀도를 유지하고,
-            모바일에서는 핵심 상품과 탐색 요소에 집중하도록 정보 우선순위를 다시 설계했습니다.
+            같은 정보를 단순히 축소하지 않고, 디바이스별 사용 상황에 맞춰 정보 우선순위를 달리했습니다.
+            PC는 여러 모델을 비교하기 위한 밀도를 유지하고, 모바일은 상품 탐색과 다음 행동에 집중했습니다.
           </p>
         </div>
       </div>
 
-      <div class="pair">
-        <figure class="desktop-shot">
+      <div class="pc-mobile">
+        <figure class="desktop">
           <img src="./assets/lab-product-list-desktop.png" alt="Desktop product listing">
-          <figcaption class="caption"><strong>Desktop Listing</strong><span>Comparison-oriented density</span></figcaption>
+          <figcaption class="caption"><strong>Desktop Listing</strong><span>Comparison-oriented information density</span></figcaption>
         </figure>
 
-        <figure class="mobile-shot">
+        <figure class="mobile">
           <img src="./assets/lab-product-list-mobile.png" alt="Mobile product listing">
           <figcaption class="caption"><strong>Mobile Listing</strong><span>Focused browsing</span></figcaption>
         </figure>
@@ -1413,12 +695,15 @@ footer{
 
       <div class="design-note">
         <span>Design decision</span>
-        <p>같은 콘텐츠를 단순 축소하지 않고 디바이스별 사용 상황에 맞춰 비교 중심 / 집중 탐색 중심으로 정보 우선순위를 달리했습니다.</p>
+        <p>
+          PC에서는 제품군을 한눈에 비교할 수 있게 그리드를 유지하고,
+          모바일에서는 카테고리와 상품 카드가 빠르게 읽히도록 탐색 요소를 압축했습니다.
+        </p>
       </div>
 
-      <figure class="desktop-shot" style="margin-top:30px;">
+      <figure class="desktop" style="margin-top:32px;">
         <img src="./assets/lab-product-detail-desktop.png" alt="Product detail page">
-        <figcaption class="caption"><strong>Product Detail</strong><span>Product media · price · basic options · CTA hierarchy</span></figcaption>
+        <figcaption class="caption"><strong>Product Detail</strong><span>Product media · price · options · CTA hierarchy</span></figcaption>
       </figure>
     </div>
   </section>
@@ -1426,114 +711,127 @@ footer{
   <section class="solution">
     <div class="wrap">
       <div class="solution-head">
-        <div class="solution-label">02 · Custom Configuration</div>
+        <div class="solution-label">04.2 · Custom Configuration</div>
         <div>
-          <h3>From complex options<br>to a guided flow.</h3>
+          <h3>Reduce choice overload with progressive steps.</h3>
           <p>
-            커스텀 퍼터의 다수 옵션을 한 번에 노출하지 않고
-            Foundation → Function → Form → Review의 단계형 흐름으로 정리했습니다.
+            커스텀 퍼터는 옵션 수가 많아 한 번에 전부 보여주면 선택 피로가 커집니다.
+            Foundation → Function → Form → Review의 단계로 나눠 사용자가 현재 상태를 잃지 않도록 구성했습니다.
           </p>
         </div>
       </div>
 
       <div class="mobile-row">
-        <figure class="mobile-shot">
-          <img src="./assets/lab-config-step1-mobile.png" alt="Custom configuration step 1">
+        <figure class="mobile">
+          <img src="./assets/lab-config-step1-mobile.png" alt="Foundation step">
           <figcaption class="caption"><strong>Foundation</strong><span>Basic putting conditions</span></figcaption>
         </figure>
-        <figure class="mobile-shot">
-          <img src="./assets/lab-config-step2-mobile.png" alt="Custom configuration step 2">
+
+        <figure class="mobile">
+          <img src="./assets/lab-config-step2-mobile.png" alt="Function step">
           <figcaption class="caption"><strong>Function</strong><span>Shaft · LieAngle · Inset</span></figcaption>
         </figure>
-        <figure class="mobile-shot">
-          <img src="./assets/lab-config-summary-mobile.png" alt="Custom configuration summary">
-          <figcaption class="caption"><strong>Review</strong><span>Selected options · total price</span></figcaption>
+
+        <figure class="mobile">
+          <img src="./assets/lab-config-summary-mobile.png" alt="Configuration review">
+          <figcaption class="caption"><strong>Review</strong><span>Selections · quantity · total price</span></figcaption>
         </figure>
       </div>
 
       <div class="design-note">
         <span>UX rationale</span>
-        <p>사용자가 현재 단계, 이미 선택한 옵션, 최종 금액을 계속 확인할 수 있도록 선택 상태와 요약 정보를 명확하게 노출했습니다.</p>
-      </div></div>
+        <p>
+          사용자가 현재 단계, 선택한 옵션, 최종 가격을 계속 확인할 수 있도록
+          진행 상태와 결과 피드백을 명확하게 노출했습니다.
+        </p>
+      </div>
+    </div>
   </section>
 
   <section class="solution">
     <div class="wrap">
       <div class="solution-head">
-        <div class="solution-label">03 · Fitting Journey</div>
+        <div class="solution-label">04.3 · Fitting Journey</div>
         <div>
-          <h3>A service journey,<br>not just a reservation form.</h3>
+          <h3>Build confidence before asking users to book.</h3>
           <p>
-            예약 버튼만 제공하는 대신 서비스 이해 → 매장 확인 → 실제 예약으로 이어지는 흐름을 구성해
-            사용자가 충분한 정보를 얻은 뒤 행동하도록 설계했습니다.
+            피팅 예약은 단순 CTA가 아니라 신뢰 형성이 필요한 서비스입니다.
+            피팅 방식과 전문성, 매장 정보를 충분히 제공한 뒤 실제 예약 단계로 연결했습니다.
           </p>
         </div>
       </div>
 
       <div class="mobile-row two">
-        <figure class="mobile-shot">
+        <figure class="mobile">
           <img src="./assets/lab-fitting-guide-mobile.png" alt="Fitting guide">
           <figcaption class="caption"><strong>Fitting Guide</strong><span>Store selection · reservation entry</span></figcaption>
         </figure>
-        <figure class="mobile-shot">
+
+        <figure class="mobile">
           <img src="./assets/lab-fitting-service-mobile.png" alt="Fitting service detail">
           <figcaption class="caption"><strong>Service Detail</strong><span>Expert fitter · data fitting</span></figcaption>
         </figure>
       </div>
 
-      <div class="booking-proof">
+      <div class="booking">
         <div>
-          <span class="kicker">Conversion touchpoint</span>
+          <span class="eyebrow">Conversion touchpoint</span>
           <h4>From product understanding to an actual fitting reservation.</h4>
           <p>
-            서비스와 매장 정보를 확인한 뒤 실제 예약 단계에서는 네이버 예약으로 연결했습니다.
-            정보 제공에서 끝나는 것이 아니라 <strong>오프라인 방문 전환</strong>까지 이어지는 흐름을 고려했습니다.
+            사이트 안에서 서비스와 매장 정보를 확인한 뒤 네이버 예약으로 이동하도록 구성했습니다.
+            정보 제공에서 끝나지 않고 실제 오프라인 방문까지 이어지는 전환 흐름을 고려했습니다.
           </p>
         </div>
 
-        <figure class="mobile-shot">
-          <img src="./assets/lab-reservation-naver.png" alt="Naver fitting reservation">
+        <figure class="mobile">
+          <img src="./assets/lab-reservation-naver.png" alt="Naver reservation for LAB Golf Korea fitting">
           <figcaption class="caption"><strong>Reservation</strong><span>Naver booking · offline conversion</span></figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <section class="solution" id="ai">
+  <section class="solution">
     <div class="wrap">
       <div class="solution-head">
-        <div class="solution-label">04 · AI-assisted Visual Production</div>
+        <div class="solution-label">04.4 · AI-assisted Production</div>
         <div>
-          <h3>Creating missing brand visuals<br>for live commerce content.</h3>
+          <h3>Fill production gaps without losing the brand language.</h3>
           <p>
-            일부 컬러 에디션과 프로모션 영역은 브랜드 측에서 충분한 제작 이미지를 제공받지 못했습니다.
-            필요한 비주얼은 AI-assisted image creation을 활용해 제작하고 실제 랜딩 UI에 적용했습니다.
+            일부 컬러 에디션과 프로모션은 브랜드에서 제공된 이미지가 충분하지 않았습니다.
+            필요한 비주얼은 AI-assisted image creation으로 제작하고,
+            실제 랜딩페이지에 사용할 수 있도록 선택·보정·배치했습니다.
           </p>
         </div>
       </div>
 
-      <p class="ai-note">
-        <strong>AI는 디자인을 대체하는 도구가 아니라 제작 보조 도구로 사용했습니다.</strong>
-        페이지 목적과 브랜드 톤 정의 → 이미지 생성 → 선택 및 보정 → 실제 UI 적용 순으로 진행했습니다.
-      </p><div class="ai-grid">
-        <figure class="ai-card">
+      <p class="ai-intro">
+        <strong>AI는 디자인 결정을 대신하지 않았습니다.</strong>
+        페이지 목적과 비주얼 방향을 먼저 정의한 뒤,
+        생성 결과를 선별하고 브랜드 톤에 맞게 조정해 실제 UI에 적용하는 제작 보조 과정으로 사용했습니다.
+      </p>
+
+      <div class="ai-key">
+        <figure>
           <img src="./assets/lab-ai-purple-main.png" alt="Purple edition AI key visual">
           <figcaption class="caption"><strong>Purple Edition</strong><span>AI-assisted key visual</span></figcaption>
         </figure>
-        <figure class="ai-card">
+
+        <figure>
           <img src="./assets/lab-ai-teal-main.png" alt="Teal edition AI key visual">
           <figcaption class="caption"><strong>Teal Edition</strong><span>AI-assisted key visual</span></figcaption>
         </figure>
       </div>
 
       <div class="ai-applied">
-        <figure class="mobile-shot">
+        <figure class="mobile">
           <img src="./assets/lab-ai-purple-mobile.png" alt="Purple edition applied mobile UI">
-          <figcaption class="caption"><strong>Applied UI · Purple</strong><span>Generated visual → live landing</span></figcaption>
+          <figcaption class="caption"><strong>Applied UI · Purple</strong><span>Generated asset → live landing</span></figcaption>
         </figure>
-        <figure class="mobile-shot">
+
+        <figure class="mobile">
           <img src="./assets/lab-ai-teal-mobile.png" alt="Teal edition applied mobile UI">
-          <figcaption class="caption"><strong>Applied UI · Teal</strong><span>Generated visual → live landing</span></figcaption>
+          <figcaption class="caption"><strong>Applied UI · Teal</strong><span>Generated asset → live landing</span></figcaption>
         </figure>
       </div>
     </div>
@@ -1542,27 +840,40 @@ footer{
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-no">04 · Results</div>
-        <div class="section-title">
+        <div class="section-index">05 · Outcome</div>
+        <div class="section-copy">
           <h2>What the project delivered.</h2>
-          <p>실제 구축 범위와 개선된 사용자 경험을 기준으로 프로젝트 결과를 정리했습니다.</p>
+          <p>
+            측정되지 않은 성과를 임의로 만들지 않고,
+            실제 구축 범위와 개선된 사용자 경험을 기준으로 결과를 정리했습니다.
+          </p>
         </div>
       </div>
 
-      <div class="result-list">
-        <div class="result-row"><div class="n">01</div><strong>Localized commerce structure</strong><p>미국 브랜드의 정보 구조를 한국 고객의 구매 흐름에 맞게 재구성.</p></div>
-        <div class="result-row"><div class="n">02</div><strong>Clearer product discovery</strong><p>PC와 모바일에서 서로 다른 사용 상황을 고려한 반응형 정보 위계 적용.</p></div>
-        <div class="result-row"><div class="n">03</div><strong>Guided custom configuration</strong><p>복잡한 커스텀 옵션을 단계형 UX로 정리해 현재 상태와 다음 행동을 명확하게 전달.</p></div>
-        <div class="result-row"><div class="n">04</div><strong>Connected fitting experience</strong><p>제품 탐색에서 실제 피팅 예약까지 온라인·오프라인 경험을 연결.</p></div>
-        <div class="result-row"><div class="n">05</div><strong>Design → live implementation</strong><p>UI/UX 설계에서 Responsive Publishing, Cafe24 적용, 실제 운영 환경까지 직접 연결.</p></div>
-      </div></div>
+      <div class="results">
+        <div class="result-row"><div class="n">01</div><strong>Localized structure</strong><p>미국 브랜드의 정보 구조를 한국 고객의 탐색·구매 흐름에 맞춰 재구성했습니다.</p></div>
+        <div class="result-row"><div class="n">02</div><strong>Responsive hierarchy</strong><p>PC와 모바일에서 서로 다른 사용 상황을 고려한 정보 우선순위를 적용했습니다.</p></div>
+        <div class="result-row"><div class="n">03</div><strong>Guided configuration</strong><p>복잡한 커스텀 옵션을 단계형 UX로 정리해 선택 과정을 더 명확하게 만들었습니다.</p></div>
+        <div class="result-row"><div class="n">04</div><strong>Connected fitting journey</strong><p>상품 탐색과 피팅 서비스, 실제 예약을 하나의 흐름으로 연결했습니다.</p></div>
+        <div class="result-row"><div class="n">05</div><strong>Design → implementation</strong><p>UI/UX 설계에서 Responsive Publishing, Cafe24 적용, 실제 운영 환경까지 직접 연결했습니다.</p></div>
+      </div>
+
+      <div class="takeaway">
+        <span>Takeaway</span>
+        <p>
+          This project reflects how I work across <strong>structure, interface, and implementation</strong> —
+          turning a complex commerce requirement into a clear experience that can actually be operated.
+        </p>
+      </div>
+    </div>
   </section>
+
 </main>
 
 <footer>
   <div class="wrap footer-inner">
     <div>
-      <span class="kicker">L.A.B. GOLF KOREA · Case Study</span>
+      <span class="eyebrow">L.A.B. GOLF KOREA · Case Study</span>
       <h2>Designing for real users.<br>Building for real products.</h2>
     </div>
     <a href="../../#work">Back to Selected Works →</a>
