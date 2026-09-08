@@ -451,6 +451,242 @@ footer{
   .footer-inner{display:block}
   .footer-inner a{display:inline-block;margin-top:22px}
 }
+
+/* =========================================================
+   COMBINED RESPONSIVE DEVICE MOCKUPS
+   ========================================================= */
+.device-combo{
+  position:relative;
+  margin-top:30px;
+  padding:clamp(28px,5vw,64px);
+  min-height:clamp(420px,55vw,700px);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(109,99,255,.10), transparent 34%),
+    linear-gradient(180deg,#ecece7 0%,#dedfd9 100%);
+  border:1px solid #d0d0ca;
+  overflow:hidden;
+}
+
+.device-laptop{
+  position:relative;
+  width:min(82%,980px);
+  margin:0 auto 0 2%;
+  z-index:1;
+}
+
+.device-laptop-screen{
+  position:relative;
+  padding:10px;
+  background:#191919;
+  border-radius:18px 18px 8px 8px;
+  box-shadow:0 28px 70px rgba(0,0,0,.18);
+}
+
+.device-laptop-screen::before{
+  content:'';
+  position:absolute;
+  top:5px;
+  left:50%;
+  width:46px;
+  height:4px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:#303030;
+}
+
+.device-laptop-screen .screen{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:10px 10px 4px 4px;
+  background:#fff;
+}
+
+.device-laptop-screen .screen img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+}
+
+.device-laptop-base{
+  width:108%;
+  height:15px;
+  margin-left:-4%;
+  background:linear-gradient(180deg,#c4c5c0,#aeb0aa);
+  border-radius:0 0 50% 50% / 0 0 100% 100%;
+  box-shadow:0 8px 16px rgba(0,0,0,.12);
+}
+
+.device-phone{
+  position:absolute;
+  right:clamp(28px,5vw,70px);
+  bottom:clamp(22px,4vw,58px);
+  width:clamp(145px,18vw,235px);
+  z-index:3;
+}
+
+.device-phone-shell{
+  padding:8px;
+  border-radius:30px;
+  background:#121212;
+  box-shadow:0 24px 55px rgba(0,0,0,.30);
+}
+
+.device-phone-shell::before{
+  content:'';
+  position:absolute;
+  top:14px;
+  left:50%;
+  width:38%;
+  height:14px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:#111;
+  z-index:2;
+}
+
+.device-phone-screen{
+  position:relative;
+  overflow:hidden;
+  border-radius:23px;
+  aspect-ratio:9/19.5;
+  background:#fff;
+}
+
+.device-phone-screen img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+}
+
+.device-combo-caption{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding-top:14px;
+  font-size:10px;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+.device-combo-caption strong{
+  color:#45464a;
+  font-weight:600;
+}
+
+.device-combo + .decision-note{
+  margin-top:22px;
+}
+
+.decision-note{
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr);
+  gap:54px;
+  padding:24px 0;
+  border-top:1px solid #cfcfca;
+  border-bottom:1px solid #cfcfca;
+}
+
+.decision-note .label{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+
+.decision-note p{
+  margin:0;
+  max-width:760px;
+  font-size:13px;
+  line-height:1.78;
+  color:var(--soft);
+}
+
+@media(max-width:900px){
+  .device-combo{
+    min-height:560px;
+    padding:34px 26px 42px;
+  }
+
+  .device-laptop{
+    width:94%;
+    margin-left:0;
+  }
+
+  .device-phone{
+    right:24px;
+    bottom:28px;
+    width:190px;
+  }
+
+  .decision-note{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+}
+
+@media(max-width:640px){
+  .device-combo{
+    min-height:0;
+    padding:20px 14px 26px;
+  }
+
+  .device-laptop{
+    width:100%;
+    margin:0;
+  }
+
+  .device-laptop-screen{
+    padding:6px;
+    border-radius:10px 10px 5px 5px;
+  }
+
+  .device-laptop-base{
+    height:9px;
+  }
+
+  .device-phone{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    width:min(44vw,172px);
+    margin:-16px 8px 0 auto;
+  }
+
+  .device-phone-shell{
+    padding:6px;
+    border-radius:24px;
+  }
+
+  .device-phone-screen{
+    border-radius:18px;
+  }
+
+  .device-phone-shell::before{
+    top:11px;
+    height:10px;
+  }
+
+  .device-combo-caption{
+    display:block;
+    font-size:9px;
+  }
+
+  .device-combo-caption span{
+    display:block;
+    margin-top:4px;
+  }
+
+  .decision-note{
+    padding:18px 0;
+  }
+
+  .decision-note p{
+    font-size:12px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -488,11 +724,27 @@ footer{
       </div>
 
       <div class="hero-media">
-        <div class="desktop-frame">
-          <div class="viewport">
-            <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
+        <div class="device-combo">
+          <div class="device-laptop">
+            <div class="device-laptop-screen">
+              <div class="screen">
+                <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
+              </div>
+            </div>
+            <div class="device-laptop-base"></div>
           </div>
-          <div class="frame-cap"><strong>Homepage · Desktop</strong><span>Localized commerce launch</span></div>
+
+          <div class="device-phone">
+            <div class="device-phone-shell">
+              <div class="device-phone-screen">
+                <img src="./assets/lab-hero-mobile.png" alt="L.A.B. GOLF KOREA mobile homepage">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="device-combo-caption">
+          <strong>Homepage · Responsive Experience</strong>
+          <span>Desktop + Mobile · Localized commerce launch</span>
         </div>
       </div>
     </div>
@@ -581,22 +833,40 @@ footer{
           </div>
         </div>
 
-        <div class="dual">
-          <figure class="media-wide">
-            <div class="viewport"><img src="./assets/lab-product-list-desktop.png" alt="Desktop product listing"></div>
-            <figcaption><strong>Desktop listing</strong> — 모델 비교를 위한 그리드와 카테고리 구조.</figcaption>
-          </figure>
-          <div class="phone-stage">
-            <figure class="phone-card">
-              <div class="phone-screen"><img src="./assets/lab-product-list-mobile.png" alt="Mobile product listing"></div>
-              <figcaption><strong>Mobile listing</strong> — 터치 기반 탐색과 상품 카드에 집중.</figcaption>
-            </figure>
+        <div class="device-combo">
+          <div class="device-laptop">
+            <div class="device-laptop-screen">
+              <div class="screen">
+                <img src="./assets/lab-product-list-desktop.png" alt="L.A.B. GOLF desktop product listing">
+              </div>
+            </div>
+            <div class="device-laptop-base"></div>
+          </div>
+
+          <div class="device-phone">
+            <div class="device-phone-shell">
+              <div class="device-phone-screen">
+                <img src="./assets/lab-product-list-mobile.png" alt="L.A.B. GOLF mobile product listing">
+              </div>
+            </div>
           </div>
         </div>
+        <div class="device-combo-caption">
+          <strong>Product Listing · Responsive System</strong>
+          <span>Desktop comparison / Mobile focus</span>
+        </div>
 
-        <div class="desktop-frame" style="margin-top:18px;">
+        <div class="decision-note">
+          <div class="label">Design decision</div>
+          <p>
+            같은 콘텐츠를 단순 축소하지 않고, PC에서는 여러 제품을 비교하기 쉬운 밀도를 유지하고
+            모바일에서는 카테고리와 상품 카드에 집중하도록 정보 우선순위를 다시 설계했습니다.
+          </p>
+        </div>
+
+        <div class="desktop-frame" style="margin-top:28px;">
           <div class="viewport"><img src="./assets/lab-product-detail-desktop.png" alt="Product detail page"></div>
-          <div class="frame-cap"><strong>Product Detail · Desktop</strong><span>Image · price · basic options · CTA hierarchy</span></div>
+          <div class="frame-cap"><strong>Product Detail · Desktop</strong><span>Product media · price · option hierarchy · purchase CTA</span></div>
         </div>
       </div>
 
