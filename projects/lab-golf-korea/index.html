@@ -484,6 +484,188 @@ footer{
   .footer-inner{display:block}
   .footer-inner a{display:inline-block;margin-top:22px}
 }
+
+/* =========================================================
+   DEAN-INSPIRED DEVELOPMENT
+   Stronger point of view + clearer strategic storytelling
+   ========================================================= */
+
+.project-statement{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:44px;
+  padding:24px 0;
+  border-top:1px solid #cfcfca;
+  border-bottom:1px solid #cfcfca;
+}
+.project-statement .label{
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.project-statement p{
+  margin:0;
+  max-width:760px;
+  font-size:18px;
+  line-height:1.7;
+  letter-spacing:-.015em;
+  color:#26272a;
+}
+.project-statement strong{font-weight:700;}
+
+.role-highlight{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid #d0d0ca;
+  border-bottom:1px solid #d0d0ca;
+}
+.role-highlight article{
+  padding:22px 22px 24px 0;
+  border-right:1px solid #d0d0ca;
+}
+.role-highlight article:not(:first-child){padding-left:22px;}
+.role-highlight article:last-child{border-right:0;}
+.role-highlight span{
+  display:block;
+  margin-bottom:18px;
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.role-highlight h3{
+  margin:0 0 8px;
+  font-size:18px;
+  line-height:1.15;
+  letter-spacing:-.03em;
+}
+.role-highlight p{
+  margin:0;
+  font-size:12px;
+  line-height:1.7;
+  color:var(--soft);
+}
+
+.section-pullquote{
+  margin:44px 0 0 214px;
+  max-width:740px;
+  font-size:clamp(24px,3vw,36px);
+  line-height:1.15;
+  letter-spacing:-.035em;
+  font-weight:700;
+  color:#1b1c1f;
+}
+.section-pullquote em{
+  font-style:normal;
+  color:var(--accent);
+}
+
+.solution-dark{
+  background:var(--deep);
+  color:#fff;
+}
+.solution-dark .solution-label{color:rgba(255,255,255,.4);}
+.solution-dark .solution-head p{color:rgba(255,255,255,.62);}
+.solution-dark .design-note{
+  border-color:rgba(255,255,255,.16);
+}
+.solution-dark .design-note span{color:rgba(255,255,255,.42);}
+.solution-dark .design-note p{color:rgba(255,255,255,.64);}
+.solution-dark .caption{color:rgba(255,255,255,.45);}
+.solution-dark .caption strong{color:rgba(255,255,255,.82);}
+.solution-dark .mobile-shot img,
+.solution-dark .desktop-shot{
+  border-color:rgba(255,255,255,.16);
+}
+.solution-dark .desktop-shot{background:#fff;}
+
+.process-note{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:44px;
+}
+.process-note > span{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+.process-note ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  border-top:1px solid #d0d0ca;
+}
+.process-note li{
+  display:grid;
+  grid-template-columns:44px 190px 1fr;
+  gap:18px;
+  padding:16px 0;
+  border-bottom:1px solid #d0d0ca;
+  font-size:12px;
+  line-height:1.65;
+  color:var(--soft);
+}
+.process-note li b{color:#2d2e31;font-weight:600;}
+.process-note li span{color:var(--muted);}
+
+.final-takeaway{
+  margin-top:42px;
+  padding:34px 0 0;
+  border-top:1px solid #d0d0ca;
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:44px;
+}
+.final-takeaway .label{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+.final-takeaway p{
+  margin:0;
+  max-width:760px;
+  font-size:20px;
+  line-height:1.62;
+  letter-spacing:-.02em;
+  color:#27282b;
+}
+
+@media(max-width:960px){
+  .project-statement,
+  .process-note,
+  .final-takeaway{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .section-pullquote{margin-left:0;}
+  .role-highlight{grid-template-columns:1fr;}
+  .role-highlight article,
+  .role-highlight article:not(:first-child){
+    padding:20px 0;
+    border-right:0;
+    border-bottom:1px solid #d0d0ca;
+  }
+  .role-highlight article:last-child{border-bottom:0;}
+}
+
+@media(max-width:640px){
+  .project-statement p{font-size:16px;}
+  .section-pullquote{font-size:26px;}
+  .process-note li{
+    grid-template-columns:30px 1fr;
+    gap:10px;
+  }
+  .process-note li b,
+  .process-note li p{grid-column:2;}
+  .final-takeaway p{font-size:17px;}
+}
+
 </style>
 </head>
 <body>
@@ -518,6 +700,15 @@ footer{
           <div><span>Scope</span><strong>Home · PLP · PDP · Custom Flow · Fitting</strong></div>
           <div><span>Market</span><strong>South Korea</strong></div>
         </div>
+      </div>
+
+      <div class="project-statement">
+        <div class="label">Project focus</div>
+        <p>
+          <strong>My role was to turn a new market launch into a usable, sellable digital system.</strong>
+          I organized the experience, designed the responsive UI, published it in Cafe24,
+          and shaped the supporting content needed to make the Korean launch feel complete.
+        </p>
       </div>
 
       <figure class="hero-image">
@@ -555,6 +746,24 @@ footer{
           <div class="fact-row"><span>Special</span><strong>AI-assisted visual production</strong></div>
         </div>
       </div>
+
+      <div class="role-highlight">
+        <article>
+          <span>01 · Structure</span>
+          <h3>Clarify the journey</h3>
+          <p>브랜드 소개, 상품 탐색, 옵션 선택, 피팅 예약이 서로 분리되지 않도록 전체 흐름을 정리했습니다.</p>
+        </article>
+        <article>
+          <span>02 · Interface</span>
+          <h3>Design for real devices</h3>
+          <p>PC는 비교 중심, 모바일은 집중 탐색 중심으로 디바이스별 우선순위를 다르게 설계했습니다.</p>
+        </article>
+        <article>
+          <span>03 · Build</span>
+          <h3>Ship it live</h3>
+          <p>Cafe24 안에서 직접 퍼블리싱하고 실제 운영·수정이 가능한 구조까지 연결했습니다.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -577,6 +786,10 @@ footer{
         <div class="challenge-row"><div class="n">03</div><h3>Online ↔ Offline</h3><p>온라인 제품 탐색과 오프라인 피팅 예약이 끊기지 않도록 서비스 흐름을 연결.</p></div>
         <div class="challenge-row"><div class="n">04</div><h3>Cafe24 constraints</h3><p>실제 상품 운영, 수정, 유지보수가 가능한 Cafe24 환경 안에서 디자인을 구현.</p></div>
       </div>
+      <p class="section-pullquote">
+        The goal was not to add more information.<br>
+        It was to make <em>complex information easier to act on.</em>
+      </p>
     </div>
   </section>
 
@@ -636,7 +849,7 @@ footer{
     </div>
   </section>
 
-  <section class="solution">
+  <section class="solution solution-dark">
     <div class="wrap">
       <div class="solution-head">
         <div class="solution-label">02 · Custom Configuration</div>
@@ -667,6 +880,14 @@ footer{
       <div class="design-note">
         <span>UX rationale</span>
         <p>사용자가 현재 단계, 이미 선택한 옵션, 최종 금액을 계속 확인할 수 있도록 선택 상태와 요약 정보를 명확하게 노출했습니다.</p>
+      </div>
+      <div class="process-note">
+        <span>Interaction logic</span>
+        <ul>
+          <li><span>01</span><b>Progressive disclosure</b><div>한 번에 모든 옵션을 노출하지 않고 필요한 시점에 필요한 선택지만 보여줌.</div></li>
+          <li><span>02</span><b>State visibility</b><div>선택된 값과 진행 단계를 계속 노출해 사용자가 현재 상태를 잃지 않도록 함.</div></li>
+          <li><span>03</span><b>Price awareness</b><div>옵션 변경이 최종 가격에 미치는 영향을 구매 전에 확인할 수 있도록 구성.</div></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -730,6 +951,14 @@ footer{
         <strong>AI는 디자인을 대체하는 도구가 아니라 제작 보조 도구로 사용했습니다.</strong>
         페이지 목적과 브랜드 톤 정의 → 이미지 생성 → 선택 및 보정 → 실제 UI 적용 순으로 진행했습니다.
       </p>
+      <div class="process-note">
+        <span>Production flow</span>
+        <ul>
+          <li><span>01</span><b>Define the visual brief</b><div>에디션별 컬러, 무드, 제품 배열, 활용 위치를 먼저 정의.</div></li>
+          <li><span>02</span><b>Generate & select</b><div>다양한 시안을 생성하고 브랜드 맥락에 맞는 결과를 선별.</div></li>
+          <li><span>03</span><b>Refine & apply</b><div>보정과 레이아웃 적용을 거쳐 실제 프로모션 페이지에 사용할 수 있는 자산으로 정리.</div></li>
+        </ul>
+      </div>
 
       <div class="ai-grid">
         <figure class="ai-card">
@@ -771,6 +1000,13 @@ footer{
         <div class="result-row"><div class="n">03</div><strong>Guided custom configuration</strong><p>복잡한 커스텀 옵션을 단계형 UX로 정리해 현재 상태와 다음 행동을 명확하게 전달.</p></div>
         <div class="result-row"><div class="n">04</div><strong>Connected fitting experience</strong><p>제품 탐색에서 실제 피팅 예약까지 온라인·오프라인 경험을 연결.</p></div>
         <div class="result-row"><div class="n">05</div><strong>Design → live implementation</strong><p>UI/UX 설계에서 Responsive Publishing, Cafe24 적용, 실제 운영 환경까지 직접 연결.</p></div>
+      </div>
+      <div class="final-takeaway">
+        <div class="label">Takeaway</div>
+        <p>
+          This project shows how I work across <strong>strategy, interface, and implementation</strong> —
+          not just designing screens, but shaping the structure and shipping the experience into a real commerce environment.
+        </p>
       </div>
     </div>
   </section>
