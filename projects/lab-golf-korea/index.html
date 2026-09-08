@@ -3777,6 +3777,292 @@ body.standalone-lab .cs-topbar{
   }
 }
 
+
+/* =========================================================
+   LAB UX CASE STUDY — CONTEXT / CHALLENGE / ROLE / OUTCOME
+   ========================================================= */
+.lab-case-intro{
+  max-width:1180px;
+  margin:0 auto;
+  padding:28px var(--page-x) 54px;
+  color:#F2F0EA;
+}
+
+.lab-case-summary{
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(260px,.6fr);
+  gap:clamp(54px,8vw,118px);
+  padding:56px 0 62px;
+  border-top:1px solid rgba(255,255,255,.13);
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+
+.lab-case-label{
+  display:block;
+  margin-bottom:20px;
+  font-size:10px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.38);
+}
+
+.lab-case-summary-main h3{
+  margin:0 0 30px;
+  max-width:820px;
+  font-size:clamp(2.65rem,4.7vw,5.15rem);
+  line-height:.91;
+  letter-spacing:-.055em;
+  font-weight:800;
+}
+
+.lab-case-summary-main p{
+  max-width:760px;
+  margin:0;
+  font-size:15px;
+  line-height:1.78;
+  letter-spacing:-.01em;
+  color:rgba(255,255,255,.62);
+}
+
+.lab-case-summary-main p + p{
+  margin-top:18px;
+}
+
+.lab-case-facts{
+  display:grid;
+  align-content:start;
+  border-top:1px solid rgba(255,255,255,.13);
+}
+
+.lab-case-facts > div{
+  padding:17px 0 19px;
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+
+.lab-case-facts span{
+  display:block;
+  margin-bottom:7px;
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.34);
+}
+
+.lab-case-facts strong{
+  display:block;
+  font-size:12.5px;
+  line-height:1.55;
+  font-weight:550;
+  color:rgba(255,255,255,.82);
+}
+
+.lab-case-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+
+.lab-case-card{
+  position:relative;
+  min-height:300px;
+  padding:34px 38px 38px 0;
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+
+.lab-case-card:nth-child(odd){
+  padding-right:52px;
+  border-right:1px solid rgba(255,255,255,.13);
+}
+
+.lab-case-card:nth-child(even){
+  padding-left:52px;
+}
+
+.lab-case-no{
+  display:block;
+  margin-bottom:54px;
+  font-size:9px;
+  color:rgba(255,255,255,.3);
+}
+
+.lab-case-card h4{
+  margin:0 0 18px;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:#F2F0EA;
+}
+
+.lab-case-card p,
+.lab-case-card li{
+  font-size:13px;
+  line-height:1.68;
+  color:rgba(255,255,255,.55);
+}
+
+.lab-case-card p{
+  margin:0;
+  max-width:500px;
+}
+
+.lab-case-card ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.lab-case-card li{
+  padding:8px 0;
+  border-top:1px solid rgba(255,255,255,.09);
+}
+
+.lab-case-card li:first-child{
+  border-top:0;
+  padding-top:0;
+}
+
+.lab-case-journey{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:30px 0 0;
+  font-size:10px;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.48);
+}
+
+.lab-case-journey span{
+  padding:8px 11px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+}
+
+.lab-case-journey i{
+  font-style:normal;
+  color:rgba(255,255,255,.24);
+}
+
+@media(max-width:900px){
+  .lab-case-summary{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+
+  .lab-case-facts{
+    grid-template-columns:repeat(2,1fr);
+    border-left:1px solid rgba(255,255,255,.13);
+  }
+
+  .lab-case-facts > div{
+    padding:16px;
+    border-right:1px solid rgba(255,255,255,.13);
+  }
+
+  .lab-case-grid{
+    grid-template-columns:1fr;
+  }
+
+  .lab-case-card,
+  .lab-case-card:nth-child(odd),
+  .lab-case-card:nth-child(even){
+    min-height:auto;
+    padding:30px 0;
+    border-right:0;
+  }
+
+  .lab-case-no{
+    margin-bottom:28px;
+  }
+}
+
+@media(max-width:640px){
+  .lab-case-intro{
+    padding:8px 18px 34px;
+  }
+
+  .lab-case-summary{
+    gap:30px;
+    padding:34px 0 38px;
+  }
+
+  .lab-case-label{
+    margin-bottom:14px;
+    font-size:8.5px;
+  }
+
+  .lab-case-summary-main h3{
+    margin-bottom:22px;
+    font-size:clamp(2.2rem,10.5vw,3.35rem);
+    line-height:.94;
+  }
+
+  .lab-case-summary-main p{
+    font-size:12px;
+    line-height:1.7;
+  }
+
+  .lab-case-summary-main p + p{
+    margin-top:14px;
+  }
+
+  .lab-case-facts{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .lab-case-facts > div{
+    min-height:104px;
+    padding:14px;
+  }
+
+  .lab-case-facts span{
+    font-size:7.5px;
+  }
+
+  .lab-case-facts strong{
+    font-size:10px;
+    line-height:1.45;
+  }
+
+  .lab-case-card,
+  .lab-case-card:nth-child(odd),
+  .lab-case-card:nth-child(even){
+    padding:26px 0 28px;
+  }
+
+  .lab-case-no{
+    margin-bottom:22px;
+    font-size:8px;
+  }
+
+  .lab-case-card h4{
+    margin-bottom:13px;
+    font-size:10px;
+  }
+
+  .lab-case-card p,
+  .lab-case-card li{
+    font-size:11px;
+    line-height:1.62;
+  }
+
+  .lab-case-card li{
+    padding:7px 0;
+  }
+
+  .lab-case-journey{
+    gap:7px;
+    padding-top:22px;
+    font-size:7.5px;
+  }
+
+  .lab-case-journey span{
+    padding:6px 8px;
+  }
+}
+
 </style>
 </head>
 <body class="standalone-lab">
@@ -4198,9 +4484,104 @@ function renderCaseStudy(p){
 
     <div class="cs-body">
   `;
-  html += `<div class="cs-block"><h4>Role</h4><div class="cs-text"><div class="cs-role-list">${p.role.map(r=>`<span>${r}</span>`).join('')}</div></div></div>`;
-  html += block('Overview', `<p>${p.overview}</p>`);
-  if(p.problem) html += block('Problem', `<p>${p.problem}</p>`);
+  if(p.title === 'L.A.B. GOLF KOREA'){
+    html += `
+      <section class="lab-case-intro">
+        <div class="lab-case-summary">
+          <div class="lab-case-summary-main">
+            <span class="lab-case-label">Project Overview</span>
+            <h3>LOCALIZING A U.S. GOLF BRAND<br>FOR THE KOREAN MARKET.</h3>
+            <p>
+              L.A.B. GOLF was already operating in the U.S. when an official distribution agreement
+              opened the Korean market. A dedicated Korean e-commerce platform was needed to introduce
+              the brand, explain product differences, support custom configurations, and connect online
+              product discovery with offline fitting services.
+            </p>
+            <p>
+              Rather than reproducing the U.S. store directly, I reorganized the information and purchase
+              journey for Korean customers and implemented the experience in a live Cafe24 environment.
+            </p>
+          </div>
+
+          <aside class="lab-case-facts">
+            <div>
+              <span>Role</span>
+              <strong>UI/UX Design<br>Web Publishing<br>Front-end</strong>
+            </div>
+            <div>
+              <span>Platform</span>
+              <strong>Cafe24</strong>
+            </div>
+            <div>
+              <span>Focus</span>
+              <strong>Product Discovery<br>Custom Options<br>Fitting Reservation</strong>
+            </div>
+            <div>
+              <span>Market</span>
+              <strong>South Korea</strong>
+            </div>
+          </aside>
+        </div>
+
+        <div class="lab-case-grid">
+          <article class="lab-case-card">
+            <span class="lab-case-no">01</span>
+            <h4>THE CHALLENGE</h4>
+            <p>
+              Golf equipment requires more consideration than a typical online purchase. Customers need
+              to compare putter models, understand specifications and shaft options, decide whether
+              fitting is needed, and move between online information and offline services without losing context.
+            </p>
+          </article>
+
+          <article class="lab-case-card">
+            <span class="lab-case-no">02</span>
+            <h4>MY ROLE</h4>
+            <ul>
+              <li>UI/UX and responsive layout design</li>
+              <li>Information hierarchy for product and option structures</li>
+              <li>Fitting reservation and service-page UX</li>
+              <li>HTML / CSS / JavaScript / jQuery publishing</li>
+              <li>Cafe24 customization, QA, and mobile optimization</li>
+            </ul>
+          </article>
+
+          <article class="lab-case-card">
+            <span class="lab-case-no">03</span>
+            <h4>DESIGN APPROACH</h4>
+            <p>
+              I treated the site as a guided commerce journey: first help users understand the brand,
+              then compare products, reduce the complexity of custom options, and finally make fitting
+              and store touchpoints feel like part of the same experience.
+            </p>
+          </article>
+
+          <article class="lab-case-card">
+            <span class="lab-case-no">04</span>
+            <h4>OUTCOME</h4>
+            <p>
+              The result is a localized, responsive commerce experience that brings brand storytelling,
+              product comparison, custom configuration, and fitting services into one maintainable
+              Cafe24-based system for the Korean market.
+            </p>
+          </article>
+        </div>
+
+        <div class="lab-case-journey">
+          <span>Brand</span><i>→</i>
+          <span>Product Discovery</span><i>→</i>
+          <span>Compare</span><i>→</i>
+          <span>Configure</span><i>→</i>
+          <span>Fitting</span><i>→</i>
+          <span>Purchase / Visit</span>
+        </div>
+      </section>
+    `;
+  } else {
+    html += `<div class="cs-block"><h4>Role</h4><div class="cs-text"><div class="cs-role-list">${p.role.map(r=>`<span>${r}</span>`).join('')}</div></div></div>`;
+    html += block('Overview', `<p>${p.overview}</p>`);
+    if(p.problem) html += block('Problem', `<p>${p.problem}</p>`);
+  }
   html += `</div>`;
 
 
