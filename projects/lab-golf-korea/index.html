@@ -1,526 +1,200 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L.A.B. GOLF KOREA — UI/UX Case Study | Choi Yoolim</title>
-<meta name="description" content="L.A.B. GOLF KOREA UI/UX case study by Choi Yoolim — localization, responsive commerce, custom configuration, fitting reservation, Cafe24 implementation, and AI-assisted visual production.">
-
+<title>L.A.B. GOLF KOREA — Product Design Case Study | Choi Yoolim</title>
+<meta name="description" content="L.A.B. GOLF KOREA product design case study by Choi Yoolim — localization, responsive commerce, custom putter configuration, fitting reservation, accessibility considerations, Cafe24 implementation, and AI-assisted production.">
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root{
   --bg:#f7f6f2;
-  --paper:#ffffff;
-  --ink:#111111;
+  --paper:#fff;
+  --ink:#111;
   --text:#3f4146;
-  --soft:#606269;
-  --muted:#96989d;
+  --soft:#5e6066;
+  --muted:#92949a;
   --line:#d7d6d0;
   --dark:#111827;
   --accent:#6257ff;
   --max:1180px;
   --pad:clamp(20px,4vw,56px);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Inter','Pretendard',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Inter','Pretendard',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{display:block;width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(100%,var(--max));margin:0 auto;padding-inline:var(--pad)}
-
-/* HEADER */
 .site-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(247,246,242,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(17,17,17,.08);
+  position:sticky;top:0;z-index:50;background:rgba(247,246,242,.93);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(17,17,17,.08);
 }
-.header-inner{
-  min-height:64px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
+.header-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .identity{display:flex;align-items:baseline;gap:10px}
 .identity strong{font-size:14px;font-weight:800}
 .identity span{font-size:11px;color:var(--muted)}
-.back-link{
-  padding:9px 14px;
-  border:1px solid #c8c7c1;
-  border-radius:999px;
-  font-size:12px;
-  color:#53555a;
-}
+.back-link{padding:9px 14px;border:1px solid #c8c7c1;border-radius:999px;font-size:12px;color:#54565b}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 
-/* HERO */
-.hero{padding:94px 0 78px}
-.eyebrow{
-  display:block;
-  margin-bottom:16px;
-  font-size:11px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.hero h1{
-  margin:0;
-  max-width:930px;
-  font-size:clamp(58px,8vw,106px);
-  line-height:.9;
-  letter-spacing:-.065em;
-  font-weight:800;
-}
-.hero-grid{
-  margin-top:52px;
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
-  gap:82px;
-  align-items:start;
-}
-.hero-lead{
-  margin:0;
-  max-width:700px;
-  font-size:18px;
-  line-height:1.82;
-  color:var(--text);
-}
+/* Hero */
+.hero{padding:92px 0 80px}
+.eyebrow{display:block;margin-bottom:16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hero h1{margin:0;max-width:950px;font-size:clamp(58px,8vw,106px);line-height:.9;letter-spacing:-.065em;font-weight:800}
+.hero-grid{margin-top:52px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:80px;align-items:start}
+.hero-lead{margin:0;max-width:700px;font-size:18px;line-height:1.82;color:var(--text)}
 .meta-list{border-top:1px solid #bfc0ba}
-.meta-row{
-  display:grid;
-  grid-template-columns:104px 1fr;
-  gap:18px;
-  padding:15px 0;
-  border-bottom:1px solid #d0d0ca;
-}
-.meta-row span{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.meta-row strong{
-  font-size:13px;
-  line-height:1.55;
-  font-weight:600;
-  color:#383a3f;
-}
-.hero-visual{
-  margin-top:46px;
-}
-.hero-visual img{
-  aspect-ratio:2/1;
-  object-fit:cover;
-  object-position:top center;
-  border:1px solid #d3d2cc;
-  background:#fff;
-}
-.caption{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  margin-top:10px;
-  font-size:11px;
-  line-height:1.55;
-  color:var(--muted);
-}
+.meta-row{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid #d0d0ca}
+.meta-row span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.meta-row strong{font-size:13px;line-height:1.55;font-weight:600;color:#383a3f}
+.hero-visual{margin-top:46px}
+.hero-visual img{aspect-ratio:2/1;object-fit:cover;object-position:top center;border:1px solid #d3d2cc;background:#fff}
+.caption{display:flex;justify-content:space-between;gap:18px;margin-top:10px;font-size:11px;line-height:1.55;color:var(--muted)}
 .caption strong{color:#4c4e53;font-weight:600}
 
-/* CORE LAYOUT */
-.section{
-  padding:104px 0;
-  border-top:1px solid var(--line);
-}
-.section-head{
-  display:grid;
-  grid-template-columns:160px minmax(0,1fr);
-  gap:40px;
-  align-items:start;
-  margin-bottom:46px;
-}
-.section-index{
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.section-copy h2{
-  margin:0;
-  max-width:790px;
-  font-size:clamp(39px,4.8vw,60px);
-  line-height:.98;
-  letter-spacing:-.05em;
-  font-weight:800;
-}
-.section-copy p{
-  margin:18px 0 0;
-  max-width:690px;
-  font-size:16px;
-  line-height:1.82;
-  color:var(--soft);
-}
+/* Generic sections */
+.section{padding:102px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;align-items:start;margin-bottom:46px}
+.section-index{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.section-copy h2{margin:0;max-width:790px;font-size:clamp(39px,4.8vw,60px);line-height:.98;letter-spacing:-.05em;font-weight:800}
+.section-copy p{margin:18px 0 0;max-width:700px;font-size:16px;line-height:1.82;color:var(--soft)}
+.two-col{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:74px;align-items:start}
+.body-copy p{margin:0;max-width:700px;font-size:17px;line-height:1.86;color:var(--text)}
+.body-copy p+p{margin-top:18px}
+.fact-list{border-top:1px solid #bfc0ba}
+.fact{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid #d0d0ca}
+.fact span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.fact strong{font-size:13px;line-height:1.55;font-weight:600;color:#3b3c40}
 
-/* OVERVIEW */
-.overview{
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
-  gap:76px;
-}
-.long-copy p{
-  margin:0;
-  max-width:700px;
-  font-size:17px;
-  line-height:1.86;
-  color:var(--text);
-}
-.long-copy p+p{margin-top:18px}
-.facts{border-top:1px solid #bfc0ba}
-.fact{
-  display:grid;
-  grid-template-columns:110px 1fr;
-  gap:18px;
-  padding:16px 0;
-  border-bottom:1px solid #d0d0ca;
-}
-.fact span{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-}
-.fact strong{
-  font-size:13px;
-  line-height:1.55;
-  font-weight:600;
-  color:#3b3c40;
-}
+/* Evidence */
+.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #bfc0ba;border-bottom:1px solid #d0d0ca}
+.evidence-grid article{padding:24px 24px 28px 0;border-right:1px solid #d0d0ca}
+.evidence-grid article:not(:first-child){padding-left:24px}
+.evidence-grid article:last-child{border-right:0}
+.evidence-grid span{display:block;margin-bottom:18px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.evidence-grid h3{margin:0 0 10px;font-size:18px;letter-spacing:-.025em}
+.evidence-grid p{margin:0;font-size:14px;line-height:1.75;color:var(--soft)}
+.research-note{margin-top:28px;padding:22px 0;border-top:1px solid #d0d0ca;border-bottom:1px solid #d0d0ca;font-size:15px;line-height:1.78;color:var(--soft)}
+.research-note strong{color:#26272a}
 
-/* CHALLENGE */
+/* Problems */
 .challenge-list{border-top:1px solid #bfc0ba}
-.challenge-row{
-  display:grid;
-  grid-template-columns:48px 200px minmax(0,1fr);
-  gap:24px;
-  padding:26px 0;
-  border-bottom:1px solid #d0d0ca;
-}
+.challenge-row{display:grid;grid-template-columns:48px 200px minmax(0,1fr);gap:24px;padding:26px 0;border-bottom:1px solid #d0d0ca}
 .challenge-row .n{font-size:10px;color:var(--muted)}
-.challenge-row h3{
-  margin:0;
-  font-size:17px;
-  letter-spacing:-.02em;
-}
-.challenge-row p{
-  margin:0;
-  max-width:650px;
-  font-size:15px;
-  line-height:1.76;
-  color:var(--soft);
-}
+.challenge-row h3{margin:0;font-size:17px;letter-spacing:-.02em}
+.challenge-row p{margin:0;max-width:650px;font-size:15px;line-height:1.76;color:var(--soft)}
 
-/* STRATEGY */
-.strategy{
-  padding:86px 0;
-  background:var(--dark);
-  color:#fff;
-}
-.strategy-grid{
-  display:grid;
-  grid-template-columns:160px minmax(0,1fr);
-  gap:40px;
-}
+/* Strategy */
+.strategy{padding:84px 0;background:var(--dark);color:#fff}
+.strategy-grid{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px}
 .strategy .section-index{color:rgba(255,255,255,.38)}
-.strategy h2{
-  margin:0;
-  max-width:760px;
-  font-size:clamp(38px,4.6vw,58px);
-  line-height:.98;
-  letter-spacing:-.05em;
-}
-.strategy p{
-  margin:18px 0 0;
-  max-width:680px;
-  font-size:16px;
-  line-height:1.78;
-  color:rgba(255,255,255,.68);
-}
-.journey{
-  display:flex;flex-wrap:wrap;gap:8px;
-  margin-top:30px;
-}
-.journey span{
-  padding:8px 11px;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:999px;
-  font-size:11px;
-  color:rgba(255,255,255,.82);
-}
+.strategy h2{margin:0;max-width:760px;font-size:clamp(38px,4.6vw,58px);line-height:.98;letter-spacing:-.05em}
+.strategy p{margin:18px 0 0;max-width:680px;font-size:16px;line-height:1.78;color:rgba(255,255,255,.68)}
+.journey{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.journey span{padding:8px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:11px;color:rgba(255,255,255,.82)}
 
-/* SOLUTION */
-.solution{
-  padding:102px 0;
-  border-top:1px solid var(--line);
-}
-.solution-head{
-  display:grid;
-  grid-template-columns:160px minmax(0,1fr);
-  gap:40px;
-  margin-bottom:34px;
-}
-.solution-label{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.solution-head h3{
-  margin:0;
-  max-width:740px;
-  font-size:clamp(33px,3.8vw,48px);
-  line-height:1;
-  letter-spacing:-.045em;
-}
-.solution-head p{
-  margin:15px 0 0;
-  max-width:670px;
-  font-size:15px;
-  line-height:1.8;
-  color:var(--soft);
-}
+/* Solution */
+.solution{padding:100px 0;border-top:1px solid var(--line)}
+.solution-head{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;margin-bottom:34px}
+.solution-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.solution-head h3{margin:0;max-width:740px;font-size:clamp(33px,3.8vw,48px);line-height:1;letter-spacing:-.045em}
+.solution-head p{margin:15px 0 0;max-width:680px;font-size:15px;line-height:1.8;color:var(--soft)}
+.desktop{margin:0}
+.desktop img{width:100%;aspect-ratio:2/1;object-fit:contain;object-position:top center;border:1px solid #d4d3cd;background:#fff}
+.pc-mobile{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);gap:28px;align-items:start}
+.mobile{margin:0;width:min(100%,290px);justify-self:center}
+.mobile img{border:1px solid #d4d3cd;background:#fff}
+.mobile-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;justify-items:center;align-items:start;max-width:960px;margin-inline:auto}
+.mobile-row.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:680px}
+.design-note{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;margin-top:25px;padding:23px 0;border-top:1px solid #d0d0ca;border-bottom:1px solid #d0d0ca}
+.design-note span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.design-note p{margin:0;max-width:650px;font-size:15px;line-height:1.75;color:var(--soft)}
+.tradeoff{margin-top:22px;padding-left:20px;border-left:2px solid var(--accent);max-width:740px;font-size:15px;line-height:1.78;color:var(--soft)}
+.tradeoff strong{color:#27282c}
 
-/* IMAGE SYSTEM */
-.desktop{
-  margin:0;
-}
-.desktop img{
-  width:100%;
-  aspect-ratio:2/1;
-  object-fit:contain;
-  object-position:top center;
-  border:1px solid #d4d3cd;
-  background:#fff;
-}
-.pc-mobile{
-  display:grid;
-  grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);
-  gap:28px;
-  align-items:start;
-}
-.mobile{
-  margin:0;
-  width:min(100%,290px);
-  justify-self:center;
-}
-.mobile img{
-  border:1px solid #d4d3cd;
-  background:#fff;
-}
-.mobile-row{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:28px;
-  justify-items:center;
-  align-items:start;
-  max-width:960px;
-  margin-inline:auto;
-}
-.mobile-row.two{
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  max-width:680px;
-}
-.design-note{
-  display:grid;
-  grid-template-columns:160px minmax(0,1fr);
-  gap:40px;
-  margin-top:25px;
-  padding:23px 0;
-  border-top:1px solid #d0d0ca;
-  border-bottom:1px solid #d0d0ca;
-}
-.design-note span{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-}
-.design-note p{
-  margin:0;
-  max-width:650px;
-  font-size:15px;
-  line-height:1.75;
-  color:var(--soft);
-}
-
-/* FITTING */
-.booking{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 290px;
-  gap:54px;
-  align-items:start;
-  margin-top:40px;
-  padding-top:34px;
-  border-top:1px solid #d0d0ca;
-}
-.booking h4{
-  margin:0 0 14px;
-  max-width:550px;
-  font-size:clamp(26px,2.7vw,34px);
-  line-height:1.08;
-  letter-spacing:-.04em;
-}
-.booking p{
-  margin:0;
-  max-width:560px;
-  font-size:15px;
-  line-height:1.78;
-  color:var(--soft);
-}
+/* Booking */
+.booking{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:54px;align-items:start;margin-top:40px;padding-top:34px;border-top:1px solid #d0d0ca}
+.booking h4{margin:0 0 14px;max-width:550px;font-size:clamp(26px,2.7vw,34px);line-height:1.08;letter-spacing:-.04em}
+.booking p{margin:0;max-width:560px;font-size:15px;line-height:1.78;color:var(--soft)}
 .booking .mobile{justify-self:end}
 
 /* AI */
-.ai-intro{
-  max-width:680px;
-  margin:0 0 34px 200px;
-  padding-left:18px;
-  border-left:2px solid var(--accent);
-  font-size:15px;
-  line-height:1.78;
-  color:var(--soft);
-}
+.ai-intro{max-width:680px;margin:0 0 34px 200px;padding-left:18px;border-left:2px solid var(--accent);font-size:15px;line-height:1.78;color:var(--soft)}
 .ai-intro strong{color:#25262a}
-.ai-key{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:28px;
-}
+.ai-key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .ai-key figure{margin:0}
-.ai-key img{
-  aspect-ratio:4/3;
-  object-fit:cover;
-  border:1px solid #d4d3cd;
-  background:#fff;
-}
-.ai-applied{
-  display:grid;
-  grid-template-columns:repeat(2,300px);
-  justify-content:center;
-  gap:34px;
-  margin-top:34px;
-}
+.ai-key img{aspect-ratio:4/3;object-fit:cover;border:1px solid #d4d3cd;background:#fff}
+.ai-applied{display:grid;grid-template-columns:repeat(2,300px);justify-content:center;gap:34px;margin-top:34px}
 
-/* RESULTS */
+/* Accessibility / QA */
+.qa-list{border-top:1px solid #bfc0ba}
+.qa-row{display:grid;grid-template-columns:180px minmax(0,1fr);gap:32px;padding:22px 0;border-bottom:1px solid #d0d0ca}
+.qa-row strong{font-size:15px}
+.qa-row p{margin:0;max-width:680px;font-size:15px;line-height:1.75;color:var(--soft)}
+.qa-note{margin-top:22px;font-size:14px;line-height:1.75;color:var(--muted)}
+
+/* Measurement */
+.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.metric-group{border-top:1px solid #bfc0ba}
+.metric-group h3{margin:0;padding:18px 0;border-bottom:1px solid #d0d0ca;font-size:17px}
+.metric-group ul{list-style:none;margin:0;padding:0}
+.metric-group li{padding:13px 0;border-bottom:1px solid #deddd7;font-size:15px;line-height:1.65;color:var(--soft)}
+.measurement-note{margin-top:28px;padding:22px 0;border-top:1px solid #d0d0ca;border-bottom:1px solid #d0d0ca;font-size:15px;line-height:1.78;color:var(--soft)}
+.measurement-note strong{color:#26272a}
+
+/* Results */
 .results{border-top:1px solid #bfc0ba}
-.result-row{
-  display:grid;
-  grid-template-columns:48px 220px minmax(0,1fr);
-  gap:24px;
-  padding:24px 0;
-  border-bottom:1px solid #d0d0ca;
-}
+.result-row{display:grid;grid-template-columns:48px 220px minmax(0,1fr);gap:24px;padding:24px 0;border-bottom:1px solid #d0d0ca}
 .result-row .n{font-size:10px;color:var(--muted)}
 .result-row strong{font-size:16px}
-.result-row p{
-  margin:0;
-  max-width:640px;
-  font-size:15px;
-  line-height:1.72;
-  color:var(--soft);
-}
-.takeaway{
-  display:grid;
-  grid-template-columns:160px minmax(0,1fr);
-  gap:40px;
-  margin-top:34px;
-  padding-top:28px;
-}
-.takeaway span{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-}
-.takeaway p{
-  margin:0;
-  max-width:700px;
-  font-size:19px;
-  line-height:1.62;
-  letter-spacing:-.02em;
-  color:#292a2e;
-}
+.result-row p{margin:0;max-width:640px;font-size:15px;line-height:1.72;color:var(--soft)}
+.takeaway{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;margin-top:34px;padding-top:28px}
+.takeaway span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.takeaway p{margin:0;max-width:700px;font-size:19px;line-height:1.62;letter-spacing:-.02em;color:#292a2e}
 
-/* FOOTER */
-footer{
-  padding:62px 0 78px;
-  border-top:1px solid var(--line);
-}
-.footer-inner{
-  display:flex;justify-content:space-between;align-items:end;gap:24px;
-}
-.footer-inner h2{
-  margin:0;
-  max-width:680px;
-  font-size:clamp(34px,4.5vw,54px);
-  line-height:.98;
-  letter-spacing:-.05em;
-}
-.footer-inner a{
-  border:1px solid #c7c6c0;
-  border-radius:999px;
-  padding:12px 16px;
-  font-size:12px;
-  color:#56575b;
-}
+/* Footer */
+footer{padding:62px 0 78px;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.footer-inner h2{margin:0;max-width:680px;font-size:clamp(34px,4.5vw,54px);line-height:.98;letter-spacing:-.05em}
+.footer-inner a{border:1px solid #c7c6c0;border-radius:999px;padding:12px 16px;font-size:12px;color:#56575b}
 
-/* RESPONSIVE */
 @media(max-width:960px){
-  .hero-grid,.overview{grid-template-columns:1fr;gap:34px}
-  .section-head,.strategy-grid,.solution-head,.design-note,.takeaway{
-    grid-template-columns:1fr;gap:12px;
-  }
+  .hero-grid,.two-col{grid-template-columns:1fr;gap:34px}
+  .section-head,.strategy-grid,.solution-head,.design-note,.takeaway{grid-template-columns:1fr;gap:12px}
   .pc-mobile{grid-template-columns:1fr}
   .booking{grid-template-columns:1fr;gap:28px}
   .booking .mobile{justify-self:start}
   .ai-intro{margin-left:0}
+  .evidence-grid{grid-template-columns:1fr}
+  .evidence-grid article,.evidence-grid article:not(:first-child){padding:22px 0;border-right:0;border-bottom:1px solid #d0d0ca}
+  .evidence-grid article:last-child{border-bottom:0}
 }
 @media(max-width:640px){
   :root{--pad:18px}
   .identity span{display:none}
   .hero{padding:56px 0 50px}
   .hero h1{font-size:clamp(48px,15vw,70px)}
-  .hero-lead,.long-copy p{font-size:15px}
+  .hero-lead,.body-copy p{font-size:15px}
   .section,.solution{padding:72px 0}
   .section-copy h2{font-size:clamp(34px,10vw,44px)}
   .section-copy p,.solution-head p,.strategy p{font-size:14px}
-  .challenge-row{
-    grid-template-columns:30px 1fr;
-    gap:12px;
-  }
+  .challenge-row{grid-template-columns:30px 1fr;gap:12px}
   .challenge-row h3,.challenge-row p{grid-column:2}
   .challenge-row p{font-size:14px}
   .strategy{padding:68px 0}
   .strategy h2{font-size:clamp(32px,10vw,43px)}
   .solution-head h3{font-size:clamp(28px,9.6vw,38px)}
-  .mobile-row,.mobile-row.two,.ai-key,.ai-applied{
-    grid-template-columns:1fr;
-    max-width:none;
-  }
-  .mobile,.mobile-row .mobile,.ai-applied .mobile{
-    width:min(100%,320px);
-    max-width:320px;
-    margin-inline:auto;
-  }
-  .design-note p,.booking p,.ai-intro,.result-row p{font-size:14px}
-  .result-row{
-    grid-template-columns:30px 1fr;
-    gap:12px;
-  }
+  .mobile-row,.mobile-row.two,.ai-key,.ai-applied,.metrics{grid-template-columns:1fr;max-width:none}
+  .mobile,.mobile-row .mobile,.ai-applied .mobile{width:min(100%,320px);max-width:320px;margin-inline:auto}
+  .design-note p,.booking p,.ai-intro,.result-row p,.qa-row p,.metric-group li{font-size:14px}
+  .qa-row{grid-template-columns:1fr;gap:8px}
+  .result-row{grid-template-columns:30px 1fr;gap:12px}
   .result-row strong,.result-row p{grid-column:2}
   .takeaway p{font-size:17px}
   .footer-inner{display:block}
@@ -528,14 +202,13 @@ footer{
 }
 </style>
 </head>
-
 <body>
 
 <header class="site-header">
   <div class="wrap header-inner">
     <div class="identity">
       <strong>Choi Yoolim</strong>
-      <span>UI/UX Designer · Web Publisher</span>
+      <span>Product Designer · UI/UX + Front-end Implementation</span>
     </div>
     <a class="back-link" href="../../#work">← Selected Works</a>
   </div>
@@ -543,342 +216,377 @@ footer{
 
 <main>
 
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">UI/UX Case Study · L.A.B. GOLF KOREA</span>
-      <h1>Bringing L.A.B. GOLF<br>to the Korean market.</h1>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Product Design Case Study · L.A.B. GOLF KOREA</span>
+    <h1>Bringing L.A.B. GOLF<br>to the Korean market.</h1>
 
-      <div class="hero-grid">
-        <p class="hero-lead">
-          미국에서 운영되던 L.A.B. GOLF가 한국 공식 유통 계약을 통해 판매를 시작하면서,
-          국내 고객을 위한 별도 온라인 커머스 플랫폼이 필요했습니다.
-          브랜드 이해부터 제품 비교, 커스텀 옵션 선택, 피팅 예약까지
-          실제 구매와 방문으로 이어지는 경험을 설계하고 Cafe24에 구현했습니다.
-        </p>
-
-        <div class="meta-list">
-          <div class="meta-row"><span>Role</span><strong>UI/UX Design · Responsive Publishing · Front-end</strong></div>
-          <div class="meta-row"><span>Platform</span><strong>Cafe24</strong></div>
-          <div class="meta-row"><span>Scope</span><strong>Home · PLP · PDP · Custom Flow · Fitting</strong></div>
-          <div class="meta-row"><span>Market</span><strong>South Korea</strong></div>
-        </div>
-      </div>
-
-      <figure class="hero-visual">
-        <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
-      </figure>
-      <div class="caption">
-        <strong>Homepage · Desktop</strong>
-        <span>Localized commerce launch</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-index">01 · Context</div>
-        <div class="section-copy">
-          <h2>A new market required more than a translated storefront.</h2>
-        </div>
-      </div>
-
-      <div class="overview">
-        <div class="long-copy">
-          <p>
-            한국 판매가 시작되면서 필요한 것은 미국몰을 그대로 옮긴 페이지가 아니라,
-            한국 고객이 제품을 이해하고 구매할 수 있는 별도의 커머스 구조였습니다.
-          </p>
-          <p>
-            제품 판매, 브랜드 소개, 커스텀 퍼터 옵션, 피팅 서비스와 매장 예약을
-            하나의 경험 안에서 연결하고, 실제 운영 가능한 Cafe24 환경에 맞춰 설계했습니다.
-          </p>
-        </div>
-
-        <div class="facts">
-          <div class="fact"><span>Business</span><strong>Official Korean distribution launch</strong></div>
-          <div class="fact"><span>Goal</span><strong>Localized commerce experience</strong></div>
-          <div class="fact"><span>My Role</span><strong>Structure · UI/UX · Publishing · Implementation</strong></div>
-          <div class="fact"><span>Additional</span><strong>AI-assisted visual production</strong></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-index">02 · Problem</div>
-        <div class="section-copy">
-          <h2>Complexity had to become understandable before it could become purchasable.</h2>
-          <p>
-            전문 골프 제품은 일반적인 상품보다 비교와 선택 과정이 복잡합니다.
-            사용자에게 더 많은 정보를 보여주는 대신, 필요한 정보를 올바른 순서로 보여주는 것이 핵심이었습니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="challenge-list">
-        <div class="challenge-row">
-          <div class="n">01</div>
-          <h3>Localization</h3>
-          <p>미국 브랜드의 정체성과 제품 정보를 유지하면서 한국 고객에게 자연스러운 콘텐츠 순서와 표현으로 재구성했습니다.</p>
-        </div>
-        <div class="challenge-row">
-          <div class="n">02</div>
-          <h3>Product complexity</h3>
-          <p>모델, 샤프트, 길이, 헤드 무게 등 다수의 옵션을 사용자가 구매 전에 이해하고 판단할 수 있게 정리해야 했습니다.</p>
-        </div>
-        <div class="challenge-row">
-          <div class="n">03</div>
-          <h3>Online ↔ Offline</h3>
-          <p>온라인 상품 탐색과 오프라인 피팅 서비스가 별개의 경험으로 느껴지지 않도록 연결이 필요했습니다.</p>
-        </div>
-        <div class="challenge-row">
-          <div class="n">04</div>
-          <h3>Real commerce constraints</h3>
-          <p>디자인 완성도뿐 아니라 실제 상품 운영, 수정, 유지보수가 가능한 Cafe24 구조를 고려해야 했습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="strategy">
-    <div class="wrap">
-      <div class="strategy-grid">
-        <div class="section-index">03 · Experience Strategy</div>
-        <div>
-          <h2>Design the decision-making journey, not just the screens.</h2>
-          <p>
-            사용자가 사이트에서 실제로 고민하는 순서를 기준으로 전체 경험을 설계했습니다.
-            브랜드를 이해하고, 모델을 비교하고, 필요한 옵션을 선택한 뒤,
-            피팅이 필요하면 자연스럽게 예약으로 넘어가도록 흐름을 연결했습니다.
-          </p>
-
-          <div class="journey">
-            <span>Understand</span>
-            <span>Discover</span>
-            <span>Compare</span>
-            <span>Configure</span>
-            <span>Fit</span>
-            <span>Purchase / Visit</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="solution">
-    <div class="wrap">
-      <div class="solution-head">
-        <div class="solution-label">04.1 · Product Discovery</div>
-        <div>
-          <h3>Desktop for comparison.<br>Mobile for focus.</h3>
-          <p>
-            같은 정보를 단순히 축소하지 않고, 디바이스별 사용 상황에 맞춰 정보 우선순위를 달리했습니다.
-            PC는 여러 모델을 비교하기 위한 밀도를 유지하고, 모바일은 상품 탐색과 다음 행동에 집중했습니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="pc-mobile">
-        <figure class="desktop">
-          <img src="./assets/lab-product-list-desktop.png" alt="Desktop product listing">
-          <figcaption class="caption"><strong>Desktop Listing</strong><span>Comparison-oriented information density</span></figcaption>
-        </figure>
-
-        <figure class="mobile">
-          <img src="./assets/lab-product-list-mobile.png" alt="Mobile product listing">
-          <figcaption class="caption"><strong>Mobile Listing</strong><span>Focused browsing</span></figcaption>
-        </figure>
-      </div>
-
-      <div class="design-note">
-        <span>Design decision</span>
-        <p>
-          PC에서는 제품군을 한눈에 비교할 수 있게 그리드를 유지하고,
-          모바일에서는 카테고리와 상품 카드가 빠르게 읽히도록 탐색 요소를 압축했습니다.
-        </p>
-      </div>
-
-      <figure class="desktop" style="margin-top:32px;">
-        <img src="./assets/lab-product-detail-desktop.png" alt="Product detail page">
-        <figcaption class="caption"><strong>Product Detail</strong><span>Product media · price · options · CTA hierarchy</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="solution">
-    <div class="wrap">
-      <div class="solution-head">
-        <div class="solution-label">04.2 · Custom Configuration</div>
-        <div>
-          <h3>Reduce choice overload with progressive steps.</h3>
-          <p>
-            커스텀 퍼터는 옵션 수가 많아 한 번에 전부 보여주면 선택 피로가 커집니다.
-            Foundation → Function → Form → Review의 단계로 나눠 사용자가 현재 상태를 잃지 않도록 구성했습니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="mobile-row">
-        <figure class="mobile">
-          <img src="./assets/lab-config-step1-mobile.png" alt="Foundation step">
-          <figcaption class="caption"><strong>Foundation</strong><span>Basic putting conditions</span></figcaption>
-        </figure>
-
-        <figure class="mobile">
-          <img src="./assets/lab-config-step2-mobile.png" alt="Function step">
-          <figcaption class="caption"><strong>Function</strong><span>Shaft · LieAngle · Inset</span></figcaption>
-        </figure>
-
-        <figure class="mobile">
-          <img src="./assets/lab-config-summary-mobile.png" alt="Configuration review">
-          <figcaption class="caption"><strong>Review</strong><span>Selections · quantity · total price</span></figcaption>
-        </figure>
-      </div>
-
-      <div class="design-note">
-        <span>UX rationale</span>
-        <p>
-          사용자가 현재 단계, 선택한 옵션, 최종 가격을 계속 확인할 수 있도록
-          진행 상태와 결과 피드백을 명확하게 노출했습니다.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="solution">
-    <div class="wrap">
-      <div class="solution-head">
-        <div class="solution-label">04.3 · Fitting Journey</div>
-        <div>
-          <h3>Build confidence before asking users to book.</h3>
-          <p>
-            피팅 예약은 단순 CTA가 아니라 신뢰 형성이 필요한 서비스입니다.
-            피팅 방식과 전문성, 매장 정보를 충분히 제공한 뒤 실제 예약 단계로 연결했습니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="mobile-row two">
-        <figure class="mobile">
-          <img src="./assets/lab-fitting-guide-mobile.png" alt="Fitting guide">
-          <figcaption class="caption"><strong>Fitting Guide</strong><span>Store selection · reservation entry</span></figcaption>
-        </figure>
-
-        <figure class="mobile">
-          <img src="./assets/lab-fitting-service-mobile.png" alt="Fitting service detail">
-          <figcaption class="caption"><strong>Service Detail</strong><span>Expert fitter · data fitting</span></figcaption>
-        </figure>
-      </div>
-
-      <div class="booking">
-        <div>
-          <span class="eyebrow">Conversion touchpoint</span>
-          <h4>From product understanding to an actual fitting reservation.</h4>
-          <p>
-            사이트 안에서 서비스와 매장 정보를 확인한 뒤 네이버 예약으로 이동하도록 구성했습니다.
-            정보 제공에서 끝나지 않고 실제 오프라인 방문까지 이어지는 전환 흐름을 고려했습니다.
-          </p>
-        </div>
-
-        <figure class="mobile">
-          <img src="./assets/lab-reservation-naver.png" alt="Naver reservation for LAB Golf Korea fitting">
-          <figcaption class="caption"><strong>Reservation</strong><span>Naver booking · offline conversion</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="solution">
-    <div class="wrap">
-      <div class="solution-head">
-        <div class="solution-label">04.4 · AI-assisted Production</div>
-        <div>
-          <h3>Fill production gaps without losing the brand language.</h3>
-          <p>
-            일부 컬러 에디션과 프로모션은 브랜드에서 제공된 이미지가 충분하지 않았습니다.
-            필요한 비주얼은 AI-assisted image creation으로 제작하고,
-            실제 랜딩페이지에 사용할 수 있도록 선택·보정·배치했습니다.
-          </p>
-        </div>
-      </div>
-
-      <p class="ai-intro">
-        <strong>AI는 디자인 결정을 대신하지 않았습니다.</strong>
-        페이지 목적과 비주얼 방향을 먼저 정의한 뒤,
-        생성 결과를 선별하고 브랜드 톤에 맞게 조정해 실제 UI에 적용하는 제작 보조 과정으로 사용했습니다.
+    <div class="hero-grid">
+      <p class="hero-lead">
+        L.A.B. GOLF was already established in the U.S. when an official distribution agreement opened the Korean market.
+        The launch needed more than a translated storefront: Korean customers needed a clear way to understand the brand,
+        compare specialized products, configure custom putters, and move from online discovery to offline fitting.
       </p>
 
-      <div class="ai-key">
-        <figure>
-          <img src="./assets/lab-ai-purple-main.png" alt="Purple edition AI key visual">
-          <figcaption class="caption"><strong>Purple Edition</strong><span>AI-assisted key visual</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="./assets/lab-ai-teal-main.png" alt="Teal edition AI key visual">
-          <figcaption class="caption"><strong>Teal Edition</strong><span>AI-assisted key visual</span></figcaption>
-        </figure>
-      </div>
-
-      <div class="ai-applied">
-        <figure class="mobile">
-          <img src="./assets/lab-ai-purple-mobile.png" alt="Purple edition applied mobile UI">
-          <figcaption class="caption"><strong>Applied UI · Purple</strong><span>Generated asset → live landing</span></figcaption>
-        </figure>
-
-        <figure class="mobile">
-          <img src="./assets/lab-ai-teal-mobile.png" alt="Teal edition applied mobile UI">
-          <figcaption class="caption"><strong>Applied UI · Teal</strong><span>Generated asset → live landing</span></figcaption>
-        </figure>
+      <div class="meta-list">
+        <div class="meta-row"><span>Role</span><strong>UI/UX Design · Responsive Front-end · Implementation</strong></div>
+        <div class="meta-row"><span>Platform</span><strong>Cafe24 e-commerce CMS</strong></div>
+        <div class="meta-row"><span>Scope</span><strong>Home · PLP · PDP · Custom Flow · Fitting</strong></div>
+        <div class="meta-row"><span>Market</span><strong>South Korea</strong></div>
       </div>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-index">05 · Outcome</div>
-        <div class="section-copy">
-          <h2>What the project delivered.</h2>
-          <p>
-            측정되지 않은 성과를 임의로 만들지 않고,
-            실제 구축 범위와 개선된 사용자 경험을 기준으로 결과를 정리했습니다.
-          </p>
-        </div>
+    <figure class="hero-visual">
+      <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
+    </figure>
+    <div class="caption"><strong>Homepage · Desktop</strong><span>Localized commerce launch</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">01 · Context</div>
+      <div class="section-copy">
+        <h2>A new market required a new decision-making experience.</h2>
       </div>
+    </div>
 
-      <div class="results">
-        <div class="result-row"><div class="n">01</div><strong>Localized structure</strong><p>미국 브랜드의 정보 구조를 한국 고객의 탐색·구매 흐름에 맞춰 재구성했습니다.</p></div>
-        <div class="result-row"><div class="n">02</div><strong>Responsive hierarchy</strong><p>PC와 모바일에서 서로 다른 사용 상황을 고려한 정보 우선순위를 적용했습니다.</p></div>
-        <div class="result-row"><div class="n">03</div><strong>Guided configuration</strong><p>복잡한 커스텀 옵션을 단계형 UX로 정리해 선택 과정을 더 명확하게 만들었습니다.</p></div>
-        <div class="result-row"><div class="n">04</div><strong>Connected fitting journey</strong><p>상품 탐색과 피팅 서비스, 실제 예약을 하나의 흐름으로 연결했습니다.</p></div>
-        <div class="result-row"><div class="n">05</div><strong>Design → implementation</strong><p>UI/UX 설계에서 Responsive Publishing, Cafe24 적용, 실제 운영 환경까지 직접 연결했습니다.</p></div>
-      </div>
-
-      <div class="takeaway">
-        <span>Takeaway</span>
+    <div class="two-col">
+      <div class="body-copy">
         <p>
-          This project reflects how I work across <strong>structure, interface, and implementation</strong> —
-          turning a complex commerce requirement into a clear experience that can actually be operated.
+          The Korean site could not simply mirror the U.S. store. Product education, purchasing conventions,
+          content hierarchy, custom options, and fitting services needed to work as one localized commerce experience.
+        </p>
+        <p>
+          I worked across the structure, interface, and implementation — connecting product discovery,
+          configuration, service content, and reservation touchpoints inside a live Cafe24 environment.
+        </p>
+      </div>
+
+      <div class="fact-list">
+        <div class="fact"><span>Business</span><strong>Official Korean distribution launch</strong></div>
+        <div class="fact"><span>Goal</span><strong>Localized, production-ready commerce experience</strong></div>
+        <div class="fact"><span>Contribution</span><strong>Structure · UI/UX · Front-end implementation</strong></div>
+        <div class="fact"><span>Additional</span><strong>AI-assisted visual production</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">02 · Evidence &amp; Constraints</div>
+      <div class="section-copy">
+        <h2>Grounding decisions in the realities of the launch.</h2>
+        <p>
+          This was a production launch rather than a greenfield research project.
+          I used the available business, product, service, and platform evidence to define the design constraints.
         </p>
       </div>
     </div>
-  </section>
+
+    <div class="evidence-grid">
+      <article>
+        <span>Product evidence</span>
+        <h3>High-consideration product structure</h3>
+        <p>Multiple putter models, shafts, dimensions, specifications, and custom choices created a dense decision space.</p>
+      </article>
+      <article>
+        <span>Service evidence</span>
+        <h3>Fitting is part of the purchase journey</h3>
+        <p>Customers may need expert fitting before purchase, so store information and booking could not remain disconnected from commerce.</p>
+      </article>
+      <article>
+        <span>Operational evidence</span>
+        <h3>Live Cafe24 constraints</h3>
+        <p>The interface had to work with real product, option, content, and maintenance constraints rather than an unconstrained prototype.</p>
+      </article>
+    </div>
+
+    <p class="research-note">
+      <strong>Research note:</strong> I did not conduct formal generative user interviews for this launch.
+      I am separating observed project constraints from assumptions rather than presenting unperformed research as evidence.
+      A future validation plan is outlined later in this case study.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">03 · Problem</div>
+      <div class="section-copy">
+        <h2>Complexity had to become understandable before it could become purchasable.</h2>
+      </div>
+    </div>
+
+    <div class="challenge-list">
+      <div class="challenge-row"><div class="n">01</div><h3>Localization</h3><p>Preserve the U.S. brand and product language while reorganizing the experience for Korean customers and local commerce expectations.</p></div>
+      <div class="challenge-row"><div class="n">02</div><h3>Product complexity</h3><p>Help first-time customers make sense of model differences, shafts, measurements, and configuration choices without flattening important technical information.</p></div>
+      <div class="challenge-row"><div class="n">03</div><h3>Online ↔ Offline</h3><p>Connect digital product discovery with fitting education, physical locations, and an actual booking path.</p></div>
+      <div class="challenge-row"><div class="n">04</div><h3>Production constraints</h3><p>Translate the design into a maintainable system that could operate inside Cafe24 and support ongoing commerce work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="strategy">
+  <div class="wrap">
+    <div class="strategy-grid">
+      <div class="section-index">04 · Experience Strategy</div>
+      <div>
+        <h2>Design the decision journey, not just the screens.</h2>
+        <p>
+          I structured the experience around the sequence of questions a customer needs to answer:
+          What is L.A.B. GOLF? Which model fits my needs? What do the options mean? Do I need fitting?
+          How do I purchase or book a visit?
+        </p>
+        <div class="journey">
+          <span>Understand</span><span>Discover</span><span>Compare</span><span>Configure</span><span>Fit</span><span>Purchase / Visit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">05.1 · Product Discovery</div>
+      <div>
+        <h3>Desktop for comparison.<br>Mobile for focus.</h3>
+        <p>
+          I did not treat mobile as a scaled-down desktop page. Desktop preserves comparison density,
+          while mobile prioritizes category navigation, product recognition, and the next useful action.
+        </p>
+      </div>
+    </div>
+
+    <div class="pc-mobile">
+      <figure class="desktop">
+        <img src="./assets/lab-product-list-desktop.png" alt="L.A.B. GOLF desktop product listing">
+        <figcaption class="caption"><strong>Desktop Listing</strong><span>Comparison-oriented information density</span></figcaption>
+      </figure>
+      <figure class="mobile">
+        <img src="./assets/lab-product-list-mobile.png" alt="L.A.B. GOLF mobile product listing">
+        <figcaption class="caption"><strong>Mobile Listing</strong><span>Focused browsing</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="design-note">
+      <span>Design decision</span>
+      <p>Keep the product model visible and comparable on desktop; reduce peripheral controls and emphasize scanning on mobile.</p>
+    </div>
+
+    <figure class="desktop" style="margin-top:32px;">
+      <img src="./assets/lab-product-detail-desktop.png" alt="L.A.B. GOLF product detail page">
+      <figcaption class="caption"><strong>Product Detail</strong><span>Product media · price · options · CTA hierarchy</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">05.2 · Custom Configuration</div>
+      <div>
+        <h3>Reduce choice overload with progressive steps.</h3>
+        <p>
+          Custom putters require many interdependent decisions. I separated the configuration into
+          Foundation → Function → Form → Review so users can make one category of decision at a time.
+        </p>
+      </div>
+    </div>
+
+    <div class="mobile-row">
+      <figure class="mobile"><img src="./assets/lab-config-step1-mobile.png" alt="Custom putter Foundation step"><figcaption class="caption"><strong>Foundation</strong><span>Basic putting conditions</span></figcaption></figure>
+      <figure class="mobile"><img src="./assets/lab-config-step2-mobile.png" alt="Custom putter Function step"><figcaption class="caption"><strong>Function</strong><span>Shaft · LieAngle · Inset</span></figcaption></figure>
+      <figure class="mobile"><img src="./assets/lab-config-summary-mobile.png" alt="Custom putter review summary"><figcaption class="caption"><strong>Review</strong><span>Selections · quantity · total price</span></figcaption></figure>
+    </div>
+
+    <div class="design-note">
+      <span>UX rationale</span>
+      <p>Keep progress, selected values, and price feedback visible so the user can understand both current state and purchase consequences.</p>
+    </div>
+
+    <p class="tradeoff">
+      <strong>Trade-off considered:</strong> a single-page configuration can reduce the number of clicks,
+      but exposes many decisions at once. The staged pattern adds steps in exchange for clearer state visibility
+      and lower cognitive load. This rationale should be validated with task-completion testing.
+    </p>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">05.3 · Fitting Journey</div>
+      <div>
+        <h3>Build confidence before asking users to book.</h3>
+        <p>
+          Fitting is a service decision, not just a CTA. The experience explains the service and physical touchpoints
+          before sending users into the booking platform.
+        </p>
+      </div>
+    </div>
+
+    <div class="mobile-row two">
+      <figure class="mobile"><img src="./assets/lab-fitting-guide-mobile.png" alt="L.A.B. GOLF fitting reservation guide"><figcaption class="caption"><strong>Fitting Guide</strong><span>Store selection · reservation entry</span></figcaption></figure>
+      <figure class="mobile"><img src="./assets/lab-fitting-service-mobile.png" alt="L.A.B. GOLF fitting service details"><figcaption class="caption"><strong>Service Detail</strong><span>Expert fitter · data fitting</span></figcaption></figure>
+    </div>
+
+    <div class="booking">
+      <div>
+        <span class="eyebrow">Conversion touchpoint</span>
+        <h4>From product understanding to an actual fitting reservation.</h4>
+        <p>
+          After learning about the service and location, users move into Naver Booking for the actual reservation.
+          The goal is to make the outbound transition feel like the next step in the same journey.
+        </p>
+      </div>
+      <figure class="mobile"><img src="./assets/lab-reservation-naver.png" alt="Naver booking page for L.A.B. GOLF Korea fitting"><figcaption class="caption"><strong>Reservation</strong><span>Naver booking · offline conversion</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">05.4 · AI-assisted Production</div>
+      <div>
+        <h3>Fill production gaps without losing the brand language.</h3>
+        <p>
+          Some colour-edition and campaign sections did not have enough supplied production imagery.
+          I used AI-assisted image creation as part of the art-direction workflow, then selected, refined,
+          and adapted the outputs for live promotional pages.
+        </p>
+      </div>
+    </div>
+
+    <p class="ai-intro">
+      <strong>AI supported production; it did not replace design decisions.</strong>
+      I defined the visual brief first — purpose, composition, colour language, and placement —
+      then generated options, selected viable outputs, refined them, and applied them to the interface.
+    </p>
+
+    <div class="ai-key">
+      <figure><img src="./assets/lab-ai-purple-main.png" alt="Purple Edition AI-assisted key visual"><figcaption class="caption"><strong>Purple Edition</strong><span>AI-assisted key visual</span></figcaption></figure>
+      <figure><img src="./assets/lab-ai-teal-main.png" alt="Teal Edition AI-assisted key visual"><figcaption class="caption"><strong>Teal Edition</strong><span>AI-assisted key visual</span></figcaption></figure>
+    </div>
+
+    <div class="ai-applied">
+      <figure class="mobile"><img src="./assets/lab-ai-purple-mobile.png" alt="Purple Edition promotional mobile UI"><figcaption class="caption"><strong>Applied UI · Purple</strong><span>Generated asset → live landing</span></figcaption></figure>
+      <figure class="mobile"><img src="./assets/lab-ai-teal-mobile.png" alt="Teal Edition promotional mobile UI"><figcaption class="caption"><strong>Applied UI · Teal</strong><span>Generated asset → live landing</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">06 · Accessibility &amp; QA</div>
+      <div class="section-copy">
+        <h2>Accessibility is an implementation requirement, not a visual afterthought.</h2>
+        <p>
+          The project was not a formal WCAG audit, so I do not present it as one.
+          These were the accessibility and quality considerations used as an implementation baseline.
+        </p>
+      </div>
+    </div>
+
+    <div class="qa-list">
+      <div class="qa-row"><strong>Readable hierarchy</strong><p>Maintain legible text sizes, predictable hierarchy, and sufficient spacing across desktop and mobile.</p></div>
+      <div class="qa-row"><strong>Contrast &amp; states</strong><p>Keep key text and action states distinguishable against high-contrast black/white brand surfaces.</p></div>
+      <div class="qa-row"><strong>Touch &amp; focus</strong><p>Use practical touch target sizing on mobile and preserve visible interactive/focus states where the platform allows.</p></div>
+      <div class="qa-row"><strong>Semantic content</strong><p>Use meaningful headings, labels, alt text, and semantic HTML where possible within the Cafe24 theme structure.</p></div>
+      <div class="qa-row"><strong>Responsive QA</strong><p>Review layouts across breakpoints for clipping, option visibility, content reflow, and purchase-state regressions.</p></div>
+    </div>
+    <p class="qa-note">A future accessibility pass should include a documented WCAG 2.2 AA audit with keyboard and assistive-technology testing.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">07 · Measurement &amp; Validation</div>
+      <div class="section-copy">
+        <h2>Be explicit about what is known — and what still needs validation.</h2>
+        <p>
+          Reliable pre/post analytics were not available for attribution, so this case study does not claim fabricated conversion uplift.
+          Instead, I define the measures and tests I would use to evaluate the decisions.
+        </p>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric-group">
+        <h3>Behavioural metrics to track</h3>
+        <ul>
+          <li>Product listing → product detail click-through</li>
+          <li>Custom configuration start and completion rate</li>
+          <li>Drop-off by configuration step</li>
+          <li>Fitting CTA and outbound booking click-through</li>
+          <li>Option-related customer-service questions</li>
+        </ul>
+      </div>
+      <div class="metric-group">
+        <h3>Validation I would run next</h3>
+        <ul>
+          <li>5–8 first-time customer usability sessions</li>
+          <li>Model-comparison comprehension tasks</li>
+          <li>Custom-option task completion and error review</li>
+          <li>Fitting-service comprehension and booking intent</li>
+          <li>Keyboard / screen-reader accessibility review</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="measurement-note">
+      <strong>Why include this?</strong> A production designer should be able to separate shipped output from validated impact.
+      This measurement plan makes the next learning loop explicit without inventing evidence that the project did not collect.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">08 · Outcome</div>
+      <div class="section-copy">
+        <h2>What the project delivered.</h2>
+        <p>Outcomes below describe shipped scope and system-level improvements, not unverified revenue or conversion claims.</p>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="result-row"><div class="n">01</div><strong>Localized structure</strong><p>A Korean commerce structure connecting brand education, product discovery, configuration, fitting, and booking.</p></div>
+      <div class="result-row"><div class="n">02</div><strong>Responsive hierarchy</strong><p>Different information priorities for desktop comparison and mobile-focused browsing.</p></div>
+      <div class="result-row"><div class="n">03</div><strong>Guided configuration</strong><p>A staged custom-option experience that preserves state and price awareness.</p></div>
+      <div class="result-row"><div class="n">04</div><strong>Connected service journey</strong><p>An online-to-offline path from fitting education to actual Naver reservation.</p></div>
+      <div class="result-row"><div class="n">05</div><strong>Design → implementation</strong><p>UI/UX decisions translated into responsive front-end work in a live Cafe24 environment.</p></div>
+    </div>
+
+    <div class="takeaway">
+      <span>Takeaway</span>
+      <p>
+        This project reflects how I work across <strong>structure, interface, and implementation</strong> —
+        turning a complex commerce requirement into a clear experience that can actually be operated.
+      </p>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <footer>
   <div class="wrap footer-inner">
     <div>
-      <span class="eyebrow">L.A.B. GOLF KOREA · Case Study</span>
+      <span class="eyebrow">L.A.B. GOLF KOREA · Product Design Case Study</span>
       <h2>Designing for real users.<br>Building for real products.</h2>
     </div>
     <a href="../../#work">Back to Selected Works →</a>
   </div>
 </footer>
-
 </body>
 </html>
