@@ -4,23 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>L.A.B. GOLF KOREA — UI/UX Case Study | Choi Yoolim</title>
-<meta name="description" content="L.A.B. GOLF KOREA UI/UX case study by Choi Yoolim. Localization, commerce architecture, custom putter configuration, fitting service, Cafe24 implementation, and AI-assisted visual production.">
+<meta name="description" content="L.A.B. GOLF KOREA UI/UX case study by Choi Yoolim — Korean commerce localization, product discovery, custom putter configuration, fitting experience, Cafe24 implementation, and AI-assisted visual production.">
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --bg:#f4f3ef;
+  --bg:#f5f4ef;
   --paper:#ffffff;
   --ink:#111111;
-  --soft:#5e6066;
+  --soft:#5f6166;
   --muted:#8b8d92;
-  --line:#d9d9d4;
-  --navy:#101a36;
+  --line:#d7d7d1;
   --accent:#6d63ff;
-  --max:1280px;
-  --pad:clamp(20px,4.2vw,64px);
-  --section:clamp(88px,10vw,150px);
+  --max:1240px;
+  --pad:clamp(20px,4vw,56px);
+  --section:clamp(88px,9vw,140px);
 }
 
 *{box-sizing:border-box}
@@ -33,119 +32,71 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-img{display:block;max-width:100%;width:100%}
+img{display:block;width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(100%,var(--max));margin:0 auto;padding-inline:var(--pad)}
 
 .topbar{
   position:sticky;top:0;z-index:50;
-  background:rgba(244,243,239,.92);
+  background:rgba(245,244,239,.92);
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(17,17,17,.08);
 }
-.topbar-inner{
-  min-height:66px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
+.topbar-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .identity{display:flex;align-items:baseline;gap:10px}
 .identity strong{font-size:14px;font-weight:800}
 .identity span{font-size:11px;color:var(--muted)}
-.back{
-  border:1px solid #c8c8c2;
-  border-radius:999px;
-  padding:9px 14px;
-  font-size:12px;
-  color:#4f5054;
-  background:rgba(255,255,255,.45);
-}
+.back{border:1px solid #c8c8c2;border-radius:999px;padding:9px 14px;font-size:12px;color:#4f5054;background:rgba(255,255,255,.45)}
 
-.hero{padding:88px 0 48px}
-.kicker{
+.hero{padding:84px 0 52px}
+.kicker,.section-no{
   display:block;
   font-size:11px;
   line-height:1.3;
   letter-spacing:.10em;
   text-transform:uppercase;
   color:var(--muted);
-  margin-bottom:16px;
 }
 .hero h1{
-  margin:0;
+  margin:18px 0 26px;
   max-width:1040px;
-  font-size:clamp(56px,8.6vw,120px);
+  font-size:clamp(56px,8.4vw,114px);
   line-height:.9;
   letter-spacing:-.065em;
   font-weight:800;
 }
 .hero-summary{
   display:grid;
-  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);
+  grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);
   gap:72px;
-  margin-top:48px;
+  margin-top:44px;
   align-items:start;
 }
 .hero-summary p{
   margin:0;
-  max-width:740px;
+  max-width:760px;
   font-size:18px;
   line-height:1.78;
   color:#3f4146;
 }
-.meta{
-  border-top:1px solid #bfc0bb;
-}
-.meta-row{
-  display:grid;
-  grid-template-columns:100px 1fr;
-  gap:20px;
-  padding:13px 0;
-  border-bottom:1px solid #cfcfca;
-}
-.meta-row span{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-}
-.meta-row strong{
-  font-size:12px;
-  line-height:1.5;
-  font-weight:600;
-  color:#34363a;
-}
+.meta{border-top:1px solid #bebfb9}
+.meta-row{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:13px 0;border-bottom:1px solid #cdcdc7}
+.meta-row span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.meta-row strong{font-size:12px;line-height:1.5;font-weight:600;color:#34363a}
 
-.hero-media{margin-top:42px}
-.desktop-frame{
-  background:#e9e9e5;
-  border:1px solid #d0d0cb;
-  padding:18px;
-}
-.desktop-frame .viewport{
-  aspect-ratio:16/9;
-  background:#111;
-  overflow:hidden;
-}
-.desktop-frame .viewport img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top center;
-}
-.frame-cap{
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
+.hero-visual{margin-top:42px}
+.media-landscape{margin:0}
+.media-landscape img{background:#fff;border:1px solid #d0d0ca}
+.caption{
   margin-top:10px;
   font-size:10px;
-  line-height:1.5;
+  line-height:1.55;
   color:var(--muted);
+  letter-spacing:.01em;
 }
-.frame-cap strong{color:#45464a;font-weight:600}
+.caption strong{color:#45464a;font-weight:600}
 
-section.case{
-  padding:var(--section) 0;
-  border-top:1px solid #d6d6d0;
-}
+section.case{padding:var(--section) 0;border-top:1px solid var(--line)}
 .section-head{
   display:grid;
   grid-template-columns:190px minmax(0,1fr);
@@ -153,207 +104,69 @@ section.case{
   align-items:start;
   margin-bottom:48px;
 }
-.section-num{
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
 .section-title h2{
   margin:0;
   max-width:900px;
-  font-size:clamp(38px,5.2vw,68px);
+  font-size:clamp(38px,5.1vw,66px);
   line-height:.97;
   letter-spacing:-.05em;
   font-weight:800;
 }
-.section-title p{
-  margin:20px 0 0;
-  max-width:760px;
-  font-size:15px;
-  line-height:1.82;
-  color:var(--soft);
-}
+.section-title p{margin:20px 0 0;max-width:760px;font-size:15px;line-height:1.82;color:var(--soft)}
 
-.overview{
-  display:grid;
-  grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
-  gap:72px;
-}
-.body-copy p{
-  margin:0;
-  max-width:760px;
-  font-size:17px;
-  line-height:1.86;
-  color:#3f4146;
-}
+.overview{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:72px}
+.body-copy p{margin:0;max-width:760px;font-size:17px;line-height:1.86;color:#3f4146}
 .body-copy p+p{margin-top:18px}
 .fact-table{border-top:1px solid #bebfb9}
-.fact{
-  display:grid;
-  grid-template-columns:105px 1fr;
-  gap:20px;
-  padding:15px 0;
-  border-bottom:1px solid #d0d0ca;
-}
-.fact span{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.fact strong{
-  font-size:12px;
-  line-height:1.55;
-  font-weight:600;
-  color:#37383c;
-}
+.fact{display:grid;grid-template-columns:105px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid #d0d0ca}
+.fact span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fact strong{font-size:12px;line-height:1.55;font-weight:600;color:#37383c}
 
 .challenge-list{border-top:1px solid #bfc0ba}
-.challenge{
-  display:grid;
-  grid-template-columns:56px 220px minmax(0,1fr);
-  gap:30px;
-  padding:24px 0;
-  border-bottom:1px solid #d0d0ca;
-}
+.challenge{display:grid;grid-template-columns:56px 220px minmax(0,1fr);gap:30px;padding:24px 0;border-bottom:1px solid #d0d0ca}
 .challenge .n{font-size:10px;color:var(--muted)}
 .challenge h3{margin:0;font-size:17px;letter-spacing:-.02em}
 .challenge p{margin:0;max-width:700px;font-size:14px;line-height:1.78;color:var(--soft)}
 
-.ia{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:24px;
-}
-.ia span{
-  display:inline-flex;
-  padding:8px 11px;
-  border:1px solid #cacac4;
-  border-radius:999px;
-  font-size:10px;
-  color:#57595d;
-  background:rgba(255,255,255,.35);
-}
-.ia i{font-style:normal;color:#a1a29d;padding-top:7px}
-
 .solution{margin-top:96px}
 .solution:first-of-type{margin-top:0}
-.solution-head{
+.solution-head{display:grid;grid-template-columns:190px minmax(0,1fr);gap:54px;align-items:start;margin-bottom:30px}
+.solution-head .label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.solution-head h3{margin:0;max-width:860px;font-size:clamp(32px,4.2vw,52px);line-height:1;letter-spacing:-.045em}
+.solution-head p{margin:16px 0 0;max-width:730px;font-size:14px;line-height:1.8;color:var(--soft)}
+
+.media-grid-two{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.media-grid-three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.media-card{margin:0}
+.media-card img{background:#fff;border:1px solid #d0d0ca}
+
+/* editorial image system */
+.media-card.desktop img,.media-landscape img{aspect-ratio:16/9;object-fit:contain;object-position:top center}
+.media-card.mobile{justify-self:center;width:min(100%,300px)}
+.media-card.mobile img{aspect-ratio:9/19.5;object-fit:contain;object-position:top center;background:#fff}
+.media-card.ai img{aspect-ratio:4/3;object-fit:cover;object-position:center}
+
+.product-discovery-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);
+  gap:18px;
+  align-items:start;
+}
+.product-discovery-grid .media-card.mobile{width:min(100%,280px)}
+
+.decision{
   display:grid;
   grid-template-columns:190px minmax(0,1fr);
   gap:54px;
-  margin-bottom:30px;
-  align-items:start;
+  margin-top:24px;
+  padding:22px 0;
+  border-top:1px solid #cdcdc7;
+  border-bottom:1px solid #cdcdc7;
 }
-.solution-head .label{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.solution-head h3{
-  margin:0;
-  max-width:860px;
-  font-size:clamp(32px,4.3vw,54px);
-  line-height:1;
-  letter-spacing:-.045em;
-}
-.solution-head p{
-  margin:16px 0 0;
-  max-width:730px;
-  font-size:14px;
-  line-height:1.8;
-  color:var(--soft);
-}
+.decision .label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.decision p{margin:0;max-width:760px;font-size:13px;line-height:1.78;color:var(--soft)}
 
-.media-wide{margin:0}
-.media-wide .viewport{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:#e6e6e1;
-  border:1px solid #d0d0cb;
-}
-.media-wide .viewport img{
-  width:100%;height:100%;
-  object-fit:contain;
-  object-position:top center;
-}
-.media-wide figcaption,
-.phone-card figcaption,
-.square-card figcaption{
-  margin-top:10px;
-  font-size:10px;
-  line-height:1.55;
-  color:var(--muted);
-}
-figcaption strong{color:#45464a;font-weight:600}
-
-.dual{
-  display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);
-  gap:18px;
-  align-items:start;
-}
-.phone-stage{
-  background:#e7e7e2;
-  border:1px solid #d0d0cb;
-  min-height:100%;
-  padding:28px;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-}
-.phone-card{
-  margin:0 auto;
-  width:min(100%,320px);
-}
-.phone-screen{
-  background:#fff;
-  border:1px solid #cfd0cb;
-  overflow:hidden;
-}
-.phone-screen img{
-  width:100%;
-  height:auto;
-  object-fit:contain;
-}
-
-.phone-row{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-  align-items:start;
-}
-.phone-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.phone-row .phone-card{
-  width:min(100%,300px);
-}
-
-.square-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-.square-card{margin:0}
-.square-frame{
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#e8e8e3;
-  border:1px solid #d0d0cb;
-}
-.square-frame img{
-  width:100%;height:100%;
-  object-fit:cover;
-}
-.ai-apply{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-  margin-top:28px;
-}
-.ai-copy{
+.ai-note{
   max-width:760px;
   margin:0 0 34px 244px;
   padding-left:18px;
@@ -362,53 +175,28 @@ figcaption strong{color:#45464a;font-weight:600}
   font-size:14px;
   line-height:1.82;
 }
-.ai-copy strong{color:#222}
+.ai-note strong{color:#222}
 
 .result-list{border-top:1px solid #bfc0ba}
-.result{
-  display:grid;
-  grid-template-columns:56px 260px minmax(0,1fr);
-  gap:30px;
-  padding:22px 0;
-  border-bottom:1px solid #d0d0ca;
-}
+.result{display:grid;grid-template-columns:56px 260px minmax(0,1fr);gap:30px;padding:22px 0;border-bottom:1px solid #d0d0ca}
 .result .n{font-size:10px;color:var(--muted)}
 .result strong{font-size:15px}
 .result p{margin:0;font-size:13px;line-height:1.75;color:var(--soft);max-width:700px}
 
-footer{
-  padding:64px 0 80px;
-  border-top:1px solid #d5d5cf;
-}
-.footer-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:24px;
-}
-.footer-inner h2{
-  margin:0;
-  max-width:760px;
-  font-size:clamp(34px,4.8vw,60px);
-  line-height:.98;
-  letter-spacing:-.05em;
-}
-.footer-inner a{
-  border:1px solid #c7c7c1;
-  border-radius:999px;
-  padding:12px 16px;
-  font-size:12px;
-  color:#4f5054;
-  white-space:nowrap;
-}
+footer{padding:64px 0 80px;border-top:1px solid #d5d5cf}
+.footer-inner{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.footer-inner h2{margin:0;max-width:760px;font-size:clamp(34px,4.8vw,60px);line-height:.98;letter-spacing:-.05em}
+.footer-inner a{border:1px solid #c7c7c1;border-radius:999px;padding:12px 16px;font-size:12px;color:#4f5054;white-space:nowrap}
 
 @media(max-width:960px){
   .hero-summary,.overview{grid-template-columns:1fr;gap:34px}
   .section-head,.solution-head{grid-template-columns:1fr;gap:15px}
   .challenge{grid-template-columns:46px 180px 1fr}
-  .dual{grid-template-columns:1fr}
-  .phone-row{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ai-copy{margin-left:0}
+  .product-discovery-grid{grid-template-columns:1fr}
+  .product-discovery-grid .media-card.mobile{width:min(100%,300px);justify-self:end}
+  .media-grid-three{grid-template-columns:repeat(2,1fr)}
+  .decision{grid-template-columns:1fr;gap:10px}
+  .ai-note{margin-left:0}
   .result{grid-template-columns:46px 220px 1fr}
 }
 
@@ -419,7 +207,6 @@ footer{
   .hero{padding:56px 0 36px}
   .hero h1{font-size:clamp(48px,16vw,74px)}
   .hero-summary p{font-size:14px}
-  .hero-meta{grid-template-columns:1fr 1fr;gap:10px}
   .meta-row{grid-template-columns:74px 1fr}
   section.case{padding:72px 0}
   .section-head{margin-bottom:30px}
@@ -427,202 +214,27 @@ footer{
   .section-title p{font-size:13px;line-height:1.72}
   .body-copy p{font-size:13px;line-height:1.75}
   .fact{grid-template-columns:82px 1fr;gap:15px}
-  .challenge{
-    grid-template-columns:32px 1fr;
-    gap:12px;
-    padding:20px 0;
-  }
+  .challenge{grid-template-columns:32px 1fr;gap:12px;padding:20px 0}
   .challenge h3{grid-column:2}
   .challenge p{grid-column:2;font-size:12px}
   .solution{margin-top:68px}
   .solution-head h3{font-size:clamp(28px,10vw,40px)}
   .solution-head p{font-size:12px;line-height:1.7}
-  .phone-row,.phone-row.two,.square-grid,.ai-apply{grid-template-columns:1fr}
-  .phone-row .phone-card,.phone-card{width:min(100%,320px)}
-  .desktop-frame{padding:8px}
-  .phone-stage{padding:18px}
-  .ai-copy{font-size:12px}
-  .result{
-    grid-template-columns:32px 1fr;
-    gap:12px;
-  }
+  .media-grid-two,.media-grid-three{grid-template-columns:1fr}
+  .product-discovery-grid .media-card.mobile{justify-self:center}
+  .media-card.mobile{width:min(100%,290px)}
+  .decision{padding:18px 0}
+  .decision p{font-size:12px}
+  .ai-note{font-size:12px}
+  .result{grid-template-columns:32px 1fr;gap:12px}
   .result strong{grid-column:2}
   .result p{grid-column:2;font-size:12px}
   .footer-inner{display:block}
   .footer-inner a{display:inline-block;margin-top:22px}
 }
-
-/* =========================================================
-   FINAL RESPONSIVE SHOWCASE — RAW UI OVERLAP
-   No fake laptop / phone frame. Real screenshots only.
-   ========================================================= */
-
-.screen-pair{
-  position:relative;
-  margin-top:30px;
-  padding:clamp(26px,4vw,54px);
-  background:
-    radial-gradient(circle at 20% 12%, rgba(109,99,255,.06), transparent 34%),
-    linear-gradient(180deg,#eeeee9 0%,#e5e5df 100%);
-  border:1px solid #d1d1cb;
-  overflow:hidden;
-}
-
-.screen-main{
-  position:relative;
-  z-index:1;
-  width:84%;
-  margin:0;
-  background:#fff;
-  box-shadow:0 22px 48px rgba(0,0,0,.12);
-}
-
-.screen-main img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-.screen-mobile{
-  position:absolute;
-  z-index:3;
-  right:4.5%;
-  bottom:7%;
-  width:22%;
-  max-width:240px;
-  min-width:150px;
-  margin:0;
-  background:#fff;
-  box-shadow:0 24px 44px rgba(0,0,0,.18);
-}
-
-.screen-mobile img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-/* The product-list mobile capture is a long screenshot.
-   Show only the top usable viewport while keeping the source file unchanged. */
-.screen-mobile-listing{
-  width:20%;
-  max-width:210px;
-}
-
-.screen-mobile-viewport{
-  aspect-ratio:485 / 930;
-  overflow:hidden;
-  background:#fff;
-}
-
-.screen-mobile-viewport img{
-  width:100%;
-  height:auto;
-  object-fit:contain;
-  object-position:top center;
-  transform:none;
-}
-
-.screen-pair-caption{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  margin-top:10px;
-  font-size:10px;
-  line-height:1.5;
-  color:var(--muted);
-}
-
-.screen-pair-caption strong{
-  color:#45464a;
-  font-weight:600;
-}
-
-.design-rationale{
-  display:grid;
-  grid-template-columns:190px minmax(0,1fr);
-  gap:54px;
-  margin-top:22px;
-  padding:22px 0;
-  border-top:1px solid #cdcdc7;
-  border-bottom:1px solid #cdcdc7;
-}
-
-.design-rationale .label{
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-.design-rationale p{
-  margin:0;
-  max-width:760px;
-  font-size:13px;
-  line-height:1.78;
-  color:var(--soft);
-}
-
-@media(max-width:900px){
-  .screen-main{width:90%;}
-  .screen-mobile{
-    width:22%;
-    right:3%;
-  }
-  .screen-mobile-listing{width:20%;}
-  .design-rationale{grid-template-columns:1fr;gap:10px;}
-}
-
-@media(max-width:640px){
-  .screen-pair{
-    padding:14px;
-  }
-
-  .screen-main{
-    width:100%;
-    box-shadow:none;
-  }
-
-  .screen-mobile{
-    position:relative;
-    right:auto;
-    bottom:auto;
-    width:min(42vw,170px);
-    min-width:0;
-    max-width:none;
-    margin:-8px 4px 0 auto;
-    box-shadow:0 14px 28px rgba(0,0,0,.14);
-  }
-
-  .screen-mobile-listing{
-    width:min(42vw,165px);
-  }
-
-  .screen-pair-caption{
-    display:block;
-    font-size:9px;
-  }
-
-  .screen-pair-caption span{
-    display:block;
-    margin-top:3px;
-  }
-
-  .design-rationale{
-    padding:18px 0;
-  }
-
-  .design-rationale p{
-    font-size:12px;
-  }
-}
-
 </style>
 </head>
 <body>
-
 <header class="topbar">
   <div class="wrap topbar-inner">
     <div class="identity">
@@ -643,33 +255,21 @@ footer{
         <p>
           미국에서 운영되던 L.A.B. GOLF가 한국 공식 유통 계약을 통해 판매를 시작하면서,
           국내 고객을 위한 별도 온라인 커머스 플랫폼 구축이 필요했습니다.
-          이 프로젝트는 브랜드 소개, 제품 탐색, 커스텀 옵션 선택, 피팅 예약까지
-          하나의 사용자 여정으로 연결하는 것을 목표로 진행했습니다.
+          브랜드 소개, 제품 탐색, 커스텀 옵션 선택, 피팅 예약까지 하나의 사용자 여정으로 연결한 프로젝트입니다.
         </p>
-
         <div class="meta">
           <div class="meta-row"><span>Role</span><strong>UI/UX Design · Responsive Publishing · Front-end</strong></div>
           <div class="meta-row"><span>Platform</span><strong>Cafe24</strong></div>
-          <div class="meta-row"><span>Scope</span><strong>Commerce · Custom Configuration · Fitting Service</strong></div>
+          <div class="meta-row"><span>Scope</span><strong>Commerce · Custom Configuration · Fitting</strong></div>
           <div class="meta-row"><span>Market</span><strong>South Korea</strong></div>
         </div>
       </div>
 
-      <div class="hero-media">
-        <div class="screen-pair screen-pair-hero">
-          <figure class="screen-main">
-            <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
-          </figure>
-
-          <figure class="screen-mobile">
-            <img src="./assets/lab-hero-mobile.png" alt="L.A.B. GOLF KOREA mobile homepage">
-          </figure>
-        </div>
-
-        <div class="screen-pair-caption">
-          <strong>Homepage · Responsive Experience</strong>
-          <span>Desktop + Mobile</span>
-        </div>
+      <div class="hero-visual">
+        <figure class="media-landscape">
+          <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
+          <figcaption class="caption"><strong>Homepage · Desktop</strong> — 한국 공식 판매 론칭을 위한 메인 진입 화면.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -677,25 +277,14 @@ footer{
   <section class="case" id="overview">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num">01 · Overview</div>
-        <div class="section-title">
-          <h2>Why the Korean site needed to exist.</h2>
-        </div>
+        <div class="section-no">01 · Overview</div>
+        <div class="section-title"><h2>Why the Korean site needed to exist.</h2></div>
       </div>
-
       <div class="overview">
         <div class="body-copy">
-          <p>
-            L.A.B. GOLF는 미국 기반 퍼터 브랜드입니다. 한국에서 공식 판매를 시작하면서
-            국내 고객이 브랜드와 제품을 이해하고 구매할 수 있는 별도의 온라인 채널이 필요했습니다.
-          </p>
-          <p>
-            기존 미국몰을 그대로 복제하는 대신, 한국 고객의 탐색 방식과 실제 판매 환경에 맞춰
-            정보 구조를 다시 정리했습니다. 제품 판매뿐 아니라 커스텀 퍼터 옵션, 피팅 서비스,
-            매장 예약 콘텐츠까지 한 사이트 안에서 연결되도록 설계하고 Cafe24 환경에 직접 구현했습니다.
-          </p>
+          <p>L.A.B. GOLF는 미국 기반 퍼터 브랜드입니다. 한국에서 공식 판매를 시작하면서 국내 고객이 브랜드와 제품을 이해하고 구매할 수 있는 별도의 온라인 채널이 필요했습니다.</p>
+          <p>기존 미국몰을 그대로 복제하는 대신, 한국 고객의 탐색 방식과 실제 판매 환경에 맞춰 정보 구조를 다시 정리했습니다. 제품 판매뿐 아니라 커스텀 퍼터 옵션, 피팅 서비스, 매장 예약 콘텐츠까지 한 사이트 안에서 연결되도록 설계하고 Cafe24 환경에 직접 구현했습니다.</p>
         </div>
-
         <div class="fact-table">
           <div class="fact"><span>Project</span><strong>L.A.B. GOLF KOREA commerce launch</strong></div>
           <div class="fact"><span>Role</span><strong>UI/UX · Publishing · Front-end</strong></div>
@@ -709,25 +298,17 @@ footer{
   <section class="case" id="challenges">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num">02 · Challenges</div>
+        <div class="section-no">02 · Challenges</div>
         <div class="section-title">
           <h2>Turning a specialized product into a clear digital journey.</h2>
-          <p>
-            화면을 새로 만드는 것보다 더 중요한 과제는, 전문 제품의 복잡성을 줄이고
-            한국 고객이 이해할 수 있는 구매 흐름으로 바꾸는 것이었습니다.
-          </p>
+          <p>해외 브랜드의 복잡한 제품 구조를 한국형 커머스 맥락 안에서 이해하기 쉽게 바꾸는 것이 핵심 과제였습니다.</p>
         </div>
       </div>
-
       <div class="challenge-list">
         <div class="challenge"><div class="n">01</div><h3>Localization</h3><p>미국 브랜드의 제품 정보와 톤을 유지하면서 한국 고객에게 자연스러운 정보 순서와 표현으로 재구성.</p></div>
         <div class="challenge"><div class="n">02</div><h3>Product complexity</h3><p>모델, 샤프트, 길이, 헤드 무게 등 다수의 옵션을 구매 단계에서 쉽게 이해할 수 있도록 구조화.</p></div>
         <div class="challenge"><div class="n">03</div><h3>Online ↔ Offline fitting</h3><p>상품 탐색에서 오프라인 피팅 예약까지 맥락이 끊기지 않는 서비스 여정 설계.</p></div>
         <div class="challenge"><div class="n">04</div><h3>Cafe24 implementation</h3><p>디자인 의도를 유지하면서 실제 운영·수정·상품 관리가 가능한 Cafe24 구조로 퍼블리싱.</p></div>
-      </div>
-
-      <div class="ia" aria-label="Information flow">
-        <span>Brand</span><i>→</i><span>Discover</span><i>→</i><span>Compare</span><i>→</i><span>Configure</span><i>→</i><span>Fitting</span><i>→</i><span>Purchase / Visit</span>
       </div>
     </div>
   </section>
@@ -735,13 +316,10 @@ footer{
   <section class="case" id="solution">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num">03 · Solution</div>
+        <div class="section-no">03 · Solution</div>
         <div class="section-title">
           <h2>Four design decisions shaped the experience.</h2>
-          <p>
-            핵심 기능을 단순히 나열하지 않고, 실제 사용자의 판단 순서에 맞춰
-            Product Discovery → Configuration → Fitting → Visual Communication의 흐름으로 정리했습니다.
-          </p>
+          <p>기능을 단순 나열하지 않고, 실제 사용자의 판단 순서에 맞춰 Product Discovery → Configuration → Fitting → Visual Communication으로 정리했습니다.</p>
         </div>
       </div>
 
@@ -750,42 +328,30 @@ footer{
           <div class="label">01 · Product Discovery</div>
           <div>
             <h3>Desktop for comparison.<br>Mobile for focus.</h3>
-            <p>
-              PC에서는 여러 모델을 한눈에 비교할 수 있도록 정보 밀도를 유지하고,
-              모바일에서는 핵심 정보와 행동 요소를 중심으로 화면을 단순화했습니다.
-            </p>
+            <p>PC에서는 여러 모델을 한눈에 비교할 수 있도록 정보 밀도를 유지하고, 모바일에서는 핵심 정보와 행동 요소를 중심으로 화면을 단순화했습니다.</p>
           </div>
         </div>
 
-        <div class="screen-pair screen-pair-listing">
-          <figure class="screen-main">
+        <div class="product-discovery-grid">
+          <figure class="media-card desktop">
             <img src="./assets/lab-product-list-desktop.png" alt="L.A.B. GOLF desktop product listing">
+            <figcaption class="caption"><strong>Desktop listing</strong> — 모델 비교를 위한 그리드와 카테고리 구조.</figcaption>
           </figure>
-
-          <figure class="screen-mobile screen-mobile-listing">
-            <div class="screen-mobile-viewport">
-              <img src="./assets/lab-product-list-mobile.png" alt="L.A.B. GOLF mobile product listing">
-            </div>
+          <figure class="media-card mobile">
+            <img src="./assets/lab-product-list-mobile.png" alt="L.A.B. GOLF mobile product listing">
+            <figcaption class="caption"><strong>Mobile listing</strong> — 터치 기반 탐색과 상품 카드에 집중.</figcaption>
           </figure>
         </div>
 
-        <div class="screen-pair-caption">
-          <strong>Product Listing · Responsive System</strong>
-          <span>Desktop comparison / Mobile focus</span>
-        </div>
-
-        <div class="design-rationale">
+        <div class="decision">
           <div class="label">Design decision</div>
-          <p>
-            같은 콘텐츠를 단순 축소하지 않고, PC에서는 여러 제품을 비교하기 쉬운 밀도를 유지하고
-            모바일에서는 카테고리와 상품 카드에 집중하도록 정보 우선순위를 다시 설계했습니다.
-          </p>
+          <p>같은 콘텐츠를 단순 축소하지 않고, PC에서는 여러 제품을 비교하기 쉬운 밀도를 유지하고 모바일에서는 카테고리와 상품 카드에 집중하도록 정보 우선순위를 다시 설계했습니다.</p>
         </div>
 
-        <div class="desktop-frame" style="margin-top:28px;">
-          <div class="viewport"><img src="./assets/lab-product-detail-desktop.png" alt="Product detail page"></div>
-          <div class="frame-cap"><strong>Product Detail · Desktop</strong><span>Image · price · basic options · CTA hierarchy</span></div>
-        </div>
+        <figure class="media-landscape" style="margin-top:34px;">
+          <img src="./assets/lab-product-detail-desktop.png" alt="L.A.B. GOLF product detail desktop">
+          <figcaption class="caption"><strong>Product detail · Desktop</strong> — 제품 이미지, 가격, 옵션, CTA 위계를 명확하게 정리.</figcaption>
+        </figure>
       </div>
 
       <div class="solution">
@@ -793,25 +359,22 @@ footer{
           <div class="label">02 · Custom Configuration</div>
           <div>
             <h3>From complex options<br>to a guided flow.</h3>
-            <p>
-              커스텀 퍼터는 옵션을 한 번에 보여주기보다 단계형 구조가 필요했습니다.
-              Foundation → Function → Form으로 분리하고 현재 단계, 선택 상태, 최종 금액을 지속적으로 확인할 수 있게 구성했습니다.
-            </p>
+            <p>커스텀 퍼터 옵션을 한 번에 노출하지 않고 Foundation → Function → Form으로 분리해 현재 단계와 다음 행동을 쉽게 이해할 수 있도록 구성했습니다.</p>
           </div>
         </div>
 
-        <div class="phone-row">
-          <figure class="phone-card">
-            <div class="phone-screen"><img src="./assets/lab-config-step1-mobile.png" alt="Configuration foundation step"></div>
-            <figcaption><strong>Step 1 · Foundation</strong> — 기본 퍼팅 조건 설정.</figcaption>
+        <div class="media-grid-three">
+          <figure class="media-card mobile">
+            <img src="./assets/lab-config-step1-mobile.png" alt="Custom putter configuration step 1">
+            <figcaption class="caption"><strong>Step 1 · Foundation</strong> — Hand, putting style, head weight.</figcaption>
           </figure>
-          <figure class="phone-card">
-            <div class="phone-screen"><img src="./assets/lab-config-step2-mobile.png" alt="Configuration function step"></div>
-            <figcaption><strong>Step 2 · Function</strong> — Shaft, LieAngle, Inset 등 상세 선택.</figcaption>
+          <figure class="media-card mobile">
+            <img src="./assets/lab-config-step2-mobile.png" alt="Custom putter configuration step 2">
+            <figcaption class="caption"><strong>Step 2 · Function</strong> — Shaft, LieAngle, Inset 등 상세 옵션 선택.</figcaption>
           </figure>
-          <figure class="phone-card">
-            <div class="phone-screen"><img src="./assets/lab-config-summary-mobile.png" alt="Configuration final summary"></div>
-            <figcaption><strong>Review</strong> — 선택 옵션과 최종 가격을 한 화면에서 검토.</figcaption>
+          <figure class="media-card mobile">
+            <img src="./assets/lab-config-summary-mobile.png" alt="Custom putter configuration summary">
+            <figcaption class="caption"><strong>Review</strong> — 선택 옵션과 최종 가격을 한 화면에서 검토.</figcaption>
           </figure>
         </div>
       </div>
@@ -821,25 +384,22 @@ footer{
           <div class="label">03 · Fitting Journey</div>
           <div>
             <h3>A service journey,<br>not just a reservation form.</h3>
-            <p>
-              피팅 예약은 단순한 전환 버튼이 아니라 브랜드 신뢰를 만드는 과정으로 보았습니다.
-              서비스 안내, 전문 피터, 혜택, 매장 정보, 예약 진입점을 하나의 흐름으로 연결했습니다.
-            </p>
+            <p>피팅 예약은 단순한 전환 버튼이 아니라 브랜드 신뢰를 만드는 과정으로 보았습니다. 서비스 안내 → 매장 선택 → 예약까지 흐름을 연결했습니다.</p>
           </div>
         </div>
 
-        <div class="phone-row">
-          <figure class="phone-card">
-            <div class="phone-screen"><img src="./assets/lab-fitting-guide-mobile.png" alt="Fitting guide"></div>
-            <figcaption><strong>Guide</strong> — 지점별 예약 진입점.</figcaption>
+        <div class="media-grid-three">
+          <figure class="media-card mobile">
+            <img src="./assets/lab-fitting-guide-mobile.png" alt="L.A.B. GOLF fitting guide">
+            <figcaption class="caption"><strong>Guide</strong> — 지점별 예약 진입점.</figcaption>
           </figure>
-          <figure class="phone-card">
-            <div class="phone-screen"><img src="./assets/lab-fitting-service-mobile.png" alt="Fitting service detail"></div>
-            <figcaption><strong>Service detail</strong> — 전문 피터와 데이터 피팅 소개.</figcaption>
+          <figure class="media-card mobile">
+            <img src="./assets/lab-fitting-service-mobile.png" alt="L.A.B. GOLF fitting service">
+            <figcaption class="caption"><strong>Service detail</strong> — 전문 피터와 데이터 피팅 서비스 소개.</figcaption>
           </figure>
-          <figure class="phone-card">
-            <div class="phone-screen"><img src="./assets/lab-reservation-naver.png" alt="Naver reservation"></div>
-            <figcaption><strong>Booking</strong> — 실제 예약 플랫폼으로 연결.</figcaption>
+          <figure class="media-card mobile">
+            <img src="./assets/lab-reservation-naver.png" alt="L.A.B. GOLF Naver reservation">
+            <figcaption class="caption"><strong>Booking</strong> — 실제 예약 플랫폼으로 연결.</figcaption>
           </figure>
         </div>
       </div>
@@ -849,43 +409,32 @@ footer{
           <div class="label">04 · AI-assisted Visual Production</div>
           <div>
             <h3>Creating missing brand visuals<br>for live commerce content.</h3>
-            <p>
-              일부 프로모션과 컬러 에디션은 제공된 제작 이미지가 충분하지 않았습니다.
-              페이지 목적과 브랜드 톤을 먼저 정의한 뒤 AI-assisted image creation을 활용해
-              필요한 키비주얼을 제작하고 실제 UI에 적용했습니다.
-            </p>
+            <p>일부 프로모션과 컬러 에디션은 제공된 제작 이미지가 충분하지 않았습니다. 페이지 목적과 브랜드 톤을 먼저 정의한 뒤 AI-assisted image creation을 활용해 필요한 키비주얼을 제작하고 실제 UI에 적용했습니다.</p>
           </div>
         </div>
 
-        <div class="ai-copy">
-          <strong>AI는 디자인을 대체하는 용도가 아니라 제작 보조 도구로 사용했습니다.</strong>
-          비주얼 방향 설정 → 이미지 생성 → 선택 및 보정 → 실제 랜딩 UI 적용의 순서로 진행했습니다.
-        </div>
+        <div class="ai-note"><strong>AI는 디자인을 대체하는 용도가 아니라 제작 보조 도구로 사용했습니다.</strong> 비주얼 방향 설정 → 이미지 생성 → 선택 및 보정 → 실제 랜딩 UI 적용의 순서로 진행했습니다.</div>
 
-        <div class="square-grid">
-          <figure class="square-card">
-            <div class="square-frame"><img src="./assets/lab-ai-purple-main.png" alt="Purple edition AI visual"></div>
-            <figcaption><strong>Purple Edition</strong> — 한정판 감도를 강조한 key visual.</figcaption>
+        <div class="media-grid-two">
+          <figure class="media-card ai">
+            <img src="./assets/lab-ai-purple-main.png" alt="Purple edition AI visual">
+            <figcaption class="caption"><strong>Purple Edition · Key Visual</strong></figcaption>
           </figure>
-          <figure class="square-card">
-            <div class="square-frame"><img src="./assets/lab-ai-teal-main.png" alt="Teal edition AI visual"></div>
-            <figcaption><strong>Teal Edition</strong> — 밝고 선명한 컬러 무드의 key visual.</figcaption>
+          <figure class="media-card ai">
+            <img src="./assets/lab-ai-teal-main.png" alt="Teal edition AI visual">
+            <figcaption class="caption"><strong>Teal Edition · Key Visual</strong></figcaption>
           </figure>
         </div>
 
-        <div class="ai-apply">
-          <div class="phone-stage">
-            <figure class="phone-card">
-              <div class="phone-screen"><img src="./assets/lab-ai-purple-mobile.png" alt="Purple edition mobile landing"></div>
-              <figcaption><strong>Applied UI · Purple</strong> — 생성 비주얼을 실제 프로모션 랜딩에 적용.</figcaption>
-            </figure>
-          </div>
-          <div class="phone-stage">
-            <figure class="phone-card">
-              <div class="phone-screen"><img src="./assets/lab-ai-teal-mobile.png" alt="Teal edition mobile landing"></div>
-              <figcaption><strong>Applied UI · Teal</strong> — 컬러 에디션 소개와 상품 CTA까지 연결.</figcaption>
-            </figure>
-          </div>
+        <div class="media-grid-two" style="margin-top:18px;">
+          <figure class="media-card mobile">
+            <img src="./assets/lab-ai-purple-mobile.png" alt="Purple edition mobile landing page">
+            <figcaption class="caption"><strong>Applied UI · Purple</strong> — 생성 비주얼을 실제 모바일 프로모션에 적용.</figcaption>
+          </figure>
+          <figure class="media-card mobile">
+            <img src="./assets/lab-ai-teal-mobile.png" alt="Teal edition mobile landing page">
+            <figcaption class="caption"><strong>Applied UI · Teal</strong> — 컬러 에디션 소개와 상품 CTA까지 연결.</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -894,13 +443,12 @@ footer{
   <section class="case" id="results">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num">04 · Results</div>
+        <div class="section-no">04 · Results</div>
         <div class="section-title">
           <h2>What the project delivered.</h2>
           <p>임의의 성과 수치를 만들지 않고, 실제 구축 범위와 개선된 경험을 기준으로 정리했습니다.</p>
         </div>
       </div>
-
       <div class="result-list">
         <div class="result"><div class="n">01</div><strong>Localized commerce structure</strong><p>미국 브랜드의 제품·콘텐츠 구조를 한국 고객의 구매 흐름에 맞게 재구성.</p></div>
         <div class="result"><div class="n">02</div><strong>Guided custom configuration</strong><p>복잡한 커스텀 옵션을 단계형 선택 과정으로 정리해 현재 상태와 다음 행동을 명확하게 전달.</p></div>
@@ -920,6 +468,5 @@ footer{
     <a href="../../#work">Back to Selected Works →</a>
   </div>
 </footer>
-
 </body>
 </html>
