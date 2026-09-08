@@ -788,6 +788,220 @@ footer{
   }
 }
 
+
+/* =========================================================
+   FINAL RESPONSIVE SHOWCASE — CLEAN COMPOSITION
+   Desktop browser + compact phone overlap
+   ========================================================= */
+
+.device-combo{
+  position:relative !important;
+  min-height:0 !important;
+  margin-top:30px !important;
+  padding:clamp(28px,4vw,54px) !important;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(109,99,255,.08), transparent 34%),
+    linear-gradient(180deg,#f0f0ec 0%,#e5e5df 100%) !important;
+  border:1px solid #d2d2cc !important;
+  overflow:hidden !important;
+}
+
+/* Desktop = clean browser frame, not a fake laptop */
+.device-laptop{
+  position:relative !important;
+  width:84% !important;
+  margin:0 !important;
+  z-index:1 !important;
+}
+
+.device-laptop-screen{
+  position:relative !important;
+  padding:0 !important;
+  background:#181818 !important;
+  border-radius:18px !important;
+  border:1px solid rgba(0,0,0,.75) !important;
+  box-shadow:0 22px 48px rgba(0,0,0,.20) !important;
+  overflow:hidden !important;
+}
+
+.device-laptop-screen::before{
+  content:'' !important;
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+  height:20px !important;
+  top:auto !important;
+  left:auto !important;
+  transform:none !important;
+  border-radius:0 !important;
+  background:
+    radial-gradient(circle at 16px 10px,#ff5f57 0 3px,transparent 3.5px),
+    radial-gradient(circle at 28px 10px,#febc2e 0 3px,transparent 3.5px),
+    radial-gradient(circle at 40px 10px,#28c840 0 3px,transparent 3.5px),
+    #202020 !important;
+}
+
+.device-laptop-screen .screen{
+  aspect-ratio:2 / 1 !important;
+  display:block !important;
+  background:#fff !important;
+  overflow:hidden !important;
+  border-radius:0 !important;
+}
+
+.device-laptop-screen .screen img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+}
+
+.device-laptop-base{
+  display:none !important;
+}
+
+/* Phone = smaller and lighter, just enough overlap to communicate responsive work */
+.device-phone,
+.device-phone.hero-phone,
+.device-phone.list-phone{
+  position:absolute !important;
+  right:4.5% !important;
+  bottom:7% !important;
+  width:22% !important;
+  max-width:235px !important;
+  min-width:150px !important;
+  z-index:3 !important;
+}
+
+.device-phone-shell{
+  position:relative !important;
+  padding:7px !important;
+  border-radius:28px !important;
+  background:#121212 !important;
+  box-shadow:0 22px 42px rgba(0,0,0,.28) !important;
+}
+
+.device-phone-shell::before{
+  content:'' !important;
+  position:absolute !important;
+  top:12px !important;
+  left:50% !important;
+  width:38% !important;
+  height:12px !important;
+  transform:translateX(-50%) !important;
+  border-radius:999px !important;
+  background:#121212 !important;
+  z-index:2 !important;
+}
+
+.device-phone-screen,
+.device-phone.hero-phone .device-phone-screen,
+.device-phone.list-phone .device-phone-screen{
+  aspect-ratio:9 / 19.5 !important;
+  overflow:hidden !important;
+  border-radius:21px !important;
+  background:#fff !important;
+}
+
+.device-phone-screen img,
+.device-phone.hero-phone .device-phone-screen img,
+.device-phone.list-phone .device-phone-screen img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+}
+
+/* Hero mobile screenshot already matches a viewport well. */
+.device-phone.hero-phone .device-phone-screen img{
+  object-fit:cover !important;
+  object-position:center top !important;
+}
+
+/* Listing uses the prepared viewport crop instead of the entire long page. */
+.device-combo.listing-combo{
+  min-height:0 !important;
+}
+
+/* Captions stay quiet and editorial */
+.device-combo-caption{
+  display:flex !important;
+  justify-content:space-between !important;
+  gap:18px !important;
+  margin-top:12px !important;
+  padding-top:0 !important;
+  font-size:10px !important;
+  line-height:1.5 !important;
+  color:var(--muted) !important;
+}
+
+.device-combo-caption strong{
+  color:#44464a !important;
+  font-weight:600 !important;
+}
+
+/* Mobile: stack cleanly instead of forcing overlap */
+@media(max-width:760px){
+  .device-combo,
+  .device-combo.listing-combo{
+    padding:16px !important;
+  }
+
+  .device-laptop{
+    width:100% !important;
+  }
+
+  .device-laptop-screen{
+    border-radius:12px !important;
+  }
+
+  .device-laptop-screen::before{
+    height:16px !important;
+    background:
+      radial-gradient(circle at 13px 8px,#ff5f57 0 2.5px,transparent 3px),
+      radial-gradient(circle at 23px 8px,#febc2e 0 2.5px,transparent 3px),
+      radial-gradient(circle at 33px 8px,#28c840 0 2.5px,transparent 3px),
+      #202020 !important;
+  }
+
+  .device-phone,
+  .device-phone.hero-phone,
+  .device-phone.list-phone{
+    position:relative !important;
+    right:auto !important;
+    bottom:auto !important;
+    width:min(42vw,170px) !important;
+    min-width:0 !important;
+    margin:-10px 4px 0 auto !important;
+  }
+
+  .device-phone-shell{
+    padding:5px !important;
+    border-radius:22px !important;
+  }
+
+  .device-phone-screen,
+  .device-phone.hero-phone .device-phone-screen,
+  .device-phone.list-phone .device-phone-screen{
+    border-radius:17px !important;
+  }
+
+  .device-phone-shell::before{
+    top:9px !important;
+    height:9px !important;
+  }
+
+  .device-combo-caption{
+    display:block !important;
+    font-size:9px !important;
+  }
+
+  .device-combo-caption span{
+    display:block !important;
+    margin-top:3px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -947,7 +1161,7 @@ footer{
           <div class="device-phone list-phone">
             <div class="device-phone-shell">
               <div class="device-phone-screen">
-                <img src="./assets/lab-product-list-mobile.png" alt="L.A.B. GOLF mobile product listing">
+                <img src="./assets/lab-product-list-mobile-viewport.png" alt="L.A.B. GOLF mobile product listing">
               </div>
             </div>
           </div>
