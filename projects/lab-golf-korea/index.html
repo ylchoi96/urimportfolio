@@ -687,6 +687,107 @@ footer{
   }
 }
 
+
+/* =========================================================
+   DEVICE MOCKUP — NO-CROP FIX
+   Keep the entire supplied screenshots visible.
+   ========================================================= */
+
+/* Desktop captures supplied for LAB are much wider than 16:9. */
+.device-laptop-screen .screen{
+  aspect-ratio:2 / 1 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#fff !important;
+}
+
+.device-laptop-screen .screen img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+
+/* Hero mobile screenshot: preserve the full composition. */
+.device-phone.hero-phone{
+  width:clamp(150px,19vw,240px) !important;
+}
+
+.device-phone.hero-phone .device-phone-screen{
+  aspect-ratio:485 / 771 !important;
+  background:#fff !important;
+}
+
+.device-phone.hero-phone .device-phone-screen img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+
+/* Product-list mobile capture is a long page. Give it a taller,
+   narrower device so the full screenshot can be shown without cropping. */
+.device-phone.list-phone{
+  width:clamp(135px,15vw,195px) !important;
+  bottom:clamp(18px,3vw,44px) !important;
+}
+
+.device-phone.list-phone .device-phone-screen{
+  aspect-ratio:485 / 1639 !important;
+  background:#fff !important;
+}
+
+.device-phone.list-phone .device-phone-screen img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+}
+
+/* More breathing room for the listing composition because the full
+   mobile page is taller than the homepage screenshot. */
+.device-combo.listing-combo{
+  min-height:clamp(540px,60vw,760px) !important;
+}
+
+@media(max-width:900px){
+  .device-phone.hero-phone{
+    width:190px !important;
+  }
+
+  .device-phone.list-phone{
+    width:155px !important;
+  }
+
+  .device-combo.listing-combo{
+    min-height:620px !important;
+  }
+}
+
+@media(max-width:640px){
+  .device-laptop-screen .screen{
+    aspect-ratio:2 / 1 !important;
+  }
+
+  .device-phone.hero-phone,
+  .device-phone.list-phone{
+    width:min(43vw,170px) !important;
+  }
+
+  .device-phone.hero-phone .device-phone-screen{
+    aspect-ratio:485 / 771 !important;
+  }
+
+  .device-phone.list-phone .device-phone-screen{
+    aspect-ratio:485 / 1639 !important;
+  }
+
+  .device-combo.listing-combo{
+    min-height:0 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -734,7 +835,7 @@ footer{
             <div class="device-laptop-base"></div>
           </div>
 
-          <div class="device-phone">
+          <div class="device-phone hero-phone">
             <div class="device-phone-shell">
               <div class="device-phone-screen">
                 <img src="./assets/lab-hero-mobile.png" alt="L.A.B. GOLF KOREA mobile homepage">
@@ -833,7 +934,7 @@ footer{
           </div>
         </div>
 
-        <div class="device-combo">
+        <div class="device-combo listing-combo">
           <div class="device-laptop">
             <div class="device-laptop-screen">
               <div class="screen">
@@ -843,7 +944,7 @@ footer{
             <div class="device-laptop-base"></div>
           </div>
 
-          <div class="device-phone">
+          <div class="device-phone list-phone">
             <div class="device-phone-shell">
               <div class="device-phone-screen">
                 <img src="./assets/lab-product-list-mobile.png" alt="L.A.B. GOLF mobile product listing">
