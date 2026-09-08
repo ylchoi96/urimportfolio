@@ -200,6 +200,88 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   .footer-inner{display:block}
   .footer-inner a{display:inline-block;margin-top:22px}
 }
+
+/* Canada case-study refinement: scannability + single methodology note */
+.tldr{
+  display:grid;
+  grid-template-columns:104px minmax(0,1fr);
+  gap:18px;
+  margin-top:30px;
+  padding:20px 0;
+  border-top:1px solid #c9c8c2;
+  border-bottom:1px solid #c9c8c2;
+}
+.tldr span,
+.methodology-note span,
+.portfolio-note span{
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.tldr p{
+  margin:0;
+  max-width:760px;
+  font-size:16px;
+  line-height:1.72;
+  font-weight:600;
+  color:#2d2f33;
+}
+.methodology-note{
+  display:grid;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
+  margin-bottom:38px;
+  padding:22px 0;
+  border-top:1px solid #d0d0ca;
+  border-bottom:1px solid #d0d0ca;
+}
+.methodology-note p{
+  margin:0;
+  max-width:700px;
+  font-size:14px;
+  line-height:1.78;
+  color:var(--soft);
+}
+.portfolio-note{
+  display:grid;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:40px;
+  margin-top:34px;
+  padding:24px 0;
+  border-top:1px solid #d0d0ca;
+  border-bottom:1px solid #d0d0ca;
+}
+.portfolio-note p{
+  margin:0;
+  max-width:700px;
+  font-size:14px;
+  line-height:1.75;
+  color:var(--soft);
+}
+.section-copy h2,
+.solution-head h3{
+  text-wrap:balance;
+}
+@media(max-width:960px){
+  .methodology-note,
+  .portfolio-note{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+}
+@media(max-width:640px){
+  .tldr{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .tldr p{font-size:15px;}
+  .methodology-note p,
+  .portfolio-note p{
+    font-size:13px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -236,6 +318,14 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       </div>
     </div>
 
+    <div class="tldr">
+      <span>TL;DR</span>
+      <p>
+        Localized a U.S. golf brand for the Korean market — designed a staged custom-configuration flow,
+        connected online product discovery to offline fitting bookings, and shipped the experience in a live Cafe24 environment.
+      </p>
+    </div>
+
     <figure class="hero-visual">
       <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
     </figure>
@@ -250,6 +340,15 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="section-copy">
         <h2>A new market required a new decision-making experience.</h2>
       </div>
+    </div>
+
+    <div class="methodology-note">
+      <span>Methodology note</span>
+      <p>
+        This case study documents a real production launch. Formal generative research and attributable pre/post analytics
+        were not part of the project scope, so I separate observed product, service, and platform constraints from assumptions
+        and outline validation opportunities where further evidence would be useful.
+      </p>
     </div>
 
     <div class="two-col">
@@ -304,12 +403,6 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
         <p>The interface had to work with real product, option, content, and maintenance constraints rather than an unconstrained prototype.</p>
       </article>
     </div>
-
-    <p class="research-note">
-      <strong>Research note:</strong> I did not conduct formal generative user interviews for this launch.
-      I am separating observed project constraints from assumptions rather than presenting unperformed research as evidence.
-      A future validation plan is outlined later in this case study.
-    </p>
   </div>
 </section>
 
@@ -489,8 +582,9 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="section-copy">
         <h2>Accessibility is an implementation requirement, not a visual afterthought.</h2>
         <p>
-          The project was not a formal WCAG audit, so I do not present it as one.
-          These were the accessibility and quality considerations used as an implementation baseline.
+          Accessibility and production QA were treated as implementation requirements.
+          The baseline focused on readable hierarchy, interaction states, semantic structure, responsive behaviour,
+          and practical touch and keyboard considerations within the Cafe24 environment.
         </p>
       </div>
     </div>
@@ -502,7 +596,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="qa-row"><strong>Semantic content</strong><p>Use meaningful headings, labels, alt text, and semantic HTML where possible within the Cafe24 theme structure.</p></div>
       <div class="qa-row"><strong>Responsive QA</strong><p>Review layouts across breakpoints for clipping, option visibility, content reflow, and purchase-state regressions.</p></div>
     </div>
-    <p class="qa-note">A future accessibility pass should include a documented WCAG 2.2 AA audit with keyboard and assistive-technology testing.</p>
+    <p class="qa-note">Next step: document the experience against WCAG 2.2 AA and run dedicated keyboard and assistive-technology testing.</p>
   </div>
 </section>
 
@@ -513,8 +607,8 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="section-copy">
         <h2>Be explicit about what is known — and what still needs validation.</h2>
         <p>
-          Reliable pre/post analytics were not available for attribution, so this case study does not claim fabricated conversion uplift.
-          Instead, I define the measures and tests I would use to evaluate the decisions.
+          The next validation loop is defined around behaviour, task completion, and service conversion.
+          These measures would test whether the design decisions are improving comprehension and reducing friction.
         </p>
       </div>
     </div>
@@ -543,8 +637,8 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
     </div>
 
     <p class="measurement-note">
-      <strong>Why include this?</strong> A production designer should be able to separate shipped output from validated impact.
-      This measurement plan makes the next learning loop explicit without inventing evidence that the project did not collect.
+      <strong>Validation focus:</strong> measure where users hesitate, abandon configuration, or fail to understand fitting options,
+      then use those signals to prioritize the next iteration.
     </p>
   </div>
 </section>
@@ -555,7 +649,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="section-index">08 · Outcome</div>
       <div class="section-copy">
         <h2>What the project delivered.</h2>
-        <p>Outcomes below describe shipped scope and system-level improvements, not unverified revenue or conversion claims.</p>
+        <p>These outcomes summarize the shipped experience and the system-level improvements delivered through the launch.</p>
       </div>
     </div>
 
