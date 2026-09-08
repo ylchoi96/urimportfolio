@@ -860,6 +860,411 @@ footer{
   }
 }
 
+
+/* =========================================================
+   FINAL CALM EDITORIAL SYSTEM
+   Larger body type, fewer visual interruptions
+   ========================================================= */
+
+:root{
+  --max:1120px !important;
+  --pad:clamp(24px,4vw,52px) !important;
+}
+
+body{
+  background:#f7f6f2 !important;
+  color:#111 !important;
+}
+
+.wrap{
+  width:min(100%,1120px) !important;
+}
+
+.hero{
+  padding-top:88px !important;
+  padding-bottom:84px !important;
+}
+
+.hero h1{
+  max-width:860px !important;
+  font-size:clamp(58px,7.7vw,100px) !important;
+  line-height:.91 !important;
+}
+
+.hero-intro{
+  gap:72px !important;
+}
+
+.hero-intro p{
+  font-size:18px !important;
+  line-height:1.82 !important;
+  max-width:690px !important;
+  color:#3f4146 !important;
+}
+
+.project-statement.simple{
+  grid-template-columns:150px minmax(0,1fr) !important;
+  gap:34px !important;
+  margin-top:34px !important;
+  padding:20px 0 !important;
+}
+
+.project-statement.simple p{
+  margin:0 !important;
+  max-width:720px !important;
+  font-size:17px !important;
+  line-height:1.72 !important;
+  color:#303135 !important;
+}
+
+.project-meta div{
+  padding:16px 0 !important;
+}
+
+.project-meta strong{
+  font-size:13px !important;
+  line-height:1.55 !important;
+}
+
+.hero-image{
+  margin-top:44px !important;
+}
+
+section.section,
+section.solution{
+  padding-top:96px !important;
+  padding-bottom:96px !important;
+}
+
+.section-head,
+.solution-head{
+  grid-template-columns:150px minmax(0,1fr) !important;
+  gap:34px !important;
+  margin-bottom:40px !important;
+}
+
+.section-no,
+.solution-label{
+  font-size:11px !important;
+}
+
+.section-title h2{
+  max-width:760px !important;
+  font-size:clamp(38px,4.6vw,58px) !important;
+  line-height:.99 !important;
+}
+
+.section-title p,
+.solution-head p{
+  font-size:16px !important;
+  line-height:1.78 !important;
+  max-width:680px !important;
+  color:#55575c !important;
+}
+
+.overview-grid{
+  gap:68px !important;
+}
+
+.overview-copy p{
+  font-size:17px !important;
+  line-height:1.84 !important;
+  max-width:690px !important;
+  color:#3f4146 !important;
+}
+
+.fact-row{
+  padding:17px 0 !important;
+}
+
+.fact-row span{
+  font-size:11px !important;
+}
+
+.fact-row strong{
+  font-size:13px !important;
+  line-height:1.55 !important;
+}
+
+.challenge-row{
+  grid-template-columns:48px 190px minmax(0,1fr) !important;
+  gap:24px !important;
+  padding:27px 0 !important;
+}
+
+.challenge-row h3{
+  font-size:17px !important;
+}
+
+.challenge-row p{
+  font-size:15px !important;
+  line-height:1.75 !important;
+  max-width:620px !important;
+  color:#55575c !important;
+}
+
+/* Keep design direction, but make it quiet and integrated */
+.strategy.strategy-light{
+  background:#f1f0eb !important;
+  border-top:1px solid #d9d8d2 !important;
+  border-bottom:1px solid #d9d8d2 !important;
+}
+
+.strategy.strategy-light .wrap{
+  padding-top:82px !important;
+  padding-bottom:82px !important;
+}
+
+.strategy.strategy-light h2{
+  font-size:clamp(36px,4.4vw,54px) !important;
+  max-width:720px !important;
+}
+
+.strategy.strategy-light p{
+  font-size:16px !important;
+  line-height:1.78 !important;
+  max-width:650px !important;
+}
+
+.strategy.strategy-light .journey{
+  margin-top:28px !important;
+}
+
+.strategy.strategy-light .journey span{
+  font-size:11px !important;
+  padding:8px 11px !important;
+}
+
+.solution{
+  margin-top:0 !important;
+}
+
+.solution-head h3{
+  max-width:720px !important;
+  font-size:clamp(32px,3.8vw,47px) !important;
+  line-height:1.02 !important;
+}
+
+.pair{
+  grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr) !important;
+  gap:28px !important;
+}
+
+.mobile-row{
+  gap:28px !important;
+  max-width:960px !important;
+  margin-inline:auto !important;
+}
+
+.mobile-row.two{
+  max-width:680px !important;
+}
+
+.mobile-row .mobile-shot{
+  width:min(100%,290px) !important;
+}
+
+.caption{
+  font-size:12px !important;
+  line-height:1.6 !important;
+  margin-top:12px !important;
+}
+
+.design-note{
+  grid-template-columns:150px minmax(0,1fr) !important;
+  gap:34px !important;
+  padding:24px 0 !important;
+}
+
+.design-note span{
+  font-size:11px !important;
+}
+
+.design-note p{
+  font-size:15px !important;
+  line-height:1.75 !important;
+  max-width:650px !important;
+}
+
+.booking-proof{
+  grid-template-columns:minmax(0,1fr) 280px !important;
+  gap:48px !important;
+}
+
+.booking-proof h4{
+  font-size:30px !important;
+}
+
+.booking-proof p{
+  font-size:15px !important;
+  line-height:1.75 !important;
+}
+
+.ai-note{
+  margin-left:184px !important;
+  max-width:650px !important;
+  font-size:15px !important;
+  line-height:1.78 !important;
+}
+
+.ai-grid{
+  gap:28px !important;
+}
+
+.ai-applied{
+  gap:34px !important;
+  margin-top:34px !important;
+}
+
+.result-row{
+  grid-template-columns:48px 220px minmax(0,1fr) !important;
+  gap:24px !important;
+  padding:25px 0 !important;
+}
+
+.result-row strong{
+  font-size:16px !important;
+}
+
+.result-row p{
+  font-size:15px !important;
+  line-height:1.72 !important;
+  max-width:620px !important;
+}
+
+footer{
+  padding-top:62px !important;
+  padding-bottom:74px !important;
+}
+
+.footer-inner h2{
+  font-size:clamp(32px,4.2vw,50px) !important;
+}
+
+/* Kill leftover styling from removed noisy blocks */
+.role-highlight,
+.section-pullquote,
+.process-note,
+.final-takeaway{
+  display:none !important;
+}
+
+@media(max-width:960px){
+  .project-statement.simple,
+  .section-head,
+  .solution-head,
+  .design-note{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+
+  .hero-intro,
+  .overview-grid{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+
+  .ai-note{
+    margin-left:0 !important;
+  }
+}
+
+@media(max-width:640px){
+  :root{
+    --pad:18px !important;
+  }
+
+  .hero{
+    padding-top:56px !important;
+    padding-bottom:52px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(48px,15vw,70px) !important;
+  }
+
+  .hero-intro p,
+  .overview-copy p{
+    font-size:15px !important;
+    line-height:1.74 !important;
+  }
+
+  .project-statement.simple p{
+    font-size:15px !important;
+  }
+
+  section.section,
+  section.solution,
+  .strategy.strategy-light .wrap{
+    padding-top:70px !important;
+    padding-bottom:70px !important;
+  }
+
+  .section-title h2{
+    font-size:clamp(33px,10vw,43px) !important;
+  }
+
+  .section-title p,
+  .solution-head p,
+  .strategy.strategy-light p{
+    font-size:14px !important;
+    line-height:1.72 !important;
+  }
+
+  .challenge-row{
+    grid-template-columns:30px 1fr !important;
+    gap:12px !important;
+  }
+
+  .challenge-row h3,
+  .challenge-row p{
+    grid-column:2 !important;
+  }
+
+  .challenge-row p{
+    font-size:14px !important;
+  }
+
+  .pair,
+  .mobile-row,
+  .mobile-row.two,
+  .ai-grid,
+  .ai-applied{
+    grid-template-columns:1fr !important;
+    max-width:none !important;
+  }
+
+  .mobile-shot,
+  .mobile-row .mobile-shot,
+  .booking-proof .mobile-shot{
+    width:min(100%,320px) !important;
+    max-width:320px !important;
+    margin-inline:auto !important;
+  }
+
+  .design-note p,
+  .booking-proof p,
+  .ai-note,
+  .result-row p{
+    font-size:14px !important;
+  }
+
+  .booking-proof{
+    grid-template-columns:1fr !important;
+    gap:26px !important;
+  }
+
+  .result-row{
+    grid-template-columns:30px 1fr !important;
+    gap:12px !important;
+  }
+
+  .result-row strong,
+  .result-row p{
+    grid-column:2 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -896,16 +1301,14 @@ footer{
         </div>
       </div>
 
-      <div class="project-statement">
+      <div class="project-statement simple">
         <div class="label">Project focus</div>
         <p>
-          <strong>I turned the Korean launch into a usable commerce system.</strong>
-          I structured the experience, designed the responsive UI, and implemented it in Cafe24 —
-          from product discovery to custom configuration and fitting reservation.
+          I structured, designed, and implemented the Korean commerce experience —
+          from product discovery and custom configuration to fitting reservation.
         </p>
       </div>
-
-      <figure class="hero-image">
+<figure class="hero-image">
         <img src="./assets/lab-hero-desktop.png" alt="L.A.B. GOLF KOREA desktop homepage">
       </figure>
       <div class="caption"><strong>Homepage · Desktop</strong><span>Localized commerce launch</span></div>
@@ -939,26 +1342,7 @@ footer{
           <div class="fact-row"><span>Role</span><strong>Design → Publishing → Live implementation</strong></div>
           <div class="fact-row"><span>Special</span><strong>AI-assisted visual production</strong></div>
         </div>
-      </div>
-
-      <div class="role-highlight">
-        <article>
-          <span>01 · Structure</span>
-          <h3>Clarify the journey</h3>
-          <p>브랜드 소개, 상품 탐색, 옵션 선택, 피팅 예약이 서로 분리되지 않도록 전체 흐름을 정리했습니다.</p>
-        </article>
-        <article>
-          <span>02 · Interface</span>
-          <h3>Design for real devices</h3>
-          <p>PC는 비교 중심, 모바일은 집중 탐색 중심으로 디바이스별 우선순위를 다르게 설계했습니다.</p>
-        </article>
-        <article>
-          <span>03 · Build</span>
-          <h3>Ship it live</h3>
-          <p>Cafe24 안에서 직접 퍼블리싱하고 실제 운영·수정이 가능한 구조까지 연결했습니다.</p>
-        </article>
-      </div>
-    </div>
+      </div></div>
   </section>
 
   <section class="section">
@@ -980,10 +1364,6 @@ footer{
         <div class="challenge-row"><div class="n">03</div><h3>Online ↔ Offline</h3><p>온라인 제품 탐색과 오프라인 피팅 예약이 끊기지 않도록 서비스 흐름을 연결.</p></div>
         <div class="challenge-row"><div class="n">04</div><h3>Cafe24 constraints</h3><p>실제 상품 운영, 수정, 유지보수가 가능한 Cafe24 환경 안에서 디자인을 구현.</p></div>
       </div>
-      <p class="section-pullquote">
-        The goal was not to add more information.<br>
-        It was to make <em>complex information easier to act on.</em>
-      </p>
     </div>
   </section>
 
@@ -1074,16 +1454,7 @@ footer{
       <div class="design-note">
         <span>UX rationale</span>
         <p>사용자가 현재 단계, 이미 선택한 옵션, 최종 금액을 계속 확인할 수 있도록 선택 상태와 요약 정보를 명확하게 노출했습니다.</p>
-      </div>
-      <div class="process-note">
-        <span>Interaction logic</span>
-        <ul>
-          <li><span>01</span><b>Progressive disclosure</b><div>한 번에 모든 옵션을 노출하지 않고 필요한 시점에 필요한 선택지만 보여줌.</div></li>
-          <li><span>02</span><b>State visibility</b><div>선택된 값과 진행 단계를 계속 노출해 사용자가 현재 상태를 잃지 않도록 함.</div></li>
-          <li><span>03</span><b>Price awareness</b><div>옵션 변경이 최종 가격에 미치는 영향을 구매 전에 확인할 수 있도록 구성.</div></li>
-        </ul>
-      </div>
-    </div>
+      </div></div>
   </section>
 
   <section class="solution">
@@ -1144,17 +1515,7 @@ footer{
       <p class="ai-note">
         <strong>AI는 디자인을 대체하는 도구가 아니라 제작 보조 도구로 사용했습니다.</strong>
         페이지 목적과 브랜드 톤 정의 → 이미지 생성 → 선택 및 보정 → 실제 UI 적용 순으로 진행했습니다.
-      </p>
-      <div class="process-note">
-        <span>Production flow</span>
-        <ul>
-          <li><span>01</span><b>Define the visual brief</b><div>에디션별 컬러, 무드, 제품 배열, 활용 위치를 먼저 정의.</div></li>
-          <li><span>02</span><b>Generate & select</b><div>다양한 시안을 생성하고 브랜드 맥락에 맞는 결과를 선별.</div></li>
-          <li><span>03</span><b>Refine & apply</b><div>보정과 레이아웃 적용을 거쳐 실제 프로모션 페이지에 사용할 수 있는 자산으로 정리.</div></li>
-        </ul>
-      </div>
-
-      <div class="ai-grid">
+      </p><div class="ai-grid">
         <figure class="ai-card">
           <img src="./assets/lab-ai-purple-main.png" alt="Purple edition AI key visual">
           <figcaption class="caption"><strong>Purple Edition</strong><span>AI-assisted key visual</span></figcaption>
@@ -1194,15 +1555,7 @@ footer{
         <div class="result-row"><div class="n">03</div><strong>Guided custom configuration</strong><p>복잡한 커스텀 옵션을 단계형 UX로 정리해 현재 상태와 다음 행동을 명확하게 전달.</p></div>
         <div class="result-row"><div class="n">04</div><strong>Connected fitting experience</strong><p>제품 탐색에서 실제 피팅 예약까지 온라인·오프라인 경험을 연결.</p></div>
         <div class="result-row"><div class="n">05</div><strong>Design → live implementation</strong><p>UI/UX 설계에서 Responsive Publishing, Cafe24 적용, 실제 운영 환경까지 직접 연결.</p></div>
-      </div>
-      <div class="final-takeaway">
-        <div class="label">Takeaway</div>
-        <p>
-          This project shows how I work across <strong>structure, interface, and implementation</strong> —
-          turning a complex commerce requirement into a clear experience that can actually be operated.
-        </p>
-      </div>
-    </div>
+      </div></div>
   </section>
 </main>
 
