@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANEW GOLF — E-commerce Redesign Case Study | Choi Yoolim</title>
+<meta name="description" content="ANEW GOLF e-commerce redesign case study by Choi Yoolim — responsive UI/UX, product discovery, PDP hierarchy, campaign content, and Cafe24 front-end implementation.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#f7f6f2;
+  --ink:#111;
+  --text:#3f4146;
+  --soft:#62646a;
+  --muted:#96989c;
+  --line:#d8d7d1;
+  --dark:#111318;
+  --accent:#9bff43;
+  --max:1180px;
+  --pad:clamp(20px,4vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Inter','Pretendard',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(100%,var(--max));margin:0 auto;padding-inline:var(--pad)}
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,246,242,.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(17,17,17,.08);
+}
+.header-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.identity{display:flex;align-items:baseline;gap:10px}
+.identity strong{font-size:14px;font-weight:800}
+.identity span{font-size:11px;color:var(--muted)}
+.back-link{padding:9px 14px;border:1px solid #c8c7c1;border-radius:999px;font-size:12px;color:#55575b}
+a:focus-visible{outline:2px solid #7167ff;outline-offset:4px}
+
+/* Hero */
+.hero{padding:92px 0 80px}
+.eyebrow{
+  display:block;margin-bottom:16px;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)
+}
+.hero h1{
+  margin:0;max-width:980px;
+  font-size:clamp(58px,8vw,108px);line-height:.9;
+  letter-spacing:-.065em;font-weight:800
+}
+.hero-grid{
+  margin-top:52px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+  gap:80px;align-items:start
+}
+.hero-lead{margin:0;max-width:710px;font-size:18px;line-height:1.82;color:var(--text)}
+.meta-list{border-top:1px solid #bfc0ba}
+.meta-row{
+  display:grid;grid-template-columns:104px 1fr;gap:18px;
+  padding:15px 0;border-bottom:1px solid #d0d0ca
+}
+.meta-row span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.meta-row strong{font-size:13px;line-height:1.55;font-weight:600;color:#383a3f}
+.tldr{
+  display:grid;grid-template-columns:104px minmax(0,1fr);gap:18px;
+  margin-top:30px;padding:20px 0;border-top:1px solid #c9c8c2;border-bottom:1px solid #c9c8c2
+}
+.tldr span,.methodology span{
+  font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)
+}
+.tldr p{margin:0;max-width:780px;font-size:16px;line-height:1.72;font-weight:600;color:#2e3034}
+
+.hero-visual{margin-top:46px}
+.visual{
+  margin:0;background:#fff;border:1px solid #d4d3cd;overflow:hidden
+}
+.visual img{width:100%;height:auto}
+.visual.landscape img{aspect-ratio:16/9;object-fit:cover;object-position:top center}
+.visual.wide img{aspect-ratio:2/1;object-fit:contain;object-position:top center}
+.caption{
+  display:flex;justify-content:space-between;gap:18px;
+  margin-top:10px;font-size:11px;line-height:1.55;color:var(--muted)
+}
+.caption strong{color:#4c4e53;font-weight:600}
+
+/* Sections */
+.section{padding:102px 0;border-top:1px solid var(--line)}
+.section-head{
+  display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;
+  align-items:start;margin-bottom:46px
+}
+.section-index{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.section-copy h2{
+  margin:0;max-width:800px;
+  font-size:clamp(39px,4.8vw,60px);line-height:.98;letter-spacing:-.05em;font-weight:800
+}
+.section-copy p{margin:18px 0 0;max-width:700px;font-size:16px;line-height:1.82;color:var(--soft)}
+.two-col{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:74px;align-items:start}
+.body-copy p{margin:0;max-width:700px;font-size:17px;line-height:1.86;color:var(--text)}
+.body-copy p+p{margin-top:18px}
+.facts{border-top:1px solid #bfc0ba}
+.fact{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid #d0d0ca}
+.fact span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.fact strong{font-size:13px;line-height:1.55;font-weight:600;color:#3b3c40}
+.methodology{
+  display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;
+  margin-bottom:38px;padding:22px 0;border-top:1px solid #d0d0ca;border-bottom:1px solid #d0d0ca
+}
+.methodology p{margin:0;max-width:710px;font-size:14px;line-height:1.78;color:var(--soft)}
+
+/* Before / after */
+.compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start
+}
+.compare-card{margin:0}
+.compare-card .tag{
+  display:inline-block;margin-bottom:12px;
+  padding:7px 10px;border:1px solid #cccac4;border-radius:999px;
+  font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#66686d
+}
+.compare-card img{border:1px solid #d4d3cd;background:#fff}
+.compare-card p{margin:13px 0 0;font-size:14px;line-height:1.7;color:var(--soft)}
+.problem-list{border-top:1px solid #bfc0ba;margin-top:38px}
+.problem-row{
+  display:grid;grid-template-columns:48px 210px minmax(0,1fr);gap:24px;
+  padding:26px 0;border-bottom:1px solid #d0d0ca
+}
+.problem-row .n{font-size:10px;color:var(--muted)}
+.problem-row h3{margin:0;font-size:17px;letter-spacing:-.02em}
+.problem-row p{margin:0;max-width:660px;font-size:15px;line-height:1.76;color:var(--soft)}
+
+/* Strategy */
+.strategy{padding:84px 0;background:var(--dark);color:#fff}
+.strategy-grid{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px}
+.strategy .section-index{color:rgba(255,255,255,.38)}
+.strategy h2{margin:0;max-width:780px;font-size:clamp(38px,4.6vw,58px);line-height:.98;letter-spacing:-.05em}
+.strategy p{margin:18px 0 0;max-width:690px;font-size:16px;line-height:1.78;color:rgba(255,255,255,.68)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.pill-row span{padding:8px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:11px;color:rgba(255,255,255,.82)}
+
+/* Solution blocks */
+.solution{padding:100px 0;border-top:1px solid var(--line)}
+.solution-head{
+  display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;margin-bottom:34px
+}
+.solution-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.solution-head h3{margin:0;max-width:750px;font-size:clamp(33px,3.8vw,48px);line-height:1;letter-spacing:-.045em}
+.solution-head p{margin:15px 0 0;max-width:680px;font-size:15px;line-height:1.8;color:var(--soft)}
+.design-note{
+  display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;
+  margin-top:24px;padding:23px 0;border-top:1px solid #d0d0ca;border-bottom:1px solid #d0d0ca
+}
+.design-note span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.design-note p{margin:0;max-width:660px;font-size:15px;line-height:1.75;color:var(--soft)}
+
+.pc-mobile{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(250px,.55fr);gap:28px;align-items:start}
+.mobile{margin:0;width:min(100%,290px);justify-self:center}
+.mobile img{border:1px solid #d4d3cd;background:#fff}
+.screen-row{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:26px;align-items:start
+}
+.screen-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.screen-card{margin:0}
+.screen-card img{border:1px solid #d4d3cd;background:#fff}
+.screen-card p{margin:12px 0 0;font-size:13px;line-height:1.68;color:var(--soft)}
+
+/* Results */
+.result-list{border-top:1px solid #bfc0ba}
+.result{
+  display:grid;grid-template-columns:48px 230px minmax(0,1fr);gap:24px;
+  padding:24px 0;border-bottom:1px solid #d0d0ca
+}
+.result .n{font-size:10px;color:var(--muted)}
+.result strong{font-size:16px}
+.result p{margin:0;max-width:650px;font-size:15px;line-height:1.72;color:var(--soft)}
+.takeaway{
+  display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;
+  margin-top:34px;padding-top:28px
+}
+.takeaway span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.takeaway p{margin:0;max-width:710px;font-size:19px;line-height:1.62;letter-spacing:-.02em;color:#292a2e}
+
+/* Placeholder styling: disappears naturally once matching image exists */
+.img-placeholder{
+  min-height:340px;display:flex;align-items:center;justify-content:center;
+  border:1px dashed #c6c5bf;background:#efeee9;color:#97999d;
+  text-align:center;padding:24px;font-size:12px;line-height:1.6
+}
+figure.has-fallback img[style*="display: none"] + .img-placeholder{display:flex}
+.img-placeholder small{display:block;margin-top:6px;color:#aaa}
+
+footer{padding:62px 0 78px;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.footer-inner h2{margin:0;max-width:680px;font-size:clamp(34px,4.5vw,54px);line-height:.98;letter-spacing:-.05em}
+.footer-inner a{border:1px solid #c7c6c0;border-radius:999px;padding:12px 16px;font-size:12px;color:#56575b}
+
+@media(max-width:960px){
+  .hero-grid,.two-col{grid-template-columns:1fr;gap:34px}
+  .section-head,.strategy-grid,.solution-head,.design-note,.takeaway,.methodology{grid-template-columns:1fr;gap:12px}
+  .pc-mobile{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  :root{--pad:18px}
+  .identity span{display:none}
+  .hero{padding:56px 0 50px}
+  .hero h1{font-size:clamp(48px,15vw,70px)}
+  .hero-lead,.body-copy p{font-size:15px}
+  .tldr{grid-template-columns:1fr;gap:8px}
+  .tldr p{font-size:15px}
+  .section,.solution{padding:72px 0}
+  .section-copy h2{font-size:clamp(34px,10vw,44px)}
+  .section-copy p,.solution-head p,.strategy p{font-size:14px}
+  .compare,.screen-row,.screen-row.two{grid-template-columns:1fr}
+  .problem-row{grid-template-columns:30px 1fr;gap:12px}
+  .problem-row h3,.problem-row p{grid-column:2}
+  .problem-row p{font-size:14px}
+  .strategy{padding:68px 0}
+  .strategy h2{font-size:clamp(32px,10vw,43px)}
+  .solution-head h3{font-size:clamp(28px,9.6vw,38px)}
+  .mobile{width:min(100%,320px);max-width:320px;margin-inline:auto}
+  .design-note p,.result p{font-size:14px}
+  .result{grid-template-columns:30px 1fr;gap:12px}
+  .result strong,.result p{grid-column:2}
+  .takeaway p{font-size:17px}
+  .footer-inner{display:block}
+  .footer-inner a{display:inline-block;margin-top:22px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="identity">
+      <strong>Choi Yoolim</strong>
+      <span>Product Designer · UI/UX + Front-end Implementation</span>
+    </div>
+    <a class="back-link" href="../../#work">← Selected Works</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">E-commerce Redesign Case Study · ANEW GOLF</span>
+    <h1>Rebuilding ANEW GOLF<br>for a sharper digital brand experience.</h1>
+
+    <div class="hero-grid">
+      <p class="hero-lead">
+        ANEW GOLF is an in-house golf fashion brand operated by our company.
+        The project was a full e-commerce renewal: reorganizing the storefront around current brand direction,
+        improving responsive product discovery, and translating the redesign into a live Cafe24 environment.
+      </p>
+
+      <div class="meta-list">
+        <div class="meta-row"><span>Role</span><strong>UI/UX Design · Responsive Publishing · Front-end</strong></div>
+        <div class="meta-row"><span>Platform</span><strong>Cafe24 e-commerce CMS</strong></div>
+        <div class="meta-row"><span>Scope</span><strong>Home · PLP · PDP · Lookbook · Campaign / Content</strong></div>
+        <div class="meta-row"><span>Type</span><strong>Owned Brand · E-commerce Renewal</strong></div>
+      </div>
+    </div>
+
+    <div class="tldr">
+      <span>TL;DR</span>
+      <p>
+        Redesigned an existing owned-brand golf commerce site — modernized the visual hierarchy,
+        rebuilt responsive shopping flows, and implemented the renewed experience in a live Cafe24 store.
+      </p>
+    </div>
+
+    <figure class="hero-visual visual landscape has-fallback">
+      <img src="./assets/anew-renewal-home-desktop.png" alt="Renewed ANEW GOLF desktop homepage" onerror="this.style.display='none'">
+      <div class="img-placeholder">Add renewed homepage screenshot<small>anew-renewal-home-desktop.png</small></div>
+    </figure>
+    <div class="caption"><strong>Renewed Homepage · Desktop</strong><span>ANEW GOLF</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">01 · Context</div>
+      <div class="section-copy">
+        <h2>An owned brand had outgrown its existing storefront.</h2>
+      </div>
+    </div>
+
+    <div class="methodology">
+      <span>Methodology note</span>
+      <p>
+        This case study documents a real production redesign. It is grounded in the existing live store,
+        product/content requirements, responsive implementation constraints, and day-to-day commerce operations.
+        Where formal user-research data was not available, I distinguish design rationale from validated impact.
+      </p>
+    </div>
+
+    <div class="two-col">
+      <div class="body-copy">
+        <p>
+          The previous ANEW GOLF storefront supported commerce, but its hierarchy was heavily section-based:
+          a large promotional hero followed by New, Check Point, Keyword, bag merchandising, editorial content,
+          reviews, and social content. As the brand and product range expanded, the digital experience needed a clearer
+          hierarchy and a stronger connection between brand storytelling and shopping.
+        </p>
+        <p>
+          The renewal focused on making the site feel more current, easier to navigate across device sizes,
+          and more scalable for seasonal products, campaigns, lookbooks, and ongoing e-commerce operations.
+        </p>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><span>Before</span><strong>Existing Cafe24 storefront</strong></div>
+        <div class="fact"><span>After</span><strong>Responsive brand-commerce renewal</strong></div>
+        <div class="fact"><span>Business</span><strong>ANEW GOLF · Owned golf fashion brand</strong></div>
+        <div class="fact"><span>Contribution</span><strong>Design · Publishing · Front-end implementation</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">02 · Before / After</div>
+      <div class="section-copy">
+        <h2>The redesign started by simplifying what competed for attention.</h2>
+        <p>
+          The goal was not to remove commerce content, but to give each layer a clearer job:
+          brand first, product discovery second, supporting editorial and campaign content after.
+        </p>
+      </div>
+    </div>
+
+    <div class="compare">
+      <figure class="compare-card has-fallback">
+        <span class="tag">Before · Legacy</span>
+        <img src="./assets/anew-legacy-home-desktop.png" alt="Legacy ANEW GOLF homepage" onerror="this.style.display='none'">
+        <div class="img-placeholder">Export the old homepage PDF as an image<small>anew-legacy-home-desktop.png</small></div>
+        <p>Section-heavy storefront with multiple merchandising and content modules competing within one long homepage.</p>
+      </figure>
+
+      <figure class="compare-card has-fallback">
+        <span class="tag">After · Renewal</span>
+        <img src="./assets/anew-renewal-home-desktop.png" alt="Renewed ANEW GOLF homepage" onerror="this.style.display='none'">
+        <div class="img-placeholder">Add renewed homepage screenshot<small>anew-renewal-home-desktop.png</small></div>
+        <p>Renewed hierarchy designed around current brand presentation, clearer navigation, and responsive product discovery.</p>
+      </figure>
+    </div>
+
+    <div class="problem-list">
+      <div class="problem-row"><div class="n">01</div><h3>Visual hierarchy</h3><p>The old homepage contained many modules with similar visual weight, making the primary shopping story less distinct.</p></div>
+      <div class="problem-row"><div class="n">02</div><h3>Responsive behaviour</h3><p>The renewal needed to support desktop and mobile as intentionally designed experiences rather than simple content shrinkage.</p></div>
+      <div class="problem-row"><div class="n">03</div><h3>Content scalability</h3><p>Seasonal campaigns, new products, lookbooks, rankings, and brand stories needed a system that could be updated continuously.</p></div>
+      <div class="problem-row"><div class="n">04</div><h3>PDP clarity</h3><p>The product-detail experience needed clearer product information, stronger media hierarchy, and a more deliberate path toward purchase.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="strategy">
+  <div class="wrap">
+    <div class="strategy-grid">
+      <div class="section-index">03 · Design Direction</div>
+      <div>
+        <h2>Make the brand feel editorial without making shopping harder.</h2>
+        <p>
+          ANEW GOLF needed to communicate a distinctive fashion identity while still working as a high-volume commerce environment.
+          I used clearer hierarchy, larger visual moments, structured product modules, and responsive navigation to balance brand and utility.
+        </p>
+        <div class="pill-row">
+          <span>Brand Impact</span><span>Product Discovery</span><span>Responsive Hierarchy</span><span>Seasonal Content</span><span>Production Scalability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">04.1 · Homepage</div>
+      <div>
+        <h3>From stacked modules to a clearer content rhythm.</h3>
+        <p>
+          The homepage was reorganized so promotional imagery, new products, ranking, lookbook, and news each have a clearer role.
+          This creates stronger visual pacing while keeping frequently updated commerce content maintainable.
+        </p>
+      </div>
+    </div>
+
+    <div class="pc-mobile">
+      <figure class="visual wide has-fallback">
+        <img src="./assets/anew-renewal-home-desktop.png" alt="ANEW GOLF renewed desktop homepage" onerror="this.style.display='none'">
+        <div class="img-placeholder">Desktop homepage screenshot<small>anew-renewal-home-desktop.png</small></div>
+      </figure>
+      <figure class="mobile has-fallback">
+        <img src="./assets/anew-renewal-home-mobile.png" alt="ANEW GOLF renewed mobile homepage" onerror="this.style.display='none'">
+        <div class="img-placeholder">Mobile homepage screenshot<small>anew-renewal-home-mobile.png</small></div>
+      </figure>
+    </div>
+
+    <div class="design-note">
+      <span>Design decision</span>
+      <p>
+        Desktop preserves the breadth of the brand and catalogue; mobile reduces simultaneous choices
+        and prioritizes navigation, product scanning, and touch-friendly entry points.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">04.2 · Product Discovery</div>
+      <div>
+        <h3>A product architecture that can grow with the collection.</h3>
+        <p>
+          The renewed store supports broad categories such as Men, Women, Bag, Accessories, Outlet,
+          and seasonal/special collections while keeping product cards readable across breakpoints.
+        </p>
+      </div>
+    </div>
+
+    <div class="screen-row two">
+      <figure class="screen-card has-fallback">
+        <img src="./assets/anew-renewal-plp-desktop.png" alt="ANEW GOLF product listing desktop" onerror="this.style.display='none'">
+        <div class="img-placeholder">Desktop product-list screenshot<small>anew-renewal-plp-desktop.png</small></div>
+        <p><strong>Desktop PLP</strong><br>Comparison-friendly grid and category navigation.</p>
+      </figure>
+      <figure class="screen-card has-fallback">
+        <img src="./assets/anew-renewal-plp-mobile.png" alt="ANEW GOLF product listing mobile" onerror="this.style.display='none'">
+        <div class="img-placeholder">Mobile product-list screenshot<small>anew-renewal-plp-mobile.png</small></div>
+        <p><strong>Mobile PLP</strong><br>Reduced density and more focused product scanning.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">04.3 · Product Detail</div>
+      <div>
+        <h3>Reduce dead space and make product information easier to act on.</h3>
+        <p>
+          The legacy product page devoted substantial vertical space to static product imagery and specification content.
+          The renewal is documented here as a comparison of hierarchy, media, purchase information, and supporting product details.
+        </p>
+      </div>
+    </div>
+
+    <div class="compare">
+      <figure class="compare-card has-fallback">
+        <span class="tag">Before · Legacy PDP</span>
+        <img src="./assets/anew-legacy-pdp-desktop.png" alt="Legacy ANEW GOLF product detail page" onerror="this.style.display='none'">
+        <div class="img-placeholder">Export old product-detail PDF as one long JPG/PNG<small>anew-legacy-pdp-desktop.png</small></div>
+        <p>Long static detail content with large unused vertical areas between product imagery, size information, and policy content.</p>
+      </figure>
+
+      <figure class="compare-card has-fallback">
+        <span class="tag">After · Renewal PDP</span>
+        <img src="./assets/anew-renewal-pdp-desktop.png" alt="Renewed ANEW GOLF product detail page" onerror="this.style.display='none'">
+        <div class="img-placeholder">Add renewed desktop PDP screenshot<small>anew-renewal-pdp-desktop.png</small></div>
+        <p>Renewed hierarchy showing product media, purchase information, options, and supporting details as a clearer decision path.</p>
+      </figure>
+    </div>
+
+    <div class="design-note">
+      <span>UX rationale</span>
+      <p>
+        Product storytelling still matters for a fashion brand, but it should support the purchase decision.
+        The redesign separates primary decision information from deeper editorial and specification content.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="solution-head">
+      <div class="solution-label">04.4 · Brand Content</div>
+      <div>
+        <h3>Build a reusable system for campaigns, lookbooks, and news.</h3>
+        <p>
+          The site needed more than product templates. Seasonal launch content, lookbooks, event pages,
+          time-sensitive promotions, and news were designed as repeatable content patterns that could support ongoing brand operations.
+        </p>
+      </div>
+    </div>
+
+    <div class="screen-row">
+      <figure class="screen-card has-fallback">
+        <img src="./assets/anew-lookbook-desktop.png" alt="ANEW GOLF lookbook page" onerror="this.style.display='none'">
+        <div class="img-placeholder">Lookbook screenshot<small>anew-lookbook-desktop.png</small></div>
+        <p><strong>Lookbook</strong><br>Editorial brand storytelling tied to seasonal collections.</p>
+      </figure>
+      <figure class="screen-card has-fallback">
+        <img src="./assets/anew-event-desktop.png" alt="ANEW GOLF event page" onerror="this.style.display='none'">
+        <div class="img-placeholder">Event / Time Sale screenshot<small>anew-event-desktop.png</small></div>
+        <p><strong>Campaign / Event</strong><br>Reusable structure for time-sensitive commerce.</p>
+      </figure>
+      <figure class="screen-card has-fallback">
+        <img src="./assets/anew-news-desktop.png" alt="ANEW GOLF news page" onerror="this.style.display='none'">
+        <div class="img-placeholder">News screenshot<small>anew-news-desktop.png</small></div>
+        <p><strong>News</strong><br>A consistent publishing surface for ongoing brand updates.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">05 · Implementation</div>
+      <div class="section-copy">
+        <h2>The work continued past the Figma frame.</h2>
+        <p>
+          A key part of the project was translating the redesigned experience into a maintainable live store.
+        </p>
+      </div>
+    </div>
+
+    <div class="problem-list">
+      <div class="problem-row"><div class="n">01</div><h3>Responsive front-end</h3><p>Implemented desktop and mobile layouts with breakpoint-specific hierarchy and interaction behaviour.</p></div>
+      <div class="problem-row"><div class="n">02</div><h3>Cafe24 customization</h3><p>Worked within a production e-commerce CMS/theme environment rather than a static prototype.</p></div>
+      <div class="problem-row"><div class="n">03</div><h3>Operational QA</h3><p>Reviewed live modules, product states, responsive reflow, content updates, and production issues after implementation.</p></div>
+      <div class="problem-row"><div class="n">04</div><h3>Maintainability</h3><p>Structured recurring brand and campaign content so the online team could continue operating the store after launch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">06 · Outcome</div>
+      <div class="section-copy">
+        <h2>A renewed commerce system for an evolving golf-fashion brand.</h2>
+        <p>
+          The result was a more current responsive storefront and a content system designed for real, ongoing brand operations.
+        </p>
+      </div>
+    </div>
+
+    <div class="result-list">
+      <div class="result"><div class="n">01</div><strong>Clearer brand hierarchy</strong><p>Rebalanced promotional imagery, product modules, and editorial content so each layer has a more distinct role.</p></div>
+      <div class="result"><div class="n">02</div><strong>Responsive shopping</strong><p>Designed desktop and mobile around different browsing contexts instead of treating mobile as a scaled copy.</p></div>
+      <div class="result"><div class="n">03</div><strong>Scalable content system</strong><p>Created reusable patterns for collections, rankings, lookbooks, events, and news.</p></div>
+      <div class="result"><div class="n">04</div><strong>Production-ready implementation</strong><p>Connected UI/UX decisions to front-end implementation and operational QA in Cafe24.</p></div>
+    </div>
+
+    <div class="takeaway">
+      <span>Takeaway</span>
+      <p>
+        ANEW GOLF shows my ability to work on an <strong>owned brand over time</strong> —
+        not only redesigning an interface, but understanding the operational system behind a live commerce experience.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <span class="eyebrow">ANEW GOLF · E-commerce Redesign Case Study</span>
+      <h2>Designing for real users.<br>Building for real products.</h2>
+    </div>
+    <a href="../../#work">Back to Selected Works →</a>
+  </div>
+</footer>
+
+</body>
+</html>
