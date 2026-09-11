@@ -199,6 +199,55 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   .metric-card{min-height:0}
 }
 
+
+.change-list{
+  margin-top:30px;
+  border-top:1px solid #bfc0ba;
+}
+.change-row{
+  display:grid;
+  grid-template-columns:48px 190px minmax(0,1fr);
+  gap:22px;
+  padding:22px 0;
+  border-bottom:1px solid #d0d0ca;
+}
+.change-row .n{
+  font-size:10px;
+  color:var(--muted);
+}
+.change-row strong{
+  font-size:15px;
+}
+.change-row p{
+  margin:0;
+  max-width:650px;
+  font-size:14px;
+  line-height:1.72;
+  color:var(--soft);
+}
+
+/* Preserve readable crops in the explicit Before/After comparison */
+.compare-media--before img{
+  object-position:50% 0;
+}
+.compare-media--after img{
+  object-position:50% 0;
+}
+
+@media(max-width:640px){
+  .change-row{
+    grid-template-columns:30px 1fr;
+    gap:10px;
+  }
+  .change-row strong,
+  .change-row p{
+    grid-column:2;
+  }
+  .change-row p{
+    font-size:13px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -301,15 +350,18 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 </section>
 
 
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
       <div class="section-index">02 · Before / After</div>
       <div class="section-copy">
-        <h2>The renewal changed both the visual language and the content hierarchy.</h2>
+        <h2>The redesign changed more than the visual style.</h2>
         <p>
-          The previous store relied on a conventional commerce structure with many similarly weighted modules.
-          The renewed experience uses larger editorial moments, a more deliberate rhythm, and clearer transitions between brand storytelling and shopping.
+          The legacy homepage was organized around a conventional sequence of NEW, CHECK POINT,
+          KEYWORD, product merchandising, review, and social content. The renewal rebuilt that hierarchy
+          around stronger campaign impact, clearer category entry points, product discovery, ranking,
+          editorial content, and ongoing brand storytelling.
         </p>
       </div>
     </div>
@@ -322,7 +374,10 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
         </div>
         <figcaption>
           <strong>Legacy Homepage</strong>
-          <span>Commerce-first structure with many stacked modules sharing similar visual weight.</span>
+          <span>
+            A commerce-first structure built around NEW, CHECK POINT, KEYWORD, bag merchandising,
+            review, and Instagram modules.
+          </span>
         </figcaption>
       </figure>
 
@@ -333,20 +388,34 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
         </div>
         <figcaption>
           <strong>Renewed Homepage</strong>
-          <span>Stronger campaign impact, clearer category entry points, and a more editorial brand-commerce rhythm.</span>
+          <span>
+            A more editorial brand-commerce entry with stronger campaign imagery,
+            clearer category discovery, and a more deliberate visual rhythm.
+          </span>
         </figcaption>
       </figure>
     </div>
 
-    <div class="design-note" style="margin-top:28px">
-      <span class="note-label">What changed</span>
-      <p>
-        The redesign was not a surface-level reskin. It reorganized how the homepage prioritizes campaign content,
-        category discovery, products, rankings, recommendations, editorial content, events, and news.
-      </p>
+    <div class="change-list">
+      <div class="change-row">
+        <div class="n">01</div>
+        <strong>Visual hierarchy</strong>
+        <p>From many similarly weighted modules to a clearer sequence of campaign, category, product, and editorial content.</p>
+      </div>
+      <div class="change-row">
+        <div class="n">02</div>
+        <strong>Product discovery</strong>
+        <p>From fragmented NEW / CHECK POINT / KEYWORD entry points to more direct category, New Arrivals, and Ranking patterns.</p>
+      </div>
+      <div class="change-row">
+        <div class="n">03</div>
+        <strong>Brand content</strong>
+        <p>Expanded the experience beyond review and social modules into Lookbook, Event, and News structures that support ongoing brand operations.</p>
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <section class="section">
@@ -494,8 +563,9 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div>
         <h3>Keep purchase decisions clear while supporting deeper product storytelling.</h3>
         <p>
-          The product detail page combines product media, options, pricing, recommendations,
+          The renewed product detail page combines product media, options, pricing, recommendations,
           campaign imagery, size information, care details, and supporting policy content within one long commerce flow.
+          A dedicated legacy PDP comparison can be added later if a matching before screenshot is available.
         </p>
       </div>
     </div>
