@@ -349,6 +349,42 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   }
 }
 
+
+.homepage-decisions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:28px;
+  border-top:1px solid #bfc0ba;
+  border-left:1px solid #d0d0ca;
+}
+.homepage-decisions article{
+  padding:24px;
+  border-right:1px solid #d0d0ca;
+  border-bottom:1px solid #d0d0ca;
+}
+.homepage-decisions span{
+  display:block;
+  margin-bottom:14px;
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.homepage-decisions strong{
+  display:block;
+  font-size:16px;
+  line-height:1.4;
+}
+.homepage-decisions p{
+  margin:10px 0 0;
+  font-size:14px;
+  line-height:1.7;
+  color:var(--soft);
+}
+@media(max-width:640px){
+  .homepage-decisions{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -367,29 +403,30 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">Owned Brand · E-commerce Redesign · ANEW GOLF</span>
+    <span class="eyebrow">Q&B International · Owned Brand · E-commerce Redesign</span>
     <h1>Rebuilding ANEW GOLF<br>for a sharper digital brand experience.</h1>
 
     <div class="hero-grid">
       <p class="hero-lead">
-        ANEW GOLF is an in-house golf fashion brand operated by our company.
-        I worked on the e-commerce renewal across UI/UX, responsive design, and front-end implementation —
-        reshaping the storefront so brand storytelling and shopping could work together more clearly.
+        ANEW GOLF is one of the golf fashion brands operated by Q&B International, my former employer.
+        During my time on the company’s online team, I worked on the e-commerce renewal across UI/UX,
+        responsive design, and front-end implementation — reshaping the storefront so brand storytelling
+        and shopping could work together more clearly.
       </p>
       <div class="meta-list">
         <div class="meta-row"><span>Role</span><strong>UI/UX Design · Responsive Publishing · Front-end</strong></div>
         <div class="meta-row"><span>Platform</span><strong>Cafe24 E-commerce CMS</strong></div>
         <div class="meta-row"><span>Scope</span><strong>Home · PLP · PDP · Lookbook · Event · News</strong></div>
-        <div class="meta-row"><span>Type</span><strong>Owned Golf Fashion Brand · E-commerce Renewal</strong></div>
+        <div class="meta-row"><span>Type</span><strong>Q&B International Brand · E-commerce Renewal</strong></div>
       </div>
     </div>
 
     <div class="tldr">
       <span>TL;DR</span>
       <p>
-        Renewed an existing owned-brand commerce experience — clarified the homepage hierarchy,
-        strengthened responsive product discovery, and extended the same visual system across product, editorial,
-        event, and news content in a live Cafe24 store.
+        Renewed the e-commerce experience for ANEW GOLF, a brand operated by Q&B International —
+        clarified the homepage hierarchy, strengthened responsive product discovery, and extended the same
+        visual system across product, editorial, event, and news content in a live Cafe24 store.
       </p>
     </div>
 
@@ -446,16 +483,20 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="body-copy">
         <p>
           ANEW GOLF already had an active e-commerce site, but the experience had accumulated many promotional,
-          merchandising, and editorial modules over time. The renewal was an opportunity to make the brand feel more current
-          while giving customers a clearer path through product discovery.
+          merchandising, and editorial modules over time. The existing interface communicated products more strongly than
+          the brand’s distinctive identity, while navigation and responsive behaviour left room for a clearer shopping journey.
         </p>
         <p>
-          Because this is our own brand, the work also had to support ongoing seasonal launches, product updates,
-          campaigns, events, lookbooks, and news — not just a one-time visual refresh.
+          The renewal focused on making ANEW GOLF’s street- and extreme-sport-influenced visual identity more immediate,
+          while creating clearer paths through categories, new products, rankings, product detail, and brand content.
+        </p>
+        <p>
+          Because ANEW GOLF was an owned brand within Q&B International, the work also had to support ongoing
+          seasonal launches, product updates, campaigns, events, lookbooks, and news — not just a one-time visual refresh.
         </p>
       </div>
       <div class="facts">
-        <div class="fact"><span>Business</span><strong>ANEW GOLF · Owned brand</strong></div>
+        <div class="fact"><span>Business</span><strong>ANEW GOLF · Brand operated by Q&B International</strong></div>
         <div class="fact"><span>Environment</span><strong>Live Cafe24 commerce store</strong></div>
         <div class="fact"><span>Devices</span><strong>Desktop + mobile</strong></div>
         <div class="fact"><span>Contribution</span><strong>Design → publishing → production QA</strong></div>
@@ -479,7 +520,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div class="section-copy">
         <h2>Design decisions came from the realities of an operating commerce brand.</h2>
         <p>
-          Because ANEW GOLF is an owned brand, the redesign had to work inside a real content pipeline:
+          As a brand operated by Q&B International, ANEW GOLF had an active content and commerce pipeline:
           frequent product launches, campaign updates, editorial assets, promotions, and Cafe24 implementation constraints.
         </p>
       </div>
@@ -488,26 +529,26 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
     <div class="evidence-grid">
       <article class="evidence-card">
         <span>Observed Store Structure</span>
-        <h3>Many content types were competing on one long homepage.</h3>
+        <h3>Product information was visible, but brand identity was less immediate.</h3>
         <p>
-          Product modules, campaign imagery, editorial content, rankings, events, and news all needed visibility.
-          The key design problem was hierarchy rather than simply adding more content.
+          The legacy site supported shopping, yet product modules and content blocks carried more weight than the
+          distinctive ANEW GOLF mood. The key design problem was hierarchy rather than simply adding more content.
         </p>
       </article>
       <article class="evidence-card">
         <span>Operational Requirement</span>
-        <h3>The system had to survive seasonal change.</h3>
+        <h3>The store needed to support frequent seasonal and campaign change.</h3>
         <p>
-          The brand continuously updates products and campaigns, so recurring modules needed reusable patterns
-          instead of one-off layouts that would become expensive to maintain.
+          Collections, campaign visuals, recommendations, events, lookbooks, and news changed continuously,
+          so recurring modules needed reusable patterns rather than one-off layouts.
         </p>
       </article>
       <article class="evidence-card">
         <span>Platform Constraint</span>
-        <h3>Design had to translate into a live Cafe24 environment.</h3>
+        <h3>Desktop and mobile both had to work inside a live Cafe24 environment.</h3>
         <p>
-          Responsive behaviour, content modules, and front-end decisions were shaped by the production CMS/theme,
-          not only by what looked ideal in a static design file.
+          Navigation, responsive behaviour, content modules, and front-end decisions were shaped by the production
+          CMS/theme and real operational constraints — not only by what looked ideal in a static design file.
         </p>
       </article>
     </div>
@@ -575,6 +616,11 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
         <strong>Brand content</strong>
         <p>Expanded the experience beyond review and social modules into Lookbook, Event, and News structures that support ongoing brand operations.</p>
       </div>
+      <div class="change-row">
+        <div class="n">04</div>
+        <strong>Responsive experience</strong>
+        <p>Moved from limited mobile adaptation toward a mobile-first responsive hierarchy designed around the browsing patterns of a younger golf audience.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -585,9 +631,9 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
     <div>
       <h2>Editorial enough to feel like fashion. Structured enough to shop.</h2>
       <p>
-        The redesign balances large brand imagery with predictable commerce patterns.
-        Rather than letting every module compete at the same visual weight, the homepage uses a clearer rhythm:
-        campaign impact first, product discovery next, then supporting editorial and brand content.
+        ANEW GOLF draws visual energy from streetwear and extreme-sport culture. The redesign translates that identity
+        into stronger full-screen campaign imagery, bold category moments, and a clearer commerce rhythm:
+        brand impact first, product discovery next, then supporting editorial and brand content.
       </p>
       <div class="pill-row">
         <span>Brand Impact</span><span>Product Discovery</span><span>Responsive Hierarchy</span><span>Seasonal Content</span><span>Operational Scalability</span>
@@ -611,6 +657,28 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 
     <div class="native-760 desktop-panel">
       <img src="./assets/anew-renewal-home-desktop.png" alt="Full renewed ANEW GOLF desktop homepage">
+    </div>
+    <div class="homepage-decisions">
+      <article>
+        <span>Main visual</span>
+        <strong>Lead with the brand mood.</strong>
+        <p>Large campaign imagery creates an immediate, immersive entry before the user reaches denser commerce content.</p>
+      </article>
+      <article>
+        <span>Category</span>
+        <strong>Make collection entry visual.</strong>
+        <p>Women and Men category banners separate major shopping paths while reinforcing collection imagery and brand tone.</p>
+      </article>
+      <article>
+        <span>New arrivals</span>
+        <strong>Reduce noise around new products.</strong>
+        <p>A simpler product grid increases focus on new merchandise and creates a more direct route into product detail.</p>
+      </article>
+      <article>
+        <span>Ranking</span>
+        <strong>Surface popular products quickly.</strong>
+        <p>A ranking module gives shoppers a fast way to scan high-interest products without adding another dense catalogue block.</p>
+      </article>
     </div>
 
     <div class="design-note" style="margin-top:24px">
@@ -757,8 +825,9 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       <div>
         <h3>One commerce system, multiple editorial jobs.</h3>
         <p>
-          Beyond product templates, the site supports recurring content with different purposes:
-          lookbooks for seasonal storytelling, event pages for campaigns, and news for brand activity and partnerships.
+          Beyond product templates, the site supports recurring content with different roles:
+          event banners connect promotions and recommended products, lookbooks pair seasonal styling with shopping,
+          and news cards make brand activity easier to scan at a glance.
         </p>
       </div>
     </div>
@@ -766,15 +835,15 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
     <div class="content-triptych">
       <figure class="content-card">
         <div class="crop-card"><img src="./assets/anew-lookbook-desktop.png" alt="ANEW GOLF lookbook page"></div>
-        <p><strong>Lookbook</strong><br>Seasonal collections and editorial storytelling.</p>
+        <p><strong>Lookbook</strong><br>Seasonal styling presented with product context to strengthen the bridge between editorial content and shopping.</p>
       </figure>
       <figure class="content-card">
         <div class="crop-card"><img src="./assets/anew-timesale-desktop.png" alt="ANEW GOLF event page"></div>
-        <p><strong>Event</strong><br>Campaign content designed for repeated promotional use.</p>
+        <p><strong>Event</strong><br>Campaign and promotional content that communicates key benefits and featured products without breaking the brand system.</p>
       </figure>
       <figure class="content-card">
         <div class="crop-card"><img src="./assets/anew-news-desktop.png" alt="ANEW GOLF news article page"></div>
-        <p><strong>News</strong><br>Brand activities, partnerships, and offline event coverage.</p>
+        <p><strong>News</strong><br>Card-based brand updates that make partnerships, events, and athlete stories easier to scan.</p>
       </figure>
     </div>
   </div>
@@ -854,9 +923,9 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
     <div class="section-head">
       <div class="section-index">12 · Outcome</div>
       <div class="section-copy">
-        <h2>A more coherent commerce experience for a brand we operate every day.</h2>
+        <h2>A more coherent commerce experience for a brand I worked on at Q&B International.</h2>
         <p>
-          The shipped renewal created a clearer operating system for brand presentation, product discovery,
+          The shipped renewal created a clearer system for brand presentation, product discovery,
           editorial content, and recurring commerce work — with a more consistent experience across desktop and mobile.
         </p>
       </div>
@@ -872,8 +941,9 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
     <div class="takeaway">
       <span class="note-label">Takeaway</span>
       <p>
-        ANEW GOLF shows how I work on an <strong>owned brand over time</strong>:
-        understanding the operational reality behind the interface, then turning that context into a clearer, maintainable commerce experience.
+        ANEW GOLF shows how I worked on an <strong>owned brand over time</strong> at Q&B International:
+        understanding the operational reality behind the interface, then turning that context into a clearer,
+        maintainable commerce experience.
       </p>
     </div>
   </div>
