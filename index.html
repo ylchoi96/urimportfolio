@@ -5590,21 +5590,21 @@ const projects = [
   {
     num:'02', accent:'#159BBC', accentSoft:'#E5F4F7',
     title:'ANEW GOLF',
-    meta:'UI Design · Commerce · Publishing',
-    type:'Fashion / Golf E-commerce Design & Operation',
-    role:['UI Design','Front-end Implementation','E-commerce CMS Customization (Cafe24)','Promotion Design','Responsive / Mobile UI Optimization'],
-    overview:'Ongoing UI, content, and e-commerce work for the official ANEW GOLF online store. I worked across key customer-facing pages including the main page, category experiences, time-sale campaigns, lookbooks, news content, product detail pages, and promotional interfaces.',
-    problem:'A fashion commerce experience needs to communicate brand identity and seasonal storytelling while still supporting efficient product discovery. New products, editorial content, promotions, and sales-driven modules must coexist without overwhelming the user.',
+    meta:'E-commerce Redesign · UI/UX · Front-end',
+    type:'Owned Golf Fashion Brand · E-commerce Renewal',
+    role:['UI/UX Design','Responsive Web Design','Front-end Implementation','E-commerce CMS Customization (Cafe24)','Campaign / Content Design'],
+    overview:'A full e-commerce renewal for ANEW GOLF, an owned golf fashion brand operated by the company. I redesigned the storefront around a clearer brand-commerce hierarchy and carried the work through responsive publishing and front-end implementation in Cafe24.',
+    problem:'The existing storefront supported commerce but had grown into a section-heavy experience where promotional imagery, products, editorial content, and campaigns competed for attention. The renewal needed to strengthen brand presentation while making shopping clearer across desktop and mobile.',
     solution:[
-      'Designed and maintained main-page commerce UI',
-      'Built lookbook and editorial content experiences',
-      'Created time-sale interfaces for promotional campaigns',
-      'Designed NEWS and content pages',
-      'Improved category and product-detail experiences',
-      'Optimized promotional and mobile UI within Cafe24'
+      'Reorganized the homepage around a clearer brand-commerce hierarchy',
+      'Redesigned responsive product discovery for desktop and mobile',
+      'Improved product-detail hierarchy and purchase information',
+      'Built reusable patterns for lookbooks, events, time-sale content, and news',
+      'Implemented the renewed experience in Cafe24',
+      'Supported live-site QA and ongoing commerce operations'
     ],
-    flow:['Visual Content','Product Discovery','Product Detail','Purchase'],
-    features:['Lookbook','Time Sale UI','Mobile Optimization','Cafe24 Theme / UI Customization']
+    flow:['Brand Entry','Product Discovery','Product Detail','Campaign / Content','Purchase'],
+    features:['Owned-brand Renewal','Responsive Commerce','Product Detail UX','Cafe24 Front-end Implementation']
   },
   {
     num:'03', accent:'#168C4D', accentSoft:'#E3F3EA',
@@ -5669,6 +5669,8 @@ projects.forEach((p, i) => {
   const row = document.createElement('div');
   row.className = 'work-row';
   row.dataset.index = i;
+  if (i === 0) row.dataset.route = './projects/lab-golf-korea/';
+  if (i === 1) row.dataset.route = './projects/anew-golf/';
   row.style.setProperty('--row-accent', p.accent);
   row.innerHTML = `
     <span class="num">${p.num}</span>
@@ -5681,6 +5683,10 @@ projects.forEach((p, i) => {
   const activateProject = () => {
     if (i === 0) {
       window.location.href = './projects/lab-golf-korea/';
+      return;
+    }
+    if (i === 1) {
+      window.location.href = './projects/anew-golf/';
       return;
     }
     openCaseStudy(i);
@@ -5733,7 +5739,7 @@ function renderCaseStudy(p){
       <div class="cs-hero-bar" style="background:${p.accent}"></div>
     </div>
 
-    ${p.title === 'L.A.B. GOLF KOREA' ? '' : `
+    ${(p.title === 'L.A.B. GOLF KOREA' || p.title === 'ANEW GOLF') ? '' : `
     <div class="cs-hero-visual" style="--project-accent:${p.accent};--project-soft:${p.accentSoft}">
       <div class="cs-visual-stage">
         <div class="cs-browser">
