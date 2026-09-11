@@ -5593,7 +5593,7 @@ const projects = [
     meta:'E-commerce Redesign · UI/UX · Front-end',
     type:'Owned Golf Fashion Brand · E-commerce Renewal',
     role:['UI/UX Design','Responsive Web Design','Front-end Implementation','E-commerce CMS Customization (Cafe24)','Campaign / Content Design'],
-    overview:'A full e-commerce renewal for ANEW GOLF, an owned golf fashion brand operated by the company. I redesigned the storefront around a clearer brand-commerce hierarchy and carried the work through responsive publishing and front-end implementation in Cafe24.',
+    overview:'A full e-commerce renewal for ANEW GOLF, a golf fashion brand operated by Q&B International, my former employer. During my time on the online team, I redesigned the storefront around a clearer brand-commerce hierarchy and carried the work through responsive publishing and front-end implementation in Cafe24.',
     problem:'The existing storefront supported commerce but had grown into a section-heavy experience where promotional imagery, products, editorial content, and campaigns competed for attention. The renewal needed to strengthen brand presentation while making shopping clearer across desktop and mobile.',
     solution:[
       'Reorganized the homepage around a clearer brand-commerce hierarchy',
@@ -5647,19 +5647,21 @@ const projects = [
   {
     num:'05', accent:'#D9A928', accentSoft:'#FAF0CC',
     title:'SNILLO STITCH',
-    meta:'E-commerce · Main Renewal',
-    type:'Fashion E-commerce Main Page Renewal',
-    role:['UI Design','Front-end Implementation','Responsive UI','Cafe24'],
-    overview:'A main-page renewal for fashion brand SNILLO STITCH. The goal was to strengthen the brand’s visual identity while making key collections, products, and content easier to discover across desktop and mobile.',
-    problem:'The main page needed to balance strong brand imagery with commerce usability. The content hierarchy was refined so editorial visuals could support the brand without reducing product accessibility.',
+    meta:'E-commerce Renewal · UI/UX · Front-end',
+    type:'Q&B International Brand · E-commerce Renewal',
+    role:['UI/UX Design','Responsive Web Design','Front-end Implementation','E-commerce CMS Customization (Cafe24)','Promotion / Collaboration Content'],
+    overview:'An e-commerce renewal for SNILLO STITCH, a lifestyle brand operated by Q&B International, my former employer. During my time on the online team, I worked across UI/UX, responsive publishing, and Cafe24 implementation to create a clearer and more scalable shopping experience.',
+    problem:'As the product range expanded across bags, travel goods, fashion, lifestyle products, promotions, and collaborations, the existing storefront needed a clearer hierarchy for product discovery and a more maintainable structure for ongoing commerce operations.',
     solution:[
-      'Strengthened the brand-led visual hierarchy',
-      'Reorganized content priority on the main page',
-      'Improved access to key product areas',
-      'Optimized desktop and mobile layouts',
-      'Implemented the renewed experience in Cafe24'
+      'Reorganized the homepage around clearer New, Pick, Best Seller, and Promotion modules',
+      'Improved category and product discovery for a broader catalogue',
+      'Designed desktop and mobile as distinct browsing contexts',
+      'Created reusable patterns for seasonal promotions and collaboration content',
+      'Implemented the renewed experience in Cafe24',
+      'Supported responsive QA and ongoing production updates'
     ],
-    features:['Main Page Renewal','Brand Visual','Responsive UI','Cafe24 Front-end Implementation']
+    flow:['Brand Entry','Category Discovery','Product Discovery','Product Detail','Promotion / Collaboration','Purchase'],
+    features:['E-commerce Renewal','Responsive Commerce','Reusable Content Modules','Cafe24 Front-end Implementation']
   }
 ];
 
@@ -5671,6 +5673,7 @@ projects.forEach((p, i) => {
   row.dataset.index = i;
   if (i === 0) row.dataset.route = './projects/lab-golf-korea/';
   if (i === 1) row.dataset.route = './projects/anew-golf/';
+  if (i === 4) row.dataset.route = './projects/snillo-stitch/';
   row.style.setProperty('--row-accent', p.accent);
   row.innerHTML = `
     <span class="num">${p.num}</span>
@@ -5687,6 +5690,10 @@ projects.forEach((p, i) => {
     }
     if (i === 1) {
       window.location.href = './projects/anew-golf/';
+      return;
+    }
+    if (i === 4) {
+      window.location.href = './projects/snillo-stitch/';
       return;
     }
     openCaseStudy(i);
@@ -5739,7 +5746,7 @@ function renderCaseStudy(p){
       <div class="cs-hero-bar" style="background:${p.accent}"></div>
     </div>
 
-    ${(p.title === 'L.A.B. GOLF KOREA' || p.title === 'ANEW GOLF') ? '' : `
+    ${(p.title === 'L.A.B. GOLF KOREA' || p.title === 'ANEW GOLF' || p.title === 'SNILLO STITCH') ? '' : `
     <div class="cs-hero-visual" style="--project-accent:${p.accent};--project-soft:${p.accentSoft}">
       <div class="cs-visual-stage">
         <div class="cs-browser">
