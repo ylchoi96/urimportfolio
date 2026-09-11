@@ -248,6 +248,47 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   }
 }
 
+
+.pdp-compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  align-items:start;
+}
+.pdp-card{margin:0}
+.pdp-media{
+  height:620px;
+  overflow:hidden;
+  border:1px solid #d4d3cd;
+  background:#fff;
+}
+.pdp-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 0;
+}
+.pdp-card figcaption{margin-top:12px}
+.pdp-card figcaption strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:14px;
+}
+.pdp-card figcaption span{
+  display:block;
+  font-size:13px;
+  line-height:1.65;
+  color:var(--soft);
+}
+.pdp-change-list{margin-top:30px}
+@media(max-width:960px){
+  .pdp-compare{grid-template-columns:1fr}
+  .pdp-media{height:560px}
+}
+@media(max-width:640px){
+  .pdp-media{height:420px}
+}
+
 </style>
 </head>
 <body>
@@ -556,36 +597,80 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
+
 <section class="solution">
   <div class="wrap">
     <div class="solution-head">
       <div class="section-index">08 · Product Detail</div>
       <div>
-        <h3>Keep purchase decisions clear while supporting deeper product storytelling.</h3>
+        <h3>Reworking the product page from a long information stack into a clearer purchase journey.</h3>
         <p>
-          The renewed product detail page combines product media, options, pricing, recommendations,
-          campaign imagery, size information, care details, and supporting policy content within one long commerce flow.
-          A dedicated legacy PDP comparison can be added later if a matching before screenshot is available.
+          The legacy PDP already contained the essential commerce information, but purchase controls,
+          recommendation content, brand imagery, specifications, care details, reviews, and policy content
+          were distributed across a very long page. The renewal reorganized that hierarchy so key purchase
+          decisions stay easier to scan while deeper product content remains available below.
         </p>
       </div>
     </div>
 
-    <figure class="native-660" style="margin-top:0">
-      <div class="desktop-panel">
-        <img src="./assets/anew-product-detail-desktop.png" alt="ANEW GOLF desktop product detail page">
-      </div>
-      <figcaption class="caption"><strong>Product Detail · Full Flow</strong><span>Desktop</span></figcaption>
-    </figure>
+    <div class="pdp-compare">
+      <figure class="pdp-card">
+        <div class="compare-label">Before · Legacy PDP</div>
+        <div class="pdp-media pdp-media--before">
+          <img src="./assets/anew-legacy-product-detail-desktop.png" alt="Legacy ANEW GOLF product detail page">
+        </div>
+        <figcaption>
+          <strong>Legacy Product Detail</strong>
+          <span>
+            A long vertically stacked flow combining purchase controls, recommendations,
+            campaign imagery, product specifications, reviews, and policy information.
+          </span>
+        </figcaption>
+      </figure>
 
-    <div class="design-note" style="margin-top:26px">
-      <span class="note-label">UX focus</span>
+      <figure class="pdp-card">
+        <div class="compare-label">After · Renewed PDP</div>
+        <div class="pdp-media pdp-media--after">
+          <img src="./assets/anew-product-detail-desktop.png" alt="Renewed ANEW GOLF product detail page">
+        </div>
+        <figcaption>
+          <strong>Renewed Product Detail</strong>
+          <span>
+            A cleaner hierarchy that keeps purchase information visible first,
+            then moves into brand storytelling, product specifications, size guidance, and supporting content.
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="change-list pdp-change-list">
+      <div class="change-row">
+        <div class="n">01</div>
+        <strong>Purchase hierarchy</strong>
+        <p>Primary product media, price, options, and purchase actions are treated as the first decision layer instead of competing with deeper content.</p>
+      </div>
+      <div class="change-row">
+        <div class="n">02</div>
+        <strong>Content sequencing</strong>
+        <p>Brand imagery and product storytelling remain part of the experience, but supporting specifications and care information are structured as secondary detail.</p>
+      </div>
+      <div class="change-row">
+        <div class="n">03</div>
+        <strong>Decision support</strong>
+        <p>Size guidance, related products, and product information are organized to support comparison and confidence without overloading the top of the page.</p>
+      </div>
+    </div>
+
+    <div class="design-note" style="margin-top:28px">
+      <span class="note-label">UX rationale</span>
       <p>
-        Primary purchase information stays concentrated near the top, while deeper brand and specification content remains available further down the page.
-        The hierarchy supports both quick decision-making and customers who want more product context.
+        The goal was not to shorten the page at any cost. Fashion commerce still benefits from rich product storytelling.
+        The redesign instead separates immediate purchase decisions from deeper information so customers can move at their own pace.
       </p>
     </div>
   </div>
 </section>
+
 
 <section class="solution">
   <div class="wrap">
