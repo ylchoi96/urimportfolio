@@ -298,6 +298,57 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 .hero-proof .crop--mid img{object-position:50% 34% !important;}
 .compare-media--after img{object-position:50% 0% !important;}
 
+
+/* Case-study jump navigation */
+[id]{scroll-margin-top:88px}
+.case-jump{
+  position:sticky;
+  top:64px;
+  z-index:30;
+  display:flex;
+  gap:8px;
+  margin-top:18px;
+  padding:12px 0;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+  background:linear-gradient(
+    to bottom,
+    rgba(247,246,242,.98),
+    rgba(247,246,242,.94)
+  );
+  border-bottom:1px solid rgba(17,17,17,.08);
+}
+.case-jump::-webkit-scrollbar{display:none}
+.case-jump a{
+  flex:0 0 auto;
+  padding:8px 11px;
+  border:1px solid #d0cfc9;
+  border-radius:999px;
+  font-size:11px;
+  line-height:1;
+  color:#55575c;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.case-jump a:hover,
+.case-jump a:focus-visible{
+  background:#111;
+  border-color:#111;
+  color:#fff;
+  outline:none;
+}
+@media(max-width:640px){
+  .case-jump{
+    top:64px;
+    margin-inline:-18px;
+    padding:10px 18px;
+  }
+  .case-jump a{
+    font-size:10px;
+    padding:8px 10px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -342,6 +393,20 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
       </p>
     </div>
 
+    <nav class="case-jump" aria-label="Case study sections">
+      <a href="#context">Context</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#before-after">Before / After</a>
+      <a href="#direction">Direction</a>
+      <a href="#homepage">Homepage</a>
+      <a href="#mobile">Mobile</a>
+      <a href="#product">Product</a>
+      <a href="#pdp">PDP</a>
+      <a href="#implementation">Implementation</a>
+      <a href="#measurement">Measurement</a>
+      <a href="#outcome">Outcome</a>
+    </nav>
+
     <div class="hero-proof">
       <figure style="margin:0">
         <div class="crop crop--hero">
@@ -359,7 +424,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="context">
   <div class="wrap">
     <div class="section-head">
       <div class="section-index">01 · Context</div>
@@ -401,10 +466,58 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 
 
 
-<section class="section">
+
+
+
+
+
+
+<section class="section" id="evidence">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-index">02 · Before / After</div>
+      <div class="section-index">02 · Evidence & Constraints</div>
+      <div class="section-copy">
+        <h2>Design decisions came from the realities of an operating commerce brand.</h2>
+        <p>
+          Because ANEW GOLF is an owned brand, the redesign had to work inside a real content pipeline:
+          frequent product launches, campaign updates, editorial assets, promotions, and Cafe24 implementation constraints.
+        </p>
+      </div>
+    </div>
+
+    <div class="evidence-grid">
+      <article class="evidence-card">
+        <span>Observed Store Structure</span>
+        <h3>Many content types were competing on one long homepage.</h3>
+        <p>
+          Product modules, campaign imagery, editorial content, rankings, events, and news all needed visibility.
+          The key design problem was hierarchy rather than simply adding more content.
+        </p>
+      </article>
+      <article class="evidence-card">
+        <span>Operational Requirement</span>
+        <h3>The system had to survive seasonal change.</h3>
+        <p>
+          The brand continuously updates products and campaigns, so recurring modules needed reusable patterns
+          instead of one-off layouts that would become expensive to maintain.
+        </p>
+      </article>
+      <article class="evidence-card">
+        <span>Platform Constraint</span>
+        <h3>Design had to translate into a live Cafe24 environment.</h3>
+        <p>
+          Responsive behaviour, content modules, and front-end decisions were shaped by the production CMS/theme,
+          not only by what looked ideal in a static design file.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="before-after">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-index">03 · Before / After</div>
       <div class="section-copy">
         <h2>The redesign changed more than the visual style.</h2>
         <p>
@@ -466,51 +579,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-index">03 · Evidence & Constraints</div>
-      <div class="section-copy">
-        <h2>Design decisions came from the realities of an operating commerce brand.</h2>
-        <p>
-          Because ANEW GOLF is an owned brand, the redesign had to work inside a real content pipeline:
-          frequent product launches, campaign updates, editorial assets, promotions, and Cafe24 implementation constraints.
-        </p>
-      </div>
-    </div>
-
-    <div class="evidence-grid">
-      <article class="evidence-card">
-        <span>Observed Store Structure</span>
-        <h3>Many content types were competing on one long homepage.</h3>
-        <p>
-          Product modules, campaign imagery, editorial content, rankings, events, and news all needed visibility.
-          The key design problem was hierarchy rather than simply adding more content.
-        </p>
-      </article>
-      <article class="evidence-card">
-        <span>Operational Requirement</span>
-        <h3>The system had to survive seasonal change.</h3>
-        <p>
-          The brand continuously updates products and campaigns, so recurring modules needed reusable patterns
-          instead of one-off layouts that would become expensive to maintain.
-        </p>
-      </article>
-      <article class="evidence-card">
-        <span>Platform Constraint</span>
-        <h3>Design had to translate into a live Cafe24 environment.</h3>
-        <p>
-          Responsive behaviour, content modules, and front-end decisions were shaped by the production CMS/theme,
-          not only by what looked ideal in a static design file.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="strategy">
+<section class="strategy" id="direction">
   <div class="wrap strategy-grid">
     <div class="section-index">04 · Design Direction</div>
     <div>
@@ -527,7 +596,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="solution">
+<section class="solution" id="homepage">
   <div class="wrap">
     <div class="solution-head">
       <div class="section-index">05 · Homepage</div>
@@ -554,7 +623,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="solution">
+<section class="solution" id="mobile">
   <div class="wrap">
     <div class="solution-head">
       <div class="section-index">06 · Mobile Experience</div>
@@ -584,7 +653,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="solution">
+<section class="solution" id="product">
   <div class="wrap">
     <div class="solution-head">
       <div class="section-index">07 · Product Discovery</div>
@@ -607,7 +676,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 </section>
 
 
-<section class="solution">
+<section class="solution" id="pdp">
   <div class="wrap">
     <div class="solution-head">
       <div class="section-index">08 · Product Detail</div>
@@ -681,7 +750,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 </section>
 
 
-<section class="solution">
+<section class="solution" id="brand-content">
   <div class="wrap">
     <div class="solution-head">
       <div class="section-index">09 · Brand Content</div>
@@ -711,7 +780,7 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="implementation">
   <div class="wrap">
     <div class="section-head">
       <div class="section-index">10 · Implementation</div>
@@ -733,14 +802,14 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
 </section>
 
 
-<section class="section">
+<section class="section" id="measurement">
   <div class="wrap">
     <div class="section-head">
       <div class="section-index">11 · Measurement & Validation</div>
       <div class="section-copy">
         <h2>The next iteration should be measured around discovery, engagement, and purchase behaviour.</h2>
         <p>
-          The portfolio does not attribute unverified conversion gains to the redesign.
+          This case study does not attribute unverified conversion gains to the redesign.
           Instead, these are the signals I would use to evaluate whether the renewed hierarchy is actually reducing friction.
         </p>
       </div>
@@ -780,15 +849,15 @@ footer{padding:62px 0 78px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="outcome">
   <div class="wrap">
     <div class="section-head">
       <div class="section-index">12 · Outcome</div>
       <div class="section-copy">
         <h2>A more coherent commerce experience for a brand we operate every day.</h2>
         <p>
-          The shipped renewal created a clearer system for brand presentation, product discovery, editorial content,
-          and recurring commerce operations. Quantitative business impact should be evaluated through the measurement framework above.
+          The shipped renewal created a clearer operating system for brand presentation, product discovery,
+          editorial content, and recurring commerce work — with a more consistent experience across desktop and mobile.
         </p>
       </div>
     </div>
