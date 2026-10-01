@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SNILLO STITCH — Store Renewal | Choi Yoolim</title>
-<meta name="description" content="SNILLO STITCH storefront renewal: UI/UX design, desktop and mobile publishing, Cafe24 customization, and production QA.">
+<meta name="description" content="SNILLO STITCH storefront renewal: UI/UX design, Cafe24 customization, desktop and mobile publishing, and production QA.">
 
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
@@ -25,14 +25,14 @@ a:focus-visible{outline:3px solid #21824c;outline-offset:4px}
 img{display:block;width:100%;height:auto}
 figure{margin:0;min-width:0}
 p{margin:0;line-height:1.8}
-.wrap{width:min(100%,1180px);margin:auto;padding-inline:var(--pad)}
-.label{font-size:11px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
-.section{padding:80px 0;border-top:1px solid var(--line)}
-.section-head{display:grid;grid-template-columns:150px minmax(0,1fr);gap:36px;margin-bottom:32px}
 h1,h2,h3{margin:0}
 h1{font-size:clamp(48px,7vw,88px);line-height:1.03;letter-spacing:-.06em}
 h2{font-size:clamp(32px,4.3vw,52px);line-height:1.12;letter-spacing:-.045em}
 h3{font-size:18px;line-height:1.45}
+.wrap{width:min(100%,1180px);margin:auto;padding-inline:var(--pad)}
+.label{font-size:11px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
+.section{padding:80px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:150px minmax(0,1fr);gap:36px;margin-bottom:32px}
 .section-head p{max-width:700px;margin-top:16px;font-size:15px;color:var(--text)}
 .note{margin-top:18px;font-size:12px;line-height:1.8;color:var(--text)}
 [id]{scroll-margin-top:90px}
@@ -50,7 +50,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(247,246,242,.95);backdro
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;margin-top:36px}
 .lead{font-size:17px;color:var(--text)}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.meta{border-top:1px solid var(--line)}
+.meta{margin:0;border-top:1px solid var(--line)}
 .meta div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
 .meta dt{font-size:10px;text-transform:uppercase;color:var(--text)}
 .meta dd{margin:0;font-size:13px;font-weight:600;line-height:1.6}
@@ -67,20 +67,30 @@ nav a{padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-siz
 .reference{font-size:12px;color:var(--text);margin-top:18px}
 .reference a{text-decoration:underline;text-underline-offset:3px}
 
+.subhead{margin:40px 0 20px}
+.subhead p{margin-top:10px;font-size:14px;color:var(--text);max-width:760px}
+.structure{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.structure article{padding:24px;border:1px solid var(--line)}
+.structure article:last-child{background:#eef0e8}
+.structure h3{margin:10px 0 18px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{padding:7px 10px;background:#fff;border:1px solid var(--line);border-radius:4px;font-size:12px}
+.flow{margin:0;padding-left:22px}
+.flow li{padding:7px 0;font-size:13px;line-height:1.6}
+.structure small{display:block;margin-top:16px;font-size:11px;line-height:1.7;color:var(--text)}
+
 .compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .tag{display:inline-block;margin-bottom:10px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:10px;text-transform:uppercase}
 .frame{border:1px solid var(--line);background:#fff}
 .frame img{width:100%;height:auto;object-fit:contain}
 figcaption{margin-top:12px;font-size:13px;line-height:1.7;color:var(--text)}
 figcaption strong{display:block;margin-bottom:4px;color:var(--ink)}
-figure .full-link{display:inline-block;margin-top:10px;font-size:11px;text-decoration:underline;text-underline-offset:3px}
-.subhead{margin:48px 0 22px}
-.subhead p{margin-top:10px;font-size:14px;color:var(--text);max-width:760px}
+.full-link{display:inline-block;margin-top:10px;font-size:11px;text-decoration:underline;text-underline-offset:3px}
 .pdp .frame{height:auto;overflow:visible}
 .pdp img{width:100%;max-width:100%;height:auto}
 
-.modules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:24px;border-top:1px solid var(--line)}
-.modules article{padding:20px 16px 0 0}
+.modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}
+.modules article{padding:18px 0;border-top:1px solid var(--line)}
 .modules h3{font-size:13px}
 .modules p{margin-top:8px;font-size:12px;color:var(--text)}
 
@@ -112,12 +122,12 @@ footer p{font-size:14px;font-weight:600}
   h1{font-size:clamp(42px,12vw,62px)}
   .lead{font-size:15px}
   .section{padding:56px 0}
-  .compare{grid-template-columns:1fr;gap:28px}
+  .compare,.structure{grid-template-columns:1fr;gap:24px}
   .mobile-grid{gap:12px}
   .result{grid-template-columns:1fr;gap:8px}
   .footer-inner{align-items:flex-start;flex-direction:column}
   .summary{font-size:14px}
-  .subhead{margin-top:36px}
+  .subhead{margin-top:32px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -139,448 +149,585 @@ footer p{font-size:14px;font-weight:600}
 
 <main>
 
-  <!-- 01 PROJECT OVERVIEW -->
+<!-- 01 OVERVIEW -->
 
-  <section class="hero" id="overview">
-    <div class="wrap">
-      <span class="label">01 · Q&amp;B International · 2026</span>
+<section class="hero" id="overview">
+  <div class="wrap">
+    <span class="label">01 · Q&amp;B International · 2026</span>
 
-      <h1>
-        SNILLO STITCH.<br>
-        A storefront renewal<br>
-        for lifestyle discovery.
-      </h1>
+    <h1>
+      SNILLO STITCH.<br>
+      From product tabs<br>
+      to lifestyle discovery.
+    </h1>
 
-      <div class="hero-grid">
-        <div>
-          <p class="lead">
-            Renewed SNILLO STITCH’s Cafe24 storefront across UI/UX design,
-            desktop and mobile publishing, theme customization, and QA.
-            The work reorganized product categories and gave new arrivals,
-            collaborations, and promotions distinct roles on the homepage.
-          </p>
+    <div class="hero-grid">
+      <div>
+        <p class="lead">
+          Renewed SNILLO STITCH’s Cafe24 storefront across UI/UX design,
+          desktop and mobile publishing, theme customization, and QA.
+          The work reorganized product categories and gave new arrivals,
+          collaborations, and promotions defined roles on the homepage.
+        </p>
 
-          <div class="actions">
-            <a class="button dark" href="https://snillostitch.com/" target="_blank" rel="noopener noreferrer">
-              Visit live store ↗
-            </a>
-            <a class="button" href="#decisions">Explore the changes ↓</a>
-          </div>
+        <div class="actions">
+          <a
+            class="button dark"
+            href="https://snillostitch.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit live store ↗
+          </a>
+          <a class="button" href="#decisions">
+            Explore the changes ↓
+          </a>
         </div>
-
-        <dl class="meta">
-          <div>
-            <dt>Role</dt>
-            <dd>UI/UX Design · Publishing · Cafe24 Customization · QA</dd>
-          </div>
-          <div>
-            <dt>Platform</dt>
-            <dd>Cafe24 · Purchased theme customization</dd>
-          </div>
-          <div>
-            <dt>Scope</dt>
-            <dd>Homepage · Catalogue · Product detail content · Campaigns</dd>
-          </div>
-          <div>
-            <dt>Devices</dt>
-            <dd>Desktop + mobile</dd>
-          </div>
-        </dl>
       </div>
 
-      <p class="summary">
-        Five BEST tabs became one product list. Product groups gained
-        specific navigation labels. Campaign stories were paired with
-        related products and collection links.
-      </p>
-
-      <nav aria-label="Project sections">
-        <a href="#overview">Overview</a>
-        <a href="#decisions">Problems &amp; Changes</a>
-        <a href="#comparison">Before / After</a>
-        <a href="#mobile">Mobile</a>
-        <a href="#delivery">Implementation &amp; Result</a>
-      </nav>
+      <dl class="meta">
+        <div>
+          <dt>Role</dt>
+          <dd>UI/UX Design · Publishing · Cafe24 Customization · QA</dd>
+        </div>
+        <div>
+          <dt>Platform</dt>
+          <dd>Cafe24 · Purchased theme customization</dd>
+        </div>
+        <div>
+          <dt>Scope</dt>
+          <dd>Homepage · Catalogue · Product detail content · Campaigns</dd>
+        </div>
+        <div>
+          <dt>Devices</dt>
+          <dd>Desktop + mobile</dd>
+        </div>
+      </dl>
     </div>
-  </section>
 
-  <!-- 02 PROBLEMS & CHANGES -->
+    <p class="summary">
+      Five BEST tabs became one product list. Categories gained more
+      specific labels. Seasonal and collaboration content received
+      defined spaces in the shopping journey.
+    </p>
 
-  <section class="section" id="decisions">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="label">02 · Problems &amp; Changes</span>
-        <div>
-          <h2>Three changes that shaped the renewal.</h2>
-          <p>
-            A comparison of the legacy and renewed structures,
-            with the design rationale and tradeoffs made explicit.
-          </p>
-        </div>
-      </div>
+    <nav aria-label="Project sections">
+      <a href="#overview">Overview</a>
+      <a href="#decisions">Problems &amp; Structure</a>
+      <a href="#comparison">Before / After</a>
+      <a href="#mobile">Mobile</a>
+      <a href="#delivery">Implementation &amp; Result</a>
+    </nav>
+  </div>
+</section>
 
-      <div class="decisions">
-        <article class="decision">
-          <span class="label">01 · Navigation</span>
-          <h3>Replace broad labels with specific product groups.</h3>
-          <dl>
-            <dt>Before</dt>
-            <dd>
-              Categories included Bags, Pouches, Kids, and ETC,
-              alongside shopping and support links.
-            </dd>
-            <dt>After</dt>
-            <dd>
-              Cooling Bags, Travel, Bags, Fashion, and Living organize
-              the range. Collaboration has its own entry; support
-              content is grouped under ABOUT.
-            </dd>
-            <dt>Rationale</dt>
-            <dd>
-              Specific labels explain the range more clearly than ETC.
-              A broader menu still needs well-organized subcategories.
-            </dd>
-          </dl>
-        </article>
+<!-- 02 PROBLEMS & STRUCTURE -->
 
-        <article class="decision">
-          <span class="label">02 · Product discovery</span>
-          <h3>Make BEST products visible without a tab choice.</h3>
-          <dl>
-            <dt>Before</dt>
-            <dd>
-              BEST used five hashtag tabs. The retrospective comparison
-              recorded six sold-out items in the picnic-mat tab.
-            </dd>
-            <dt>After</dt>
-            <dd>
-              BEST SELLERS uses a single product list.
-            </dd>
-            <dt>Rationale</dt>
-            <dd>
-              Customers can scan products immediately.
-              Category filtering moves out of this module, while
-              featured stock still requires regular maintenance.
-            </dd>
-          </dl>
-        </article>
-
-        <article class="decision">
-          <span class="label">03 · Campaign structure</span>
-          <h3>Give curation and promotions different jobs.</h3>
-          <dl>
-            <dt>Before</dt>
-            <dd>
-              TODAY’S P!CK repeated one product across three slots;
-              an empty keyword slot was also recorded.
-            </dd>
-            <dt>After</dt>
-            <dd>
-              NEW ITEM, SNILLO’s PICK, BEST SELLERS, and PROMOTION
-              form separate sections with defined content roles.
-            </dd>
-            <dt>Rationale</dt>
-            <dd>
-              Campaign stories, launches, and offers no longer share
-              an unclear slot purpose. Their usefulness depends on
-              keeping product selections and links current.
-            </dd>
-          </dl>
-        </article>
-      </div>
-
-      <p class="reference">
-        Reference:
-        <a href="https://roypinkman.cafe24.com/skin-skin14/" target="_blank" rel="noopener noreferrer">Legacy storefront ↗</a>
-        ·
-        <a href="https://snillostitch.com/" target="_blank" rel="noopener noreferrer">Renewed storefront ↗</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- 03 BEFORE / AFTER -->
-
-  <section class="section" id="comparison">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="label">03 · Before / After</span>
-        <div>
-          <h2>From storefront entry to product detail.</h2>
-          <p>
-            The homepage captures show the opening viewport.
-            The bag comparison below includes the complete detail content.
-          </p>
-        </div>
-      </div>
-
-      <div class="compare">
-        <figure>
-          <span class="tag">Before · Homepage</span>
-          <div class="frame">
-            <img
-              src="./assets/snillo-legacy-home-desktop.png"
-              alt="Legacy SNILLO STITCH desktop homepage"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <figcaption>
-            <strong>Legacy storefront entry</strong>
-            A compact opening layout with the previous category
-            and merchandising arrangement.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <span class="tag">After · Homepage</span>
-          <div class="frame">
-            <img
-              src="./assets/snillo-renewal-home-desktop.png"
-              alt="Renewed SNILLO STITCH desktop homepage"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <figcaption>
-            <strong>Campaign-led entry</strong>
-            A wide product-use scene introduces the campaign before
-            the homepage’s product sections.
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="modules">
-        <article>
-          <h3>NEW ITEM</h3>
-          <p>Horizontal new-arrival list with a path to the full collection.</p>
-        </article>
-        <article>
-          <h3>SNILLO’s PICK</h3>
-          <p>A campaign visual paired with related products and a collection link.</p>
-        </article>
-        <article>
-          <h3>BEST SELLERS</h3>
-          <p>A single product shortlist replacing the previous tab structure.</p>
-        </article>
-        <article>
-          <h3>PROMOTION</h3>
-          <p>A feature campaign and supporting event entries.</p>
-        </article>
-      </div>
-
-      <div class="subhead">
-        <h3>Bag detail content · Full comparison</h3>
+<section class="section" id="decisions">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">02 · Problems &amp; Structure</span>
+      <div>
+        <h2>Three changes that shaped the renewal.</h2>
         <p>
-          Both examples are from the bag category. They compare
-          product storytelling and information layout across different
-          products, rather than a same-product purchase-flow test.
+          The legacy and renewed structures show what changed.
+          The rationale explains the resulting design tradeoffs.
         </p>
       </div>
+    </div>
 
-      <div class="compare pdp">
-        <figure>
-          <span class="tag">Before · Bag detail</span>
-          <div class="frame">
-            <img
-              src="./assets/snillo-legacy-product-detail-desktop.jpg"
-              alt="Complete legacy bag product detail content"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <figcaption>
-            <strong>Product cutouts and information panels</strong>
-            The legacy example presents the bag through isolated
-            product images and coloured feature sections.
-          </figcaption>
-          <a
-            class="full-link"
-            href="./assets/snillo-legacy-product-detail-desktop.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open full-size detail ↗
-          </a>
-        </figure>
+    <div class="decisions">
+      <article class="decision">
+        <span class="label">01 · Navigation</span>
+        <h3>Use specific labels for a broader range.</h3>
+        <dl>
+          <dt>Before</dt>
+          <dd>
+            Six category links included NEW, BEST, Bags, Pouches,
+            Kids, and ETC.
+          </dd>
+          <dt>After</dt>
+          <dd>
+            Ten top-level entries cover shopping shortcuts,
+            five product groups, collaboration, EVENT, and ABOUT.
+          </dd>
+          <dt>Rationale &amp; tradeoff</dt>
+          <dd>
+            The menu grows from six category links to ten top-level
+            entries in exchange for more specific labels and a
+            dedicated collaboration path.
+          </dd>
+        </dl>
+      </article>
 
-        <figure>
-          <span class="tag">After · Bag detail</span>
-          <div class="frame">
-            <img
-              src="./assets/snillo-product-detail-desktop.jpg"
-              alt="Complete renewed bag product detail content"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <figcaption>
-            <strong>Lifestyle context and feature information</strong>
-            The renewed example combines use scenes, feature
-            explanations, and supporting product details.
-          </figcaption>
-          <a
-            class="full-link"
-            href="./assets/snillo-product-detail-desktop.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open full-size detail ↗
-          </a>
-        </figure>
+      <article class="decision">
+        <span class="label">02 · Product discovery</span>
+        <h3>Show BEST products without a tab choice.</h3>
+        <dl>
+          <dt>Before</dt>
+          <dd>
+            The legacy BEST module used five hashtag tabs,
+            each with its own product selection.
+          </dd>
+          <dt>After</dt>
+          <dd>
+            BEST SELLERS presents a single product list.
+          </dd>
+          <dt>Rationale &amp; tradeoff</dt>
+          <dd>
+            Removing the tab choice makes the shortlist directly
+            visible, but removes category filtering within this
+            module. Category browsing remains available in navigation.
+          </dd>
+        </dl>
+      </article>
+
+      <article class="decision">
+        <span class="label">03 · Campaign structure</span>
+        <h3>Separate product lists from campaign roles.</h3>
+        <dl>
+          <dt>Before</dt>
+          <dd>
+            TODAY’S P!CK showed the same product in three slots
+            in the legacy reference.
+          </dd>
+          <dt>After</dt>
+          <dd>
+            NEW ITEM, PICK, collaboration products, BEST SELLERS,
+            and PROMOTION have distinct content roles.
+          </dd>
+          <dt>Rationale &amp; tradeoff</dt>
+          <dd>
+            Campaign imagery adds context around products,
+            but also introduces more scrolling between product lists.
+            Each campaign therefore needs a clear collection path.
+          </dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="subhead">
+      <h3>Navigation structure</h3>
+    </div>
+
+    <div class="structure">
+      <article>
+        <span class="label">Before</span>
+        <h3>Six category links</h3>
+        <ul class="chips">
+          <li>NEW</li>
+          <li>BEST</li>
+          <li>Bags</li>
+          <li>Pouches</li>
+          <li>Kids</li>
+          <li>ETC</li>
+        </ul>
+        <small>
+          Other legacy utility and content links are excluded
+          from this category count.
+        </small>
+      </article>
+
+      <article>
+        <span class="label">After</span>
+        <h3>Ten top-level navigation entries</h3>
+        <ul class="chips">
+          <li>ALL</li>
+          <li>BEST</li>
+          <li>Cooler Bags</li>
+          <li>Travel</li>
+          <li>Bags</li>
+          <li>Fashion</li>
+          <li>Living</li>
+          <li>Collaboration</li>
+          <li>EVENT</li>
+          <li>ABOUT</li>
+        </ul>
+        <small>
+          Product groups, shopping shortcuts, and content destinations
+          are represented together in the renewed navigation.
+        </small>
+      </article>
+    </div>
+
+    <div class="subhead">
+      <h3>Homepage content sequence</h3>
+    </div>
+
+    <div class="structure">
+      <article>
+        <span class="label">Before · Main sections</span>
+        <ol class="flow">
+          <li>NEW</li>
+          <li>BEST · Five hashtag tabs</li>
+          <li>WALLPAPER</li>
+          <li>Limited-stock products / Keyword area</li>
+          <li>TODAY’S P!CK</li>
+          <li>Category banners / About</li>
+          <li>Reviews</li>
+        </ol>
+      </article>
+
+      <article>
+        <span class="label">After · Main sections</span>
+        <ol class="flow">
+          <li>Campaign slider</li>
+          <li>NEW ITEM</li>
+          <li>SNILLO’s PICK · Campaign visual</li>
+          <li>Collaboration products within PICK</li>
+          <li>BEST SELLERS</li>
+          <li>PROMOTION</li>
+          <li>INSTAGRAM</li>
+        </ol>
+      </article>
+    </div>
+
+    <p class="reference">
+      Reference:
+      <a
+        href="https://roypinkman.cafe24.com/skin-skin14/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Legacy theme preview ↗</a>
+      ·
+      <a
+        href="https://snillostitch.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Live store ↗</a>
+      · Project captures are retained below.
+    </p>
+  </div>
+</section>
+
+<!-- 03 BEFORE / AFTER -->
+
+<section class="section" id="comparison">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">03 · Before / After</span>
+      <div>
+        <h2>From storefront entry to product detail.</h2>
+        <p>
+          Homepage captures show the opening screen.
+          The bag comparison includes the complete detail content.
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- 04 MOBILE -->
-
-  <section class="section" id="mobile">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="label">04 · Mobile</span>
-        <div>
-          <h2>Recompose the experience for a narrow screen.</h2>
-          <p>
-            The desktop’s wide opening scene becomes a portrait campaign
-            on mobile. Below it, stories, products, and offers follow
-            a vertical content sequence.
-          </p>
-        </div>
-      </div>
-
-      <div class="mobile-grid">
-        <figure>
+    <div class="compare">
+      <figure>
+        <span class="tag">Before · Homepage</span>
+        <div class="frame">
           <img
-            src="./assets/snillo-mobile-01.png"
-            alt="Mobile portrait campaign followed by new arrivals"
+            src="./assets/snillo-legacy-home-desktop.png"
+            width="2540"
+            height="1262"
+            alt="Legacy desktop homepage with compact category and product sections"
             loading="lazy"
             decoding="async"
           >
-          <figcaption>
-            <strong>Campaign entry</strong>
-            A portrait composition adapts the desktop campaign,
-            with NEW ITEM beginning below.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img
-            src="./assets/snillo-mobile-02.png"
-            alt="Mobile collaboration campaign and product cards"
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption>
-            <strong>Story → products</strong>
-            The collaboration image leads into product cards;
-            the collection link sits beside the heading.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img
-            src="./assets/snillo-mobile-3.png"
-            alt="Mobile promotion feature and supporting events"
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption>
-            <strong>Offer hierarchy</strong>
-            One large campaign precedes two smaller event entries,
-            separating the feature from supporting offers.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img
-            src="./assets/snillo-mobile-4.png"
-            alt="Mobile Instagram content and customer service information"
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption>
-            <strong>Brand and support</strong>
-            Instagram content appears above customer-service
-            and shop information in separate sections.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 IMPLEMENTATION & RESULT -->
-
-  <section class="section" id="delivery">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="label">05 · Implementation &amp; Result</span>
-        <div>
-          <h2>Designed, published, and delivered in Cafe24.</h2>
-          <p>
-            My work connected the storefront design to publishing
-            and production QA within an operating commerce platform.
-          </p>
         </div>
-      </div>
-
-      <div class="results">
-        <div class="result">
-          <strong>Design &amp; publishing</strong>
-          <p>
-            Worked across UI/UX design, desktop and mobile layouts,
-            and Cafe24 theme customization.
-          </p>
-        </div>
-
-        <div class="result">
-          <strong>Production QA</strong>
-          <p>
-            Reviewed responsive layouts, product states, content,
-            and links in the published storefront.
-          </p>
-        </div>
-
-        <div class="result">
-          <strong>Delivered structure</strong>
-          <p>
-            Specific product groups, a simplified BEST list, and
-            distinct campaign sections are visible in the renewed store.
-          </p>
-        </div>
-      </div>
-
-      <div class="platform-note">
-        <strong>Platform foundation.</strong>
-        This was a purchased-theme renewal: the legacy footer credits
-        morenvy and the renewed footer credits CLOTHIC. My scope was
-        design, publishing, customization, and QA within that foundation.
-      </div>
-
-      <p class="note">
-        Evidence scope: the comparison combines project captures with
-        a retrospective storefront review; legacy product states may
-        reflect later updates. Design rationale is a retrospective
-        interpretation. Conversion gains and update-time savings were
-        not measured.
-      </p>
-
-      <div class="actions">
+        <figcaption>
+          <strong>Legacy storefront entry</strong>
+          A compact opening layout with the previous category
+          and merchandising arrangement.
+        </figcaption>
         <a
-          class="button dark"
-          href="https://snillostitch.com/"
+          class="full-link"
+          href="./assets/snillo-legacy-home-desktop.png"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          View the live store ↗
-        </a>
+        >Open original capture ↗</a>
+      </figure>
+
+      <figure>
+        <span class="tag">After · Homepage</span>
+        <div class="frame">
+          <img
+            src="./assets/snillo-renewal-home-desktop.png"
+            width="2545"
+            height="1177"
+            alt="Renewed desktop homepage with a wide picnic mat campaign"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <figcaption>
+          <strong>Campaign-led entry</strong>
+          A wide product-use scene introduces the campaign
+          before the homepage’s product sections.
+        </figcaption>
+        <a
+          class="full-link"
+          href="./assets/snillo-renewal-home-desktop.png"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Open original capture ↗</a>
+      </figure>
+    </div>
+
+    <p class="note">
+      Original captures have slightly different viewport proportions.
+      Both are shown uncropped at equal column widths.
+    </p>
+
+    <div class="modules">
+      <article>
+        <h3>NEW ITEM</h3>
+        <p>
+          New arrivals in a horizontal list with a full-collection link.
+        </p>
+      </article>
+      <article>
+        <h3>SNILLO’s PICK</h3>
+        <p>
+          The campaign banner introduces the featured seasonal
+          or collaboration story.
+        </p>
+      </article>
+      <article>
+        <h3>COLLABORATION PRODUCTS</h3>
+        <p>
+          Related collaboration products are loaded into
+          the PICK area beneath its visual.
+        </p>
+      </article>
+      <article>
+        <h3>BEST SELLERS</h3>
+        <p>
+          A product shortlist without the previous five-tab selection.
+        </p>
+      </article>
+      <article>
+        <h3>PROMOTION</h3>
+        <p>
+          A feature campaign and supporting event entries.
+        </p>
+      </article>
+    </div>
+
+    <div class="subhead">
+      <h3>Bag detail content · Full comparison</h3>
+      <p>
+        Both examples are from the bag category. They compare
+        product storytelling and information layout across different
+        products, rather than a same-product purchase-flow test.
+      </p>
+    </div>
+
+    <div class="compare pdp">
+      <figure>
+        <span class="tag">Before · Bag detail</span>
+        <div class="frame">
+          <img
+            src="./assets/snillo-legacy-product-detail-desktop.jpg"
+            width="1022"
+            height="11149"
+            alt="Full legacy bag detail with product cutouts and coloured information panels"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <figcaption>
+          <strong>Product cutouts and information panels</strong>
+          Isolated product images and coloured sections
+          present the bag’s features.
+        </figcaption>
+        <a
+          class="full-link"
+          href="./assets/snillo-legacy-product-detail-desktop.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Open full-size detail ↗</a>
+      </figure>
+
+      <figure>
+        <span class="tag">After · Bag detail</span>
+        <div class="frame">
+          <img
+            src="./assets/snillo-product-detail-desktop.jpg"
+            width="1022"
+            height="10282"
+            alt="Full renewed bag detail with lifestyle scenes, features, and product specifications"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <figcaption>
+          <strong>Lifestyle context and feature information</strong>
+          Use scenes, feature explanations, and supporting
+          details form the product story.
+        </figcaption>
+        <a
+          class="full-link"
+          href="./assets/snillo-product-detail-desktop.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Open full-size detail ↗</a>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MOBILE -->
+
+<section class="section" id="mobile">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">04 · Mobile</span>
+      <div>
+        <h2>Recompose the experience for a narrow screen.</h2>
+        <p>
+          The desktop’s wide campaign becomes a portrait composition.
+          Stories, products, and offers follow a vertical sequence.
+          Both the legacy and renewed mobile storefronts use a side menu.
+        </p>
       </div>
     </div>
-  </section>
+
+    <div class="mobile-grid">
+      <figure>
+        <img
+          src="./assets/snillo-mobile-01.png"
+          width="392"
+          height="771"
+          alt="Portrait mobile picnic campaign followed by the NEW ITEM heading"
+          loading="lazy"
+          decoding="async"
+        >
+        <figcaption>
+          <strong>Campaign entry</strong>
+          The portrait visual adapts the desktop campaign;
+          NEW ITEM begins below it.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="./assets/snillo-mobile-02.png"
+          width="392"
+          height="771"
+          alt="Mobile PICK campaign visual above collaboration product cards"
+          loading="lazy"
+          decoding="async"
+        >
+        <figcaption>
+          <strong>Campaign → collaboration</strong>
+          The PICK visual leads into collaboration products,
+          with a collection link beside the heading.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="./assets/snillo-mobile-3.png"
+          width="392"
+          height="771"
+          alt="Mobile PROMOTION area with a main campaign and two smaller events"
+          loading="lazy"
+          decoding="async"
+        >
+        <figcaption>
+          <strong>Offer hierarchy</strong>
+          A large campaign precedes two smaller event entries.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="./assets/snillo-mobile-4.png"
+          width="392"
+          height="771"
+          alt="Mobile Instagram content followed by customer service and shop information"
+          loading="lazy"
+          decoding="async"
+        >
+        <figcaption>
+          <strong>Brand and support</strong>
+          Instagram and customer-service information
+          occupy separate sections.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 IMPLEMENTATION & RESULT -->
+
+<section class="section" id="delivery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">05 · Implementation &amp; Result</span>
+      <div>
+        <h2>Designed, published, and delivered in Cafe24.</h2>
+        <p>
+          My work connected storefront design to publishing
+          and production QA within an operating commerce platform.
+        </p>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="result">
+        <strong>Design &amp; publishing</strong>
+        <p>
+          Worked across UI/UX design, desktop and mobile layouts,
+          and Cafe24 theme customization.
+        </p>
+      </div>
+      <div class="result">
+        <strong>Production QA</strong>
+        <p>
+          Reviewed responsive layouts, product states,
+          content, and links in the published storefront.
+        </p>
+      </div>
+      <div class="result">
+        <strong>Delivered structure</strong>
+        <p>
+          Specific product groups, a simplified BEST list,
+          and defined campaign roles are visible in the renewed store.
+        </p>
+      </div>
+    </div>
+
+    <div class="platform-note">
+      <strong>Platform foundation.</strong>
+      This was a purchased-theme renewal: the legacy footer credits
+      morenvy and the renewed footer credits CLOTHIC.
+      My scope was design, publishing, customization, and QA
+      within that foundation.
+    </div>
+
+    <p class="note">
+      This case study combines project captures with a retrospective
+      comparison; current legacy data may differ from the launch period,
+      and the rationale is retrospective.
+      Conversion gains were not measured.
+    </p>
+
+    <div class="actions">
+      <a
+        class="button dark"
+        href="https://snillostitch.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View the live store ↗
+      </a>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <footer>
   <div class="wrap footer-inner">
-    <p>SNILLO STITCH · From product groups to campaign stories, published in Cafe24.</p>
+    <p>
+      SNILLO STITCH · Product groups and campaign stories,
+      published in Cafe24.
+    </p>
     <a class="button" href="../../#work">Back to Selected Works →</a>
   </div>
 </footer>
