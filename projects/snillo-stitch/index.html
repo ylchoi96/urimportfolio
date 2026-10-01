@@ -21,7 +21,8 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-a:focus-visible{outline:3px solid #21824c;outline-offset:4px}
+a:focus-visible,button:focus-visible{outline:3px solid #21824c;outline-offset:4px}
+button{font:inherit;cursor:pointer}
 img{display:block;width:100%;height:auto}
 figure{margin:0;min-width:0}
 p{margin:0;line-height:1.8}
@@ -41,7 +42,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(247,246,242,.95);backdro
 .header-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .identity{font-size:14px;font-weight:700}
 .identity span{margin-left:12px;font-size:11px;font-weight:400;color:var(--text)}
-.button{display:inline-block;padding:10px 15px;border:1px solid var(--line);border-radius:999px;font-size:12px}
+.button{display:inline-block;padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font-size:12px}
 .button:hover{background:var(--ink);color:#fff}
 .button.dark{background:var(--ink);color:#fff}
 
@@ -86,13 +87,45 @@ nav a{padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-siz
 figcaption{margin-top:12px;font-size:13px;line-height:1.7;color:var(--text)}
 figcaption strong{display:block;margin-bottom:4px;color:var(--ink)}
 .full-link{display:inline-block;margin-top:10px;font-size:11px;text-decoration:underline;text-underline-offset:3px}
-.pdp .frame{height:auto;overflow:visible}
-.pdp img{width:100%;max-width:100%;height:auto}
 
 .modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}
 .modules article{padding:18px 0;border-top:1px solid var(--line)}
 .modules h3{font-size:13px}
 .modules p{margin-top:8px;font-size:12px;color:var(--text)}
+
+/* PDP: full images remain available without JavaScript */
+.pdp-preview{position:relative}
+.pdp-preview img{width:100%;max-width:100%;height:auto}
+
+/* Apply the collapsed view only after the toggle is initialized */
+.pdp-block.is-collapsible:not(.is-expanded) .pdp-preview{
+  max-height:900px;
+  overflow:hidden;
+}
+.pdp-block.is-collapsible:not(.is-expanded) .pdp-preview::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:0;
+  left:0;
+  height:100px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),#fff);
+  pointer-events:none;
+}
+.pdp-controls{
+  margin-top:24px;
+  text-align:center;
+}
+.pdp-controls[hidden]{display:none}
+.pdp-toggle{
+  min-width:180px;
+  padding:13px 22px;
+}
+.pdp-controls p{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--text);
+}
 
 .mobile-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .mobile-grid img{border:1px solid var(--line);border-radius:10px}
@@ -169,19 +202,11 @@ footer p{font-size:14px;font-weight:600}
           The work reorganized product categories and gave new arrivals,
           collaborations, and promotions defined roles on the homepage.
         </p>
-
         <div class="actions">
-          <a
-            class="button dark"
-            href="https://snillostitch.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="button dark" href="https://snillostitch.com/" target="_blank" rel="noopener noreferrer">
             Visit live store ↗
           </a>
-          <a class="button" href="#decisions">
-            Explore the changes ↓
-          </a>
+          <a class="button" href="#decisions">Explore the changes ↓</a>
         </div>
       </div>
 
@@ -270,9 +295,7 @@ footer p{font-size:14px;font-weight:600}
             each with its own product selection.
           </dd>
           <dt>After</dt>
-          <dd>
-            BEST SELLERS presents a single product list.
-          </dd>
+          <dd>BEST SELLERS presents a single product list.</dd>
           <dt>Rationale &amp; tradeoff</dt>
           <dd>
             Removing the tab choice makes the shortlist directly
@@ -384,17 +407,9 @@ footer p{font-size:14px;font-weight:600}
 
     <p class="reference">
       Reference:
-      <a
-        href="https://roypinkman.cafe24.com/skin-skin14/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Legacy theme preview ↗</a>
+      <a href="https://roypinkman.cafe24.com/skin-skin14/" target="_blank" rel="noopener noreferrer">Legacy theme preview ↗</a>
       ·
-      <a
-        href="https://snillostitch.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Live store ↗</a>
+      <a href="https://snillostitch.com/" target="_blank" rel="noopener noreferrer">Live store ↗</a>
       · Project captures are retained below.
     </p>
   </div>
@@ -410,7 +425,7 @@ footer p{font-size:14px;font-weight:600}
         <h2>From storefront entry to product detail.</h2>
         <p>
           Homepage captures show the opening screen.
-          The bag comparison includes the complete detail content.
+          Expand the bag comparison to inspect the full detail content.
         </p>
       </div>
     </div>
@@ -421,11 +436,9 @@ footer p{font-size:14px;font-weight:600}
         <div class="frame">
           <img
             src="./assets/snillo-legacy-home-desktop.png"
-            width="2540"
-            height="1262"
+            width="2540" height="1262"
             alt="Legacy desktop homepage with compact category and product sections"
-            loading="lazy"
-            decoding="async"
+            loading="lazy" decoding="async"
           >
         </div>
         <figcaption>
@@ -433,12 +446,9 @@ footer p{font-size:14px;font-weight:600}
           A compact opening layout with the previous category
           and merchandising arrangement.
         </figcaption>
-        <a
-          class="full-link"
-          href="./assets/snillo-legacy-home-desktop.png"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Open original capture ↗</a>
+        <a class="full-link" href="./assets/snillo-legacy-home-desktop.png" target="_blank" rel="noopener noreferrer">
+          Open original capture ↗
+        </a>
       </figure>
 
       <figure>
@@ -446,11 +456,9 @@ footer p{font-size:14px;font-weight:600}
         <div class="frame">
           <img
             src="./assets/snillo-renewal-home-desktop.png"
-            width="2545"
-            height="1177"
+            width="2545" height="1177"
             alt="Renewed desktop homepage with a wide picnic mat campaign"
-            loading="lazy"
-            decoding="async"
+            loading="lazy" decoding="async"
           >
         </div>
         <figcaption>
@@ -458,12 +466,9 @@ footer p{font-size:14px;font-weight:600}
           A wide product-use scene introduces the campaign
           before the homepage’s product sections.
         </figcaption>
-        <a
-          class="full-link"
-          href="./assets/snillo-renewal-home-desktop.png"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Open original capture ↗</a>
+        <a class="full-link" href="./assets/snillo-renewal-home-desktop.png" target="_blank" rel="noopener noreferrer">
+          Open original capture ↗
+        </a>
       </figure>
     </div>
 
@@ -475,98 +480,94 @@ footer p{font-size:14px;font-weight:600}
     <div class="modules">
       <article>
         <h3>NEW ITEM</h3>
-        <p>
-          New arrivals in a horizontal list with a full-collection link.
-        </p>
+        <p>New arrivals in a horizontal list with a full-collection link.</p>
       </article>
       <article>
         <h3>SNILLO’s PICK</h3>
-        <p>
-          The campaign banner introduces the featured seasonal
-          or collaboration story.
-        </p>
+        <p>The campaign banner introduces the featured seasonal or collaboration story.</p>
       </article>
       <article>
         <h3>COLLABORATION PRODUCTS</h3>
-        <p>
-          Related collaboration products are loaded into
-          the PICK area beneath its visual.
-        </p>
+        <p>Related collaboration products are loaded into the PICK area beneath its visual.</p>
       </article>
       <article>
         <h3>BEST SELLERS</h3>
-        <p>
-          A product shortlist without the previous five-tab selection.
-        </p>
+        <p>A product shortlist without the previous five-tab selection.</p>
       </article>
       <article>
         <h3>PROMOTION</h3>
-        <p>
-          A feature campaign and supporting event entries.
-        </p>
+        <p>A feature campaign and supporting event entries.</p>
       </article>
     </div>
 
-    <div class="subhead">
-      <h3>Bag detail content · Full comparison</h3>
-      <p>
-        Both examples are from the bag category. They compare
-        product storytelling and information layout across different
-        products, rather than a same-product purchase-flow test.
-      </p>
+    <!-- PDP COMPARISON: EXPAND BOTH IMAGES TOGETHER -->
+
+    <div class="pdp-block" id="pdp">
+      <div class="subhead">
+        <h3>Bag detail content · Before / After</h3>
+        <p>
+          Both examples are from the bag category. They compare
+          product storytelling and information layout across different
+          products, rather than a same-product purchase-flow test.
+        </p>
+      </div>
+
+      <div class="compare pdp">
+        <figure>
+          <span class="tag">Before · Bag detail</span>
+          <div class="frame pdp-preview" id="pdp-before">
+            <img
+              src="./assets/snillo-legacy-product-detail-desktop.jpg"
+              width="1022" height="11149"
+              alt="Legacy bag detail with product cutouts and coloured information panels"
+              loading="lazy" decoding="async"
+            >
+          </div>
+          <figcaption>
+            <strong>Product cutouts and information panels</strong>
+            Isolated product images and coloured sections
+            present the bag’s features.
+          </figcaption>
+          <a class="full-link" href="./assets/snillo-legacy-product-detail-desktop.jpg" target="_blank" rel="noopener noreferrer">
+            Open original image ↗
+          </a>
+        </figure>
+
+        <figure>
+          <span class="tag">After · Bag detail</span>
+          <div class="frame pdp-preview" id="pdp-after">
+            <img
+              src="./assets/snillo-product-detail-desktop.jpg"
+              width="1022" height="10282"
+              alt="Renewed bag detail with lifestyle scenes, features, and product specifications"
+              loading="lazy" decoding="async"
+            >
+          </div>
+          <figcaption>
+            <strong>Lifestyle context and feature information</strong>
+            Use scenes, feature explanations, and supporting
+            details form the product story.
+          </figcaption>
+          <a class="full-link" href="./assets/snillo-product-detail-desktop.jpg" target="_blank" rel="noopener noreferrer">
+            Open original image ↗
+          </a>
+        </figure>
+      </div>
+
+      <div class="pdp-controls" id="pdp-controls" hidden>
+        <button
+          class="button pdp-toggle"
+          id="pdp-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="pdp-before pdp-after"
+        >
+          전체 보기 · View full comparison ↓
+        </button>
+        <p>Expand both images to inspect the lower detail sections.</p>
+      </div>
     </div>
 
-    <div class="compare pdp">
-      <figure>
-        <span class="tag">Before · Bag detail</span>
-        <div class="frame">
-          <img
-            src="./assets/snillo-legacy-product-detail-desktop.jpg"
-            width="1022"
-            height="11149"
-            alt="Full legacy bag detail with product cutouts and coloured information panels"
-            loading="lazy"
-            decoding="async"
-          >
-        </div>
-        <figcaption>
-          <strong>Product cutouts and information panels</strong>
-          Isolated product images and coloured sections
-          present the bag’s features.
-        </figcaption>
-        <a
-          class="full-link"
-          href="./assets/snillo-legacy-product-detail-desktop.jpg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Open full-size detail ↗</a>
-      </figure>
-
-      <figure>
-        <span class="tag">After · Bag detail</span>
-        <div class="frame">
-          <img
-            src="./assets/snillo-product-detail-desktop.jpg"
-            width="1022"
-            height="10282"
-            alt="Full renewed bag detail with lifestyle scenes, features, and product specifications"
-            loading="lazy"
-            decoding="async"
-          >
-        </div>
-        <figcaption>
-          <strong>Lifestyle context and feature information</strong>
-          Use scenes, feature explanations, and supporting
-          details form the product story.
-        </figcaption>
-        <a
-          class="full-link"
-          href="./assets/snillo-product-detail-desktop.jpg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Open full-size detail ↗</a>
-      </figure>
-    </div>
   </div>
 </section>
 
@@ -590,11 +591,9 @@ footer p{font-size:14px;font-weight:600}
       <figure>
         <img
           src="./assets/snillo-mobile-01.png"
-          width="392"
-          height="771"
+          width="392" height="771"
           alt="Portrait mobile picnic campaign followed by the NEW ITEM heading"
-          loading="lazy"
-          decoding="async"
+          loading="lazy" decoding="async"
         >
         <figcaption>
           <strong>Campaign entry</strong>
@@ -606,11 +605,9 @@ footer p{font-size:14px;font-weight:600}
       <figure>
         <img
           src="./assets/snillo-mobile-02.png"
-          width="392"
-          height="771"
+          width="392" height="771"
           alt="Mobile PICK campaign visual above collaboration product cards"
-          loading="lazy"
-          decoding="async"
+          loading="lazy" decoding="async"
         >
         <figcaption>
           <strong>Campaign → collaboration</strong>
@@ -622,11 +619,9 @@ footer p{font-size:14px;font-weight:600}
       <figure>
         <img
           src="./assets/snillo-mobile-3.png"
-          width="392"
-          height="771"
+          width="392" height="771"
           alt="Mobile PROMOTION area with a main campaign and two smaller events"
-          loading="lazy"
-          decoding="async"
+          loading="lazy" decoding="async"
         >
         <figcaption>
           <strong>Offer hierarchy</strong>
@@ -637,11 +632,9 @@ footer p{font-size:14px;font-weight:600}
       <figure>
         <img
           src="./assets/snillo-mobile-4.png"
-          width="392"
-          height="771"
+          width="392" height="771"
           alt="Mobile Instagram content followed by customer service and shop information"
-          loading="lazy"
-          decoding="async"
+          loading="lazy" decoding="async"
         >
         <figcaption>
           <strong>Brand and support</strong>
@@ -708,12 +701,7 @@ footer p{font-size:14px;font-weight:600}
     </p>
 
     <div class="actions">
-      <a
-        class="button dark"
-        href="https://snillostitch.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="button dark" href="https://snillostitch.com/" target="_blank" rel="noopener noreferrer">
         View the live store ↗
       </a>
     </div>
@@ -724,13 +712,47 @@ footer p{font-size:14px;font-weight:600}
 
 <footer>
   <div class="wrap footer-inner">
-    <p>
-      SNILLO STITCH · Product groups and campaign stories,
-      published in Cafe24.
-    </p>
+    <p>SNILLO STITCH · Product groups and campaign stories, published in Cafe24.</p>
     <a class="button" href="../../#work">Back to Selected Works →</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  const block = document.getElementById('pdp');
+  const controls = document.getElementById('pdp-controls');
+  const button = document.getElementById('pdp-toggle');
+
+  if (!block || !controls || !button) return;
+
+  block.classList.add('is-collapsible');
+  controls.hidden = false;
+
+  button.addEventListener('click', function () {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    const shouldExpand = !expanded;
+
+    block.classList.toggle('is-expanded', shouldExpand);
+    button.setAttribute('aria-expanded', String(shouldExpand));
+    button.textContent = shouldExpand
+      ? '접기 · Collapse comparison ↑'
+      : '전체 보기 · View full comparison ↓';
+
+    if (!shouldExpand) {
+      requestAnimationFrame(function () {
+        const rect = button.getBoundingClientRect();
+
+        if (rect.top < 80 || rect.bottom > window.innerHeight) {
+          button.scrollIntoView({
+            behavior: 'instant',
+            block: 'center'
+          });
+        }
+      });
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
