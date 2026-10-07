@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Choi Yoolim — Product Designer · UI/UX + Front-end Implementation</title>
+<title>Choi Yoolim — UI/UX &amp; Web Designer</title>
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
@@ -4477,7 +4477,7 @@ footer .totop{
   inset:0 !important;
   z-index:3 !important;
   pointer-events:none !important;
-  background-image:url('./back.jpg') !important;
+  background-image:url('./back.jpg'),url('https://ylchoi96.github.io/urimportfolio/back.jpg') !important;
   background-size:cover !important;
   background-position:center center !important;
   background-repeat:no-repeat !important;
@@ -5288,6 +5288,32 @@ button:focus-visible,
   }
 }
 
+
+/* Project presentation refinement. Original hero and colour system retained. */
+#work{min-height:0!important;height:auto!important;overflow:visible!important;padding-block:96px!important}
+#work .section-head{margin-bottom:42px!important;transform:none!important}
+#work .work-list{display:grid!important;grid-template-columns:1fr 1fr!important;gap:42px 28px!important;border:0!important;transform:none!important}
+#work .work-row{display:block!important;grid-column:auto;min-width:0;padding:0!important;border:0!important;position:relative!important;cursor:pointer;overflow:visible!important;opacity:1!important;transform:none!important}
+#work .work-row:first-child{grid-column:1/-1}
+#work .project-visual{height:340px;overflow:hidden;padding:30px 30px 0;background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:5px;position:relative}
+#work .work-row:first-child .project-visual{height:450px;padding:40px 10% 0}
+#work .project-visual img{width:100%;height:auto;display:block;border-radius:4px 4px 0 0;transition:transform .4s ease;box-shadow:0 12px 35px #0003}
+#work .work-row:hover .project-visual img{transform:translateY(-8px)}
+#work .project-kind{position:absolute;left:14px;top:12px;z-index:1;font-size:10px;padding:7px 11px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:30px}
+#work .project-caption{display:flex;justify-content:space-between;align-items:start;gap:24px;padding-top:22px}
+#work .project-caption h3{font-size:clamp(21px,2vw,29px);font-weight:600;letter-spacing:-.035em;margin:0 0 10px;line-height:1.2}
+#work .project-caption p{font-size:13px;line-height:1.75;max-width:530px;color:var(--ink-soft);margin:0 0 14px}
+#work .project-caption .meta{font-size:10px;line-height:1.7;color:var(--ink-soft)}
+#work .project-caption .arrow{display:block!important;background:transparent!important;border:0!important;width:auto!important;height:auto!important;font-size:25px;transform:none!important;color:var(--ink)!important}
+#work .more-work{grid-column:1/-1;border-top:1px solid var(--line);margin-top:12px}
+#work .more-work>p{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:26px 0 6px}
+#work .event-row{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left;padding:26px 0;background:transparent;color:var(--ink);border:0;border-bottom:1px solid var(--line);cursor:pointer;font:inherit}
+#work .event-row strong{font-size:18px;font-weight:500;line-height:1.4}
+#work .event-row small{display:block;font-size:12px;color:var(--ink-soft);margin-top:8px;line-height:1.6}
+#work a:focus-visible,#work button:focus-visible{outline:2px solid var(--accent);outline-offset:7px}
+@media(max-width:900px){#work{padding-block:72px!important}#work .work-row:first-child .project-visual{height:340px}#work .project-visual{height:250px;padding-inline:20px}}
+@media(max-width:600px){#work .work-list{grid-template-columns:1fr!important;gap:32px!important}#work .project-visual,#work .work-row:first-child .project-visual{height:260px;padding:30px 22px 0}#work .section-head h2{font-size:32px!important}}
+@media(prefers-reduced-motion:reduce){#work .project-visual img{transition:none}}
 </style>
 </head>
 <body>
@@ -5296,7 +5322,7 @@ button:focus-visible,
 <nav class="nav" id="nav">
   <div class="nav-id">
     <span class="nav-mark">Choi Yoolim</span>
-    <span class="nav-role">Product Designer · UI/UX + Front-end</span>
+    <span class="nav-role">UI/UX &amp; Web Designer</span>
   </div>
   <div class="nav-links">
     <a href="#about">About</a>
@@ -5329,7 +5355,7 @@ button:focus-visible,
         <span>bringing ideas</span>
         <span>to life</span>
       </h1>
-      <img class="scene-front" src="./front.jpg" alt="Choi Yoolim portfolio visual">
+      <img class="scene-front" src="./front.jpg" alt="Choi Yoolim portfolio visual" onerror="this.onerror=null;this.src='https://ylchoi96.github.io/urimportfolio/front.jpg'">
       <div class="scene-reveal scene-reveal-soft" aria-hidden="true"></div>
       <div class="scene-reveal scene-reveal-main" aria-hidden="true"></div>
     </div>
@@ -5352,10 +5378,10 @@ button:focus-visible,
   <section id="work" class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="eyebrow-num">02 — Selected Works</p>
-        <h2>Selected Works</h2>
+        <p class="eyebrow-num">01 — Selected Work</p>
+        <h2>Selected Work</h2>
       </div>
-      <p>Five shipped commerce projects spanning product design, responsive UI, front-end implementation, and live operations.</p>
+      <p>Selected e-commerce interfaces, from product discovery and storefront redesigns to campaign experiences. UI/UX design and hands-on implementation.</p>
     </div>
 
     <div class="work-list reveal" id="workList">
@@ -5368,7 +5394,7 @@ button:focus-visible,
   <section id="about" class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="eyebrow-num">01 — About</p>
+        <p class="eyebrow-num">02 — About</p>
         <h2>Product thinking.<br>Production-ready execution.</h2>
       </div>
       <p>Product design, responsive UI, and hands-on front-end implementation across live e-commerce environments.</p>
@@ -5377,7 +5403,7 @@ button:focus-visible,
     <div class="about-grid">
       <div class="about-left reveal">
         <h3>Choi Yoolim</h3>
-        <p class="role">Product Designer · UI/UX + Front-end Implementation</p>
+        <p class="role">UI/UX &amp; Web Designer</p>
         <div class="tag-list">
           <span class="tag">UI/UX Design</span>
           <span class="tag">Responsive Web Design</span>
@@ -5391,7 +5417,7 @@ button:focus-visible,
         </div>
       </div>
       <div class="about-right reveal">
-        <p>Previously at <strong>Q&amp;B International</strong>, I worked across multiple live e-commerce brands, carrying interface decisions from UI/UX design through front-end implementation and day-to-day production constraints.</p>
+        <p>At <strong>Q&amp;B International</strong>, I worked across multiple live e-commerce brands, carrying interface decisions from UI/UX design through front-end implementation and day-to-day production constraints.</p>
         <p>My strength is the bridge between <strong>product design and implementation</strong>. I work with responsive systems, product and option structures, CMS/theme customization, interaction states, edge cases, and operational QA — so the interface is not only designed well, but can actually ship and be maintained.</p>
       </div>
     </div>
@@ -5461,7 +5487,7 @@ button:focus-visible,
       <div class="exp-current">
         <div>
           <p class="role-name">Q&amp;B International</p>
-          <p class="role-period">Apr 2024 — Nov 2026 · Seoul, Korea</p>
+          <p class="role-period">2024.04 – 2026.11 · Seoul, Korea</p>
         </div>
         <div>
           <p class="exp-role-title">UI/UX Designer · Front-end Implementation · Online Team</p>
@@ -5506,13 +5532,13 @@ button:focus-visible,
         <!-- Replace YOUR-LINKEDIN-SLUG with your actual LinkedIn profile slug before publishing. -->
         <a href="https://www.linkedin.com/in/yoolim-choi-14669a420/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://www.instagram.com/rimuumee/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <span class="canada-signal">Canada relocation planned · Open to product design opportunities</span>
+        <span class="canada-signal">Canada relocation planned · Open to UI/UX and web design opportunities</span>
       </div>
     </div>
   </section>
 
   <footer class="wrap">
-    <span class="fmark">© 2026 Choi Yoolim — Product Designer · UI/UX + Front-end Implementation</span>
+    <span class="fmark">© 2026 Choi Yoolim — UI/UX &amp; Web Designer</span>
     <a class="totop" href="#">Back to top ↑</a>
   </footer>
 
@@ -5665,69 +5691,17 @@ const projects = [
   }
 ];
 
-/* ---------------- render work list ---------------- */
+/* Main-page project cards: existing case-study routes retained. */
 const workList = document.getElementById('workList');
-projects.forEach((p, i) => {
-  const row = document.createElement('div');
-  row.className = 'work-row';
-  row.dataset.index = i;
-  if (i === 0) row.dataset.route = './projects/lab-golf-korea/';
-  if (i === 1) row.dataset.route = './projects/anew-golf/';
-  if (i === 4) row.dataset.route = './projects/snillo-stitch/';
-  row.style.setProperty('--row-accent', p.accent);
-  row.innerHTML = `
-    <span class="num">${p.num}</span>
-    <div class="title-block">
-      <h3>${p.title}</h3>
-      <p class="meta">${p.meta}</p>
-    </div>
-    <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L19 5M19 5H8M19 5V16"/></svg></span>
-  `;
-  const activateProject = () => {
-    if (i === 0) {
-      window.location.href = './projects/lab-golf-korea/';
-      return;
-    }
-    if (i === 1) {
-      window.location.href = './projects/anew-golf/';
-      return;
-    }
-    if (i === 4) {
-      window.location.href = './projects/snillo-stitch/';
-      return;
-    }
-    openCaseStudy(i);
-  };
-  row.tabIndex = 0;
-  row.setAttribute('role', 'link');
-  row.setAttribute('aria-label', `Open ${p.title} project`);
-  row.addEventListener('click', activateProject);
-  row.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      activateProject();
-    }
-  });
-  workList.appendChild(row);
-});
-
-/* floating hover preview (desktop only) */
-const preview = document.getElementById('workPreview');
-if (window.matchMedia('(min-width:901px)').matches) {
-  document.querySelectorAll('.work-row').forEach((row) => {
-    const p = projects[row.dataset.index];
-    row.addEventListener('mouseenter', () => {
-      preview.style.setProperty('--preview-accent', p.accent);
-      preview.querySelector('span').innerHTML = `<b>${p.title}</b><em>${p.num}</em>`;
-      preview.classList.add('active');
-    });
-    row.addEventListener('mousemove', (e) => {
-      preview.style.left = e.clientX + 'px';
-      preview.style.top = e.clientY + 'px';
-    });
-    row.addEventListener('mouseleave', () => preview.classList.remove('active'));
-  });
-}
+const base = 'https://ylchoi96.github.io/urimportfolio/';
+const cards = [
+{index:0,route:'projects/lab-golf-korea/',image:'assets/asset_001.png',alt:'L.A.B. GOLF KOREA desktop storefront',description:'Connecting putter discovery, custom options, and fitting reservations.',kind:'Commerce experience'},
+{index:1,route:'projects/anew-golf/',image:'projects/anew-golf/assets/anew-renewal-home-desktop.png',alt:'ANEW GOLF redesigned desktop storefront',description:'Balancing a golf fashion brand’s visual identity with a clearer shopping hierarchy.',kind:'Storefront redesign'},
+{index:4,route:'projects/snillo-stitch/',image:'projects/snillo-stitch/assets/snillo-renewal-home-desktop.png',alt:'SNILLO STITCH redesigned desktop storefront',description:'Organizing a growing lifestyle catalogue into a clearer, maintainable storefront.',kind:'Storefront redesign'}
+];
+cards.forEach((c,n)=>{const p=projects[c.index];const a=document.createElement('a');a.className='work-row';a.href=base+c.route;a.innerHTML=`<div class="project-visual"><span class="project-kind">${c.kind}</span><img src="${base+c.image}" alt="${c.alt}" loading="${n===0?'eager':'lazy'}" decoding="async"></div><div class="project-caption"><div><h3>${p.title}</h3><p>${c.description}</p><span class="meta">UI/UX design · Responsive web · Cafe24 implementation</span></div><span class="arrow" aria-hidden="true">↗</span></div>`;workList.appendChild(a)});
+const more=document.createElement('div');more.className='more-work';more.innerHTML='<p>More work / Campaign experiences</p>';
+[2,3].forEach(i=>{const p=projects[i];const b=document.createElement('button');b.className='event-row';b.type='button';b.innerHTML=`<span><strong>${p.title}</strong><small>${p.type} · UI design &amp; implementation</small></span><span aria-hidden="true">↗</span>`;b.addEventListener('click',()=>openCaseStudy(i));more.appendChild(b)});workList.appendChild(more);
 
 /* ---------------- case study overlay ---------------- */
 const csOverlay = document.getElementById('csOverlay');
@@ -5933,6 +5907,8 @@ function renderCaseStudy(p){
 }
 
 function openCaseStudy(index){
+  const route=cards.find(c=>c.index===index);
+  if(route){window.location.href=base+route.route;return;}
   renderCaseStudy(projects[index]);
   csOverlay.classList.toggle('lab-theme', projects[index].title === 'L.A.B. GOLF KOREA');
   csOverlay.classList.add('open');
@@ -6114,91 +6090,7 @@ updateScrollUI();
 
 </script>
 
-<script>
-/* =========================================================
-   ONE WHEEL = NEXT / PREVIOUS MAIN SECTION
-   Desktop only
-   ========================================================= */
-(() => {
-  if (window.matchMedia("(max-width: 900px)").matches) return;
 
-  const sections = [
-    document.getElementById("top"),
-    document.getElementById("work"),
-    document.getElementById("about"),
-    document.getElementById("skills"),
-    document.getElementById("experience"),
-    document.getElementById("contact")
-  ].filter(Boolean);
-
-  if (sections.length < 2) return;
-
-  let locked = false;
-  let wheelSum = 0;
-  let wheelTimer = null;
-
-  const getCurrentIndex = () => {
-    const anchor = window.scrollY + (window.innerHeight * 0.45);
-    let best = 0;
-    let bestDistance = Infinity;
-
-    sections.forEach((section, index) => {
-      const distance = Math.abs(section.offsetTop - anchor);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        best = index;
-      }
-    });
-
-    return best;
-  };
-
-  const goTo = (index) => {
-    const next = Math.max(0, Math.min(index, sections.length - 1));
-    locked = true;
-
-    sections[next].scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-    window.setTimeout(() => {
-      locked = false;
-    }, 850);
-  };
-
-  window.addEventListener("wheel", (event) => {
-    if (locked) {
-      event.preventDefault();
-      return;
-    }
-
-    /* Do not hijack wheel inside genuinely scrollable inner panels. */
-    const scrollable = event.target.closest(
-      ".detail-scroll, .modal, [data-native-scroll]"
-    );
-    if (scrollable) return;
-
-    event.preventDefault();
-
-    wheelSum += event.deltaY;
-
-    clearTimeout(wheelTimer);
-    wheelTimer = setTimeout(() => {
-      wheelSum = 0;
-    }, 120);
-
-    /* Trackpads emit many tiny wheel events, so accumulate first. */
-    if (Math.abs(wheelSum) < 45) return;
-
-    const current = getCurrentIndex();
-    const direction = wheelSum > 0 ? 1 : -1;
-
-    wheelSum = 0;
-    goTo(current + direction);
-  }, { passive: false });
-})();
-</script>
 
 
 </body>
