@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daemyung Family Sale — Choi Yoolim</title>
+<meta name="description" content="Case study: a closed, time-limited employee sale built on Cafe24 with an access-code entry, scheduled product drops, and category tabs.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#0b0b0b;
+  --panel:#151515;
+  --ink:#f2f0ea;
+  --ink-soft:#b9b7b2;
+  --ink-faint:#8d8b86;
+  --line:rgba(242,240,234,.14);
+  --line-strong:rgba(242,240,234,.28);
+  --green:#168C4D;          /* project accent from main index */
+  --green-text:#5FD394;     /* readable green on dark */
+  --green-wash:rgba(22,140,77,.16);
+  --maxw:1280px;
+  --page-x:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Inter','Pretendard',-apple-system,'Malgun Gothic',sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.6;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--page-x)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--green-text);outline-offset:4px}
+
+/* top bar */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(11,11,11,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+.topbar a{font-size:13px;color:var(--ink-soft);text-decoration:none}
+.topbar a:hover{color:var(--ink)}
+.topbar .who{font-weight:700;color:var(--ink)}
+
+/* hero */
+.hero{padding:96px 0 56px}
+.hero .type{margin:0 0 20px;font-size:14px;color:var(--ink-soft)}
+.hero h1{
+  margin:0;font-weight:800;letter-spacing:-.055em;line-height:.92;
+  font-size:clamp(3rem,9vw,7.6rem);
+}
+.hero .lede{max-width:640px;margin:32px 0 0;font-size:18px;line-height:1.7;color:var(--ink-soft)}
+.facts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  margin-top:56px;border-top:1px solid var(--line);
+}
+.facts div{padding:18px 20px 0 0}
+.facts dt{font-size:12px;color:var(--ink-faint);margin-bottom:6px}
+.facts dd{margin:0;font-size:14px;line-height:1.55}
+
+/* screenshot frames */
+.shot{margin:0;position:relative;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.shot img{width:100%;height:auto}
+.shot figcaption{padding:10px 14px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line)}
+.shot.missing{min-height:240px;display:flex;flex-direction:column}
+.shot.missing img{display:none}
+.shot.missing::before{
+  content:'Add image: ' attr(data-file);
+  flex:1;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;
+  font-size:12px;color:var(--ink-faint);
+  background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(242,240,234,.03) 14px 15px);
+}
+.shot.phone{max-width:340px}
+
+.hero-shots{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px;align-items:end;margin-bottom:24px}
+
+/* sections */
+.sec{padding:112px 0 0}
+.sec-head{display:grid;grid-template-columns:minmax(160px,3fr) minmax(0,9fr);gap:clamp(24px,6vw,96px);margin-bottom:40px}
+.sec-head .step{font-size:13px;color:var(--ink-faint);padding-top:10px}
+.sec-head h2{margin:0 0 16px;font-size:clamp(2rem,4vw,3.4rem);line-height:1.02;letter-spacing:-.045em;font-weight:750}
+.sec-head p{margin:0;max-width:640px;color:var(--ink-soft);font-size:16px;line-height:1.75}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.text-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,6vw,80px);border-top:1px solid var(--line);padding-top:32px}
+.text-pair h3{margin:0 0 12px;font-size:14px;color:var(--ink-faint);font-weight:600}
+.text-pair p{margin:0;font-size:17px;line-height:1.8}
+
+/* platform vs custom */
+.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:1px solid var(--line)}
+.split > div{padding:28px}
+.split > div + div{border-left:1px solid var(--line);background:var(--green-wash)}
+.split h3{margin:0 0 18px;font-size:15px;font-weight:700}
+.split ul{margin:0;padding:0;list-style:none}
+.split li{padding:11px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.55}
+.split li:first-child{border-top:0;padding-top:0}
+.split .base li{color:var(--ink-soft)}
+
+/* journey */
+.journey{display:flex;flex-wrap:wrap;gap:0;margin:0;padding:0;list-style:none;counter-reset:j;border-top:1px solid var(--line)}
+.journey li{
+  counter-increment:j;flex:1 1 140px;padding:18px 16px 18px 0;
+  border-bottom:1px solid var(--line);font-size:15px;font-weight:600;
+}
+.journey li::before{content:counter(j);display:block;font-size:12px;font-weight:500;color:var(--ink-faint);margin-bottom:6px}
+.journey li.mine{color:var(--green-text)}
+.journey-note{margin:14px 0 0;font-size:13px;color:var(--ink-faint)}
+.journey-note i{font-style:normal;color:var(--green-text)}
+
+/* time-drop simulator — the one loud moment */
+.sim{border:1px solid var(--line-strong);background:#101010;padding:clamp(20px,3vw,36px)}
+.sim-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sim-clock{font-size:clamp(4rem,11vw,8.5rem);font-weight:800;letter-spacing:-.06em;line-height:.85;font-variant-numeric:tabular-nums}
+.sim-status{max-width:340px;margin:0;font-size:15px;color:var(--ink-soft)}
+.sim-status b{color:var(--ink)}
+.sim-range{margin:32px 0 8px;position:relative}
+.sim-range input{width:100%;accent-color:var(--green);height:28px;cursor:pointer}
+.sim-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.drops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}
+.drop{border:1px solid var(--line);padding:18px}
+.drop-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.drop-head strong{font-size:17px}
+.drop-head span{font-size:13px;color:var(--ink-faint)}
+.drop-items{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.item{aspect-ratio:3/4;border:1px solid var(--line);position:relative;display:flex;align-items:flex-end;padding:10px;font-size:12px;color:var(--ink-faint);transition:background .35s ease,border-color .35s ease,color .35s ease}
+.drop.is-open .item{background:var(--green-wash);border-color:rgba(95,211,148,.45);color:var(--ink)}
+.drop-state{margin-top:14px;font-size:13px;color:var(--ink-soft)}
+.drop.is-open .drop-state{color:var(--green-text)}
+.sim-foot{margin:20px 0 0;font-size:12px;color:var(--ink-faint)}
+
+pre.code{
+  margin:20px 0 0;padding:22px;overflow-x:auto;background:#121212;border:1px solid var(--line);
+  font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#d8d6cf;
+}
+.code-cap{margin:10px 0 0;font-size:12px;color:var(--ink-faint)}
+
+/* outcome */
+.outcome{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.outcome div{padding:24px 24px 0 0}
+.outcome h3{margin:0 0 10px;font-size:16px}
+.outcome p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.7}
+
+/* footer nav */
+.endnav{margin-top:140px;border-top:1px solid var(--line)}
+.endnav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:48px;padding-bottom:72px;flex-wrap:wrap}
+.endnav a{text-decoration:none;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:750;letter-spacing:-.04em}
+.endnav a:hover{color:var(--green-text)}
+.endnav small{display:block;font-size:13px;font-weight:400;letter-spacing:0;color:var(--ink-faint);margin-bottom:6px}
+
+@media(max-width:900px){
+  .facts{grid-template-columns:1fr 1fr;row-gap:12px}
+  .hero-shots{grid-template-columns:1fr 200px}
+  .sec-head,.text-pair,.split{grid-template-columns:1fr}
+  .split > div + div{border-left:0;border-top:1px solid var(--line)}
+  .outcome{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .hero{padding-top:64px}
+  .hero-shots,.two,.drops{grid-template-columns:1fr}
+  .hero-shots .shot.phone{max-width:220px;margin-left:auto}
+  .sec{padding-top:80px}
+  .text-pair p{font-size:15.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .item{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="who" href="../../">Choi Yoolim</a>
+    <a href="../../#work">← All work</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero wrap">
+    <p class="type">Closed employee e-commerce event, Cafe24</p>
+    <h1>Daemyung<br>Family Sale</h1>
+    <p class="lede">A private, time-limited sale for Daemyung employees. I designed the experience from the entry screen onward and built the parts the platform didn’t provide: a code-gated entry, scheduled product drops, and category tabs.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>UI/UX design, event page design, front-end development</dd></div>
+      <div><dt>Platform</dt><dd>Cafe24 (custom HTML/CSS/JavaScript on top of the theme)</dd></div>
+      <div><dt>Scope</dt><dd>Intro, event landing, category tabs, timed releases, notices</dd></div>
+      <div><dt>Company</dt><dd>Q&amp;B International, online team</dd></div>
+    </dl>
+  </section>
+
+  <div class="wrap hero-shots">
+    <figure class="shot" data-file="aseets/daemyung/intro-pc.jpg">
+      <img src="../../aseets/daemyung/intro-pc.jpg" alt="Family sale entry screen on desktop" onerror="this.parentElement.classList.add('missing')">
+      <figcaption>Entry screen, desktop</figcaption>
+    </figure>
+    <figure class="shot phone" data-file="aseets/daemyung/intro-mo.jpg">
+      <img src="../../aseets/daemyung/intro-mo.jpg" alt="Family sale entry screen on mobile" onerror="this.parentElement.classList.add('missing')">
+      <figcaption>Entry screen, mobile</figcaption>
+    </figure>
+  </div>
+
+  <!-- Overview / problem -->
+  <section class="sec wrap">
+    <div class="text-pair">
+      <div>
+        <h3>Overview</h3>
+        <p>The sale ran for a short window and only for employees. The journey had to go from a closed entry point to a landing page, through two product categories, and into purchase, with some products only becoming available at set times.</p>
+      </div>
+      <div>
+        <h3>Problem</h3>
+        <p>Traffic peaked hard at each release, and products went live at different times. People needed to know at a glance what they could buy now, what was coming next, and how to get in without friction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform vs my work -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">What I built</div>
+      <div>
+        <h2>Platform defaults, plus my additions.</h2>
+        <p>Cafe24 handled the commerce basics. Everything on the right was designed and implemented by me on top of the theme.</p>
+      </div>
+    </div>
+    <div class="split">
+      <div class="base">
+        <h3>Provided by Cafe24</h3>
+        <ul>
+          <li>Member login and accounts</li>
+          <li>Product detail, cart, and checkout</li>
+          <li>Order and payment processing</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Designed and built by me</h3>
+        <ul>
+          <li>Entry screen design and the access-code gate</li>
+          <li>Event landing page layout and visuals</li>
+          <li>Scheduled releases at 11:00 and 15:00, controlled with JavaScript</li>
+          <li>Daemyung / Beauty category tabs</li>
+          <li>High-traffic and service notices</li>
+          <li>Responsive layouts for desktop and mobile</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">User journey</div>
+      <div>
+        <h2>Seven steps from entry to checkout.</h2>
+        <p>The first five steps were custom work. Product and purchase used the platform’s standard pages.</p>
+      </div>
+    </div>
+    <ol class="journey">
+      <li class="mine">Intro</li>
+      <li class="mine">Access code</li>
+      <li class="mine">Event landing</li>
+      <li class="mine">Category</li>
+      <li class="mine">Time sale</li>
+      <li>Product</li>
+      <li>Purchase</li>
+    </ol>
+    <p class="journey-note"><i>Green</i> steps were designed and built by me.</p>
+  </section>
+
+  <!-- 1. Access code -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">1. Access code</div>
+      <div>
+        <h2>A closed door that is easy to open.</h2>
+        <p>The intro screen sets the tone of the event and asks for a single access code before anything else loads. Invalid codes get a clear message so employees can retry without contacting support.</p>
+      </div>
+    </div>
+    <div class="two">
+      <figure class="shot" data-file="aseets/daemyung/access-code.jpg">
+        <img src="../../aseets/daemyung/access-code.jpg" alt="Access code input on the entry screen" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Code entry</figcaption>
+      </figure>
+      <figure class="shot" data-file="aseets/daemyung/access-error.jpg">
+        <img src="../../aseets/daemyung/access-error.jpg" alt="Error message shown for an incorrect access code" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Incorrect code state</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. Landing -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">2. Event landing</div>
+      <div>
+        <h2>The schedule comes first.</h2>
+        <p>The landing page puts release times and categories above the fold, so visitors understand the sale before they start browsing.</p>
+      </div>
+    </div>
+    <div class="hero-shots">
+      <figure class="shot" data-file="aseets/daemyung/landing-pc.jpg">
+        <img src="../../aseets/daemyung/landing-pc.jpg" alt="Event landing page on desktop" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Landing, desktop</figcaption>
+      </figure>
+      <figure class="shot phone" data-file="aseets/daemyung/landing-mo.jpg">
+        <img src="../../aseets/daemyung/landing-mo.jpg" alt="Event landing page on mobile" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Landing, mobile</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3. Time sale -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">3. Timed releases</div>
+      <div>
+        <h2>Products unlock on schedule.</h2>
+        <p>Cafe24 has no built-in way to reveal product groups at set times on one page. I wrote a script that checks the time and switches each product area between “opens at” and “on sale”. Drag the slider to see how it behaves.</p>
+      </div>
+    </div>
+
+    <div class="sim" id="sim">
+      <div class="sim-top">
+        <div class="sim-clock" id="simClock" aria-hidden="true">10:30</div>
+        <p class="sim-status" id="simStatus" aria-live="polite"></p>
+      </div>
+      <div class="sim-range">
+        <label for="simTime" class="sr" style="position:absolute;left:-9999px">Simulated time of day</label>
+        <input type="range" id="simTime" min="540" max="1080" step="10" value="630">
+        <div class="sim-scale"><span>09:00</span><span>11:00</span><span>13:00</span><span>15:00</span><span>18:00</span></div>
+      </div>
+      <div class="drops">
+        <div class="drop" data-open="660">
+          <div class="drop-head"><strong>First release</strong><span>11:00</span></div>
+          <div class="drop-items"><div class="item">Item</div><div class="item">Item</div><div class="item">Item</div></div>
+          <p class="drop-state"></p>
+        </div>
+        <div class="drop" data-open="900">
+          <div class="drop-head"><strong>Second release</strong><span>15:00</span></div>
+          <div class="drop-items"><div class="item">Item</div><div class="item">Item</div><div class="item">Item</div></div>
+          <p class="drop-state"></p>
+        </div>
+      </div>
+      <p class="sim-foot">Interactive recreation for this portfolio. Product names and images are placeholders.</p>
+    </div>
+
+    <pre class="code"><code>// Simplified version of the release logic
+const RELEASES = [
+  { selector: '.drop-11', opensAt: { h: 11, m: 0 } },
+  { selector: '.drop-15', opensAt: { h: 15, m: 0 } },
+];
+
+function applyReleases(now = new Date()) {
+  const minutes = now.getHours() * 60 + now.getMinutes();
+  RELEASES.forEach(({ selector, opensAt }) =&gt; {
+    const isOpen = minutes &gt;= opensAt.h * 60 + opensAt.m;
+    document.querySelectorAll(selector).forEach((el) =&gt; {
+      el.classList.toggle('is-open', isOpen);
+      el.classList.toggle('is-locked', !isOpen);
+    });
+  });
+}
+
+applyReleases();
+setInterval(applyReleases, 30 * 1000); // re-check without a page reload</code></pre>
+    <p class="code-cap">Simplified for readability; the production script ran inside the Cafe24 theme.</p>
+
+    <div class="two" style="margin-top:40px">
+      <figure class="shot" data-file="aseets/daemyung/timesale-before.jpg">
+        <img src="../../aseets/daemyung/timesale-before.jpg" alt="Product area before release, showing the opening time" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Before release</figcaption>
+      </figure>
+      <figure class="shot" data-file="aseets/daemyung/timesale-open.jpg">
+        <img src="../../aseets/daemyung/timesale-open.jpg" alt="Product area after release, products available to buy" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>After release</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 4. Tabs -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">4. Category tabs</div>
+      <div>
+        <h2>Two brands, one page.</h2>
+        <p>Daemyung and Beauty products sit under separate tabs, so people can switch categories without leaving the event page or losing their place in the schedule.</p>
+      </div>
+    </div>
+    <div class="two">
+      <figure class="shot" data-file="aseets/daemyung/tab-daemyung.jpg">
+        <img src="../../aseets/daemyung/tab-daemyung.jpg" alt="Daemyung category tab selected" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Daemyung tab</figcaption>
+      </figure>
+      <figure class="shot" data-file="aseets/daemyung/tab-beauty.jpg">
+        <img src="../../aseets/daemyung/tab-beauty.jpg" alt="Beauty category tab selected" onerror="this.parentElement.classList.add('missing')">
+        <figcaption>Beauty tab</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5. Notices -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">5. Service notices</div>
+      <div>
+        <h2>Saying what’s happening during peaks.</h2>
+        <p>At each release the site was busy. Clear notices told people what to expect, such as slower loading or sold-out items, which kept them from repeatedly refreshing or leaving.</p>
+      </div>
+    </div>
+    <figure class="shot" data-file="aseets/daemyung/notice.jpg" style="max-width:760px">
+      <img src="../../aseets/daemyung/notice.jpg" alt="Service notice for high-traffic periods" onerror="this.parentElement.classList.add('missing')">
+      <figcaption>High-traffic notice</figcaption>
+    </figure>
+  </section>
+
+  <!-- Outcome -->
+  <section class="sec wrap">
+    <div class="sec-head">
+      <div class="step">Takeaways</div>
+      <div><h2>What this project shows.</h2></div>
+    </div>
+    <div class="outcome">
+      <div><h3>Designing for a time window</h3><p>The layout was built around the schedule, not just the catalogue, because timing drove every decision a shopper made.</p></div>
+      <div><h3>Extending the platform</h3><p>Where Cafe24 stopped, I filled the gap with targeted JavaScript instead of rebuilding standard commerce pages.</p></div>
+      <div><h3>Clarity under load</h3><p>Plain notices and visible states mattered most when traffic was highest.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="endnav" aria-label="Project navigation">
+  <div class="wrap">
+    <a href="../../#work"><small>Back to</small>All work</a>
+    <a href="../../#contact"><small>Get in touch</small>Contact</a>
+  </div>
+</nav>
+
+<script>
+(() => {
+  const input = document.getElementById('simTime');
+  const clock = document.getElementById('simClock');
+  const status = document.getElementById('simStatus');
+  const drops = [...document.querySelectorAll('.drop')];
+  const fmt = (m) => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+
+  function render() {
+    const now = Number(input.value);
+    clock.textContent = fmt(now);
+    let next = null;
+    drops.forEach((d) => {
+      const opensAt = Number(d.dataset.open);
+      const open = now >= opensAt;
+      d.classList.toggle('is-open', open);
+      d.querySelector('.drop-state').textContent = open ? 'On sale now' : 'Opens at ' + fmt(opensAt) + ' (in ' + (opensAt - now) + ' min)';
+      if (!open && next === null) next = opensAt;
+    });
+    const openCount = drops.filter((d) => d.classList.contains('is-open')).length;
+    status.innerHTML = next === null
+      ? '<b>All products are on sale.</b>'
+      : '<b>' + openCount + ' of ' + drops.length + ' releases open.</b> Next release at ' + fmt(next) + '.';
+    input.setAttribute('aria-valuetext', fmt(now));
+  }
+  input.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>
